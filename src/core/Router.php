@@ -2,7 +2,7 @@
 
 class Router {
 
-	public static function contentToRender(): void {
+	public static function render(): void {
 		$uri = self::processURI();
 		
 		$controllerName = $uri['controller'];
