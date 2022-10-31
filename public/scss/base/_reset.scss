@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 * {
 	margin: 0;
 	padding: 0;
@@ -21,7 +23,7 @@ a, button {
 
 html {
 	min-width: 350px;
-	font-family: sans-serif;
+	font-family: $font-sans;
 	scroll-behavior: smooth;
 	
 	body {
