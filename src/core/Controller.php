@@ -2,6 +2,8 @@
 
 abstract class Controller {
 
+	private string $lang;
+	
 	public function __construct(string $lang) {
 		$this->lang = $lang;
 	}

@@ -4,15 +4,15 @@ require_once(PATH_CORE.'Connection.php');
 
 abstract class DAO {
 
-	private $debug;
-	private $table;
+	private bool $debug;
+	private string $table;
 	
-	public function __construct($debug, $table) {
+	public function __construct(bool $debug, string $table) {
 		$this->debug = $debug;
 		$this->table = $table;
 	}
 
-	private function request($sql, $handler, $args = null) {
+	private function request(string $sql, Closure $handler, array $args = null): mixed {
 		try {
 			if ($args == null) {
 				$stmt = Connection::getInstance()->getBdd()->query($sql);
@@ -33,7 +33,7 @@ abstract class DAO {
 		return $res;
 	}
 	
-	public function queryRow($sql, $args = null): object | false {
+	public function queryRow(string $sql, array $args = null): object | false {
 		return $this->request($sql, function ($stmt) {
 			$res = $stmt->fetch();
 			$stmt->closeCursor();
@@ -41,7 +41,7 @@ abstract class DAO {
 		}, $args);
 	}
 	
-	public function queryAll($sql, $args = null): array | false {
+	public function queryAll(string $sql, array $args = null): array | false {
 		return $this->request($sql, function ($stmt) {
 			$res = $stmt->fetchAll();
 			$stmt->closeCursor();
@@ -49,11 +49,11 @@ abstract class DAO {
 		}, $args);
 	}
 	
-	public function save($sql, $args = null): string | false {
+	public function save(string $sql, array $args = null): string | false {
 		return $this->request($sql, fn () => Connection::getInstance()->getBdd()->lastInsertId(), $args);
 	}
 
-	public function delete($sql, $args = null): int | false {
+	public function delete(string $sql, array $args = null): int | false {
 		return $this->request($sql, fn ($stmt) => $stmt->rowCount(), $args);
 	}
 
