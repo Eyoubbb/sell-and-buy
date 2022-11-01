@@ -1,25 +1,25 @@
 <?php
 
-require_once PATH_CORE.'Controller.php';
+require_once PATH_CORE . 'Controller.php';
 
 class ErrorController extends Controller {
 	
-	public function index(): void {
+	public function index(int $code): void {
 		
-		$data['title'] = ERROR_DEFAULT_WINDOW_TITLE;
+		$title_const = "ERROR_$code" . '_WINDOW_TITLE';
+		$message_const = "ERROR_$code" . '_MESSAGE';
+		
+		$data['title'] = defined($title_const)
+			? constant($title_const)
+			: ERROR_DEFAULT_WINDOW_TITLE;
+		
+		$data['message'] = defined($message_const)
+			? constant($message_const)
+			: ERROR_DEFAULT_MESSAGE;
 		
 		$data['stylesheets'][] = 'pages/error';
 		
 		$this->view('error/error', $data);
-	}
-
-	public function notFound(): void {
-
-		$data['title'] = ERROR_404_WINDOW_TITLE;
-
-		$data['stylesheets'][] = 'pages/error';
-		
-		$this->view('error/404', $data);
 	}
 
 }

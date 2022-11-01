@@ -1,6 +1,6 @@
 <?php
 
-require_once(PATH_CORE.'Connection.php');
+require_once(PATH_CORE . 'Connection.php');
 
 abstract class DAO {
 
