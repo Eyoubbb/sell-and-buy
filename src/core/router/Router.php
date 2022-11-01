@@ -21,11 +21,11 @@ class Router {
 		require_once PATH_LANGUAGES . $this->lang . '.php';
 	}
 
-	public function getLang() {
+	public function getLang(): string {
 		return $this->lang;
 	}
 
-	public function getRouteUrl(string $name, array $params = []) {
+	public function getRouteUrl(string $name, array $params = []): string {
 		if (!isset($this->routes[$name])) {
 			throw new Exception('No route matches this name');
 		}
@@ -33,23 +33,23 @@ class Router {
 		return $this->routes[$name]->getUrl($params);
 	}
 
-	public function get(string $path, string $callable) {
+	public function get(string $path, string $callable): Route {
 		return $this->add($path, $callable, 'GET');
 	}
 
-	public function post(string $path, string $callable) {
+	public function post(string $path, string $callable): Route {
 		return $this->add($path, $callable, 'POST');
 	}
 
-	public function put(string $path, string $callable) {
+	public function put(string $path, string $callable): Route {
 		return $this->add($path, $callable, 'PUT');
 	}
 
-	public function delete(string $path, string $callable) {
+	public function delete(string $path, string $callable): Route {
 		return $this->add($path, $callable, 'DELETE');
 	}
 
-	private function add(string $path, string $callable, string $method) {
+	private function add(string $path, string $callable, string $method): Route {
 		$route = new Route($path, $callable);
 
 		$this->routes[$method][$callable] = $route;
@@ -57,7 +57,7 @@ class Router {
 		return $route;
 	}
 
-	public function run() {
+	public function run(): void {
 		$method = $_SERVER['REQUEST_METHOD'];
 		
 		if (!isset($this->routes[$method])) {
@@ -66,14 +66,15 @@ class Router {
 
 		foreach ($this->routes[$method] as $route) {
 			if ($route->match($this->url)) {
-				return $route->call($this->lang, $this->routes);
+				$route->call($this->lang, $this->routes);
+				return;
 			}
 		}
 
 		$this->error(404);
 	}
 
-	private function error(int $code = 500) {
+	private function error(int $code = 500): void {
 		http_response_code($code);
 		
 		require_once PATH_CONTROLLERS . 'ErrorController.php';

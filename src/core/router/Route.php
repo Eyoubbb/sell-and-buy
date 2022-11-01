@@ -12,7 +12,7 @@ class Route {
 		$this->callable = $callable;
 	}
 
-	public function getUrl(array $params){
+	public function getUrl(array $params): string {
 		$path = $this->path;
 
 		foreach ($params as $k => $v) {
@@ -22,12 +22,12 @@ class Route {
 		return "/$path";
 	}
 
-	public function with(string $param, string $regex) {
+	public function with(string $param, string $regex): self {
 		$this->params[$param] = str_replace('(', '(?:', $regex);
 		return $this;
 	}
 
-	public function match(string $url) {
+	public function match(string $url): bool {
 		$url = trim($url, '/');
 		$path = preg_replace_callback('#:([\w]+)#', [$this, 'paramMatch'], $this->path);
 		$regex = "#^$path$#";
@@ -41,14 +41,14 @@ class Route {
 		return true;
 	}
 	
-	private function paramMatch(array $match) {
+	private function paramMatch(array $match): string {
 		if (isset($this->params[$match[1]])) {
 			return '(' . $this->params[$match[1]] . ')';
 		}
 		return '([^/]+)';
 	}
 
-	public function call(string $lang, array $routes) {
+	public function call(string $lang, array $routes): void {
 		$params = explode('#', $this->callable);
 		$controllerName = "$params[0]Controller";
 
@@ -58,7 +58,7 @@ class Route {
 		
 		$controller = new $controllerName($lang, $urls);
 		
-		return call_user_func_array([$controller, $params[1]], $this->matches);
+		call_user_func_array([$controller, $params[1]], $this->matches);
 	}
 
 }
