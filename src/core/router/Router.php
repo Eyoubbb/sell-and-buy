@@ -9,15 +9,23 @@ class Router {
 	private array $routes = [];
 
 	public function __construct(string $url) {
-		$parts = array_values(array_filter(explode('/', $url)));
+		$url = trim($url, '/');
 
+		$parts = explode('/', $url);
+		
 		if (isset($parts[0]) && in_array($parts[0], LANGUAGES)) {
 			$this->lang = $parts[0];
-			$this->url = substr($url, strlen('/' . $this->lang));
+			$this->url = substr($url, strlen($this->lang));
+			createCookie('SAB_LANG', $this->lang);
 		} else {
+			if (isset($_COOKIE['SAB_LANG']) && in_array($_COOKIE['SAB_LANG'], LANGUAGES)) {
+				$this->lang = $_COOKIE['SAB_LANG'];
+			} else {
+				createCookie('SAB_LANG', $this->lang);
+			}
 			$this->url = $url;
 		}
-
+		
 		require_once PATH_LANGUAGES . $this->lang . '.php';
 	}
 
