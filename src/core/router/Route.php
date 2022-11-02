@@ -12,7 +12,7 @@ class Route {
 		$this->callable = $callable;
 	}
 
-	public function getUrl(array $params): string {
+	public function getUrl(array $params = []): string {
 		$path = $this->path;
 
 		foreach ($params as $k => $v) {
@@ -54,9 +54,7 @@ class Route {
 
 		require_once PATH_CONTROLLERS . $controllerName . '.php';
 
-		$urls = array_map(fn ($route) => $route->getUrl($route->matches), array_merge(...array_values($routes)));
-		
-		$controller = new $controllerName($lang, $urls);
+		$controller = new $controllerName($lang, $routes);
 		
 		call_user_func_array([$controller, $params[1]], $this->matches);
 	}
