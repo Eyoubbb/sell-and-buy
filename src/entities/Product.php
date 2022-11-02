@@ -7,7 +7,7 @@ class Product {
 	private int $creator_id;
 	private string $name;
 	private string $description;
-	private string $image_url;
+	private ?string $image_url;
 	private float $price;
 	private float $discount_percentage;
 	private int $stock;
@@ -23,7 +23,7 @@ class Product {
 	
 	public function getDescription(): string { return $this->description; }
 	
-	public function getImageUrl(): string { return $this->image_url; }
+	public function getImageUrl(): ?string { return $this->image_url; }
 	
 	public function getPrice(): float { return $this->price; }
 	

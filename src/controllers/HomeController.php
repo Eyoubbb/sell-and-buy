@@ -10,6 +10,8 @@ class HomeController extends Controller {
 		
 		$data['stylesheets'][] = 'pages/home';
 		
+		$data['user'] = $this->model('UserModel')->login('albert.vaillon@etu.univ-lyon1.fr', 'albert');
+		
 		$this->view('home/home', $data);
 	}
 

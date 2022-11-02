@@ -17,7 +17,7 @@ abstract class DAO {
 		return $this->table;
 	}
 
-	private function request($sql, $handler, $args = null) {
+	private function request($sql, $handler, $args = null, bool $fetchClass = true) {
 		try {
 			if ($args == null) {
 				$stmt = Connection::getInstance()->getBdd()->query($sql);
@@ -25,7 +25,12 @@ abstract class DAO {
 				$stmt = Connection::getInstance()->getBdd()->prepare($sql);
 				$stmt->execute($args);
 			}
-			$stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
+
+			if ($fetchClass) {
+				$stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
+			} else {
+				$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			}
 			
 			$res = $handler($stmt);
 
@@ -38,20 +43,20 @@ abstract class DAO {
 		return $res;
 	}
 	
-	public function queryRow($sql, $args = null): object | false {
+	public function queryRow($sql, $args = null, bool $fetchClass = true): object | array | false {
 		return $this->request($sql, function ($stmt) {
 			$res = $stmt->fetch();
 			$stmt->closeCursor();
 			return $res;
-		}, $args);
+		}, $args, $fetchClass);
 	}
 	
-	public function queryAll($sql, $args = null): array | false {
+	public function queryAll($sql, $args = null, bool $fetchClass = true): array | false {
 		return $this->request($sql, function ($stmt) {
 			$res = $stmt->fetchAll();
 			$stmt->closeCursor();
 			return $res;
-		}, $args);
+		}, $args, $fetchClass);
 	}
 	
 	public function lastInsertId($sql, $args = null): string | false {
