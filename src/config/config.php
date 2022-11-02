@@ -1,8 +1,9 @@
 <?php
 
 const APP_NAME = 'sell-and-buy';
+const APP_BASE_URL = '/';
 
-const PATH_CSS = 'css/';
+const PATH_CSS = APP_BASE_URL . 'css/';
 
 const PATH_CORE = '../src/core/';
 const PATH_CONFIG = '../src/config/';
@@ -12,10 +13,10 @@ const PATH_ENTITIES = '../src/entities/';
 const PATH_VIEWS = '../src/views/';
 const PATH_LANGUAGES = '../src/lang/';
 
-const PATH_DAO = PATH_MODELS.'dao/';
+const PATH_DAO = PATH_MODELS . 'dao/';
 
-const PATH_COMPONENTS = PATH_VIEWS.'components/';
-const PATH_PAGES = PATH_VIEWS.'pages/';
+const PATH_COMPONENTS = PATH_VIEWS . 'components/';
+const PATH_PAGES = PATH_VIEWS . 'pages/';
 
 const LANGUAGES = ['fr', 'en'];
 const DEFAULT_LANGUAGE = 'fr';

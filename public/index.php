@@ -2,4 +2,8 @@
 
 require_once '../src/init.php';
 
-Router::render();
+$router = new Router($_GET['url']);
+
+$router->get('/', 'Home#index');
+
+$router->run();

@@ -1,6 +1,6 @@
 <?php
 
-require_once PATH_CORE.'Controller.php';
+require_once PATH_CORE . 'Controller.php';
 
 class HomeController extends Controller {
 
