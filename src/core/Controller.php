@@ -10,9 +10,11 @@ abstract class Controller {
 		$this->urls = $urls;
 	}
 	
-	public function model(string $model): void {
+	public function model(string $model): object {
 
-		require_once PATH_MODELS . $model . '.php';
+		require_once PATH_MODELS.$model.'.php';
+
+		return new $model();
 	}
 
 	public function view(string $view, array $data = []): void {

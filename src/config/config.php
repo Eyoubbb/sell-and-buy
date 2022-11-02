@@ -21,6 +21,8 @@ const PATH_PAGES = PATH_VIEWS . 'pages/';
 const LANGUAGES = ['fr', 'en'];
 const DEFAULT_LANGUAGE = 'fr';
 
+const DEBUG = true;
+
 define('DB_HOST', $_SERVER['DB_HOST']);
 define('DB_NAME', $_SERVER['DB_NAME']);
 define('DB_USER', $_SERVER['DB_USER']);
