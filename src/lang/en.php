@@ -1,10 +1,14 @@
 <?php
 
-const HOME_WINDOW_TITLE = "Home";
-const ERROR_DEFAULT_WINDOW_TITLE = "Error";
-const ERROR_404_WINDOW_TITLE = "Error 404";
+/*************** Home ***************/
 
+const HOME_WINDOW_TITLE = "Home";
 const HOME_TITLE = "Welcome to the Home page";
 
-const ERROR_DEFAULT = "An error has occurred";
-const ERROR_404 = "The requested page does not exist";
+/*************** Errors ***************/
+
+const ERROR_DEFAULT_WINDOW_TITLE = "Error";
+const ERROR_DEFAULT_MESSAGE = "An error has occurred";
+
+const ERROR_404_WINDOW_TITLE = "Error 404";
+const ERROR_404_MESSAGE = "The requested page does not exist";

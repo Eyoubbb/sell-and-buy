@@ -1,1 +1,1 @@
-<h2><?= ERROR_DEFAULT ?></h2>
+<h2><?= $data['message'] ?></h2>
