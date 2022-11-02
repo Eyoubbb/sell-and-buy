@@ -3,22 +3,22 @@
 class User {
 
 	private int $id;
-	private string $firstName;
-	private string $lastName;
-	private string $passwordHash;
+	private string $first_name;
+	private string $last_name;
+	private string $password_hash;
 	private string $email;
-	private string $pictureUrl;
+	private string $picture_url;
 	
 	public function getId(): int { return $this->id; }
 
-	public function getFirstName(): string { return $this->firstName; }
+	public function getFirstName(): string { return $this->first_name; }
 
-	public function getLastName(): string { return $this->lastName; }
+	public function getLastName(): string { return $this->last_name; }
 
-	public function getPasswordHash(): string { return $this->passwordHash; }
+	public function getPasswordHash(): string { return $this->password_hash; }
 
 	public function getEmail(): string { return $this->email; }
 
-	public function getPictureUrl(): string { return $this->pictureUrl; }
+	public function getPictureUrl(): string { return $this->picture_url; }
 	
 }
