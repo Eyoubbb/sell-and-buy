@@ -33,31 +33,23 @@ class Router {
 		return $this->lang;
 	}
 
-	public function getRouteUrl(string $name, array $params = []): string {
-		if (!isset($this->routes[$name])) {
-			throw new Exception('No route matches this name');
-		}
-		
-		return $this->routes[$name]->getUrl($params);
-	}
-
 	public function get(string $path, string $callable): Route {
-		return $this->add($path, $callable, 'GET');
+		return $this->add('GET', $path, $callable);
 	}
 
 	public function post(string $path, string $callable): Route {
-		return $this->add($path, $callable, 'POST');
+		return $this->add('POST', $path, $callable);
 	}
 
 	public function put(string $path, string $callable): Route {
-		return $this->add($path, $callable, 'PUT');
+		return $this->add('PUT', $path, $callable);
 	}
 
 	public function delete(string $path, string $callable): Route {
-		return $this->add($path, $callable, 'DELETE');
+		return $this->add('DELETE', $path, $callable);
 	}
 
-	private function add(string $path, string $callable, string $method): Route {
+	private function add(string $method, string $path, string $callable): Route {
 		$route = new Route($path, $callable);
 
 		$this->routes[$method][$callable] = $route;
