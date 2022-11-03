@@ -1,6 +1,4 @@
-
-
-<div class="topnav">
+<header class="topnav">
     <!- Left side -->
     <ul>
         <li>
@@ -9,13 +7,16 @@
     </ul>
     <ul class="nav-item">
         <li>
-            <a class="nav-item" href="">Acheter</a>
+            <?= '<a class="nav-item" href="">' . NAV_SHOP . '</a>' ?>
         </li>
         <li>
-            <a class="nav-item" href="">Pages</a>
+            <?= '<a class="nav-item" href="">' . NAV_PAGES . '</a>' ?>  
         </li>
         <li>
-            <a class="nav-item" href="">Collections</a>
+            <?= '<a class="nav-item" href="">' . NAV_COLLECTIONS . '</a>' ?>
+        </li>
+        <li>
+            <?= '<a class="nav-item" href="">' . NAV_CREATOR . '</a>' ?>
         </li>
     </ul>
         <!-- right -->
@@ -27,10 +28,10 @@
             <a class="nav-item" href="">EN</a>
         </li>
         <li>
-            <a class="nav-item" href="">Se Connecter</a>
+            <?= '<a class="nav-item" href="">' . NAV_LOGIN . '</a>' ?>
         </li>
         <li>
-            <a class="nav-item" href="">Rechercher</a>
+            <?= '<a class="nav-item" href="">' . NAV_SEARCH . '</a>' ?>
         </li>
     </ul>
-</div>
+</header>
