@@ -33,7 +33,6 @@
 
 @mixin pseudo($loc: after, $content: '', $abs: absolute, $pos: 0 auto auto 0, $sel: '') {
 	$selector: '&' + $sel + '::' + $loc;
-	@debug $selector;
 	#{$selector} {
 		content: $content;
 		@if $abs {
