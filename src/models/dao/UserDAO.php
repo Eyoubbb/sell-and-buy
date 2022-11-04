@@ -11,7 +11,7 @@ class UserDAO extends DAO {
 		parent::__construct('users');
 	}
 
-	public function login(string $email): User | false {
+	public function getByEmail(string $email): User | false {
 		
 		$sql = 'SELECT * FROM ' . $this->getTable() . ' LEFT JOIN admins A ON (id = A.ADMIN_ID) LEFT JOIN creators C ON (id = C.CREATOR_ID) WHERE email = ?';
 		

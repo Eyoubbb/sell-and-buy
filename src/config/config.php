@@ -3,7 +3,15 @@
 const APP_NAME = 'sell-and-buy';
 const APP_BASE_URL = '/';
 
+/*************** Assets ***************/
+
+const PATH_JS = APP_BASE_URL . 'js/';
 const PATH_CSS = APP_BASE_URL . 'css/';
+const PATH_IMAGES = APP_BASE_URL . 'images/';
+
+const PATH_FAVICON = PATH_IMAGES . 'favicon/';
+
+/*************** App ***************/
 
 const PATH_CORE = '../src/core/';
 const PATH_CONFIG = '../src/config/';

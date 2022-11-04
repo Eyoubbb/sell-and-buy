@@ -3,25 +3,38 @@
 abstract class Controller {
 
 	private string $lang;
-	private array $urls;
+	private array $routes;
 	
-	public function __construct(string $lang, array $urls) {
+	public function __construct(string $lang, array $routerMap) {
 		$this->lang = $lang;
-		$this->urls = $urls;
+
+		foreach ($routerMap as $method => $routes) {	
+			foreach ($routes as $name => $route) {
+				$key = $method . ':' . $name;
+
+				$this->routes[$key] = $route;
+			}
+		}
+	}
+
+	public function getRoutes(): array {
+		return $this->routes;
 	}
 	
 	public function model(string $model): object {
 
-		require_once PATH_MODELS.$model.'.php';
+		$modelName = $model . 'Model';
+		
+		require_once PATH_MODELS . $modelName . '.php';
 
-		return new $model();
+		return new $modelName();
 	}
 
 	public function view(string $view, array $data = []): void {
 
 		$data['view'] = $view;
 		$data['lang'] = $this->lang;
-		$data['urls'] = $this->urls;
+		$data['routes'] = $this->routes;
 
 		require_once PATH_VIEWS . 'default.php';
 	}

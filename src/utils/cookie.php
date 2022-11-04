@@ -1,10 +1,10 @@
 <?php
 
-function createCookie(string $name, string $value, int $expire = 31_536_000, bool $httpOnly = true) {
+function createCookie(string $name, string $value, int $expire = 31_536_000, bool $httpOnly = true): bool {
 
 	$secure = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
 
-	setcookie(
+	return setcookie(
 		$name,
 		$value,
 		time() + $expire,
