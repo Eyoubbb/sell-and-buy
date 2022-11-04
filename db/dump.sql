@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 10:55 PM
+-- Generation Time: Nov 05, 2022 at 12:17 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `sab-website`
 --
+CREATE DATABASE IF NOT EXISTS `sab-website` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sab-website`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admins`
 --
 
+DROP TABLE IF EXISTS `admins`;
 CREATE TABLE `admins` (
   `ADMIN_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -48,6 +51,7 @@ INSERT INTO `admins` (`ADMIN_ID`) VALUES
 -- Table structure for table `carts`
 --
 
+DROP TABLE IF EXISTS `carts`;
 CREATE TABLE `carts` (
   `PRODUCT_ID` int(11) NOT NULL,
   `USER_ID` int(11) NOT NULL,
@@ -166,6 +170,7 @@ INSERT INTO `carts` (`PRODUCT_ID`, `USER_ID`, `QUANTITY`) VALUES
 -- Table structure for table `categories`
 --
 
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(254) NOT NULL,
@@ -193,6 +198,7 @@ INSERT INTO `categories` (`ID`, `NAME`, `DESCRIPTION`) VALUES
 -- Table structure for table `categorytagcategories`
 --
 
+DROP TABLE IF EXISTS `categorytagcategories`;
 CREATE TABLE `categorytagcategories` (
   `CATEGORY_ID` int(11) NOT NULL,
   `TAG_CATEGORY_ID` int(11) NOT NULL
@@ -233,6 +239,7 @@ INSERT INTO `categorytagcategories` (`CATEGORY_ID`, `TAG_CATEGORY_ID`) VALUES
 -- Table structure for table `comments`
 --
 
+DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `ID` int(11) NOT NULL,
   `RATING_ID` int(11) NOT NULL,
@@ -247,6 +254,7 @@ CREATE TABLE `comments` (
 -- Table structure for table `creators`
 --
 
+DROP TABLE IF EXISTS `creators`;
 CREATE TABLE `creators` (
   `CREATOR_ID` int(11) NOT NULL,
   `DESCRIPTION` varchar(254) NOT NULL,
@@ -298,6 +306,7 @@ INSERT INTO `creators` (`CREATOR_ID`, `DESCRIPTION`, `BANNER_URL`) VALUES
 -- Table structure for table `favorites`
 --
 
+DROP TABLE IF EXISTS `favorites`;
 CREATE TABLE `favorites` (
   `USER_ID` int(11) NOT NULL,
   `CREATORS_USER_ID` int(11) NOT NULL
@@ -309,6 +318,7 @@ CREATE TABLE `favorites` (
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `ID` int(11) NOT NULL,
   `CATEGORY_ID` int(11) NOT NULL,
@@ -434,6 +444,7 @@ INSERT INTO `products` (`ID`, `CATEGORY_ID`, `CREATOR_ID`, `NAME`, `DESCRIPTION`
 -- Table structure for table `producttags`
 --
 
+DROP TABLE IF EXISTS `producttags`;
 CREATE TABLE `producttags` (
   `PRODUCT_ID` int(11) NOT NULL,
   `TAG_ID` int(11) NOT NULL
@@ -445,6 +456,7 @@ CREATE TABLE `producttags` (
 -- Table structure for table `ratings`
 --
 
+DROP TABLE IF EXISTS `ratings`;
 CREATE TABLE `ratings` (
   `ID` int(11) NOT NULL,
   `PRODUCT_ID` int(11) NOT NULL,
@@ -460,6 +472,7 @@ CREATE TABLE `ratings` (
 -- Table structure for table `socialmediaaccounts`
 --
 
+DROP TABLE IF EXISTS `socialmediaaccounts`;
 CREATE TABLE `socialmediaaccounts` (
   `USER_ID` int(11) NOT NULL,
   `SOCIAL_MEDIA_ID` int(11) NOT NULL,
@@ -676,6 +689,7 @@ INSERT INTO `socialmediaaccounts` (`USER_ID`, `SOCIAL_MEDIA_ID`, `ACCOUNT`) VALU
 -- Table structure for table `socialmedias`
 --
 
+DROP TABLE IF EXISTS `socialmedias`;
 CREATE TABLE `socialmedias` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(254) NOT NULL,
@@ -700,6 +714,7 @@ INSERT INTO `socialmedias` (`ID`, `NAME`, `ICON_URL`) VALUES
 -- Table structure for table `tagcategories`
 --
 
+DROP TABLE IF EXISTS `tagcategories`;
 CREATE TABLE `tagcategories` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(254) NOT NULL
@@ -724,6 +739,7 @@ INSERT INTO `tagcategories` (`ID`, `NAME`) VALUES
 -- Table structure for table `tags`
 --
 
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
   `ID` int(11) NOT NULL,
   `TAG_CATEGORY_ID` int(11) NOT NULL,
@@ -775,6 +791,7 @@ INSERT INTO `tags` (`ID`, `TAG_CATEGORY_ID`, `NAME`) VALUES
 -- Table structure for table `tickets`
 --
 
+DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
   `ID` int(11) NOT NULL,
   `USER_ID` int(11) NOT NULL,
@@ -792,6 +809,7 @@ CREATE TABLE `tickets` (
 -- Table structure for table `tickettypes`
 --
 
+DROP TABLE IF EXISTS `tickettypes`;
 CREATE TABLE `tickettypes` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(254) NOT NULL
@@ -815,6 +833,7 @@ INSERT INTO `tickettypes` (`ID`, `NAME`) VALUES
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL,
   `FIRST_NAME` varchar(254) NOT NULL,

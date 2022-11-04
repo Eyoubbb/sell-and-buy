@@ -31,5 +31,15 @@ class UserDAO extends DAO {
 				return new User($row);
 		}
 	}
+
+	public function insertUser(User $user): string | false {
+		return $this->insert([
+			'first_name' => $user->getFirstName(),
+			'last_name' => $user->getLastName(),
+			'password_hash' => $user->getPasswordHash(),
+			'email' => $user->getEmail(),
+			'picture_url' => $user->getPictureUrl()
+		]);
+	}
 	
 }
