@@ -1,0 +1,96 @@
+(() => {
+
+	/*************** Confirm password ***************/
+	
+	const passwordInput = document.querySelector("input[name=\"password\"]");
+	const passwordConfirmInput = document.querySelector("input[name=\"password-confirm\"]");
+
+	if (passwordInput && passwordConfirmInput) {
+		const verifyPassword = () => {
+			if (!passwordInput.checkValidity() || passwordConfirmInput.value !== passwordInput.value) {
+				passwordConfirmInput.classList.add('invalid');
+			} else {
+				passwordConfirmInput.classList.remove('invalid');
+			}
+		};
+
+		passwordInput.addEventListener('input', verifyPassword);
+		passwordConfirmInput.addEventListener('input', verifyPassword);
+	}
+
+	/*************** Image preview ***************/
+
+	const imageInput = document.querySelector("input[type=\"file\"]");
+
+	if (imageInput) {
+		imageInput.addEventListener("change", e => {
+			const [ file ] = e.target.files;
+			const imagePreview = document.querySelector(".image-preview");
+
+			if (file && file.type.startsWith("image/") && imagePreview) {
+				imagePreview.src = URL.createObjectURL(file)
+				imagePreview.classList.remove('hidden');
+			} else {
+				imagePreview.src = "";
+				imagePreview.classList.add('hidden');
+			}
+		});
+	}
+	
+	/*************** Multistep form ***************/
+	
+	const progressSteps = document.querySelector('.progress-bar').children;
+	
+	const formSteps = document.querySelectorAll('.step');
+	const nextBtns = document.querySelectorAll('.next');
+	const prevBtns = document.querySelectorAll('.previous');
+
+	if (!progressSteps || !formSteps || !nextBtns || !prevBtns) return;
+
+	let currentStep = 0;
+
+	const setStep = (n) => {
+		if (n < 0 || n > formSteps.length - 1) {
+			return;
+		}
+
+		for (let i = 0; i < formSteps.length; i++) {
+			if (i === n) {
+				progressSteps[i].classList.add('active');
+				formSteps[i].classList.add('active');
+			} else {
+				progressSteps[i].classList.remove('active');
+				formSteps[i].classList.remove('active');
+			}
+		}
+	};
+
+	const nextStep = (e) => {
+		e.preventDefault();
+
+		for (const input of formSteps[currentStep].querySelectorAll('input')) {
+			if (!input.checkValidity() || input.classList.contains('invalid')) {
+				return;
+			}
+		}
+
+		setStep(++currentStep);
+	};
+
+	const prevStep = (e) => {
+		e.preventDefault();
+		setStep(--currentStep);
+	};
+
+	for (const btn of nextBtns) {
+		btn.addEventListener('click', nextStep);
+	}
+
+	for (const btn of prevBtns) {
+		btn.addEventListener('click', prevStep);
+		
+	}
+
+	setStep(currentStep);
+	
+})();

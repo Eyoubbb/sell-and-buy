@@ -26,12 +26,17 @@ html {
 	font-family: $font-sans;
 	scroll-behavior: smooth;
 	
-	body {
+	body {		
 		--primary-1: hsl(0deg, 0%, 95%);
 		--primary-2: hsl(0deg, 0%, 85%);
 
 		--secondary-1: hsl(0deg, 0%, 42%);
 		--secondary-2: hsl(0deg, 1%, 29%);
+
+		--accent-1: hsl(347deg, 84%, 50%);
+		
+		--error: hsl(0deg, 100%, 50%);
+		--hyperlink: hsl(219deg, 87%, 58%);
 
 		min-height: 100vh;
 		min-height: 100dvh;
