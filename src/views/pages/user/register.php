@@ -18,7 +18,7 @@
 			<input type="password" name="password-confirm" placeholder=" " id="input-password-confirm" required>
 		</div>
 		<div class="commands">
-			<button class="next"><?= REGISTER_NEXT ?></button>
+			<button class="next" type="button"><?= REGISTER_NEXT ?></button>
 		</div>
 	</fieldset>
 	<fieldset class="step">
@@ -31,8 +31,8 @@
 			<input type="text" name="last-name" pattern=".*\S.*" placeholder=" " id="input-last-name" required>
 		</div>
 		<div class="commands">
-			<button class="previous"><?= REGISTER_PREVIOUS ?></button>
-			<button class="next"><?= REGISTER_NEXT ?></button>
+			<button class="previous" type="button"><?= REGISTER_PREVIOUS ?></button>
+			<button class="next" type="button"><?= REGISTER_NEXT ?></button>
 		</div>
 	</fieldset>
 	<fieldset class="step">
@@ -44,7 +44,7 @@
 			<img class="image-preview hidden" src="" alt="<?= REGISTER_PROFILE_PICTURE_PREVIEW ?>">
 		</div>
 		<div class="commands">
-			<button class="previous"><?= REGISTER_PREVIOUS ?></button>
+			<button class="previous" type="button"><?= REGISTER_PREVIOUS ?></button>
 			<button class="submit"><?= REGISTER_SUBMIT ?></button>
 		</div>
 	</fieldset>

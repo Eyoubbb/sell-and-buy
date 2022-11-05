@@ -95,6 +95,16 @@ body {
 		flex-direction: column;
 		gap: var(--gap);
 
+		:is(&.form-invalid input, & input:not(:placeholder-shown)):is(:invalid, .invalid) {
+			color: var(--error);
+			border-color: var(--error);
+			outline-color: var(--error);
+
+			&::placeholder {
+				color: var(--error);
+			}
+		}
+
 		.field {
 			display: flex;
 			flex-direction: column;
@@ -112,12 +122,6 @@ body {
 				border: 1px solid black;
 				border-radius: var(--radius);
 				@include box-shadow($down: 5px);
-
-				&:not(:placeholder-shown):is(:invalid, .invalid) {
-					color: var(--error);
-					border-color: var(--error);
-					outline-color: var(--error);
-				}
 
 				&::placeholder {
 					font-size: .8em;

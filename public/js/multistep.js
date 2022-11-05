@@ -2,8 +2,8 @@
 
 	/*************** Confirm password ***************/
 	
-	const passwordInput = document.querySelector("input[name=\"password\"]");
-	const passwordConfirmInput = document.querySelector("input[name=\"password-confirm\"]");
+	const passwordInput = document.querySelector('input[name="password"]');
+	const passwordConfirmInput = document.querySelector('input[name="password-confirm"]');
 
 	if (passwordInput && passwordConfirmInput) {
 		const verifyPassword = () => {
@@ -20,18 +20,18 @@
 
 	/*************** Image preview ***************/
 
-	const imageInput = document.querySelector("input[type=\"file\"]");
+	const imageInput = document.querySelector('input[type="file"]');
 
 	if (imageInput) {
-		imageInput.addEventListener("change", e => {
+		imageInput.addEventListener('change', e => {
 			const [ file ] = e.target.files;
-			const imagePreview = document.querySelector(".image-preview");
+			const imagePreview = document.querySelector('.image-preview');
 
-			if (file && file.type.startsWith("image/") && imagePreview) {
+			if (file && file.type.startsWith('image/') && imagePreview) {
 				imagePreview.src = URL.createObjectURL(file)
 				imagePreview.classList.remove('hidden');
 			} else {
-				imagePreview.src = "";
+				imagePreview.src = '';
 				imagePreview.classList.add('hidden');
 			}
 		});
@@ -39,17 +39,19 @@
 	
 	/*************** Multistep form ***************/
 	
+	const form = document.querySelector('form');
 	const progressSteps = document.querySelector('.progress-bar').children;
 	
 	const formSteps = document.querySelectorAll('.step');
 	const nextBtns = document.querySelectorAll('.next');
 	const prevBtns = document.querySelectorAll('.previous');
 
-	if (!progressSteps || !formSteps || !nextBtns || !prevBtns) return;
+	if (!progressSteps || !formSteps || !nextBtns || !prevBtns)
+		return;
 
 	let currentStep = 0;
 
-	const setStep = (n) => {
+	const setStep = n => {
 		if (n < 0 || n > formSteps.length - 1) {
 			return;
 		}
@@ -65,11 +67,12 @@
 		}
 	};
 
-	const nextStep = (e) => {
-		e.preventDefault();
+	const nextStep = e => {
+		form.classList.remove('form-invalid');
 
 		for (const input of formSteps[currentStep].querySelectorAll('input')) {
 			if (!input.checkValidity() || input.classList.contains('invalid')) {
+				form.classList.add('form-invalid');
 				return;
 			}
 		}
@@ -77,8 +80,7 @@
 		setStep(++currentStep);
 	};
 
-	const prevStep = (e) => {
-		e.preventDefault();
+	const prevStep = e => {
 		setStep(--currentStep);
 	};
 
