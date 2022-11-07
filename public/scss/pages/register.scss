@@ -85,6 +85,7 @@ fieldset {
 			aspect-ratio: 1/1;
 			border-radius: 50%;
 			@include box-shadow;
+			animation: fade .5s ease;
 		}
 	}
 }

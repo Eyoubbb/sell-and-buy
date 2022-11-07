@@ -50,7 +50,7 @@ class UserController extends Controller {
 		}
 
 		if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password-confirm']) && !empty($_POST['first-name']) && !empty($_POST['last-name']) && isset($_FILES['picture'])) {
-						
+			
 			$userModel = $this->model('User');
 			
 			$user = $userModel->register();

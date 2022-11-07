@@ -90,7 +90,6 @@
 
 	for (const btn of prevBtns) {
 		btn.addEventListener('click', prevStep);
-		
 	}
 
 	setStep(currentStep);

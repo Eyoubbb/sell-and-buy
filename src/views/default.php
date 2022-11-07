@@ -42,7 +42,7 @@
 		}
 	?>
 
-	<title>Sell &amp; Buy<?= isset($data['title']) ? ' - ' . $data['title'] : '' ?></title>
+	<title><?= isset($data['title']) ? $data['title'] . ' - ' : '' ?>Sell &amp; Buy</title>
 </head>
 <body>
 	<?php
