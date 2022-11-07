@@ -39,7 +39,11 @@ class UserDAO extends DAO {
 			'password_hash' => $user->getPasswordHash(),
 			'email' => $user->getEmail(),
 			'picture_url' => $user->getPictureUrl()
-		]);
+		], false);
+	}
+
+	public function updatePictureUrl(User $user): bool {
+		return $this->update($user->getId(), ['picture_url' => $user->getPictureUrl()]);
 	}
 	
 }
