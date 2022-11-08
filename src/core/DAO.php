@@ -75,7 +75,7 @@ abstract class DAO {
 		return Connection::getInstance()->getBdd()->commit();
 	}
 
-	public function rollback(): bool {
+	public function rollBack(): bool {
 		return Connection::getInstance()->getBdd()->rollBack();
 	}
 

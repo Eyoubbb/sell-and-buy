@@ -67,20 +67,32 @@
 		}
 	};
 
-	const nextStep = e => {
-		form.classList.remove('form-invalid');
-
+	const checkValidations = handler => {
 		for (const input of formSteps[currentStep].querySelectorAll('input')) {
 			if (!input.checkValidity() || input.classList.contains('invalid')) {
-				form.classList.add('form-invalid');
-				return;
+				handler && handler();
+				return false;
 			}
+		}
+		return true;
+	};
+
+	
+	const nextStep = () => {
+		form.classList.remove('form-invalid');
+
+		const verif = checkValidations(() => {
+			form.classList.add('form-invalid');
+		});
+		
+		if (!verif) {
+			return;
 		}
 
 		setStep(++currentStep);
 	};
 
-	const prevStep = e => {
+	const prevStep = () => {
 		setStep(--currentStep);
 	};
 
@@ -92,6 +104,17 @@
 		btn.addEventListener('click', prevStep);
 	}
 
+	form.addEventListener('keypress', e => {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			nextStep();
+		}
+	});
+
+	for (const i of form.querySelectorAll('input')) {
+		i.addEventListener('invalid', e => e.preventDefault());
+	}
+	
 	setStep(currentStep);
 	
 })();
