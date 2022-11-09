@@ -7,7 +7,7 @@ class Creator extends User {
 	private string $description;
 	private ?string $banner_url;
 
-	public function __construct(?array $row) {
+	public function __construct(?array $row = null) {
 		if ($row) {
 			parent::__construct($row);
 			$this->description = $row['description'];

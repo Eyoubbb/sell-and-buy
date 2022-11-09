@@ -16,12 +16,12 @@ class Router {
 		if (isset($parts[0]) && in_array($parts[0], LANGUAGES)) {
 			$this->lang = $parts[0];
 			$this->url = substr($url, strlen($this->lang));
-			createCookie('SAB_LANG', $this->lang);
+			$_SESSION['lang'] = $this->lang;
 		} else {
-			if (isset($_COOKIE['SAB_LANG']) && in_array($_COOKIE['SAB_LANG'], LANGUAGES)) {
-				$this->lang = $_COOKIE['SAB_LANG'];
+			if (isset($_SESSION['lang']) && in_array($_SESSION['lang'], LANGUAGES)) {
+				$this->lang = $_SESSION['lang'];
 			} else {
-				createCookie('SAB_LANG', $this->lang);
+				$_SESSION['lang'] = $this->lang;
 			}
 			$this->url = $url;
 		}
@@ -80,6 +80,7 @@ class Router {
 		require_once PATH_CONTROLLERS . 'ErrorController.php';
 		$controller = new ErrorController($this->lang, $this->routes);
 		$controller->index($code);
+		exit();
 	}
 
 }

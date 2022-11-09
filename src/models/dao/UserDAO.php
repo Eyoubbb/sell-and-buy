@@ -11,7 +11,7 @@ class UserDAO extends DAO {
 		parent::__construct('users');
 	}
 
-	public function login(string $email): User | false {
+	public function getByEmail(string $email): User | false {
 		
 		$sql = 'SELECT * FROM ' . $this->getTable() . ' LEFT JOIN admins A ON (id = A.ADMIN_ID) LEFT JOIN creators C ON (id = C.CREATOR_ID) WHERE email = ?';
 		
@@ -30,6 +30,20 @@ class UserDAO extends DAO {
 			default:
 				return new User($row);
 		}
+	}
+
+	public function insertUser(User $user): string | false {
+		return $this->insert([
+			'first_name' => $user->getFirstName(),
+			'last_name' => $user->getLastName(),
+			'password_hash' => $user->getPasswordHash(),
+			'email' => $user->getEmail(),
+			'picture_url' => $user->getPictureUrl()
+		], false);
+	}
+
+	public function updatePictureUrl(User $user): bool {
+		return $this->update($user->getId(), ['picture_url' => $user->getPictureUrl()]);
 	}
 	
 }

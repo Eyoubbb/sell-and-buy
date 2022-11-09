@@ -17,8 +17,12 @@ abstract class DAO {
 		return $this->table;
 	}
 
-	private function request(string $sql, Closure $handler, ?array $args = null, bool $fetchClass = true): mixed {
+	private function request(string $sql, Closure $handler, ?array $args = null, bool $fetchClass = true, bool $autocommit = true): mixed {
 		try {
+			if (!$autocommit) {
+				Connection::getInstance()->getBdd()->beginTransaction();
+			}
+			
 			if ($args === null) {
 				$stmt = Connection::getInstance()->getBdd()->query($sql);
 			} else {
@@ -59,12 +63,20 @@ abstract class DAO {
 		}, $args, $fetchClass);
 	}
 
-	public function lastInsertId(string $sql, ?array $args = null): string | false {
-		return $this->request($sql, fn () => Connection::getInstance()->getBdd()->lastInsertId(), $args);
+	public function lastInsertId(string $sql, ?array $args = null, bool $autocommit = true): string | false {
+		return $this->request($sql, fn () => Connection::getInstance()->getBdd()->lastInsertId(), $args, false, $autocommit);
 	}
 
-	public function rowCount(string $sql, ?array $args = null): int | false {
-		return $this->request($sql, fn ($stmt) => $stmt->rowCount(), $args);
+	public function rowCount(string $sql, ?array $args = null, bool $autocommit = true): int | false {
+		return $this->request($sql, fn ($stmt) => $stmt->rowCount(), $args, false, $autocommit);
+	}
+
+	public function commit(): bool {
+		return Connection::getInstance()->getBdd()->commit();
+	}
+
+	public function rollBack(): bool {
+		return Connection::getInstance()->getBdd()->rollBack();
 	}
 
 	/*************** Basic query implementations ***************/
@@ -108,28 +120,28 @@ abstract class DAO {
 		return $this->queryRow("SELECT * FROM $this->table WHERE id = ?", [$id]);
 	}
 
-	public function insert(array $data): string | false {
+	public function insert(array $data, bool $autocommit = true): string | false {
 		$keys = array_keys($data);
 		$keys = implode(', ', $keys);
 
 		$values = array_values($data);
 		$values = implode(', ', array_fill(0, count($values), '?'));
 
-		return $this->lastInsertId("INSERT INTO $this->table ($keys) VALUES ($values)", array_values($data));
+		return $this->lastInsertId("INSERT INTO $this->table ($keys) VALUES ($values)", array_values($data), $autocommit);
 	}
 	
-	public function update(int $id, array $data): int | false {
+	public function update(int $id, array $data, bool $autocommit = true): int | false {
 		$keys = array_keys($data);
 		$keys = implode(' = ?, ', $keys) . ' = ?';
 
 		$values = array_values($data);
 		$values[] = $id;
 
-		return $this->rowCount("UPDATE $this->table SET $keys WHERE id = ?", $values);
+		return $this->rowCount("UPDATE $this->table SET $keys WHERE id = ?", $values, $autocommit);
 	}
 
-	public function delete(int $id): int | false {
-		return $this->rowCount("DELETE FROM $this->table WHERE id = ?", [$id]);
+	public function delete(int $id, bool $autocommit = true): int | false {
+		return $this->rowCount("DELETE FROM $this->table WHERE id = ?", [$id], $autocommit);
 	}
 	
 }
