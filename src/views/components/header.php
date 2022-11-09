@@ -7,31 +7,39 @@
     </ul>
     <ul class="nav-item">
         <li>
-            <?= '<a class="nav-item" href="">' . NAV_SHOP . '</a>' ?>
+            <?= '<a class="hover-link" href="">' . NAV_SHOP . '</a>' ?>
         </li>
         <li>
-            <?= '<a class="nav-item" href="">' . NAV_PAGES . '</a>' ?>  
+            <?= '<a class="hover-link" href="">' . NAV_PAGES . '</a>' ?>  
         </li>
         <li>
-            <?= '<a class="nav-item" href="">' . NAV_COLLECTIONS . '</a>' ?>
+            <?= '<a class="hover-link" href="">' . NAV_COLLECTIONS . '</a>' ?>
         </li>
         <li>
-            <?= '<a class="nav-item" href="">' . NAV_CREATOR . '</a>' ?>
+            <?= '<a class="hover-link" href="">' . NAV_CREATOR . '</a>' ?>
         </li>
     </ul>
         <!-- right -->
-    <ul class="nav-item left">
+    <ul class="nav-item right">
         <li>
-            <a class="nav-item" href="">FR</a>
+            <a class="hover-link" href="">FR</a>
         </li>
         <li>
-            <a class="nav-item" href="">EN</a>
+            <a class="hover-link" href="">EN</a>
         </li>
         <li>
-            <?= '<a class="nav-item" href="">' . NAV_LOGIN . '</a>' ?>
+            <?= '<a class="hover-link" href="">' . NAV_LOGIN . '</a>' ?>
         </li>
         <li>
-            <?= '<a class="nav-item" href="">' . NAV_SEARCH . '</a>' ?>
+            <?= '<a id="search" class="hover-link" href="">' . NAV_SEARCH . '</a>' ?>
         </li>
+        <li>
+            <form style="display:none" method="get">
+                <div class="search-form">
+                    <input type="text" name="" id="" placeholder="Search..." aria-label="search">
+                </div>
+            </form>
+        </li>
+    
     </ul>
 </header>

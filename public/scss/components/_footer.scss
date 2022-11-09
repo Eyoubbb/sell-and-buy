@@ -15,6 +15,9 @@ footer{
             display: flex;
             justify-content: space-between;
         }
+        li:nth-child(4){
+            text-align: right;
+        }
 
     }
 
@@ -31,11 +34,26 @@ footer{
         justify-content: flex-start;
         ul{
             display: flex;
+            margin-bottom: 1em;
             
         }
         li{
             margin: 0 1em 0 auto;
         }
     }
+
+    .footer-right {
+        div{
+            text-align: right;
+        }
+        input#newsletter{
+            margin-top: 1em;
+            border-bottom: 1px solid #000;
+            background-color: #f3f3f3;
+            
+        }
+
+    }
+
 
 }

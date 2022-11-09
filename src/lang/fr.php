@@ -22,8 +22,8 @@ const CUSTOMER_SERVICE = "Service client";
 const SHIPPING_RETURN = "Livraison et retours";
 const FIND_OUT = "En savoir +";
 const NEWSLETTER = "Inscrivez-vous à notre newsletter";
-const LEGAL_MENTION = "Mention Légales";
-const CONDITION_VENTE = "Conditions Generales de Vente";
+const LEGAL_MENTION = "Mention légales";
+const CONDITION_VENTE = "Conditions generales";
 const EMAIL_ADDRESS = "Adresse mail";
 const BECOME_CREATOR = "Devenir un créateur";
 

@@ -22,24 +22,26 @@
         <div class="footer-left">
             <ul>
                 <li>
-                    <a class="nav-item" href="">Contact</a>
+                    <a class="hover-link" href="">Contact</a>
                 </li>
                 <li>
-                    <?= '<a class="nav-item" href="">' . LEGAL_MENTION . '</a>' ?>
+                    <?= '<a class="hover-link" href="">' . LEGAL_MENTION . '</a>' ?>
                 </li>
                 <li>
-                    <?= '<a class="nav-item" href="">' . CONDITION_VENTE . '</a>' ?>
+                    <?= '<a class="hover-link" href="">' . CONDITION_VENTE . '</a>' ?>
                 </li>
             </ul>
             <p>© SAB 2022. Tous droits reservé</p>
         </div>
 
         <div class="footer-right">
-            <div class="form-newsletter">
-                <?= '<label for="">' . NEWSLETTER . '</label>' ?><br>
-                <?= '<input id="" type="email" name="EMAIL" placeholder="' . EMAIL_ADDRESS .  '" required="">' ?>
-                <input type="submit" value="OK">
-            </div>
+            <form method="post">
+                <div>
+                    <?= '<label for="">' . NEWSLETTER . '</label>' ?><br>
+                    <?= '<input id="newsletter" type="email" name="EMAIL" placeholder="' . EMAIL_ADDRESS .  '" required="">' ?>
+                    <input type="submit" value="OK">
+                </div>
+            </form>
         </div>
     </div>
 
