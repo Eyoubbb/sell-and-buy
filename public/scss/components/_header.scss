@@ -5,25 +5,46 @@ header{
     background-color: #f3f3f3;
     display: flex;
     align-items: center;
+
     .nav-item{
         @include size;
         display: flex;
     }
 
-
     .right{
         justify-content: flex-end;
+
     }
-
-
 
     li{
         margin: 1em;
+        form{
 
-        .search-form{
-            //margin-top: -1.2em;
+            &.hide{
+                display: none;
+            }
+
+            .search-form{
+                display: flex;
+            }
+
         }
 
+        input#text-input{
+            border-bottom: 1px solid #000;
+            background-color: #f3f3f3;
+        }
+
+    }
+
+    .shift-left{
+        overflow:hidden;
+        animation: append-animate .3s linear;
+    }
+    
+    .shift-right{
+        overflow:hidden;
+        animation: hide-animate .3s linear;
     }
 }
 
@@ -51,4 +72,20 @@ a.hover-link{
     }
 }
 
+@keyframes append-animate {
+	from {
+		transform: translateX(40%);
+	}
+	to {
+		transform: translateX(0%);
+	}
+}
 
+@keyframes hide-animate {
+	from {
+		transform: translateX(-40%);
+	}
+	to {
+		transform: translateX(0%);
+	}
+}

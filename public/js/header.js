@@ -1,3 +1,23 @@
-document.getElementById('search').addEventListener(click, ()=>{
-    console.log('Test');
-})
+(()=>{
+
+    const search = document.getElementById('search');
+    const rightBox = document.querySelector('ul.right');
+
+    const growSearchBar = () => {
+        const form = document.querySelector('form');
+        if(!rightBox.classList.contains('shift-right') && !rightBox.classList.contains('shift-left')){
+            rightBox.classList.toggle('shift-left');
+        } else {
+            rightBox.classList.toggle('shift-left');
+            rightBox.classList.toggle('shift-right');
+        }
+        
+        form.classList.toggle('hide');
+
+    
+
+    }
+
+    search.addEventListener('click', growSearchBar);
+
+})();

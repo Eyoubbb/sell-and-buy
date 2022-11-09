@@ -1,8 +1,10 @@
 <?php
 
 const APP_NAME = 'sell-and-buy';
+const APP_BASE_URL = '/';
 
 const PATH_CSS = 'css/';
+const PATH_JS = 'js/';
 
 const PATH_CORE = '../src/core/';
 const PATH_CONFIG = '../src/config/';

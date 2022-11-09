@@ -31,12 +31,13 @@
             <?= '<a class="hover-link" href="">' . NAV_LOGIN . '</a>' ?>
         </li>
         <li>
-            <?= '<a id="search" class="hover-link" href="">' . NAV_SEARCH . '</a>' ?>
+            <?= '<a id="search">' . NAV_SEARCH . '</a>' ?>
         </li>
         <li>
-            <form style="display:none" method="get">
+            <form class="hide" method="get">
                 <div class="search-form">
-                    <input type="text" name="" id="" placeholder="Search..." aria-label="search">
+                    <input  id="text-input" type="text" name="" id="" placeholder="Search..." aria-label="search" required>
+                    <input type="submit" value="OK">
                 </div>
             </form>
         </li>
