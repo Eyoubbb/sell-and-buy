@@ -5,19 +5,26 @@ header{
     background-color: #f3f3f3;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 1em;
 
     .nav-item{
-        @include size;
+        min-width: 40%;
         display: flex;
+        align-items: center;
     }
 
     .right{
         justify-content: flex-end;
 
+       @include for-size(m){
+            display: none;
+        }
+
     }
 
     li{
-        margin: 1em;
+        margin: 0 1em ;
         form{
 
             &.hide{
@@ -33,19 +40,12 @@ header{
         input#text-input{
             border-bottom: 1px solid #000;
             background-color: #f3f3f3;
+            width: 8em;
         }
 
     }
 
-    .shift-left{
-        overflow:hidden;
-        animation: append-animate .3s linear;
-    }
-    
-    .shift-right{
-        overflow:hidden;
-        animation: hide-animate .3s linear;
-    }
+
 }
 
 a.hover-link{
@@ -72,9 +72,19 @@ a.hover-link{
     }
 }
 
+.shift-left{
+    overflow:hidden;
+    animation: append-animate .3s linear;
+}
+
+.shift-right{
+    overflow:hidden;
+    animation: hide-animate .3s linear;
+}
+
 @keyframes append-animate {
 	from {
-		transform: translateX(40%);
+		transform: translateX(29%);
 	}
 	to {
 		transform: translateX(0%);
@@ -83,9 +93,10 @@ a.hover-link{
 
 @keyframes hide-animate {
 	from {
-		transform: translateX(-40%);
+		transform: translateX(0%);
 	}
 	to {
-		transform: translateX(0%);
+		transform: translateX(29%);
+        display: none;
 	}
 }
