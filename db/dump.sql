@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2022 at 11:28 PM
+-- Generation Time: Nov 05, 2022 at 12:17 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `sab-website`
 --
+CREATE DATABASE IF NOT EXISTS `sab-website` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sab-website`;
 
 -- --------------------------------------------------------
 
@@ -27,15 +29,16 @@ SET time_zone = "+00:00";
 -- Table structure for table `admins`
 --
 
+DROP TABLE IF EXISTS `admins`;
 CREATE TABLE `admins` (
-  `USER_ID` int(11) NOT NULL
+  `ADMIN_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`USER_ID`) VALUES
+INSERT INTO `admins` (`ADMIN_ID`) VALUES
 (1),
 (29),
 (56),
@@ -48,6 +51,7 @@ INSERT INTO `admins` (`USER_ID`) VALUES
 -- Table structure for table `carts`
 --
 
+DROP TABLE IF EXISTS `carts`;
 CREATE TABLE `carts` (
   `PRODUCT_ID` int(11) NOT NULL,
   `USER_ID` int(11) NOT NULL,
@@ -166,17 +170,18 @@ INSERT INTO `carts` (`PRODUCT_ID`, `USER_ID`, `QUANTITY`) VALUES
 -- Table structure for table `categories`
 --
 
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
-  `CATEGORY_ID` int(11) NOT NULL,
-  `CATEGORY_NAME` varchar(254) NOT NULL,
-  `CATEGORY_DESCRIPTION` varchar(254) NOT NULL
+  `ID` int(11) NOT NULL,
+  `NAME` varchar(254) NOT NULL,
+  `DESCRIPTION` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_DESCRIPTION`) VALUES
+INSERT INTO `categories` (`ID`, `NAME`, `DESCRIPTION`) VALUES
 (1, 'Smartphones', 'Smartphones\' description'),
 (2, 'Laptops', 'Laptops\' description'),
 (3, 'Accessories', 'Accessories\' description'),
@@ -193,6 +198,7 @@ INSERT INTO `categories` (`CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_DESCRIPTION`
 -- Table structure for table `categorytagcategories`
 --
 
+DROP TABLE IF EXISTS `categorytagcategories`;
 CREATE TABLE `categorytagcategories` (
   `CATEGORY_ID` int(11) NOT NULL,
   `TAG_CATEGORY_ID` int(11) NOT NULL
@@ -233,13 +239,13 @@ INSERT INTO `categorytagcategories` (`CATEGORY_ID`, `TAG_CATEGORY_ID`) VALUES
 -- Table structure for table `comments`
 --
 
+DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
-  `COMMENT_ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
   `RATING_ID` int(11) NOT NULL,
   `USER_ID` int(11) NOT NULL,
   `TITLE` varchar(254) NOT NULL,
-  `BODY` varchar(254) NOT NULL,
-  `DATE` date NOT NULL
+  `BODY` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -248,17 +254,18 @@ CREATE TABLE `comments` (
 -- Table structure for table `creators`
 --
 
+DROP TABLE IF EXISTS `creators`;
 CREATE TABLE `creators` (
-  `USER_ID` int(11) NOT NULL,
-  `CREATOR_DESCRIPTION` varchar(254) NOT NULL,
-  `CREATOR_BANNER_URL` varchar(254) DEFAULT NULL
+  `CREATOR_ID` int(11) NOT NULL,
+  `DESCRIPTION` varchar(254) NOT NULL,
+  `BANNER_URL` varchar(254) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `creators`
 --
 
-INSERT INTO `creators` (`USER_ID`, `CREATOR_DESCRIPTION`, `CREATOR_BANNER_URL`) VALUES
+INSERT INTO `creators` (`CREATOR_ID`, `DESCRIPTION`, `BANNER_URL`) VALUES
 (2, 'Welcome to the page of Miles Cummerata', NULL),
 (3, 'Welcome to the page of Sheldon Quigley', NULL),
 (4, 'Welcome to the page of Mavis Schultz', NULL),
@@ -299,6 +306,7 @@ INSERT INTO `creators` (`USER_ID`, `CREATOR_DESCRIPTION`, `CREATOR_BANNER_URL`) 
 -- Table structure for table `favorites`
 --
 
+DROP TABLE IF EXISTS `favorites`;
 CREATE TABLE `favorites` (
   `USER_ID` int(11) NOT NULL,
   `CREATORS_USER_ID` int(11) NOT NULL
@@ -310,13 +318,14 @@ CREATE TABLE `favorites` (
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
-  `PRODUCT_ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
   `CATEGORY_ID` int(11) NOT NULL,
-  `USER_ID` int(11) NOT NULL,
-  `PRODUCT_NAME` varchar(254) NOT NULL,
-  `PRODUCT_DESCRIPTION` varchar(254) NOT NULL,
-  `PRODUCT_IMAGE_URL` varchar(254) DEFAULT NULL,
+  `CREATOR_ID` int(11) NOT NULL,
+  `NAME` varchar(254) NOT NULL,
+  `DESCRIPTION` varchar(254) NOT NULL,
+  `IMAGE_URL` varchar(254) DEFAULT NULL,
   `PRICE` decimal(8,2) NOT NULL,
   `DISCOUNT_PERCENTAGE` decimal(5,2) DEFAULT NULL,
   `STOCK` int(11) NOT NULL,
@@ -327,7 +336,7 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`PRODUCT_ID`, `CATEGORY_ID`, `USER_ID`, `PRODUCT_NAME`, `PRODUCT_DESCRIPTION`, `PRODUCT_IMAGE_URL`, `PRICE`, `DISCOUNT_PERCENTAGE`, `STOCK`, `VISIBLE`) VALUES
+INSERT INTO `products` (`ID`, `CATEGORY_ID`, `CREATOR_ID`, `NAME`, `DESCRIPTION`, `IMAGE_URL`, `PRICE`, `DISCOUNT_PERCENTAGE`, `STOCK`, `VISIBLE`) VALUES
 (1, 2, 2, 'Infinix INBOOK', 'Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty', 'Infinix INBOOK.jpg', '1099.00', '11.83', 96, 1),
 (2, 7, 3, 'Hyaluronic Acid Serum', 'L\'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid', 'Hyaluronic Acid Serum.jpg', '19.00', '13.31', 110, 1),
 (3, 1, 4, 'iPhone X', 'SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...', 'iPhone X.jpg', '899.00', '17.94', 34, 1),
@@ -435,6 +444,7 @@ INSERT INTO `products` (`PRODUCT_ID`, `CATEGORY_ID`, `USER_ID`, `PRODUCT_NAME`, 
 -- Table structure for table `producttags`
 --
 
+DROP TABLE IF EXISTS `producttags`;
 CREATE TABLE `producttags` (
   `PRODUCT_ID` int(11) NOT NULL,
   `TAG_ID` int(11) NOT NULL
@@ -446,12 +456,14 @@ CREATE TABLE `producttags` (
 -- Table structure for table `ratings`
 --
 
+DROP TABLE IF EXISTS `ratings`;
 CREATE TABLE `ratings` (
-  `RATING_ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
   `PRODUCT_ID` int(11) NOT NULL,
   `COMMENT_ID` int(11) DEFAULT NULL,
   `USER_ID` int(11) NOT NULL,
-  `GRADE` int(11) NOT NULL
+  `GRADE` int(11) NOT NULL,
+  `DATE` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -460,6 +472,7 @@ CREATE TABLE `ratings` (
 -- Table structure for table `socialmediaaccounts`
 --
 
+DROP TABLE IF EXISTS `socialmediaaccounts`;
 CREATE TABLE `socialmediaaccounts` (
   `USER_ID` int(11) NOT NULL,
   `SOCIAL_MEDIA_ID` int(11) NOT NULL,
@@ -676,22 +689,24 @@ INSERT INTO `socialmediaaccounts` (`USER_ID`, `SOCIAL_MEDIA_ID`, `ACCOUNT`) VALU
 -- Table structure for table `socialmedias`
 --
 
+DROP TABLE IF EXISTS `socialmedias`;
 CREATE TABLE `socialmedias` (
-  `SOCIAL_MEDIA_ID` int(11) NOT NULL,
-  `SOCIAL_MEDIA_NAME` varchar(254) NOT NULL
+  `ID` int(11) NOT NULL,
+  `NAME` varchar(254) NOT NULL,
+  `ICON_URL` varchar(254) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `socialmedias`
 --
 
-INSERT INTO `socialmedias` (`SOCIAL_MEDIA_ID`, `SOCIAL_MEDIA_NAME`) VALUES
-(1, 'Facebook'),
-(2, 'Instagram'),
-(3, 'YouTube'),
-(4, 'Pinterest'),
-(5, 'Website'),
-(6, 'Twitter');
+INSERT INTO `socialmedias` (`ID`, `NAME`, `ICON_URL`) VALUES
+(1, 'Facebook', NULL),
+(2, 'Instagram', NULL),
+(3, 'YouTube', NULL),
+(4, 'Pinterest', NULL),
+(5, 'Website', NULL),
+(6, 'Twitter', NULL);
 
 -- --------------------------------------------------------
 
@@ -699,16 +714,17 @@ INSERT INTO `socialmedias` (`SOCIAL_MEDIA_ID`, `SOCIAL_MEDIA_NAME`) VALUES
 -- Table structure for table `tagcategories`
 --
 
+DROP TABLE IF EXISTS `tagcategories`;
 CREATE TABLE `tagcategories` (
-  `TAG_CATEGORY_ID` int(11) NOT NULL,
-  `TAG_CATEGORY_NAME` varchar(254) NOT NULL
+  `ID` int(11) NOT NULL,
+  `NAME` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tagcategories`
 --
 
-INSERT INTO `tagcategories` (`TAG_CATEGORY_ID`, `TAG_CATEGORY_NAME`) VALUES
+INSERT INTO `tagcategories` (`ID`, `NAME`) VALUES
 (1, 'Size'),
 (2, 'Color'),
 (3, 'Material'),
@@ -723,17 +739,18 @@ INSERT INTO `tagcategories` (`TAG_CATEGORY_ID`, `TAG_CATEGORY_NAME`) VALUES
 -- Table structure for table `tags`
 --
 
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
-  `TAG_ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
   `TAG_CATEGORY_ID` int(11) NOT NULL,
-  `TAG_NAME` varchar(254) NOT NULL
+  `NAME` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tags`
 --
 
-INSERT INTO `tags` (`TAG_ID`, `TAG_CATEGORY_ID`, `TAG_NAME`) VALUES
+INSERT INTO `tags` (`ID`, `TAG_CATEGORY_ID`, `NAME`) VALUES
 (1, 1, 'XS'),
 (2, 1, 'S'),
 (3, 1, 'M'),
@@ -774,13 +791,15 @@ INSERT INTO `tags` (`TAG_ID`, `TAG_CATEGORY_ID`, `TAG_NAME`) VALUES
 -- Table structure for table `tickets`
 --
 
+DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
-  `TICKET_ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
   `USER_ID` int(11) NOT NULL,
   `TICKET_TYPE_ID` int(11) NOT NULL,
-  `ADMINS_USER_ID` int(11) NOT NULL,
-  `TICKET_NAME` varchar(254) NOT NULL,
-  `TICKET_DESCRIPTION` varchar(254) NOT NULL,
+  `ADMIN_ID` int(11) NOT NULL,
+  `NAME` varchar(254) NOT NULL,
+  `DESCRIPTION` varchar(254) NOT NULL,
+  `DATE` date NOT NULL,
   `RESOLVED` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -790,16 +809,17 @@ CREATE TABLE `tickets` (
 -- Table structure for table `tickettypes`
 --
 
+DROP TABLE IF EXISTS `tickettypes`;
 CREATE TABLE `tickettypes` (
-  `TICKET_TYPE_ID` int(11) NOT NULL,
-  `TICKET_TYPE_NAME` varchar(254) NOT NULL
+  `ID` int(11) NOT NULL,
+  `NAME` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tickettypes`
 --
 
-INSERT INTO `tickettypes` (`TICKET_TYPE_ID`, `TICKET_TYPE_NAME`) VALUES
+INSERT INTO `tickettypes` (`ID`, `NAME`) VALUES
 (1, 'Help'),
 (2, 'ProductReport'),
 (3, 'UserReport'),
@@ -813,8 +833,9 @@ INSERT INTO `tickettypes` (`TICKET_TYPE_ID`, `TICKET_TYPE_NAME`) VALUES
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
-  `USER_ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
   `FIRST_NAME` varchar(254) NOT NULL,
   `LAST_NAME` varchar(254) NOT NULL,
   `PASSWORD_HASH` varchar(254) NOT NULL,
@@ -826,7 +847,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `PASSWORD_HASH`, `EMAIL`, `PICTURE_URL`) VALUES
+INSERT INTO `users` (`ID`, `FIRST_NAME`, `LAST_NAME`, `PASSWORD_HASH`, `EMAIL`, `PICTURE_URL`) VALUES
 (1, 'Hazim', 'Asri', '$2b$10$XoJlaa/lG1vdbf2cPdFKk.9/zl2jHc1XwcUAKlsmR8xoaQwDqvN5e', 'wan-muhammad-hazim.wan-mohd-asri@etu.univ-lyon1.fr', 'Hazim-Asri.png'),
 (2, 'Miles', 'Cummerata', '$2b$10$kb5fmWipLnhUbvQcVLlqsOOktE3WKP2lLpB9o8/QzZoGDJEhcVN9q', 'yraigatt3@nature.com', 'Miles-Cummerata.png'),
 (3, 'Sheldon', 'Quigley', '$2b$10$qCKcdfhoQaZPueBRV1QTcOGVA7LA1Boly2liIEBmysZZypDCyDPm.', 'hbingley1@plala.or.jp', 'Sheldon-Quigley.png'),
@@ -941,7 +962,7 @@ INSERT INTO `users` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `PASSWORD_HASH`, `EMA
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
-  ADD PRIMARY KEY (`USER_ID`);
+  ADD PRIMARY KEY (`ADMIN_ID`);
 
 --
 -- Indexes for table `carts`
@@ -954,7 +975,7 @@ ALTER TABLE `carts`
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`CATEGORY_ID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `categorytagcategories`
@@ -967,7 +988,7 @@ ALTER TABLE `categorytagcategories`
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`COMMENT_ID`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `FK_INFORMS` (`RATING_ID`),
   ADD KEY `FK_POSTS` (`USER_ID`);
 
@@ -975,7 +996,7 @@ ALTER TABLE `comments`
 -- Indexes for table `creators`
 --
 ALTER TABLE `creators`
-  ADD PRIMARY KEY (`USER_ID`);
+  ADD PRIMARY KEY (`CREATOR_ID`);
 
 --
 -- Indexes for table `favorites`
@@ -988,9 +1009,9 @@ ALTER TABLE `favorites`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`PRODUCT_ID`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `FK_BELONGS_TO` (`CATEGORY_ID`),
-  ADD KEY `FK_SELLS` (`USER_ID`);
+  ADD KEY `FK_SELLS` (`CREATOR_ID`);
 
 --
 -- Indexes for table `producttags`
@@ -1003,7 +1024,7 @@ ALTER TABLE `producttags`
 -- Indexes for table `ratings`
 --
 ALTER TABLE `ratings`
-  ADD PRIMARY KEY (`RATING_ID`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `FK_GIVES` (`USER_ID`),
   ADD KEY `FK_GRADES` (`PRODUCT_ID`),
   ADD KEY `FK_INFORMS2` (`COMMENT_ID`);
@@ -1019,27 +1040,27 @@ ALTER TABLE `socialmediaaccounts`
 -- Indexes for table `socialmedias`
 --
 ALTER TABLE `socialmedias`
-  ADD PRIMARY KEY (`SOCIAL_MEDIA_ID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `tagcategories`
 --
 ALTER TABLE `tagcategories`
-  ADD PRIMARY KEY (`TAG_CATEGORY_ID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `tags`
 --
 ALTER TABLE `tags`
-  ADD PRIMARY KEY (`TAG_ID`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `FK_IS_PART_OF` (`TAG_CATEGORY_ID`);
 
 --
 -- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
-  ADD PRIMARY KEY (`TICKET_ID`),
-  ADD KEY `FK_HANDLES` (`ADMINS_USER_ID`),
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `FK_HANDLES` (`ADMIN_ID`),
   ADD KEY `FK_OF_TYPE` (`TICKET_TYPE_ID`),
   ADD KEY `FK_OPENS` (`USER_ID`);
 
@@ -1047,14 +1068,15 @@ ALTER TABLE `tickets`
 -- Indexes for table `tickettypes`
 --
 ALTER TABLE `tickettypes`
-  ADD PRIMARY KEY (`TICKET_TYPE_ID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`USER_ID`),
-  ADD UNIQUE KEY `AK_FULL_NAME` (`FIRST_NAME`,`LAST_NAME`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `AK_FULL_NAME` (`FIRST_NAME`,`LAST_NAME`),
+  ADD UNIQUE KEY `EMAIL` (`EMAIL`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1064,61 +1086,61 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `CATEGORY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `COMMENT_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `PRODUCT_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `RATING_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `socialmedias`
 --
 ALTER TABLE `socialmedias`
-  MODIFY `SOCIAL_MEDIA_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tagcategories`
 --
 ALTER TABLE `tagcategories`
-  MODIFY `TAG_CATEGORY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `TAG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `TICKET_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tickettypes`
 --
 ALTER TABLE `tickettypes`
-  MODIFY `TICKET_TYPE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- Constraints for dumped tables
@@ -1128,84 +1150,84 @@ ALTER TABLE `users`
 -- Constraints for table `admins`
 --
 ALTER TABLE `admins`
-  ADD CONSTRAINT `FK_HERITAGE_USER` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`);
+  ADD CONSTRAINT `FK_HERITAGE_USER` FOREIGN KEY (`ADMIN_ID`) REFERENCES `users` (`ID`);
 
 --
 -- Constraints for table `carts`
 --
 ALTER TABLE `carts`
-  ADD CONSTRAINT `FK_CONTAINS` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`),
-  ADD CONSTRAINT `FK_CONTAINS2` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`);
+  ADD CONSTRAINT `FK_CONTAINS` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`ID`),
+  ADD CONSTRAINT `FK_CONTAINS2` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`ID`);
 
 --
 -- Constraints for table `categorytagcategories`
 --
 ALTER TABLE `categorytagcategories`
-  ADD CONSTRAINT `FK_PRECISES` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `categories` (`CATEGORY_ID`),
-  ADD CONSTRAINT `FK_PRECISES2` FOREIGN KEY (`TAG_CATEGORY_ID`) REFERENCES `tagcategories` (`TAG_CATEGORY_ID`);
+  ADD CONSTRAINT `FK_PRECISES` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `categories` (`ID`),
+  ADD CONSTRAINT `FK_PRECISES2` FOREIGN KEY (`TAG_CATEGORY_ID`) REFERENCES `tagcategories` (`ID`);
 
 --
 -- Constraints for table `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `FK_INFORMS` FOREIGN KEY (`RATING_ID`) REFERENCES `ratings` (`RATING_ID`),
-  ADD CONSTRAINT `FK_POSTS` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`);
+  ADD CONSTRAINT `FK_INFORMS` FOREIGN KEY (`RATING_ID`) REFERENCES `ratings` (`ID`),
+  ADD CONSTRAINT `FK_POSTS` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`ID`);
 
 --
 -- Constraints for table `creators`
 --
 ALTER TABLE `creators`
-  ADD CONSTRAINT `FK_HERITAGE_USER2` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`);
+  ADD CONSTRAINT `FK_HERITAGE_USER2` FOREIGN KEY (`CREATOR_ID`) REFERENCES `users` (`ID`);
 
 --
 -- Constraints for table `favorites`
 --
 ALTER TABLE `favorites`
-  ADD CONSTRAINT `FK_FAVORITES` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`),
-  ADD CONSTRAINT `FK_FAVORITES2` FOREIGN KEY (`CREATORS_USER_ID`) REFERENCES `creators` (`USER_ID`);
+  ADD CONSTRAINT `FK_FAVORITES` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`ID`),
+  ADD CONSTRAINT `FK_FAVORITES2` FOREIGN KEY (`CREATORS_USER_ID`) REFERENCES `creators` (`CREATOR_ID`);
 
 --
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `FK_BELONGS_TO` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `categories` (`CATEGORY_ID`),
-  ADD CONSTRAINT `FK_SELLS` FOREIGN KEY (`USER_ID`) REFERENCES `creators` (`USER_ID`);
+  ADD CONSTRAINT `FK_BELONGS_TO` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `categories` (`ID`),
+  ADD CONSTRAINT `FK_SELLS` FOREIGN KEY (`CREATOR_ID`) REFERENCES `creators` (`CREATOR_ID`);
 
 --
 -- Constraints for table `producttags`
 --
 ALTER TABLE `producttags`
-  ADD CONSTRAINT `FK_DEFINES` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`),
-  ADD CONSTRAINT `FK_DEFINES2` FOREIGN KEY (`TAG_ID`) REFERENCES `tags` (`TAG_ID`);
+  ADD CONSTRAINT `FK_DEFINES` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`ID`),
+  ADD CONSTRAINT `FK_DEFINES2` FOREIGN KEY (`TAG_ID`) REFERENCES `tags` (`ID`);
 
 --
 -- Constraints for table `ratings`
 --
 ALTER TABLE `ratings`
-  ADD CONSTRAINT `FK_GIVES` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`),
-  ADD CONSTRAINT `FK_GRADES` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`),
-  ADD CONSTRAINT `FK_INFORMS2` FOREIGN KEY (`COMMENT_ID`) REFERENCES `comments` (`COMMENT_ID`);
+  ADD CONSTRAINT `FK_GIVES` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`ID`),
+  ADD CONSTRAINT `FK_GRADES` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`ID`),
+  ADD CONSTRAINT `FK_INFORMS2` FOREIGN KEY (`COMMENT_ID`) REFERENCES `comments` (`ID`);
 
 --
 -- Constraints for table `socialmediaaccounts`
 --
 ALTER TABLE `socialmediaaccounts`
-  ADD CONSTRAINT `FK_IS_ON` FOREIGN KEY (`USER_ID`) REFERENCES `creators` (`USER_ID`),
-  ADD CONSTRAINT `FK_IS_ON2` FOREIGN KEY (`SOCIAL_MEDIA_ID`) REFERENCES `socialmedias` (`SOCIAL_MEDIA_ID`);
+  ADD CONSTRAINT `FK_IS_ON` FOREIGN KEY (`USER_ID`) REFERENCES `creators` (`CREATOR_ID`),
+  ADD CONSTRAINT `FK_IS_ON2` FOREIGN KEY (`SOCIAL_MEDIA_ID`) REFERENCES `socialmedias` (`ID`);
 
 --
 -- Constraints for table `tags`
 --
 ALTER TABLE `tags`
-  ADD CONSTRAINT `FK_IS_PART_OF` FOREIGN KEY (`TAG_CATEGORY_ID`) REFERENCES `tagcategories` (`TAG_CATEGORY_ID`);
+  ADD CONSTRAINT `FK_IS_PART_OF` FOREIGN KEY (`TAG_CATEGORY_ID`) REFERENCES `tagcategories` (`ID`);
 
 --
 -- Constraints for table `tickets`
 --
 ALTER TABLE `tickets`
-  ADD CONSTRAINT `FK_HANDLES` FOREIGN KEY (`ADMINS_USER_ID`) REFERENCES `admins` (`USER_ID`),
-  ADD CONSTRAINT `FK_OF_TYPE` FOREIGN KEY (`TICKET_TYPE_ID`) REFERENCES `tickettypes` (`TICKET_TYPE_ID`),
-  ADD CONSTRAINT `FK_OPENS` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`);
+  ADD CONSTRAINT `FK_HANDLES` FOREIGN KEY (`ADMIN_ID`) REFERENCES `admins` (`ADMIN_ID`),
+  ADD CONSTRAINT `FK_OF_TYPE` FOREIGN KEY (`TICKET_TYPE_ID`) REFERENCES `tickettypes` (`ID`),
+  ADD CONSTRAINT `FK_OPENS` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
