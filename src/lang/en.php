@@ -53,7 +53,8 @@ const ERROR_DEFAULT_MESSAGE = "An error has occurred";
 const ERROR_404_WINDOW_TITLE = "Error 404";
 const ERROR_404_MESSAGE = "The requested page does not exist";
 
-//header
+/*************** Header ***************/
+
 const NAV_SEARCH = "Search";
 const NAV_LOGIN = "Login";
 const NAV_CREATOR = "Creators";
@@ -61,7 +62,8 @@ const NAV_SHOP = "Shop";
 const NAV_COLLECTIONS = "Collections";
 const NAV_PAGES = "Pages";
 
-//footer
+/*************** Footer ***************/
+
 const CUSTOMER_SERVICE = "Client service";
 const SHIPPING_RETURN = "Shipping and return";
 const FIND_OUT = "Find out more";
