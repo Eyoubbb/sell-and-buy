@@ -53,6 +53,26 @@ const ERROR_DEFAULT_MESSAGE = "Une erreur est survenue";
 const ERROR_404_WINDOW_TITLE = "Erreur 404";
 const ERROR_404_MESSAGE = "La page demandée n'existe pas";
 
+/*************** Header ***************/
+
+const NAV_SEARCH = "Recherche";
+const NAV_LOGIN = "Se connecter";
+const NAV_CREATOR = "Createurs";
+const NAV_SHOP = "Acheter";
+const NAV_COLLECTIONS = "Collections";
+const NAV_PAGES = "Pages";
+
+/*************** Footer ***************/
+
+const CUSTOMER_SERVICE = "Service client";
+const SHIPPING_RETURN = "Livraison et retours";
+const FIND_OUT = "En savoir +";
+const NEWSLETTER = "Inscrivez-vous à notre newsletter";
+const LEGAL_MENTION = "Mention légales";
+const CONDITION_VENTE = "Conditions generales";
+const EMAIL_ADDRESS = "Adresse mail";
+const BECOME_CREATOR = "Devenir un créateur";
+
 /*************** Images ***************/
 
 const ALT_LOGO = "Le logo de Sell & Buy";
