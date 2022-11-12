@@ -5,16 +5,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="apple-touch-icon" sizes="180x180" href="<?= PATH_FAVICON . 'apple-touch-icon.png' ?>">
-	<link rel="icon" type="image/png" sizes="32x32" href="<?= PATH_FAVICON . 'favicon-32x32.png' ?>">
-	<link rel="icon" type="image/png" sizes="16x16" href="<?= PATH_FAVICON . 'favicon-16x16.png' ?>">
-	<link rel="manifest" href="<?= PATH_FAVICON . 'site.webmanifest' ?>">
-	<link rel="mask-icon" href="<?= PATH_FAVICON . 'safari-pinned-tab.svg' ?>" color="#000000">
-	<link rel="shortcut icon" href="<?= PATH_FAVICON . 'favicon.ico' ?>">
+	<link rel="apple-touch-icon" sizes="180x180" href="<?= PATH_FAVICON ?>apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?= PATH_FAVICON ?>favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?= PATH_FAVICON ?>favicon-16x16.png">
+	<link rel="manifest" href="<?= PATH_FAVICON ?>site.webmanifest">
+	<link rel="mask-icon" href="<?= PATH_FAVICON ?>safari-pinned-tab.svg" color="#000000">
+	<link rel="shortcut icon" href="<?= PATH_FAVICON ?>favicon.ico">
 	<meta name="apple-mobile-web-app-title" content="Sell &amp; Buy">
 	<meta name="application-name" content="Sell &amp; Buy">
 	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-config" content="<?= PATH_FAVICON . 'browserconfig.xml' ?>">
+	<meta name="msapplication-config" content="<?= PATH_FAVICON ?>browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,15 +42,6 @@
 				$path = PATH_JS . $script['name'] . '.js';
 				$attr = $script['attr'] ?? '';
 				
-				echo "<script src=\"$path\" $attr></script>";
-			}
-		}
-
-		if (isset($data['scripts'])) {
-			foreach ($data['scripts'] as $script) {
-				
-				$path = PATH_JS . $script['name'] . '.js';
-				$attr = $script['attr'] ?? '';
 				echo "<script src=\"$path\" $attr></script>";
 			}
 		}

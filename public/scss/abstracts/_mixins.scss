@@ -7,7 +7,7 @@
 	box-shadow: $right $down $blur $spread hsl(0deg, 0%, 0%, .7);
 }
 
-@mixin for-size($size) {
+@mixin media($size) {
 	@if $size == xs {
 		@media (max-width: 300px) {
 			@content;
