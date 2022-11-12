@@ -10,14 +10,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Open+Sans:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
 
 	<?php
-		if (!(isset($data['header']) && $data['header'] === false)){
-            $path = PATH_JS . 'header.js';
-            echo "<script src=\"$path\" defer></script>";
-		}
-
-		if (!(isset($data['footer']) && $data['footer'] === false)){
-            $path = PATH_JS . 'footer.js';
-            echo "<script src=\"$path\" defer></script>";
+		if (!(isset($data['header']) && $data['header'] === false)) {
+			$path = PATH_JS . 'header.js';
+			echo "<script src=\"$path\" defer></script>";
 		}
 
 		if (isset($data['stylesheets'])) {
@@ -26,15 +21,15 @@
 				echo '<link rel="stylesheet" href="'.$path.'">';
 			}
 		}
-		if (isset($data['scripts'])) {
-            foreach ($data['scripts'] as $script) {
-                
-                $path = PATH_JS . $script['name'] . '.js';
-                $attr = $script['attr'] ?? '';
-                echo "<script src=\"$path\" $attr></script>";
-            }
-        }
 
+		if (isset($data['scripts'])) {
+			foreach ($data['scripts'] as $script) {
+				
+				$path = PATH_JS . $script['name'] . '.js';
+				$attr = $script['attr'] ?? '';
+				echo "<script src=\"$path\" $attr></script>";
+			}
+		}
 	?>
 
 	<title>Sell &amp; Buy<?= isset($data['title']) ? ' - '.$data['title'] : '' ?></title>
