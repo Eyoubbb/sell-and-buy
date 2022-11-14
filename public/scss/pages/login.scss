@@ -1,22 +1,15 @@
 @use "../abstracts" as *;
 @use "../base" as *;
 
-body {
+main {
+	--gap: 3em;
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
 
-	main {
-		--gap: 3em;
-		flex-grow: 1;
-		display: flex;
-		justify-content: center;
-
-		@include media(m) {
-			align-items: center;
-		}
+	@include media(m) {
+		align-items: center;
 	}
 }
-
 
 .wrapper-presentation {
 	flex: 1 1 50%;

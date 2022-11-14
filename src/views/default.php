@@ -55,7 +55,11 @@
 			require_once PATH_COMPONENTS . 'header.php';
 		}
 
+		echo '<main>';
+		
 		require_once PATH_PAGES . $data['view'] . '.php';
+
+		echo '</main>';
 
 		if (!(isset($data['footer']) && $data['footer'] === false)) {
 			require_once PATH_COMPONENTS . 'footer.php';

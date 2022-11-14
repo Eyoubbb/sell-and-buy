@@ -40,12 +40,20 @@ html {
 
 		min-height: 100vh;
 		min-height: 100dvh;
+
+		display: flex;		
+		flex-direction: column;
+
 		font-size: 16px;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 
 		&:has(.no-scroll) {
 			overflow-y: hidden;
+		}
+
+		main {
+			flex-grow: 1;
 		}
 	}
 }
