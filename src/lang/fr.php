@@ -1,5 +1,10 @@
 <?php
 
+/*************** Languages ***************/
+
+const FR = 'Français';
+const EN = 'English';
+
 /*************** Home ***************/
 
 const HOME_WINDOW_TITLE = "Accueil";
@@ -56,7 +61,9 @@ const ERROR_404_MESSAGE = "La page demandée n'existe pas";
 /*************** Header ***************/
 
 const NAV_SEARCH = "Recherche";
+const NAV_SEARCH_PLACEHOLDER = "Recherche Sell & Buy";
 const NAV_LOGIN = "Se connecter";
+const NAV_LOGOUT = "Se déconnecter";
 const NAV_CREATOR = "Createurs";
 const NAV_SHOP = "Acheter";
 const NAV_COLLECTIONS = "Collections";
@@ -79,3 +86,6 @@ const COPYRIGHT = "Tous droits reservé";
 /*************** Images ***************/
 
 const ALT_LOGO = "Le logo de Sell & Buy";
+const ALT_MENU = "L'icône du menu";
+const ALT_SEARCH = "L'icône de la recherche";
+const ALT_PROFILE_PICTURE = "Votre photo de profil";
