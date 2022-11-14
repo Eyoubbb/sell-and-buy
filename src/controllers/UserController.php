@@ -18,7 +18,7 @@ class UserController extends Controller {
 
 			if ($user) {
 				$_SESSION['logged_in'] = true;
-				$_SESSION['user'] = $user;
+				$_SESSION['user'] = serialize($user);
 				
 				redirect($this->getRoutes()['GET:Home#index']);
 			}
@@ -57,7 +57,7 @@ class UserController extends Controller {
 
 			if ($user) {
 				$_SESSION['logged_in'] = true;
-				$_SESSION['user'] = $user;
+				$_SESSION['user'] = serialize($user);
 				
 				redirect($this->getRoutes()['GET:Home#index']);
 			}
@@ -85,6 +85,17 @@ class UserController extends Controller {
 		$data['option-link'] = REGISTER_LOGIN;
 		
 		$this->view('user/login-register', $data);
+	}
+
+	public function logout(): void {
+		
+		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+			$model = $this->model('User');
+
+			$model->logout();
+		}
+		
+		redirect($this->getRoutes()['GET:Home#index']);
 	}
 
 }
