@@ -1,14 +1,11 @@
 @use "../abstracts" as *;
 
-
 header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 	padding: 1em;
-
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	font-size: 0.9em;
-
 	background-color: var(--primary-1);
 
 	.nav-item {
@@ -34,23 +31,19 @@ header {
 			background-color: var(--primary-1);
 			width: 8em;
 
-			&:focus{
+			&:focus {
 				outline: none;
 			}
 		}
 	}
-
-	
 
 	.dropdown {
 		position: relative;
 		display: inline-block;
 
 		.plus-btn{
-			display:none;
-			width:30px;
-			height:30px;
-			cursor: pointer;
+			display: none;
+			@include size(30px);
 
 			background:
 				linear-gradient(#000 0 0),
@@ -59,9 +52,7 @@ header {
 			background-position:center;
 			background-size: 50% 1.5px,1.5px 50%; /*thickness = 2px, length = 50% (25px)*/
 			background-repeat:no-repeat;
-	
-	
-	
+
 			@include media(l) {
 				display: inline-block;
 			}
@@ -108,8 +99,8 @@ header {
 
 	.right {
 		justify-content: flex-end;
-
-	   @include media(l) {
+		
+		@include media(l) {
 			display: none;
 		}
 	}

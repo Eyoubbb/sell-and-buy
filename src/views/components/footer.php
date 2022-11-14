@@ -18,16 +18,6 @@
 		</ul>
 	</div>
 	<div class="footer-bottom">
-		
-		<div class="footer-right">
-			<form method="POST">
-				<div>
-					<label for=""><?= NEWSLETTER ?></label>
-					<input id="newsletter" type="email" name="EMAIL" placeholder="<?= EMAIL_ADDRESS ?>" required>
-					<input class="submit" type="submit" value="OK">
-				</div>
-			</form>
-		</div>
 		<div class="footer-left">
 			<ul>
 				<li>
@@ -41,6 +31,13 @@
 				</li>
 			</ul>
 			<p>© SAB 2022. <?= COPYRIGHT ?></p>
+		</div>
+		<div class="footer-right">
+			<form method="POST">
+				<label for="newsletter"><?= NEWSLETTER ?></label>
+				<input id="newsletter" type="email" name="email" placeholder="<?= EMAIL_ADDRESS ?>" required>
+				<button class="submit">OK</button>
+			</form>
 		</div>
 	</div>
 </footer>
