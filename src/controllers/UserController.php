@@ -6,7 +6,7 @@ class UserController extends Controller {
 
 	public function login(): void {
 		
-		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+		if (isLoggedIn()) {
 			redirect($this->getRoutes()['GET:Home#index']);
 		}
 
@@ -45,7 +45,7 @@ class UserController extends Controller {
 
 	public function register(): void {
 		
-		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+		if (isLoggedIn()) {
 			redirect($this->getRoutes()['GET:Home#index']);
 		}
 
