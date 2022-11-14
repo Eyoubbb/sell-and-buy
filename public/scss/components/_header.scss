@@ -2,24 +2,18 @@
 
 
 header {
-	background-color: var(--primary-1);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 1em;
 
+	font-size: 0.9em;
+
+	background-color: var(--primary-1);
+
 	.nav-item {
-		min-width: 40%;
 		display: flex;
 		align-items: center;
-	}
-
-	.right {
-		justify-content: flex-end;
-
-	   @include media(l) {
-			display: none;
-		}
 	}
 
 	li {
@@ -39,6 +33,101 @@ header {
 			border-bottom: 1px solid #000;
 			background-color: var(--primary-1);
 			width: 8em;
+
+			&:focus{
+				outline: none;
+			}
+		}
+	}
+
+	
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+
+		.plus-btn{
+			display:none;
+			width:30px;
+			height:30px;
+			cursor: pointer;
+
+			background:
+				linear-gradient(#000 0 0),
+				linear-gradient(#000 0 0),
+				var(--primary-1);
+			background-position:center;
+			background-size: 50% 1.5px,1.5px 50%; /*thickness = 2px, length = 50% (25px)*/
+			background-repeat:no-repeat;
+	
+	
+	
+			@include media(l) {
+				display: inline-block;
+			}
+		}
+
+		.dropdown-content {
+			height: 0px;
+			overflow-y: hidden;
+			position: absolute;
+			background-color: var(--primary-1);
+			min-width: 160px;
+			z-index: 1;
+			right: 0;
+			transition: height .3s ease;
+
+			@include box-shadow;
+
+			li{
+				margin: 0.5em;
+			}
+			a {
+				color: black;
+				text-decoration: none;
+				padding: 0.5em 0px;
+				display: block;
+
+				&:is(:hover, :focus){
+					background-color: #ddd;
+				}
+			}
+		}
+
+		&:is(:hover, :focus){
+			.dropdown-content {
+				height: 160px;
+			}
+		}
+			
+	}
+
+	.logo{
+		margin: 0 1em;
+	}
+
+	.right {
+		justify-content: flex-end;
+
+	   @include media(l) {
+			display: none;
+		}
+	}
+
+	.left{
+		@include media(l){
+			flex-wrap: wrap;
+			margin: 0.5em 1em;
+
+		}
+	}
+
+	.submit{
+		margin-left: 0.3em;
+		background-color: var(--primary-1); 
+		
+		&:hover{
+			background-color: var(--primary-2);
 		}
 	}
 }
@@ -71,6 +160,7 @@ a.hover-link {
 	overflow:hidden;
 	animation: hide-animate .3s linear;
 }
+
 
 @keyframes append-animate {
 	from {
