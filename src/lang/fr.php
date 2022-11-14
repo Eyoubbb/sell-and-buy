@@ -72,7 +72,8 @@ const LEGAL_MENTION = "Mention légales";
 const CONDITION_VENTE = "Conditions generales";
 const EMAIL_ADDRESS = "Adresse mail";
 const BECOME_CREATOR = "Devenir un créateur";
-const PAYMENT = "Paiement securisé via Paypal, Mastercard, Visa";
+const PAYMENT = "Paiement securisé via<br> Paypal, Mastercard, Visa";
+const COPYRIGHT = "Tous droits reservé";
 
 
 /*************** Images ***************/

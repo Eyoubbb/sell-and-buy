@@ -40,7 +40,7 @@
 					<a class="hover-link" href=""><?= CONDITION_VENTE ?></a>
 				</li>
 			</ul>
-			<p>© SAB 2022. Tous droits reservé</p>
+			<p>© SAB 2022. <?= COPYRIGHT ?></p>
 		</div>
 	</div>
 </footer>
