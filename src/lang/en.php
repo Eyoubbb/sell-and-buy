@@ -72,7 +72,7 @@ const LEGAL_MENTION = "Legal notices";
 const CONDITION_VENTE = "Terms and condition ";
 const EMAIL_ADDRESS = "E-mail adresse";
 const BECOME_CREATOR = "Become a creator";
-const PAYMENT = "Secured payment via <br>Paypal, Mastercard, Visa";
+const PAYMENT = "Secured payment via<br>Paypal, Mastercard, Visa";
 const COPYRIGHT = "All rights reserved";
 
 /*************** Images ***************/

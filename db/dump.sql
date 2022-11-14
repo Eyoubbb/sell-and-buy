@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2022 at 12:17 AM
+-- Generation Time: Nov 14, 2022 at 08:57 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -1075,7 +1075,6 @@ ALTER TABLE `tickettypes`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `AK_FULL_NAME` (`FIRST_NAME`,`LAST_NAME`),
   ADD UNIQUE KEY `EMAIL` (`EMAIL`);
 
 --
