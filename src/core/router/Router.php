@@ -66,7 +66,7 @@ class Router {
 
 		foreach ($this->routes[$method] as $route) {
 			if ($route->match($this->url)) {
-				$route->call($this->lang, $this->routes);
+				$route->call($this->url, $this->lang, $this->routes);
 				return;
 			}
 		}
@@ -78,7 +78,7 @@ class Router {
 		http_response_code($code);
 		
 		require_once PATH_CONTROLLERS . 'ErrorController.php';
-		$controller = new ErrorController($this->lang, $this->routes);
+		$controller = new ErrorController($this->url, $this->lang, $this->routes);
 		$controller->index($code);
 		exit();
 	}
