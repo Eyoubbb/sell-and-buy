@@ -24,6 +24,10 @@ header {
 			display: flex;
 			align-items: center;
 			gap: 1em;
+
+			@include media(m) {
+				display: none;
+			}
 		}
 
 		.search-form {
@@ -35,7 +39,7 @@ header {
 			border-radius: 7px;
 			background-color: white;
 
-			@include media(m) {
+			@include media(l) {
 				display: none;
 			}
 			
@@ -51,6 +55,14 @@ header {
 					outline: none;
 				}
 			}
+
+			.btn-search {
+				@include size(20px);
+			
+				img {
+					@include size;
+				}
+			}
 		}
 	}
 	
@@ -59,43 +71,32 @@ header {
 		align-items: center;
 		gap: 1em;
 		
+		.btn-icon {
+			padding: .5em;
+			display: flex;
+			border-radius: 7px;
+			transition: background-color .3s ease;
+		
+			&:hover {
+				background-color: var(--primary-2);
+			}
+			
+			img {
+				@include size(25px);
+			}
+		}
+
 		.btn-search {
 			display: none;
 			
-			@include media(m) {
-				display: block;
+			@include media(l) {
+				display: flex;
 			}
 		}
 
 		.dropdown {
 			position: relative;
 			display: flex;
-
-			.btn-caret {
-				padding: .6em;
-				display: flex;
-				align-items: center;
-				gap: .5em;
-				border-radius: 7px;
-				transition: background-color .3s ease;
-				
-				&:hover, &:focus {
-					background-color: var(--primary-2);
-				}
-				
-				img {
-					@include size(18px);
-
-					&.profile-picture {
-						@include size(30px);
-						border-radius: 50%;
-					}
-				}
-			}
-
-			&.menu-open .btn-caret {
-				background-color: var(--primary-2);
-			}
 			
 			.dropdown-content {
 				z-index: 1;
@@ -107,7 +108,7 @@ header {
 				flex-direction: column;
 				background-color: var(--primary-1);
 				border-radius: 5px;
-				@include box-shadow(0, 2px, 4px, 0, .2);
+				@include box-shadow(0, 1px, 4px, 1px, .2);
 				transition: background-color .3s ease;
 
 				li {
@@ -122,6 +123,29 @@ header {
 						border-bottom-left-radius: inherit;
 						border-bottom-right-radius: inherit;
 					}
+
+					&.profile a {
+						display: flex;
+						flex-direction: column;
+						gap: .5em;
+						
+						span {
+							display: block;
+							
+							&.name {
+								font-weight: bold;
+							}
+
+							&.email {
+								font-size: .9em;
+							}
+						}
+					}
+
+					&.separator hr {
+						@include size(100%, 1.5px);
+						background-color: var(--primary-2);
+					}
 					
 					a {
 						display: block;
@@ -130,15 +154,53 @@ header {
 						border-radius: inherit;
 						transition: background-color .3s ease;
 
-						&:is(:hover, :focus) {
+						&:hover {
 							background-color: var(--primary-2);
 						}
 					}
 				}
 			}
 
-			&.menu-open .dropdown-content {
+			&.open .dropdown-content {
 				display: flex;
+			}
+		}
+
+		.dropdown-links {
+			display: none;
+			
+			@include media(m) {
+				display: flex;
+			}
+		}
+
+		.dropdown-profile {
+			.btn-caret {
+				padding: .5em;
+				display: flex;
+				align-items: center;
+				gap: .7em;
+				border-radius: 7px;
+				transition: background-color .3s ease;
+				
+				&:hover {
+					background-color: var(--primary-2);
+				}
+				
+				img {
+					@include size(18px);
+
+					&.profile-picture {
+						@include size(40px);
+						border: 1px solid var(--primary-2);
+						background-color: white;
+						border-radius: 50%;
+					}
+				}
+			}
+
+			&.open .btn-caret {
+				background-color: var(--primary-2);
 			}
 		}
 	}
@@ -150,7 +212,7 @@ a.hover-link {
 	position: relative;
 	overflow: hidden;
 
-	@include pseudo($pos : auto auto 0 0) {
+	@include pseudo($pos: auto auto 0 0) {
 		@include size(100%, 0.1em);
 		background-color: rgb(0, 0, 0);
 		opacity: 1;
@@ -160,13 +222,5 @@ a.hover-link {
 
 	&:hover::after {
 		transform: translate3d(0, 0, 0);
-	}
-}
-
-.btn-search {
-	@include size(20px);
-
-	img {
-		@include size;
 	}
 }
