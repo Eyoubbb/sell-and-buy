@@ -64,10 +64,13 @@ const NAV_SEARCH = "Search";
 const NAV_SEARCH_PLACEHOLDER = "Search Sell & Buy";
 const NAV_LOGIN = "Login";
 const NAV_LOGOUT = "Logout";
+const NAV_REGISTER = "Register";
 const NAV_CREATOR = "Creators";
 const NAV_SHOP = "Shop";
 const NAV_COLLECTIONS = "Collections";
 const NAV_PAGES = "Pages";
+const NAV_ACCOUNT = "My account";
+const NAV_ACCOUNT_SETTINGS = "Settings";
 
 /*************** Footer ***************/
 
