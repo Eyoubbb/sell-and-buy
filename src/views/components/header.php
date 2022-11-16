@@ -1,6 +1,7 @@
 <?php
 	$frUrl = '/fr' . $data['url'];
 	$enUrl = '/en' . $data['url'];
+	$homeUrl = $data['routes']['GET:Home#index']->getUrl();
 	$loginUrl = $data['routes']['GET:User#login']->getUrl();
 	$registerUrl = $data['routes']['GET:User#register']->getUrl();
 	$logoutUrl = $data['routes']['GET:User#logout']->getUrl();
@@ -16,21 +17,21 @@
 <header>
 	<!-- left -->
 	<div class="nav-left">
-		<a class="logo" href="<?= $data['routes']['GET:Home#index']->getUrl() ?>">
+		<a class="logo" href="<?= $homeUrl ?>">
 			<img src="<?= PATH_IMAGES . 'logo.svg' ?>" alt="<?= ALT_LOGO ?>" loading="lazy" />
 		</a>
 		<ul class="nav-links">
 			<li>
-				<a style="font-weight: bold;" class="hover-link" href="<?= $data['routes']['GET:Home#index']->getUrl() ?>"><?= NAV_SHOP ?></a>
+				<a style="font-weight: bold;" class="hover-link" href="<?= $homeUrl ?>"><?= NAV_SHOP ?></a>
 			</li>
 			<li>
-				<a class="hover-link" href="<?= $data['routes']['GET:Home#index']->getUrl() ?>"><?= NAV_PAGES ?></a>
+				<a class="hover-link" href="<?= $homeUrl ?>"><?= NAV_PAGES ?></a>
 			</li>
 			<li>
-				<a class="hover-link" href="<?= $data['routes']['GET:Home#index']->getUrl() ?>"><?= NAV_COLLECTIONS ?></a>
+				<a class="hover-link" href="<?= $homeUrl ?>"><?= NAV_COLLECTIONS ?></a>
 			</li>
 			<li>
-				<a class="hover-link" href="<?= $data['routes']['GET:Home#index']->getUrl() ?>"><?= NAV_CREATOR ?></a>
+				<a class="hover-link" href="<?= $homeUrl ?>"><?= NAV_CREATOR ?></a>
 			</li>
 		</ul>
 		<form class="search-form" method="GET" action="<?= $searchUrl ?>">
@@ -51,16 +52,16 @@
 			</button>
 			<ul class="dropdown-content">
 				<li>
-					<a style="font-weight: bold;" href="<?= $data['routes']['GET:Home#index']->getUrl() ?>"><?= NAV_SHOP ?></a>
+					<a style="font-weight: bold;" href="<?= $homeUrl ?>"><?= NAV_SHOP ?></a>
 				</li>
 				<li>
-					<a href="<?= $data['routes']['GET:Home#index']->getUrl() ?>"><?= NAV_PAGES ?></a>
+					<a href="<?= $homeUrl ?>"><?= NAV_PAGES ?></a>
 				</li>
 				<li>
-					<a href="<?= $data['routes']['GET:Home#index']->getUrl() ?>"><?= NAV_COLLECTIONS ?></a>
+					<a href="<?= $homeUrl ?>"><?= NAV_COLLECTIONS ?></a>
 				</li>
 				<li>
-					<a href="<?= $data['routes']['GET:Home#index']->getUrl() ?>"><?= NAV_CREATOR ?></a>
+					<a href="<?= $homeUrl ?>"><?= NAV_CREATOR ?></a>
 				</li>
 			</ul>
 		</div>
