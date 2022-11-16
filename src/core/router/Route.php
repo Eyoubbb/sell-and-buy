@@ -48,13 +48,13 @@ class Route {
 		return '([^/]+)';
 	}
 
-	public function call(string $lang, array $routes): void {
+	public function call(string $url, string $lang, array $routes): void {
 		$params = explode('#', $this->callable);
 		$controllerName = "$params[0]Controller";
 
 		require_once PATH_CONTROLLERS . $controllerName . '.php';
 
-		$controller = new $controllerName($lang, $routes);
+		$controller = new $controllerName($url, $lang, $routes);
 		
 		call_user_func_array([$controller, $params[1]], $this->matches);
 	}

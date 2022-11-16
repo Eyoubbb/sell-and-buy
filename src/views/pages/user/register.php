@@ -41,7 +41,7 @@
 			<input type="file" accept=".jpg,.png,.webp" name="picture" id="input-picture" required>
 		</div>
 		<div class="container-image">
-			<img class="image-preview hidden" src="" alt="<?= REGISTER_PROFILE_PICTURE_PREVIEW ?>">
+			<img class="image-preview hidden" src="" alt="<?= REGISTER_PROFILE_PICTURE_PREVIEW ?>" />
 		</div>
 		<div class="commands">
 			<button class="previous" type="button"><?= REGISTER_PREVIOUS ?></button>

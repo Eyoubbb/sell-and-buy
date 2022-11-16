@@ -1,5 +1,10 @@
 <?php
 
+/*************** Languages ***************/
+
+const FR = 'Français';
+const EN = 'English';
+
 /*************** Home ***************/
 
 const HOME_WINDOW_TITLE = "Home";
@@ -56,11 +61,16 @@ const ERROR_404_MESSAGE = "The requested page does not exist";
 /*************** Header ***************/
 
 const NAV_SEARCH = "Search";
+const NAV_SEARCH_PLACEHOLDER = "Search Sell & Buy";
 const NAV_LOGIN = "Login";
+const NAV_LOGOUT = "Logout";
+const NAV_REGISTER = "Register";
 const NAV_CREATOR = "Creators";
 const NAV_SHOP = "Shop";
 const NAV_COLLECTIONS = "Collections";
 const NAV_PAGES = "Pages";
+const NAV_ACCOUNT = "My account";
+const NAV_ACCOUNT_SETTINGS = "Settings";
 
 /*************** Footer ***************/
 
@@ -72,9 +82,12 @@ const LEGAL_MENTION = "Legal notices";
 const CONDITION_VENTE = "Terms and condition ";
 const EMAIL_ADDRESS = "E-mail adresse";
 const BECOME_CREATOR = "Become a creator";
-const PAYMENT = "Secured payment via <br>Paypal, Mastercard, Visa";
+const PAYMENT = "Secured payment via<br>Paypal, Mastercard, Visa";
 const COPYRIGHT = "All rights reserved";
 
 /*************** Images ***************/
 
 const ALT_LOGO = "The Sell & Buy logo";
+const ALT_MENU = "The menu icon";
+const ALT_SEARCH = "The search icon";
+const ALT_PROFILE_PICTURE = "Your profile picture";

@@ -2,10 +2,12 @@
 
 abstract class Controller {
 
+	private string $url;
 	private string $lang;
 	private array $routes;
 	
-	public function __construct(string $lang, array $routerMap) {
+	public function __construct(string $url, string $lang, array $routerMap) {
+		$this->url = str_starts_with($url, '/') ? $url : '/' . $url;
 		$this->lang = $lang;
 
 		foreach ($routerMap as $method => $routes) {	
@@ -33,6 +35,7 @@ abstract class Controller {
 	public function view(string $view, array $data = []): void {
 
 		$data['view'] = $view;
+		$data['url'] = $this->url;
 		$data['lang'] = $this->lang;
 		$data['routes'] = $this->routes;
 

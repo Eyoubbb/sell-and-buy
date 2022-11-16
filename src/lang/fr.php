@@ -1,5 +1,10 @@
 <?php
 
+/*************** Languages ***************/
+
+const FR = 'Français';
+const EN = 'English';
+
 /*************** Home ***************/
 
 const HOME_WINDOW_TITLE = "Accueil";
@@ -56,11 +61,16 @@ const ERROR_404_MESSAGE = "La page demandée n'existe pas";
 /*************** Header ***************/
 
 const NAV_SEARCH = "Recherche";
+const NAV_SEARCH_PLACEHOLDER = "Recherche Sell & Buy";
 const NAV_LOGIN = "Se connecter";
+const NAV_LOGOUT = "Se déconnecter";
+const NAV_REGISTER = "S'inscrire";
 const NAV_CREATOR = "Createurs";
 const NAV_SHOP = "Acheter";
 const NAV_COLLECTIONS = "Collections";
 const NAV_PAGES = "Pages";
+const NAV_ACCOUNT = "Mon compte";
+const NAV_ACCOUNT_SETTINGS = "Paramètres";
 
 /*************** Footer ***************/
 
@@ -72,10 +82,13 @@ const LEGAL_MENTION = "Mention légales";
 const CONDITION_VENTE = "Conditions generales";
 const EMAIL_ADDRESS = "Adresse mail";
 const BECOME_CREATOR = "Devenir un créateur";
-const PAYMENT = "Paiement securisé via<br> Paypal, Mastercard, Visa";
+const PAYMENT = "Paiement securisé via<br>Paypal, Mastercard, Visa";
 const COPYRIGHT = "Tous droits reservé";
 
 
 /*************** Images ***************/
 
 const ALT_LOGO = "Le logo de Sell & Buy";
+const ALT_MENU = "L'icône du menu";
+const ALT_SEARCH = "L'icône de la recherche";
+const ALT_PROFILE_PICTURE = "Votre photo de profil";
