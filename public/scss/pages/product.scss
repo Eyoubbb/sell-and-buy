@@ -1,0 +1,110 @@
+@use "../abstracts" as *;
+@use "../base" as *;
+
+@use "../components/header";
+@use "../components/footer";
+
+
+.produit {
+	display: flex;
+	width: 95%;
+	gap: 3em;
+	margin: 3em auto;
+
+	@include media(m) {
+		flex-direction: column;
+	}
+}
+
+.generalImage {
+	display: flex;
+	gap: .8em;
+	width: 50%;
+
+	.firstimage {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-grow: 1;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			aspect-ratio: 1/1;
+		}
+	}
+
+	.secondimage {
+		display: flex;
+		flex-direction: column;
+		gap: inherit;
+		justify-content: center;
+		width: 25%;
+
+		div {
+			overflow: hidden;
+			flex-grow: 1;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			img {
+				object-fit: contain;
+				max-width: 100%;
+				aspect-ratio: 1/1;
+				max-height: 100%;
+			}
+		}
+
+	}
+
+	@include media(m) {
+		width: 90%;
+	}
+}
+
+.descriptif {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	gap: 1em;
+
+	h1 {
+		font-size: xx-large;
+	}
+
+	.imagePetit {
+		display: flex;
+		gap: 1em;
+
+		img {
+			width: 5em;
+			padding: 0.3em;
+
+			&:hover {
+				border: 1px solid grey;
+			}
+		}
+	}
+
+	.description {
+		text-align: justify;
+		border-bottom: 1px solid black;
+		width: min(65ch, 100%);
+		padding: 2em 0;
+	}
+
+	.panier {
+		flex-grow: 1;
+		justify-content: flex-end;
+		align-items: flex-end;
+		display: flex;
+	}
+
+	@include media(m) {
+		width: 90%;
+		align-items: center;
+	}
+}

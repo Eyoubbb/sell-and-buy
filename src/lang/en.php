@@ -10,6 +10,10 @@ const EN = 'English';
 const HOME_WINDOW_TITLE = "Home";
 const HOME_TITLE = "Welcome to the Home page";
 
+/*************** Product ***************/
+
+const PRODUCT_WINDOW_TITLE = "Product";
+
 /*************** Login & register ***************/
 
 const LOGIN_REGISTER_BACK_TO = "Back to ";

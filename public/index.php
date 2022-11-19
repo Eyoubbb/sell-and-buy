@@ -13,5 +13,7 @@ $router->get('/logout', 'User#logout');
 
 $router->get('/register', 'User#register');
 $router->post('/register', 'User#register');
+ 
+$router->get('/product', 'Product#index');
 
 $router->run();
