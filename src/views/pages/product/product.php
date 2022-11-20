@@ -1,4 +1,4 @@
-<section class="produit">
+<section class="product">
 
 	<div class="generalImage">
 
@@ -12,13 +12,13 @@
 			<img src="images/products/PROD-30.jpg">
 		</div>
 	</div>
-	<div class="descriptif">
+	<div class="information">
 		<!-- coté gauche, description du produit   -->
 		<h1>
-			Nike Air Force 1 '07 Premium
+			Sandales de Papi 
 		</h1>
 		<p>145€</p>
-		<div class="imagePetit">
+		<div class="diferentestyleimage">
 			<!-- images du produit en plus petit   -->
 			<img src="images/products/PROD-30.jpg">
 			<img src="images/products/PROD-30.jpg">
@@ -35,11 +35,63 @@
 
 		</p>
 
-		<div class="panier">
+		<div class="cart">
 			<!-- ajouter au panier   -->
 			<button>ajouter au panier</button>
 		</div>
 
 	</div>
 
+</section>
+
+<section  class ="similararticles" > 
+	<div> 
+		<h2> Articles similaires </h2>
+	</div>
+</section>
+
+<section class ="clientreview ">
+	
+	<div class ="commentstitle"> 
+		<h2> Avis clients(3):</h2>
+		<div class ="mark">
+			<?php
+			for ($i=1 ; $i<6 ; $i++){
+				echo "<img src = 'images/star.png' ";
+				if ($i<=3) {
+					echo "class='starvalid'";
+				}
+				echo "/>";
+			}
+			?>
+		</div>
+	</div>
+	<div class = "comments">
+		<?php for($comment=0 ; $comment <3 ; $comment++){ ?>
+		<article class="comment">
+			<h3> Trop grand </h3>
+			<div class="commenthead">
+				<div class ="mark"> 
+					<?php
+					for ($i=1 ; $i<6 ; $i++){
+						echo "<img src = 'images/star.png' ";
+						if ($i<=2) {
+							echo "class='starvalid'";
+						}
+						echo "/>";
+					}
+					?>
+				</div>
+				<p class="author"> Monsieur pas content </p>
+				<p class="commentdate"> 21 janvier 2054 <p>
+			</div>
+			<p class="commentdescription"> 
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam recusandae cupiditate alias maxime. Nulla veritatis amet quod, reiciendis in eum. <p>
+		</article>	
+		<?php } ?>
+		<div class="addcomment">
+			<!-- ajouter un commentaire   -->
+			<button>Ajouter un commentaire</button>
+		</div>
+	</div>
 </section>
