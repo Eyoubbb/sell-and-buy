@@ -1,3 +1,8 @@
+<?php
+	
+	$askCreatorUrl = $data['routes']['GET:Creator#ask']->getUrl();
+	
+?>
 <footer>
 	<div class="footer-top">
 		<ul>
@@ -6,7 +11,7 @@
 			</li>
 
 			<li>
-				<a href=""><?= BECOME_CREATOR ?></a>
+				<a href="<?= $askCreatorUrl ?>"><?= BECOME_CREATOR ?></a>
 			</li>
 			<li>
 				<a href=""><?= CUSTOMER_SERVICE ?></a>

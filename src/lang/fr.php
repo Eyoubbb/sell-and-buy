@@ -92,3 +92,8 @@ const ALT_LOGO = "Le logo de Sell & Buy";
 const ALT_MENU = "L'icône du menu";
 const ALT_SEARCH = "L'icône de la recherche";
 const ALT_PROFILE_PICTURE = "Votre photo de profil";
+
+/*************** Creator ***************/
+
+const CREATOR_DESCRIPTION = "Description du créateur";
+const CREATOR_SUBMIT = "Valider la demande";
