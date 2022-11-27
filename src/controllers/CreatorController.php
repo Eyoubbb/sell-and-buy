@@ -6,7 +6,7 @@ class CreatorController extends Controller {
 
     public function ask(): void {
 
-        if (isLoggedIn()) {
+        if (!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
 
@@ -20,6 +20,7 @@ class CreatorController extends Controller {
         $data['header'] = true;
 		$data['footer'] = true;
         $data['stylesheets'][] = 'pages/askCreator';
+        
         $this->view('creator/ask', $data);
     }
 

@@ -21,6 +21,6 @@ class Creator extends User {
 
 	public function getBannerUrl(): ?string { return $this->banner_url; }
 
-	public function setBannerUrl(string $bannerUrl): void { $this->bannerUrl = $bannerUrl; }
+	public function setBannerUrl(string $banner_url): void { $this->banner_url = $banner_url; }
 	
 }

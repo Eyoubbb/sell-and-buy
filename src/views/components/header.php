@@ -7,6 +7,7 @@
 	$logoutUrl = $data['routes']['GET:User#logout']->getUrl();
 	$searchUrl = $data['routes']['GET:Home#index']->getUrl();
 	$settingsUrl = $data['routes']['GET:Home#index']->getUrl();
+	$askCreatorUrl = $data['routes']['GET:Creator#ask']->getUrl();
 
 	if (isLoggedIn()) {
 		$user = unserialize($_SESSION['user']);
@@ -84,6 +85,7 @@
 				<?php
 					if ($user) {
 						$settingsText = NAV_ACCOUNT_SETTINGS;
+						$askCreatorText = BECOME_CREATOR;
 						echo <<<HTML
 							<li class="profile">
 								<a href="$logoutUrl">
@@ -96,6 +98,9 @@
 							</li>
 							<li>
 								<a href="$settingsUrl">$settingsText</a>
+							</li>
+							<li>
+								<a href="$askCreatorUrl">$askCreatorText</a>
 							</li>
 						HTML;
 					} else {
