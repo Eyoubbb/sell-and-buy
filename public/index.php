@@ -12,4 +12,6 @@ $router->post('/login', 'User#login');
 $router->get('/register', 'User#register');
 $router->post('/register', 'User#register');
 
+$router->get('/creator/:id', 'Creator#index');
+
 $router->run();
