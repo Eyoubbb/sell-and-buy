@@ -94,5 +94,6 @@ const ALT_PROFILE_PICTURE = "Your profile picture";
 
 /*************** Creator ***************/
 
-const CREATOR_DESCRIPTION = "Creator description";
+const CREATOR_MOTIVE = "Your motivations for becoming a designer";
 const CREATOR_SUBMIT = "Apply";
+const CREATOR_PLACEHOLDER = "put your motives here";
