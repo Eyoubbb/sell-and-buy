@@ -96,4 +96,4 @@ const ALT_PROFILE_PICTURE = "Your profile picture";
 
 const CREATOR_MOTIVE = "Your motivations for becoming a designer";
 const CREATOR_SUBMIT = "Apply";
-const CREATOR_PLACEHOLDER = "put your motives here";
+const CREATOR_PLACEHOLDER = "write your motives here";
