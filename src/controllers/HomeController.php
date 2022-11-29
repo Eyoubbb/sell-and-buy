@@ -10,6 +10,10 @@ class HomeController extends Controller {
 		
 		$data['stylesheets'][] = 'pages/home';
 		
+		$productModel = $this->model('Product');
+
+		$data['products'] = $productModel->getAllProducts();
+
 		$this->view('home/home', $data);
 	}
 

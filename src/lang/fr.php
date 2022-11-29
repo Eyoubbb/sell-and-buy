@@ -79,3 +79,18 @@ const COPYRIGHT = "Tous droits reservé";
 /*************** Images ***************/
 
 const ALT_LOGO = "Le logo de Sell & Buy";
+
+/*************** Filter ***************/
+
+const FILTER_CATEGORIES = "Catégories";
+const FILTER_CREATOR = "Createurs";
+const FILTER_ALL = "Voir tout";
+
+const CATEGORIE_SMARTPHONES= "Téléphones";
+const CATEGORIE_LAPTOPS = "Ordinateurs";
+const CATEGORIE_ACCESSORIES = "Accessoires";
+const CATEGORIE_CLOTHES = "Vêtements";
+const CATEGORIE_SHOES = "Chaussures";
+const CATEGORIE_JEWELERY = "Bijoux";
+const CATEGORIE_BEAUTIES = "Beautés";
+const CATEGORIE_SPORTWEAR = "Sportwear";

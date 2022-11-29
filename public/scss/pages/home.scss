@@ -3,4 +3,27 @@
 
 @use "../components/header";
 @use "../components/footer";
+@use "../components/product";
+@use "../components/filter";
 
+
+main{
+    --gap : 1em;
+
+    section{
+        padding-bottom: 3em;
+    }
+
+    .banner{
+        img{
+            @include size;
+        }
+    }
+
+    .products{
+		display: flex;
+		justify-content: center;
+        flex-wrap: wrap;
+        gap: 3em;
+    }
+}
