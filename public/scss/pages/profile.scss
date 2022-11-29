@@ -23,12 +23,13 @@ section {
 	margin-right: 20%;
 
 	.blockpp {
-		border: 1em solid #fff;
+		border: 3px solid #fff;
+		background-color: #fff;
 		display: flex;
 		flex-direction: column;
 		max-width: 15%;
 		width: max-content;
-		margin-top: -4em;
+		translate: 0 -4em;
 
 		.profilepic {
 			width: 100%
