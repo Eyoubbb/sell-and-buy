@@ -10,6 +10,10 @@ const EN = 'English';
 const HOME_WINDOW_TITLE = "Accueil";
 const HOME_TITLE = "Bienvenue sur la page d'Accueil";
 
+/*************** Product ***************/
+
+const PRODUCT_WINDOW_TITLE = "Produit";
+
 /*************** Login & register ***************/
 
 const LOGIN_REGISTER_BACK_TO = "Retourner à l'";
@@ -95,8 +99,13 @@ const ALT_PROFILE_PICTURE = "Votre photo de profil";
 const ALT_PROFILE_PICTURE_CREATOR = "La photo de profil du compte du créateur";
 const ALT_BANNIERE= "La banniere du compte créateur";
 
-
 /*************** Creator profile ***************/
 
 const ABOUT = "A propos";
 const SUBSCRIBE = "S'abonner +";
+
+/*************** Creator ***************/
+
+const CREATOR_MOTIVE = "Vos motivations pour devenir créateur";
+const CREATOR_SUBMIT = "Valider la demande";
+const CREATOR_PLACEHOLDER = "entrez vos motivations ici";

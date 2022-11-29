@@ -10,6 +10,10 @@ const EN = 'English';
 const HOME_WINDOW_TITLE = "Home";
 const HOME_TITLE = "Welcome to the Home page";
 
+/*************** Product ***************/
+
+const PRODUCT_WINDOW_TITLE = "Product";
+
 /*************** Login & register ***************/
 
 const LOGIN_REGISTER_BACK_TO = "Back to ";
@@ -94,8 +98,13 @@ const ALT_PROFILE_PICTURE = "Your profile picture";
 const ALT_PROFILE_PICTURE_CREATOR = "Profile picture of the creator";
 const ALT_BANNIERE= "Banner of the creator";
 
-
 /*************** Creator profile ***************/
 
 const ABOUT = "About";
 const SUBSCRIBE = "Subscribe +";
+
+/*************** Creator ask ***************/
+
+const CREATOR_MOTIVE = "Your motivations for becoming a designer";
+const CREATOR_SUBMIT = "Apply";
+const CREATOR_PLACEHOLDER = "write your motives here";

@@ -1,7 +1,7 @@
-<img class="banner" src="<?= PATH_CREATOR . 'image.png'?>" alt="<?= ALT_BANNIERE ?>">
+<img class="banner" src="<?= PATH_CREATORS . 'BAN-1.png'?>" alt="<?= ALT_BANNIERE ?>">
 <section>
 	<div class="blockpp">
-		<img class="profilepic" src="<?= PATH_CREATOR . 'tete.png'?>" alt="<?= ALT_PROFILE_PICTURE_CREATOR ?>">
+		<img class="profilepic" src="<?= PATH_USERS . 'PP-1.png'?>" alt="<?= ALT_PROFILE_PICTURE_CREATOR ?>">
 		<span class="name">Antoine Darwin</span>
 	</div>
 	<div class="texte">
