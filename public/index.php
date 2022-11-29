@@ -14,9 +14,9 @@ $router->get('/logout', 'User#logout');
 $router->get('/register', 'User#register');
 $router->post('/register', 'User#register');
  
-$router->get('/product', 'Product#index');
+$router->get('/product/:id', 'Product#index')->with('id', '[0-9]+');
 
-$router->get('/creator/:id', 'Creator#index');
-$router->get('/askcreator', 'Creator#ask');
+$router->get('/creator/:id', 'Creator#index')->with('id', '[0-9]+');
+$router->get('/creator/ask', 'Creator#ask');
 
 $router->run();

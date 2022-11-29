@@ -28,7 +28,7 @@ class CreatorController extends Controller {
 
 		$data['header'] = true;
 		$data['footer'] = true;
-		$data['stylesheets'][] = 'pages/askCreator';
+		$data['stylesheets'][] = 'pages/ask';
 		
 		$this->view('creator/ask', $data);
 	}

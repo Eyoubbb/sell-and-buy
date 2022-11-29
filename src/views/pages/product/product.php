@@ -3,13 +3,13 @@
 	<div class="generalImage">
 
 		<div class="secondimage">
-			<div><img src="images/products/PROD-30.jpg"></div>
-			<div><img src="images/products/PROD-30.jpg"></div>
-			<div><img src="images/products/PROD-30.jpg"></div>
+			<div><img src="<?= PATH_PRODUCTS ?>PROD-30.jpg"></div>
+			<div><img src="<?= PATH_PRODUCTS ?>PROD-30.jpg"></div>
+			<div><img src="<?= PATH_PRODUCTS ?>PROD-30.jpg"></div>
 		</div>
 		<div class="firstimage">
 			<!-- images du produit   -->
-			<img src="images/products/PROD-30.jpg">
+			<img src="<?= PATH_PRODUCTS ?>PROD-30.jpg">
 		</div>
 	</div>
 	<div class="information">
@@ -20,8 +20,8 @@
 		<p>145€</p>
 		<div class="diferentestyleimage">
 			<!-- images du produit en plus petit   -->
-			<img src="images/products/PROD-30.jpg">
-			<img src="images/products/PROD-30.jpg">
+			<img src="<?= PATH_PRODUCTS ?>PROD-30.jpg">
+			<img src="<?= PATH_PRODUCTS ?>PROD-30.jpg">
 
 		</div>
 		<p class="description">
@@ -57,7 +57,7 @@
 		<div class ="mark">
 			<?php
 			for ($i=1 ; $i<6 ; $i++){
-				echo "<img src = 'images/star.png' ";
+				echo "<img src='" . PATH_IMAGES . "star.png' ";
 				if ($i<=3) {
 					echo "class='starvalid'";
 				}
@@ -74,7 +74,7 @@
 				<div class ="mark"> 
 					<?php
 					for ($i=1 ; $i<6 ; $i++){
-						echo "<img src = 'images/star.png' ";
+						echo "<img src = '". PATH_IMAGES . "star.png' ";
 						if ($i<=2) {
 							echo "class='starvalid'";
 						}
