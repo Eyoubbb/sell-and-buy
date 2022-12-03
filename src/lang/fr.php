@@ -99,6 +99,21 @@ const ALT_PROFILE_PICTURE = "Votre photo de profil";
 const ALT_PROFILE_PICTURE_CREATOR = "La photo de profil du compte du créateur";
 const ALT_BANNIERE= "La banniere du compte créateur";
 
+/*************** Filter ***************/
+
+const FILTER_CATEGORIES = "Catégories";
+const FILTER_CREATOR = "Createurs";
+const FILTER_ALL = "Voir tout";
+
+const CATEGORIE_SMARTPHONES= "Téléphones";
+const CATEGORIE_LAPTOPS = "Ordinateurs";
+const CATEGORIE_ACCESSORIES = "Accessoires";
+const CATEGORIE_CLOTHES = "Vêtements";
+const CATEGORIE_SHOES = "Chaussures";
+const CATEGORIE_JEWELERY = "Bijoux";
+const CATEGORIE_BEAUTIES = "Beautés";
+const CATEGORIE_SPORTWEAR = "Sportwear";
+
 /*************** Creator profile ***************/
 
 const ABOUT = "A propos";
