@@ -9,11 +9,17 @@ class HomeController extends Controller {
 		$data['title'] = HOME_WINDOW_TITLE;
 		
 		$data['stylesheets'][] = 'pages/home';
+
+		$model = $this->model('Product');
+
+		$res = $model->home();
+
+		if ($res) {
+			$data = array_merge($data, $res);
+		} else {
+			$data['error'] = $model->getError();
+		}
 		
-		$productModel = $this->model('Product');
-
-		$data['products'] = $productModel->getAllProducts();
-
 		$this->view('home/home', $data);
 	}
 

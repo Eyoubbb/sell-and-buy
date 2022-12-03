@@ -13,14 +13,15 @@
 		$url = $data['products'][0]->getImageUrl()
 	?>
 
-	<?php require(PATH_COMPONENTS . 'product.php'); ?>
-	<?php require(PATH_COMPONENTS . 'product.php'); ?>
-	<?php require(PATH_COMPONENTS . 'product.php'); ?>
-	<?php require(PATH_COMPONENTS . 'product.php'); ?>
-	<?php require(PATH_COMPONENTS . 'product.php'); ?>
-	<?php require(PATH_COMPONENTS . 'product.php'); ?>
-	<?php require(PATH_COMPONENTS . 'product.php'); ?>
-	<?php require(PATH_COMPONENTS . 'product.php'); ?>
-
+	<?php
+		require(PATH_COMPONENTS . 'product.php');
+		require(PATH_COMPONENTS . 'product.php');
+		require(PATH_COMPONENTS . 'product.php');
+		require(PATH_COMPONENTS . 'product.php');
+		require(PATH_COMPONENTS . 'product.php');
+		require(PATH_COMPONENTS . 'product.php');
+		require(PATH_COMPONENTS . 'product.php');
+		require(PATH_COMPONENTS . 'product.php');
+	?>
 
 </section>
