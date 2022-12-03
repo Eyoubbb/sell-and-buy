@@ -10,17 +10,17 @@ class UserModel extends Model {
 
 		$user = $this->dao('User')->getByEmail($email);
 
-		if ($user !== false) {
-			if (password_verify($password, $user->getPasswordHash())) {
-				return ['user' => $user];
-			} else {
-				$this->setError('INVALID_PASSWORD');
-			}
-		} else {
+		if ($user === false) {
 			$this->setError('INVALID_EMAIL');
+			return false;
 		}
 
-		return false;
+		if (!password_verify($password, $user->getPasswordHash())) {
+			$this->setError('INVALID_PASSWORD');
+			return false;
+		}
+		
+		return ['user' => $user];
 	}
 
 	public function register(): array | false {
@@ -75,32 +75,33 @@ class UserModel extends Model {
 		
 		$userId = $userDAO->insertUser($user);
 		
-		if ($userId !== false) {
-			$user->setId($userId);
-			$fileName = "PP-$userId." . pathinfo($picture['name'], PATHINFO_EXTENSION);
-			
-			if (move_uploaded_file($picture['tmp_name'], PATH_UPLOAD_PROFILE_PICTURES . $fileName)) {
-				$user->setPictureUrl($fileName);
+		if ($userId === false) {
+			$userDAO->rollBack();
+			$this->setError('UNKNOWN_ERROR');
+			return false;
+		}
 
-				if ($userDAO->updatePictureUrl($user) === false) {
-					$userDAO->rollBack();
-					unlink(PATH_UPLOAD_PROFILE_PICTURES . $fileName);
-					$this->setError('ERROR_UPDATING_PICTURE_URL');
-					return false;
-				}
-
-				$userDAO->commit();
-				return ['user' => $user];
-			}
-			
+		$user->setId($userId);
+		$fileName = "PP-$userId." . pathinfo($picture['name'], PATHINFO_EXTENSION);
+		
+		if (!move_uploaded_file($picture['tmp_name'], PATH_UPLOAD_PROFILE_PICTURES . $fileName)) {
 			$userDAO->rollBack();
 			$this->setError('ERROR_UPLOADING_PICTURE');
 			return false;
 		}
+		
+		$user->setPictureUrl($fileName);
 
-		$userDAO->rollBack();
-		$this->setError('UNKNOWN_ERROR');
-		return false;
+		if ($userDAO->updatePictureUrl($user) === false) {
+			$userDAO->rollBack();
+			unlink(PATH_UPLOAD_PROFILE_PICTURES . $fileName);
+			$this->setError('ERROR_UPDATING_PICTURE_URL');
+			return false;
+		}
+
+		$userDAO->commit();
+		return ['user' => $user];
+		
 	}
 
 	public function logout(): void {

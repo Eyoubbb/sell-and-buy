@@ -4,15 +4,15 @@ require_once PATH_CORE . 'Model.php';
 
 class CreatorModel extends Model {
 
-    public function ask(): Creator | false {
-        
+	public function ask(): Creator | false {
+		
 		$description = $_POST['description'];
-        $bannerUrl = $_POST['bannerUrl'];
+		$bannerUrl = $_POST['bannerUrl'];
 
-        $creator = new Creator();
-        $creator->setDescription($description);
-        
-        
-        $userId = $userDAO->insertUser($user);
-    }    
+		$creator = new Creator();
+		$creator->setDescription($description);
+		
+		
+		$userId = $userDAO->insertUser($user);
+	}
 }
