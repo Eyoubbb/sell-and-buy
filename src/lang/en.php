@@ -123,4 +123,3 @@ const SUBSCRIBE = "Subscribe +";
 const CREATOR_MOTIVE = "Your motivations for becoming a designer";
 const CREATOR_SUBMIT = "Apply";
 const CREATOR_PLACEHOLDER = "write your motives here";
->>>>>>> src/lang/en.php

@@ -1,6 +1,6 @@
 <a class="item-product" href="">
 	<div class="image">
-		<img src="<?= PATH_PRODUCTS_IMAGES . $url ?>" alt="" loading="lazy">
+		<img src="<?= PATH_PRODUCTS . $url ?>" alt="" loading="lazy">
 	</div>
 	<div class="content-text">
 		<div class="left">

@@ -1,5 +1,3 @@
-<!--<h1><?= HOME_TITLE ?></h1> -->
-
 <section class="banner">
 	<img src="<?=PATH_IMAGES . 'banner.svg'?>" alt="banner" srcset="">
 </section>

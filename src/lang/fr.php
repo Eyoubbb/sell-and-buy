@@ -124,4 +124,3 @@ const SUBSCRIBE = "S'abonner +";
 const CREATOR_MOTIVE = "Vos motivations pour devenir créateur";
 const CREATOR_SUBMIT = "Valider la demande";
 const CREATOR_PLACEHOLDER = "entrez vos motivations ici";
->>>>>>> src/lang/fr.php

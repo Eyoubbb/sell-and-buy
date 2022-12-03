@@ -10,7 +10,6 @@ const PATH_CSS = APP_BASE_URL . 'css/';
 const PATH_IMAGES = APP_BASE_URL . 'images/';
 
 const PATH_FAVICON = PATH_IMAGES . 'favicon/';
-const PATH_PRODUCTS_IMAGES = PATH_IMAGES . 'products/';
 const PATH_USERS = PATH_IMAGES . 'users/';
 const PATH_CREATORS = PATH_IMAGES . 'creators/';
 const PATH_PRODUCTS = PATH_IMAGES . 'products/';
