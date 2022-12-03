@@ -1,5 +1,4 @@
 /public/css
-*DS_Store
-public/.DS_Store
-public/scss/.DS_Store
-/.gitignore
+/public/images/products
+/public/images/users
+.DS_Store

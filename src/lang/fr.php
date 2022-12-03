@@ -1,9 +1,18 @@
 <?php
 
+/*************** Languages ***************/
+
+const FR = 'Français';
+const EN = 'English';
+
 /*************** Home ***************/
 
 const HOME_WINDOW_TITLE = "Accueil";
 const HOME_TITLE = "Bienvenue sur la page d'Accueil";
+
+/*************** Product ***************/
+
+const PRODUCT_WINDOW_TITLE = "Produit";
 
 /*************** Login & register ***************/
 
@@ -56,11 +65,16 @@ const ERROR_404_MESSAGE = "La page demandée n'existe pas";
 /*************** Header ***************/
 
 const NAV_SEARCH = "Recherche";
+const NAV_SEARCH_PLACEHOLDER = "Recherche Sell & Buy";
 const NAV_LOGIN = "Se connecter";
+const NAV_LOGOUT = "Se déconnecter";
+const NAV_REGISTER = "S'inscrire";
 const NAV_CREATOR = "Createurs";
 const NAV_SHOP = "Acheter";
 const NAV_COLLECTIONS = "Collections";
 const NAV_PAGES = "Pages";
+const NAV_ACCOUNT = "Mon compte";
+const NAV_ACCOUNT_SETTINGS = "Paramètres";
 
 /*************** Footer ***************/
 
@@ -72,13 +86,18 @@ const LEGAL_MENTION = "Mention légales";
 const CONDITION_VENTE = "Conditions generales";
 const EMAIL_ADDRESS = "Adresse mail";
 const BECOME_CREATOR = "Devenir un créateur";
-const PAYMENT = "Paiement securisé via<br> Paypal, Mastercard, Visa";
+const PAYMENT = "Paiement securisé via<br>Paypal, Mastercard, Visa";
 const COPYRIGHT = "Tous droits reservé";
 
 
 /*************** Images ***************/
 
 const ALT_LOGO = "Le logo de Sell & Buy";
+const ALT_MENU = "L'icône du menu";
+const ALT_SEARCH = "L'icône de la recherche";
+const ALT_PROFILE_PICTURE = "Votre photo de profil";
+const ALT_PROFILE_PICTURE_CREATOR = "La photo de profil du compte du créateur";
+const ALT_BANNIERE= "La banniere du compte créateur";
 
 /*************** Filter ***************/
 
@@ -94,3 +113,15 @@ const CATEGORIE_SHOES = "Chaussures";
 const CATEGORIE_JEWELERY = "Bijoux";
 const CATEGORIE_BEAUTIES = "Beautés";
 const CATEGORIE_SPORTWEAR = "Sportwear";
+
+/*************** Creator profile ***************/
+
+const ABOUT = "A propos";
+const SUBSCRIBE = "S'abonner +";
+
+/*************** Creator ***************/
+
+const CREATOR_MOTIVE = "Vos motivations pour devenir créateur";
+const CREATOR_SUBMIT = "Valider la demande";
+const CREATOR_PLACEHOLDER = "entrez vos motivations ici";
+>>>>>>> src/lang/fr.php

@@ -82,7 +82,7 @@ class UserModel extends Model {
 			if (move_uploaded_file($picture['tmp_name'], PATH_UPLOAD_PROFILE_PICTURES . $fileName)) {
 				$user->setPictureUrl($fileName);
 
-				if (!$userDAO->updatePictureUrl($user) === false) {
+				if ($userDAO->updatePictureUrl($user) === false) {
 					$userDAO->rollBack();
 					unlink(PATH_UPLOAD_PROFILE_PICTURES . $fileName);
 					$this->setError('ERROR_UPDATING_PICTURE_URL');
@@ -91,16 +91,21 @@ class UserModel extends Model {
 
 				$userDAO->commit();
 				return $user;
-			} else {
-				$userDAO->rollBack();
-				$this->setError('ERROR_UPLOADING_PICTURE');
-				return false;
 			}
-		} else {
+			
 			$userDAO->rollBack();
-			$this->setError('UNKNOWN_ERROR');
+			$this->setError('ERROR_UPLOADING_PICTURE');
 			return false;
 		}
+
+		$userDAO->rollBack();
+		$this->setError('UNKNOWN_ERROR');
+		return false;
+	}
+
+	public function logout(): void {
+		unset($_SESSION['user']);
+		$_SESSION['logged_in'] = false;
 	}
 
 }

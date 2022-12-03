@@ -4,12 +4,12 @@
 <aside class="wrapper-presentation">
 	<div class="description">
 		<a href="<?= $homeUrl ?>">
-			<img src="<?= PATH_IMAGES . 'logo.svg' ?>" alt="<?= ALT_LOGO ?>" loading="lazy">
+			<img src="<?= PATH_IMAGES . 'logo.svg' ?>" alt="<?= ALT_LOGO ?>" loading="lazy" />
 		</a>
 		<p><?= LOGIN_REGISTER_PRESENTATION ?></p>
 	</div>
 	<div class="container-image">
-		<img src="<?= PATH_IMAGES . 'presentation.svg' ?>" alt="<?= LOGIN_REGISTER_ALT_PRESENTATION ?>" loading="lazy">
+		<img src="<?= PATH_IMAGES . 'presentation.svg' ?>" alt="<?= LOGIN_REGISTER_ALT_PRESENTATION ?>" loading="lazy" />
 	</div>
 </aside>
 <section class="wrapper-form">
