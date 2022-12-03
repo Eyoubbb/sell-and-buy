@@ -11,12 +11,12 @@ class User {
 	
 	public function __construct(?array $row = null) {
 		if ($row) {
-			$this->id = $row['id'];
-			$this->first_name = $row['first_name'];
-			$this->last_name = $row['last_name'];
-			$this->password_hash = $row['password_hash'];
-			$this->email = $row['email'];
-			$this->picture_url = $row['picture_url'];
+			$this->id = $row['user_id'];
+			$this->first_name = $row['user_first_name'];
+			$this->last_name = $row['user_last_name'];
+			$this->password_hash = $row['user_password_hash'];
+			$this->email = $row['user_email'];
+			$this->picture_url = $row['user_picture_url'];
 		}
 	}
 	

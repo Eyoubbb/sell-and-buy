@@ -10,8 +10,8 @@ class Creator extends User {
 	public function __construct(?array $row = null) {
 		if ($row) {
 			parent::__construct($row);
-			$this->description = $row['description'];
-			$this->banner_url = $row['banner_url'];
+			$this->description = $row['creator_description'];
+			$this->banner_url = $row['creator_banner_url'];
 		}
 	}
 

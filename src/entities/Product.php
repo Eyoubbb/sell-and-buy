@@ -13,6 +13,21 @@ class Product {
 	private int $stock;
 	private bool $visible;
 	
+	public function __construct(?array $row = null) {
+		if ($row) {
+			$this->id = $row['product_id'];
+			$this->category_id = $row['category_id'];
+			$this->creator_id = $row['creator_id'];
+			$this->name = $row['product_name'];
+			$this->description = $row['product_description'];
+			$this->image_url = $row['product_image_url'];
+			$this->price = $row['product_price'];
+			$this->discount_percentage = $row['product_discount_percentage'];
+			$this->stock = $row['product_stock'];
+			$this->visible = $row['product_visible'];
+		}
+	}
+	
 	public function getId(): int { return $this->id; }
 
 	public function getCategoryId(): string { return $this->category_id; }
