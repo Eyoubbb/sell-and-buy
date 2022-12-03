@@ -64,6 +64,20 @@
 				<li>
 					<a href="<?= $homeUrl ?>"><?= NAV_CREATOR ?></a>
 				</li>
+				<?php
+					if (isLoggedIn()) {
+						$text = NAV_LOGOUT;
+						$url = $logoutUrl;
+					} else {
+						$text = NAV_LOGIN;
+						$url = $loginUrl;
+					}
+					echo <<<HTML
+						<li>
+							<a href="$url">$text</a>
+						</li>
+					HTML;
+				?>
 			</ul>
 		</div>
 		<div class="dropdown dropdown-profile">

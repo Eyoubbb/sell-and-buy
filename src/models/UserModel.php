@@ -4,7 +4,7 @@ require_once PATH_CORE . 'Model.php';
 
 class UserModel extends Model {
 
-	public function login(): User | false {
+	public function login(): array | false {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
@@ -12,7 +12,7 @@ class UserModel extends Model {
 
 		if ($user !== false) {
 			if (password_verify($password, $user->getPasswordHash())) {
-				return $user;
+				return ['user' => $user];
 			} else {
 				$this->setError('INVALID_PASSWORD');
 			}
@@ -23,7 +23,7 @@ class UserModel extends Model {
 		return false;
 	}
 
-	public function register(): User | false {
+	public function register(): array | false {
 		[
 			'email' => $email,
 			'password' => $password,
@@ -90,7 +90,7 @@ class UserModel extends Model {
 				}
 
 				$userDAO->commit();
-				return $user;
+				return ['user' => $user];
 			}
 			
 			$userDAO->rollBack();
