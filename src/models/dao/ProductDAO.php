@@ -12,8 +12,6 @@ class ProductDAO extends DAO {
 	public function getAllProducts() {
 		$sql = 'SELECT *
 				FROM products P
-				JOIN categories C
-					USING (category_id)
 				JOIN users U
 					ON (P.creator_id = U.user_id)
 				WHERE P.product_visible = 1

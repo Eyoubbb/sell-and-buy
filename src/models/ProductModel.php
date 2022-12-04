@@ -18,15 +18,10 @@ class ProductModel extends Model {
 		}
 		
 		$products = [];
-		$categories = [];
 		$creators = [];
 
 		foreach ($res as $row) {
 			$products[] = new Product($row);
-			
-			if (!isset($categories[$row['category_id']])) {
-				$categories[$row['category_id']] = new Category($row);
-			}
 			
 			if (!isset($creators[$row['user_id']])) {
 				$creators[$row['user_id']] = new User($row);
@@ -35,7 +30,6 @@ class ProductModel extends Model {
 		
 		return [
 			'products' => $products,
-			'categories' => $categories,
 			'creators' => $creators
 		];
 	}
