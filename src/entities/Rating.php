@@ -2,14 +2,14 @@
 
 class Rating {
 
-	private int $id;
+	private int $rating_id;
 	private int $product_id;
 	private int $comment_id;
 	private int $user_id;
-	private int $grade;
-	private string $date;
+	private int $rating_grade;
+	private string $rating_date;
 
-	public function getId(): int { return $this->id; }
+	public function getId(): int { return $this->rating_id; }
 
 	public function getProductId(): int { return $this->product_id; }
 
@@ -17,8 +17,8 @@ class Rating {
 
 	public function getUserId(): int { return $this->user_id; }
 
-	public function getGrade(): int { return $this->grade; }
+	public function getGrade(): int { return $this->rating_grade; }
 	
-	public function getDate(): string { return $this->date; }
+	public function getDate(): string { return $this->rating_date; }
 	
 }

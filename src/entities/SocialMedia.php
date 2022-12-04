@@ -2,14 +2,14 @@
 
 class SocialMedia {
 
-	private int $id;
-	private string $name;
-	private ?string $icon_url;
+	private int $social_media_id;
+	private string $social_media_name;
+	private ?string $social_media_icon_url;
 
-	public function getId(): int { return $this->id; }
+	public function getId(): int { return $this->social_media_id; }
 
-	public function getName(): string { return $this->name; }
+	public function getName(): string { return $this->social_media_name; }
 
-	public function getIconUrl(): ?string { return $this->icon_url; }
+	public function getIconUrl(): ?string { return $this->social_media_icon_url; }
 	
 }

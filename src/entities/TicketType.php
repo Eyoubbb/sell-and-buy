@@ -2,11 +2,11 @@
 
 class TicketType {
 
-	private int $id;
-	private string $name;
+	private int $ticket_type_id;
+	private string $ticket_type_name;
 
-	public function getId(): int { return $this->id; }
+	public function getId(): int { return $this->ticket_type_id; }
 
-	public function getName(): string { return $this->name; }
+	public function getName(): string { return $this->ticket_type_name; }
 	
 }
