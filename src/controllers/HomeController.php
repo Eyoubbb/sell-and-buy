@@ -14,7 +14,7 @@ class HomeController extends Controller {
 
 		$res = $model->home();
 
-		if ($res) {
+		if ($res !== false) {
 			$data = array_merge($data, $res);
 		} else {
 			$data['error'] = $model->getError();

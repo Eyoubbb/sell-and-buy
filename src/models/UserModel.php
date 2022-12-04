@@ -59,7 +59,7 @@ class UserModel extends Model {
 		
 		$userExists = $userDAO->getByEmail($email);
 
-		if ($userExists) {
+		if ($userExists !== false) {
 			$this->setError('EMAIL_ALREADY_EXISTS');
 			return false;
 		}
