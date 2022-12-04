@@ -1,4 +1,9 @@
-<a class="item-product" href="">
+<?php
+	$productUrl = $data['routes']['GET:Product#index']->getUrl([
+		'id' => $product->getId()
+	]);
+?>
+<a class="item-product" href="<?= $productUrl ?>">
 	<div class="image">
 		<img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>" alt="" loading="lazy">
 	</div>
