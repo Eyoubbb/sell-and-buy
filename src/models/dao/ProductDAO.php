@@ -10,14 +10,26 @@ class ProductDAO extends DAO {
 	}
 
 	public function getAllProducts() {
-		$sql = 'SELECT *
-				FROM products P
+		$sql = "SELECT *
+				FROM {$this->getTable()} P
 				JOIN users U
 					ON (P.creator_id = U.user_id)
-				WHERE P.product_visible = 1
-				ORDER BY P.product_id';
+				WHERE P.product_visible = 1";
 
 		return $this->queryAll($sql, null, false);
+	}
+
+	public function getAllByCategory($category_id) {
+		$sql = "SELECT *
+				FROM {$this->getTable()} P
+				JOIN users U
+					ON (P.creator_id = U.user_id)
+				WHERE
+					P.product_visible = 1
+				AND
+					P.category_id = ?";
+
+		return $this->queryAll($sql, [$category_id], false);
 	}
 	
 }
