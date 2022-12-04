@@ -8,20 +8,11 @@
 
 <section class="products">
 	<?php
-		$productName = $data['products'][0]->getName();
-		$price = $data['products'][0]->getPrice();
-		$url = $data['products'][0]->getImageUrl()
-	?>
+		foreach ($data['products'] as $product) {
 
-	<?php
-		require(PATH_COMPONENTS . 'product.php');
-		require(PATH_COMPONENTS . 'product.php');
-		require(PATH_COMPONENTS . 'product.php');
-		require(PATH_COMPONENTS . 'product.php');
-		require(PATH_COMPONENTS . 'product.php');
-		require(PATH_COMPONENTS . 'product.php');
-		require(PATH_COMPONENTS . 'product.php');
-		require(PATH_COMPONENTS . 'product.php');
+			$creator = $data['creators'][$product->getCreatorId()];
+			
+			require(PATH_COMPONENTS . 'product.php');
+		}
 	?>
-
 </section>

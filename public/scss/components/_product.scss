@@ -1,47 +1,60 @@
 @use "../abstracts" as *;
 
-.item-product{
-	--gap : 1em;
-
-	display: flex;
+.item-product {
+	--gap: 1em;
 	flex: 0 0 20%;
-	min-width: 300px;
 	padding: 12px;
-
+	min-width: 300px;
+	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
 
+	&:hover {
+		border: solid black 1px;
+	}
+	
 	.image {
-		max-width: 350px;
+		flex-grow: 1;
+		width: 100%;
+		aspect-ratio: 1/1;
+		display: flex;
+		background-color: var(--primary-1);
 
 		img {
 			@include size;
+			object-fit: contain;
 		}
 	}
 
-	.content-text{
-		display: flex;
+	.content-text {
+		padding: 1em 1em 2.5em 1em;
 		width: 100%;
-		padding: 16px 16px 45px 16px;
+		display: flex;
 		justify-content: space-between;
-
+		gap: 1em;
 		background-color: var(--primary-1);
 
-		.left{
+		.left {
 			display: flex;
 			flex-direction: column;
-			row-gap: 2px;
-
-			.creator{
-				font-size: 14px;
+			justify-content: space-between;
+			gap: .5em;
+		}
+		
+		p {
+			&:is(.price, .discount) {
+				white-space: nowrap;
+			}
+			
+			&.creator {
+				font-size: .8em;
 			}
 		}
-
+		
+		.right {
+			line-height: 1.5;
+			text-align: right;
+		}
 	}
-
-	&:hover{
-		border: solid black 1px;
-	}
-
 }

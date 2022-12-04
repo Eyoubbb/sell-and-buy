@@ -7,20 +7,20 @@
 @use "../components/filter";
 
 
-main{
+main {
     --gap : 1em;
 
-    section{
+    section {
         padding-bottom: 3em;
     }
 
-    .banner{
-        img{
+    .banner {
+        img {
             @include size;
         }
     }
 
-    .products{
+    .products {
 		display: flex;
 		justify-content: center;
         flex-wrap: wrap;

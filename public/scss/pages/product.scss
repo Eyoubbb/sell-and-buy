@@ -150,7 +150,7 @@ main {
 	}
 } 
 
-.comments{
+.comments {
 	flex-direction: column;
 	display: flex;
 	gap: inherit;
@@ -168,7 +168,7 @@ main {
 			display: flex;
 			gap: 2em; 
 
-			.commentdate{
+			.commentdate {
 				flex-grow:1 ;
 				text-align: right;
 			}
