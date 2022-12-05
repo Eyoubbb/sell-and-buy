@@ -3,8 +3,8 @@
 class Product {
 	
 	private int $product_id;
-	private string $category_id;
-	private int $creator_id;
+	private string $product_category_id;
+	private int $product_creator_id;
 	private string $product_name;
 	private string $product_description;
 	private ?string $product_image_url;
@@ -16,8 +16,8 @@ class Product {
 	public function __construct(?array $row = null) {
 		if ($row) {
 			$this->product_id = $row['product_id'];
-			$this->category_id = $row['category_id'];
-			$this->creator_id = $row['creator_id'];
+			$this->product_category_id = $row['product_category_id'];
+			$this->product_creator_id = $row['product_creator_id'];
 			$this->product_name = $row['product_name'];
 			$this->product_description = $row['product_description'];
 			$this->product_image_url = $row['product_image_url'];
@@ -30,9 +30,9 @@ class Product {
 	
 	public function getId(): int { return $this->product_id; }
 
-	public function getCategoryId(): string { return $this->category_id; }
+	public function getCategoryId(): string { return $this->product_category_id; }
 	
-	public function getCreatorId(): int { return $this->creator_id; }
+	public function getCreatorId(): int { return $this->product_creator_id; }
 
 	public function getName(): string { return $this->product_name; }
 	
