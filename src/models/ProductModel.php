@@ -48,4 +48,23 @@ class ProductModel extends Model {
 		];
 	}
 
+	public function product($id): array | false {
+		$productDAO = $this->dao('Product');
+
+		$res = $productDAO->getProductById($id);
+
+		if ($res === false) {
+			$this->setError('ERROR_FETCHING_PRODUCT');
+			return false;
+		}
+
+		$product = new Product($res);
+		$creator = new User($res);
+
+		return [
+			'product' => $product,
+			'creator' => $creator
+		];
+	}
+
 }

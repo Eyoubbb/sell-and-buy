@@ -1,38 +1,49 @@
+<?php
+	$product = $data['product'];
+	$creator = $data['creator'];
+?>
 <section class="product">
 
 	<div class="generalImage">
 
 		<div class="secondimage">
-			<div><img src="<?= PATH_PRODUCTS ?>PROD-30.jpg"></div>
-			<div><img src="<?= PATH_PRODUCTS ?>PROD-30.jpg"></div>
-			<div><img src="<?= PATH_PRODUCTS ?>PROD-30.jpg"></div>
+			<div><img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>"></div>
+			<div><img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>"></div>
+			<div><img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>"></div>
 		</div>
 		<div class="firstimage">
 			<!-- images du produit   -->
-			<img src="<?= PATH_PRODUCTS ?>PROD-30.jpg">
+			<img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>">
 		</div>
 	</div>
 	<div class="information">
 		<!-- coté gauche, description du produit   -->
-		<h1>
-			Sandales de Papi 
-		</h1>
-		<p>145€</p>
+		<h1><?= $product->getName() ?></h1>
+		<?php
+			if ($product->getDiscountPercentage() > 0) {
+				$newPrice = round($product->getPrice() - ($product->getPrice() * $product->getDiscountPercentage() / 100), 0);
+
+				echo <<<HTML
+					<p>
+						<del>{$product->getPrice()} €</del>
+					</p>
+					<p>
+						$newPrice €
+					</p>
+				HTML;
+			} else {
+				echo "<p>{$product->getPrice()} €</p>";
+			}
+		?>
 		<div class="diferentestyleimage">
 			<!-- images du produit en plus petit   -->
-			<img src="<?= PATH_PRODUCTS ?>PROD-30.jpg">
-			<img src="<?= PATH_PRODUCTS ?>PROD-30.jpg">
+			<img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>">
+			<img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>">
 
 		</div>
 		<p class="description">
 			<!-- texte du produit    -->
-			Célébrant 40 ans d'innovations dans le sport et la mode, ce modèle anniversaire de la AF1 associe des
-			éléments de différentes versions à succès pour marquer le rôle majeur de cet intemporel dans l'histoire
-			des
-			sneakers. Les détails ornementaux, comme les touches dorées et le mini Swoosh incrusté, vous invitent à
-			la
-			fête. Joyeux anniversaire !
-
+			<?= $product->getDescription() ?>
 		</p>
 
 		<div class="cart">

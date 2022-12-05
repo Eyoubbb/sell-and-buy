@@ -26,7 +26,7 @@
 						</p>
 					HTML;
 				} else {
-					echo '<p class="price">' . $product->getPrice() . ' €</p>';
+					echo "<p class=\"price\">{$product->getPrice()} €</p>";
 				}
 			?>
 		</div>
