@@ -13,7 +13,7 @@ class ProductDAO extends DAO {
 		$sql = "SELECT *
 				FROM {$this->getTable()} P
 				JOIN users U
-					ON (P.creator_id = U.user_id)
+					ON (P.product_creator_id = U.user_id)
 				WHERE P.product_visible = 1";
 
 		return $this->queryAll($sql, null, false);
@@ -23,11 +23,11 @@ class ProductDAO extends DAO {
 		$sql = "SELECT *
 				FROM {$this->getTable()} P
 				JOIN users U
-					ON (P.creator_id = U.user_id)
+					ON (P.product_creator_id = U.user_id)
 				WHERE
 					P.product_visible = 1
 				AND
-					P.category_id = ?";
+					P.product_category_id = ?";
 
 		return $this->queryAll($sql, [$category_id], false);
 	}
@@ -36,7 +36,7 @@ class ProductDAO extends DAO {
 		$sql = "SELECT *
 				FROM {$this->getTable()} P
 				JOIN users U
-					ON (P.creator_id = U.user_id)
+					ON (P.product_creator_id = U.user_id)
 				WHERE
 					P.product_visible = 1
 				AND

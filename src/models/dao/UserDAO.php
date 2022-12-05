@@ -16,9 +16,9 @@ class UserDAO extends DAO {
 		$sql = "SELECT *
 				FROM {$this->getTable()} U
 				LEFT JOIN admins A
-					ON (U.user_id = A.ADMIN_ID)
+					ON (U.user_id = A.admin_id)
 				LEFT JOIN creators C
-					ON (U.user_id = C.CREATOR_ID)
+					ON (U.user_id = C.creator_id)
 				WHERE U.user_email = ?";
 		
 		$row = $this->queryRow($sql, [$email], false);

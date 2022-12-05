@@ -63,45 +63,54 @@
 
 <section class ="clientreview ">
 	
-	<div class ="commentstitle"> 
-		<h2> Avis clients(3):</h2>
+	<div class ="commentstitle">
+		<?php $nbRating = count($data['ratings']) ?>
+		<h2> <?= $nbRating ?> avis client<?= $nbRating > 1 ? 's' : '' ?> :</h2>
 		<div class ="mark">
 			<?php
-			for ($i=1 ; $i<6 ; $i++){
-				echo "<img src='" . PATH_IMAGES . "star.png' ";
-				if ($i<=3) {
-					echo "class='starvalid'";
+				$grades = array_map(fn ($rating) => $rating->getGrade(), $data['ratings']);
+				
+				$avgRating = array_sum($grades) / count($data['ratings']);
+				$avgRating = round($avgRating, 1);
+				
+				for ($i = 0; $i < 5; $i++) {
+					echo '<img src="' . PATH_IMAGES . 'star.png" ' . ($i <= $avgRating - 1 ? 'class="starvalid"' : '') . ' />';
 				}
-				echo "/>";
-			}
 			?>
 		</div>
 	</div>
 	<div class = "comments">
-		<?php for($comment=0 ; $comment <3 ; $comment++){ ?>
-		<article class="comment">
-			<h3> Trop grand </h3>
-			<div class="commenthead">
-				<div class ="mark"> 
-					<?php
-					for ($i=1 ; $i<6 ; $i++){
-						echo "<img src = '". PATH_IMAGES . "star.png' ";
-						if ($i<=2) {
-							echo "class='starvalid'";
-						}
-						echo "/>";
+		<?php
+			foreach ($data['ratings'] as $rating) {
+				if ($rating->getCommentId() !== null) {
+					$comment = $data['comments'][$rating->getCommentId()];
+					$user = $data['users'][$rating->getUserId()];
+					
+					echo <<<HTML
+						<article class="comment">
+							<h3>{$comment->getTitle()}</h3>
+							<div class="commenthead">
+								<div class ="mark"> 
+					HTML;
+
+					for ($i = 0; $i < 5; $i++) {
+						echo '<img src="' . PATH_IMAGES . 'star.png" ' . ($i <= $rating->getGrade() - 1 ? 'class="starvalid"' : '') . ' />';
 					}
-					?>
-				</div>
-				<p class="author"> Monsieur pas content </p>
-				<p class="commentdate"> 21 janvier 2054 <p>
-			</div>
-			<p class="commentdescription"> 
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam recusandae cupiditate alias maxime. Nulla veritatis amet quod, reiciendis in eum. <p>
-		</article>	
-		<?php } ?>
+					
+					echo <<<HTML
+								</div>
+								<p class="author">{$user->getFirstName()} {$user->getLastName()}</p>
+								<p class="commentdate">{$rating->getDate()}<p>
+							</div>
+							<p class="commentdescription">
+								{$comment->getBody()}
+							<p>
+						</article>
+					HTML;
+				}
+			}
+		?>
 		<div class="addcomment">
-			<!-- ajouter un commentaire   -->
 			<button>Ajouter un commentaire</button>
 		</div>
 	</div>
