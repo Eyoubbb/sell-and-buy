@@ -11,7 +11,7 @@ class UserDAO extends DAO {
 		parent::__construct('users');
 	}
 
-	public function getByEmail(string $email): User | false {
+	public function findByEmail(string $email): User | false {
 		
 		$sql = "SELECT *
 				FROM {$this->getTable()} U

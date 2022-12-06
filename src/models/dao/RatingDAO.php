@@ -9,7 +9,7 @@ class RatingDAO extends DAO {
 		parent::__construct('ratings');
 	}
 
-	public function getRatingsByProduct($product_id) {
+	public function findRatingsByProduct($product_id) {
 		$sql = "SELECT *
 				FROM {$this->getTable()} R
 				JOIN users U

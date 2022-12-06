@@ -13,9 +13,9 @@ class ProductModel extends Model {
 		$productDAO = $this->dao('Product');
 
 		if (!empty($_GET['category']) && is_numeric($_GET['category'])) {
-			$resProducts = $productDAO->getAllByCategory($_GET['category']);
+			$resProducts = $productDAO->findAllByCategory($_GET['category']);
 		} else {
-			$resProducts = $productDAO->getAllProducts();
+			$resProducts = $productDAO->findAllProducts();
 		}
 
 		if ($resProducts === false) {
@@ -36,7 +36,7 @@ class ProductModel extends Model {
 
 		$categoryDAO = $this->dao('Category');
 
-		$categories = $categoryDAO->getAll();
+		$categories = $categoryDAO->findAll();
 
 		if ($categories === false) {
 			$this->setError('ERROR_FETCHING_CATEGORIES');
@@ -52,7 +52,7 @@ class ProductModel extends Model {
 
 	public function product($id): array | false {
 		$productDAO = $this->dao('Product');
-		$resProduct = $productDAO->getProductById($id);
+		$resProduct = $productDAO->findProductById($id);
 
 		if ($resProduct === false) {
 			$this->setError('ERROR_FETCHING_PRODUCT');
@@ -63,7 +63,7 @@ class ProductModel extends Model {
 		$creator = new User($resProduct);
 
 		$ratingDAO = $this->dao('Rating');
-		$resRatings = $ratingDAO->getRatingsByProduct($id);
+		$resRatings = $ratingDAO->findRatingsByProduct($id);
 
 		if ($resRatings === false) {
 			$this->setError('ERROR_FETCHING_RATINGS');
@@ -85,12 +85,29 @@ class ProductModel extends Model {
 			}
 		}
 
+		$resSimilar = $productDAO->findAllByCategoryExclude($product->getCategoryId(), $product->getId(), 4);
+
+		if ($resSimilar === false) {
+			$this->setError('ERROR_FETCHING_SIMILAR_PRODUCTS');
+			return false;
+		}
+
+		$similarProducts = [];
+		foreach ($resSimilar as $row) {
+			$similarProducts[] = new Product($row);
+
+			if (!isset($users[$row['user_id']])) {
+				$users[$row['user_id']] = new User($row);
+			}
+		}
+
 		return [
 			'product' => $product,
 			'creator' => $creator,
 			'ratings' => $ratings,
 			'users' => $users,
-			'comments' => $comments
+			'comments' => $comments,
+			'similarProducts' => $similarProducts
 		];
 	}
 

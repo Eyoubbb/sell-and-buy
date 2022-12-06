@@ -6,8 +6,6 @@ class ProductController extends Controller {
 
 	public function index($id): void {
 		
-		$data['title'] = PRODUCT_WINDOW_TITLE;
-		
 		$data['stylesheets'][] = 'pages/product';
 
 		$model = $this->model('Product');
@@ -16,6 +14,8 @@ class ProductController extends Controller {
 
 		if ($res !== false) {
 			$data = array_merge($data, $res);
+			
+			$data['title'] = $res['product']->getName();
 		} else {
 			$data['error'] = $model->getError();
 		}

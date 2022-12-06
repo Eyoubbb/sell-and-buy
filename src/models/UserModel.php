@@ -8,7 +8,7 @@ class UserModel extends Model {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$user = $this->dao('User')->getByEmail($email);
+		$user = $this->dao('User')->findByEmail($email);
 
 		if ($user === false) {
 			$this->setError('INVALID_EMAIL');
@@ -57,7 +57,7 @@ class UserModel extends Model {
 		
 		$userDAO = $this->dao('User');
 		
-		$userExists = $userDAO->getByEmail($email);
+		$userExists = $userDAO->findByEmail($email);
 
 		if ($userExists !== false) {
 			$this->setError('EMAIL_ALREADY_EXISTS');

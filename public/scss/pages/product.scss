@@ -3,6 +3,7 @@
 
 @use "../components/header";
 @use "../components/footer";
+@use "../components/product";
 
 main {
 	width: 95%;
@@ -116,18 +117,28 @@ main {
 	}
 }
 
-.similararticles {
-	background-color: lightgrey;
-	height: 20em;
-	width: 70%;
+.similar-products {
 	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	
+	h2 {
+		font-size: 1.5em;
+	}
+
+	.similar-products-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em;
+	}
 }
 
 .clientreview {
+	margin: 3em 0;
 	width: 50%;
 	display: flex;
 	flex-direction: column;
-	gap : 3em;
+	gap : 2em;
 
 	.commentstitle {
 		display: flex;

@@ -3,9 +3,7 @@
 	$creator = $data['creator'];
 ?>
 <section class="product">
-
 	<div class="generalImage">
-
 		<div class="secondimage">
 			<div><img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>"></div>
 			<div><img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>"></div>
@@ -50,36 +48,44 @@
 			<!-- ajouter au panier   -->
 			<button>ajouter au panier</button>
 		</div>
-
-	</div>
-
-</section>
-
-<section  class ="similararticles" > 
-	<div> 
-		<h2> Articles similaires </h2>
 	</div>
 </section>
 
-<section class ="clientreview ">
+<section class="similar-products"> 
+	<h2>Articles similaires</h2>
+	<div class="similar-products-wrapper"> 
+		<?php
+			foreach ($data['similarProducts'] as $product) {
+
+				$creator = $data['users'][$product->getCreatorId()];
+
+				require(PATH_COMPONENTS . 'product.php');
+			}
+		?>
+	</div>
+</section>
+
+<section class="clientreview ">
 	
-	<div class ="commentstitle">
+	<div class="commentstitle">
 		<?php $nbRating = count($data['ratings']) ?>
-		<h2> <?= $nbRating ?> avis client<?= $nbRating > 1 ? 's' : '' ?> :</h2>
-		<div class ="mark">
+		<h2><?= $nbRating ?> avis client<?= $nbRating > 1 ? 's' : '' ?> :</h2>
+		<div class="mark">
 			<?php
-				$grades = array_map(fn ($rating) => $rating->getGrade(), $data['ratings']);
-				
-				$avgRating = array_sum($grades) / count($data['ratings']);
-				$avgRating = round($avgRating, 1);
-				
-				for ($i = 0; $i < 5; $i++) {
-					echo '<img src="' . PATH_IMAGES . 'star.png" ' . ($i <= $avgRating - 1 ? 'class="starvalid"' : '') . ' />';
+				if ($nbRating !== 0) {
+					$grades = array_map(fn ($rating) => $rating->getGrade(), $data['ratings']);
+					
+					$avgRating = array_sum($grades) / $nbRating;
+					$avgRating = round($avgRating);
+
+					for ($i = 0; $i < 5; $i++) {
+						echo '<img src="' . PATH_IMAGES . 'star.png" ' . ($i <= $avgRating - 1 ? 'class="starvalid"' : '') . ' />';
+					}
 				}
 			?>
 		</div>
 	</div>
-	<div class = "comments">
+	<div class="comments">
 		<?php
 			foreach ($data['ratings'] as $rating) {
 				if ($rating->getCommentId() !== null) {
@@ -90,7 +96,7 @@
 						<article class="comment">
 							<h3>{$comment->getTitle()}</h3>
 							<div class="commenthead">
-								<div class ="mark"> 
+								<div class="mark">
 					HTML;
 
 					for ($i = 0; $i < 5; $i++) {

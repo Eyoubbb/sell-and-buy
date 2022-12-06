@@ -4,7 +4,7 @@ class Rating {
 
 	private int $rating_id;
 	private int $rating_product_id;
-	private int $rating_comment_id;
+	private ?int $rating_comment_id;
 	private int $rating_user_id;
 	private int $rating_grade;
 	private string $rating_date;
@@ -24,7 +24,7 @@ class Rating {
 
 	public function getProductId(): int { return $this->rating_product_id; }
 
-	public function getCommentId(): int { return $this->rating_comment_id; }
+	public function getCommentId(): ?int { return $this->rating_comment_id; }
 
 	public function getUserId(): int { return $this->rating_user_id; }
 
