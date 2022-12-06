@@ -17,6 +17,8 @@ class UserController extends Controller {
 			$res = $userModel->login();
 
 			if ($res !== false) {
+				session_regenerate_id();
+				
 				$_SESSION['logged_in'] = true;
 				$_SESSION['user'] = serialize($res['user']);
 				
@@ -56,6 +58,8 @@ class UserController extends Controller {
 			$res = $userModel->register();
 
 			if ($res !== false) {
+				session_regenerate_id();
+				
 				$_SESSION['logged_in'] = true;
 				$_SESSION['user'] = serialize($res['user']);
 				

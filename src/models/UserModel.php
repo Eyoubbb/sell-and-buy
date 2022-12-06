@@ -101,7 +101,6 @@ class UserModel extends Model {
 
 		$userDAO->commit();
 		return ['user' => $user];
-		
 	}
 
 	public function logout(): void {
