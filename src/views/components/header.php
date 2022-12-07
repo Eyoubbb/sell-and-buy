@@ -93,7 +93,7 @@
 						echo NAV_ACCOUNT;
 					}
 				?>
-				<img src="<?= PATH_IMAGES . 'caret-down.svg' ?>" alt="<?= ALT_MENU ?>" loading="lazy" />
+				<img class="caret-img" src="<?= PATH_IMAGES . 'caret-down.svg' ?>" alt="<?= ALT_MENU ?>" loading="lazy" />
 			</button>
 			<ul class="dropdown-content">
 				<?php
