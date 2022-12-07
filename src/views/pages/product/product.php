@@ -47,7 +47,7 @@
 		</p>
 
 		<div class="links">
-			<a href="<?= $creatorUrl ?>"><?= $creator->getFirstName() . ' ' .  $creator->getLastName() ?></a>
+			<a href="<?= $creatorUrl ?>"><?= $creator->getFullName() ?></a>
 			<a href="<?= $cartUrl ?>"><?= PRODUCT_ADD_TO_CART ?></a>
 		</div>
 	</div>

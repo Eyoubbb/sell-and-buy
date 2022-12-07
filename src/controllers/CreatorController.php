@@ -5,8 +5,6 @@ require_once PATH_CORE . 'Controller.php';
 class CreatorController extends Controller {
 
 	public function index($id): void {
-
-		$data['title'] = "Profil";
 		
 		$data['stylesheets'][] = 'pages/profile';
 		
@@ -16,6 +14,8 @@ class CreatorController extends Controller {
 
 		if ($res !== false) {
 			$data = array_merge($data, $res);
+
+			$data['title'] = $res['creator']->getFullName();
 		} else {
 			$data['error'] = $creatorModel->getError();
 		}

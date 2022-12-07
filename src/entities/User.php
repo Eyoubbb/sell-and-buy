@@ -44,4 +44,6 @@ class User {
 	
 	public function setPictureUrl(string $picture_url): void { $this->user_picture_url = $picture_url; }
 
+	public function getFullName(): string { return $this->user_first_name . ' ' . $this->user_last_name; }
+	
 }
