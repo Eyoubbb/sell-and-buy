@@ -15,6 +15,15 @@ class CreatorModel extends Model {
 			return false;
 		}
 
+		$socialMediaDAO = $this->dao('SocialMedia');
+
+		$socialMedias = $socialMediaDAO->findAllByCreator($creatorId);
+		
+		if ($socialMedias === false) {
+			$this->setError('ERROR_SOCIAL_MEDIA_NOT_FOUND');
+			return false;
+		}
+		
 		$productDAO = $this->dao('Product');
 		
 		$products = $productDAO->findAllByCreator($creatorId);
@@ -26,6 +35,7 @@ class CreatorModel extends Model {
 
 		return [
 			'creator' => new Creator($resCreator),
+			'socialMedias' => $socialMedias,
 			'products' => $products
 		];
 	}

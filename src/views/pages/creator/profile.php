@@ -1,21 +1,30 @@
 <?php
 	$creator = $data['creator'];
+	$socialMedias = $data['socialMedias'];
 	$products = $data['products'];
 ?>
 <img class="banner" src="<?= PATH_CREATORS . $creator->getBannerUrl() ?>" alt="<?= ALT_BANNIERE ?>">
 <section class="profile-container">
 	<div class="blockpp">
 		<img class="profilepic" src="<?= PATH_USERS . $creator->getPictureUrl() ?>" alt="<?= ALT_PROFILE_PICTURE_CREATOR ?>">
-		<span class="name"><?= $creator->getFirstName() . ' ' . $creator->getLastName() ?></span>
+		<span class="name"><?= $creator->getFullName() ?></span>
 	</div>
 	<div class="texte">
 		<h1><?= ABOUT ?></h1>
 		<p><?= $creator->getDescription() ?></p>
 		<ul>
-			<li><a href="https://www.linkedin.com">Linkedin</a></li>
-			<li><a href="https://www.facebook.com">Facebook</a></li>
-			<li><a href="https://www.instagram.com">Instagram</a></li>
-			<li><a href="https://www.twitter.com">Twitter</a></li>
+			<?php
+				foreach ($socialMedias as $socialMedia) {
+					$url = PATH_SOCIAL_MEDIAS . $socialMedia->getIconUrl();
+					echo <<<HTML
+						<li>
+							<a href="{$socialMedia->getPrefix()}{$socialMedia->getAccount()}" target="_blank" title="{$socialMedia->getName()}">
+								<img src="$url" alt="{$socialMedia->getName()}'s icon">
+							</a>
+						</li>
+					HTML;
+				}
+			?>
 		</ul>
 		<div class="subscribe">
 			<button type="button"><?= SUBSCRIBE ?></button>

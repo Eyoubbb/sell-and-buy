@@ -72,28 +72,28 @@
 		}
 
 		ul {
-			padding: 0;
-			margin-top: 0.2em;
-			list-style-type: none;
-
+			margin-top: .5em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 1em;
 
 			li {
-				margin-left: 2px;
-				float: left;
-
 				a {
-					display: block;
-					float: left;
-					width: 100px;
-					color: black;
-					text-decoration: none;
-					text-align: center;
 					padding: 5px;
-				}
+					@include size(2.5em);
+					display: block;
+					border-radius: 8px;
+					transition: background-color .3s ease;
 
-				a:hover {
-					background-color: #D3D3D3;
-					border-color: #696969 #DCDCDC #DCDCDC #696969;
+					&:hover {
+						background-color: var(--primary-2);
+					}
+
+					img {
+						@include size;
+					}
 				}
 			}
 		}
