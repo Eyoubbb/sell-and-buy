@@ -61,7 +61,7 @@
 
 				$creator = $data['users'][$product->getCreatorId()];
 
-				require(PATH_COMPONENTS . 'product.php');
+				require PATH_COMPONENTS . 'product.php';
 			}
 		?>
 	</div>

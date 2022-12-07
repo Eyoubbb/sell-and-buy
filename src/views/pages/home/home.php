@@ -12,7 +12,7 @@
 
 			$creator = $data['creators'][$product->getCreatorId()];
 			
-			require(PATH_COMPONENTS . 'product.php');
+			require PATH_COMPONENTS . 'product.php';
 		}
 	?>
 </section>

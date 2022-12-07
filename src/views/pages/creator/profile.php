@@ -3,7 +3,7 @@
 	$products = $data['products'];
 ?>
 <img class="banner" src="<?= PATH_CREATORS . $creator->getBannerUrl() ?>" alt="<?= ALT_BANNIERE ?>">
-<section class="profile">
+<section class="profile-container">
 	<div class="blockpp">
 		<img class="profilepic" src="<?= PATH_USERS . $creator->getPictureUrl() ?>" alt="<?= ALT_PROFILE_PICTURE_CREATOR ?>">
 		<span class="name"><?= $creator->getFirstName() . ' ' . $creator->getLastName() ?></span>
@@ -27,7 +27,7 @@
 	<div class="products-wrapper">
 		<?php
 			foreach ($products as $product) {
-				require(PATH_COMPONENTS . 'product.php');
+				require PATH_COMPONENTS . 'product.php';
 			}
 		?>
 	</div>

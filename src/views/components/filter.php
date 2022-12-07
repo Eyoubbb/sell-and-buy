@@ -1,13 +1,13 @@
 <div class="filter-container">
-	<div class="all">
+	<div class="filter-item">
 		<a href="<?= $homeUrl ?>">
 			<?= FILTER_ALL ?>
 		</a>
 	</div>
 
-	<div class="dropdown">
-	   <?= FILTER_CATEGORIES ?>
-	   <ul class="dropdown-content">
+	<div class="filter-item dropdown">
+		<button><?= FILTER_CATEGORIES ?></button>
+		<ul class="dropdown-content">
 			<?php
 				foreach ($data['categories'] as $category) {
 					echo <<<HTML
