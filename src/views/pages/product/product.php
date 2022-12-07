@@ -104,10 +104,21 @@
 						echo '<img src="' . PATH_IMAGES . 'star.png" ' . ($i <= $rating->getGrade() - 1 ? 'class="starvalid"' : '') . ' />';
 					}
 					
+					$dateTime = new DateTime($rating->getDate());
+					
+					$dateFormatter = new IntlDateFormatter(
+						$data['lang'] === 'fr' ? 'fr_FR' : 'en_US',
+						IntlDateFormatter::FULL,
+						IntlDateFormatter::FULL,
+						$data['lang'] === 'fr' ? 'Europe/Paris' : 'UTC',
+						IntlDateFormatter::GREGORIAN,
+						$data['lang'] === 'fr' ? 'd MMMM y' : 'MMMM d, y'
+					);
+
 					echo <<<HTML
 								</div>
-								<p class="author">{$user->getFirstName()} {$user->getLastName()}</p>
-								<p class="commentdate">{$rating->getDate()}<p>
+								<p class="author">Par {$user->getFirstName()} {$user->getLastName()}</p>
+								<p class="commentdate">Le {$dateFormatter->format($dateTime)}<p>
 							</div>
 							<p class="commentdescription">
 								{$comment->getBody()}
