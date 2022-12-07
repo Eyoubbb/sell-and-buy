@@ -12,7 +12,10 @@ const HOME_TITLE = "Welcome to the Home page";
 
 /*************** Product ***************/
 
-const PRODUCT_WINDOW_TITLE = "Product";
+const PRODUCT_ADD_TO_CART = "Add to cart";
+const PRODUCT_SIMILAR_ARTICLES = "Similar articles";
+const PRODUCT_CLIENT_OPINION = "client opinion";
+const PRODUCT_BY = "By";
 
 /*************** Login & register ***************/
 

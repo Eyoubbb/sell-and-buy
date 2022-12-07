@@ -1,6 +1,7 @@
 <?php
 	$product = $data['product'];
 	$creator = $data['creator'];
+	$creatorUrl = $data['routes']['GET:Creator#index']->getUrl(['id' => $creator->getId()]);
 	$cartUrl = $data['routes']['GET:Product#index']->getUrl(['id' => $product->getId()]); // either dynamic url or query string
 ?>
 <section class="product">
@@ -45,15 +46,15 @@
 			<?= $product->getDescription() ?>
 		</p>
 
-		<div class="cart">
-			<!-- ajouter au panier   -->
-			<a href="<?= $cartUrl ?>">Ajouter au panier</a>
+		<div class="links">
+			<a href="<?= $creatorUrl ?>"><?= $creator->getFirstName() . ' ' .  $creator->getLastName() ?></a>
+			<a href="<?= $cartUrl ?>"><?= PRODUCT_ADD_TO_CART ?></a>
 		</div>
 	</div>
 </section>
 
 <section class="similar-products"> 
-	<h2>Articles similaires</h2>
+	<h2><?= PRODUCT_SIMILAR_ARTICLES ?> :</h2>
 	<div class="similar-products-wrapper"> 
 		<?php
 			foreach ($data['similarProducts'] as $product) {
@@ -66,11 +67,13 @@
 	</div>
 </section>
 
+<?php
+	$nbRating = count($data['ratings']);
+	if ($nbRating !== 0) {
+?>
 <section class="clientreview ">
-	
 	<div class="commentstitle">
-		<?php $nbRating = count($data['ratings']) ?>
-		<h2><?= $nbRating ?> avis client<?= $nbRating > 1 ? 's' : '' ?> :</h2>
+		<h2><?= $nbRating . ' ' . PRODUCT_CLIENT_OPINION . ($nbRating > 1 ? 's' : '') ?> :</h2>
 		<div class="mark">
 			<?php
 				if ($nbRating !== 0) {
@@ -115,14 +118,13 @@
 						$data['lang'] === 'fr' ? 'd MMMM y' : 'MMMM d, y'
 					);
 
+					$by = PRODUCT_BY;
+					
 					echo <<<HTML
 								</div>
-								<p class="author">Par {$user->getFirstName()} {$user->getLastName()}</p>
-								<p class="commentdate">Le {$dateFormatter->format($dateTime)}<p>
+								<p class="author">{$by} {$user->getFirstName()} {$user->getLastName()} : {$dateFormatter->format($dateTime)}</p>
 							</div>
-							<p class="commentdescription">
-								{$comment->getBody()}
-							<p>
+							<p class="commentdescription">{$comment->getBody()}</p>
 						</article>
 					HTML;
 				}
@@ -130,3 +132,5 @@
 		?>
 	</div>
 </section>
+<?php
+	}
