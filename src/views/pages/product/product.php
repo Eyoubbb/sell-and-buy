@@ -1,6 +1,7 @@
 <?php
 	$product = $data['product'];
 	$creator = $data['creator'];
+	$cartUrl = $data['routes']['GET:Product#index']->getUrl(['id' => $product->getId()]); // either dynamic url or query string
 ?>
 <section class="product">
 	<div class="generalImage">
@@ -46,7 +47,7 @@
 
 		<div class="cart">
 			<!-- ajouter au panier   -->
-			<button>ajouter au panier</button>
+			<a href="<?= $cartUrl ?>">Ajouter au panier</a>
 		</div>
 	</div>
 </section>
@@ -116,8 +117,5 @@
 				}
 			}
 		?>
-		<div class="addcomment">
-			<button>Ajouter un commentaire</button>
-		</div>
 	</div>
 </section>

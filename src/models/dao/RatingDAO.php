@@ -16,7 +16,8 @@ class RatingDAO extends DAO {
 					ON (R.rating_user_id = U.user_id)
 				LEFT JOIN comments C
 					ON (R.rating_id = C.comment_rating_id)
-				WHERE R.rating_product_id = ?";
+				WHERE R.rating_product_id = ?
+				ORDER BY R.rating_date DESC";
 		
 		return $this->queryAll($sql, [$product_id], false);
 	}

@@ -85,7 +85,7 @@ class ProductModel extends Model {
 			}
 		}
 
-		$resSimilar = $productDAO->findAllByCategoryExclude($product->getCategoryId(), $product->getId(), 4);
+		$resSimilar = $productDAO->findSimilarProducts($product->getCategoryId(), $product->getId(), 4);
 
 		if ($resSimilar === false) {
 			$this->setError('ERROR_FETCHING_SIMILAR_PRODUCTS');

@@ -32,7 +32,7 @@ class ProductDAO extends DAO {
 		return $this->queryAll($sql, [$category_id], false);
 	}
 
-	public function findAllByCategoryExclude($category_id, $product_id, ?int $limit = null) {
+	public function findSimilarProducts($category_id, $product_id, ?int $limit = null) {
 		$sql = "SELECT *
 				FROM {$this->getTable()} P
 				JOIN users U
