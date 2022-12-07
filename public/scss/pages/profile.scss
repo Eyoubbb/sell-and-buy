@@ -3,6 +3,7 @@
 
 @use "../components/header";
 @use "../components/footer";
+@use "../components/product";
 
 .banner {
 	border-top: 1rem solid;
@@ -12,9 +13,7 @@
 	height: 50%;
 }
 
-
-
-section {
+.profile {
 	align-items: flex-start;
 	align-content: center;
 	align-self: center;
@@ -46,7 +45,7 @@ section {
 	.texte {
 		margin-left: 1em;
 
-		span {
+		h1 {
 			font-size: xx-large;
 		}
 
@@ -98,5 +97,21 @@ section {
 				}
 			}
 		}
+	}
+}
+
+.products-container {
+	margin: 0 2em;
+	
+	h2 {
+		font-size: 1.5em;
+	}
+
+	.products-wrapper {
+		margin: 2em 0;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 3em;
 	}
 }

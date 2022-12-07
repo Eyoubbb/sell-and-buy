@@ -10,6 +10,16 @@ class CreatorController extends Controller {
 		
 		$data['stylesheets'][] = 'pages/profile';
 		
+		$creatorModel = $this->model('Creator');
+
+		$res = $creatorModel->profile($id);
+
+		if ($res !== false) {
+			$data = array_merge($data, $res);
+		} else {
+			$data['error'] = $creatorModel->getError();
+		}
+		
 		$this->view('creator/profile', $data);
 	}
 

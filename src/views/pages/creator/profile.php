@@ -1,12 +1,16 @@
-<img class="banner" src="<?= PATH_CREATORS . 'BAN-1.png'?>" alt="<?= ALT_BANNIERE ?>">
-<section>
+<?php
+	$creator = $data['creator'];
+	$products = $data['products'];
+?>
+<img class="banner" src="<?= PATH_CREATORS . $creator->getBannerUrl() ?>" alt="<?= ALT_BANNIERE ?>">
+<section class="profile">
 	<div class="blockpp">
-		<img class="profilepic" src="<?= PATH_USERS . 'PP-1.png'?>" alt="<?= ALT_PROFILE_PICTURE_CREATOR ?>">
-		<span class="name">Antoine Darwin</span>
+		<img class="profilepic" src="<?= PATH_USERS . $creator->getPictureUrl() ?>" alt="<?= ALT_PROFILE_PICTURE_CREATOR ?>">
+		<span class="name"><?= $creator->getFirstName() . ' ' . $creator->getLastName() ?></span>
 	</div>
 	<div class="texte">
-		<span><?= ABOUT ?></span>
-		<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex adipisci reprehenderit maxime inventore eius soluta explicabo deserunt consequuntur dolorum magni! Voluptate, distinctio eaque perspiciatis aliquam laudantium nihil consequatur sint dolor?</p>
+		<h1><?= ABOUT ?></h1>
+		<p><?= $creator->getDescription() ?></p>
 		<ul>
 			<li><a href="https://www.linkedin.com">Linkedin</a></li>
 			<li><a href="https://www.facebook.com">Facebook</a></li>
@@ -16,5 +20,15 @@
 		<div class="subscribe">
 			<button type="button"><?= SUBSCRIBE ?></button>
 		</div>
+	</div>
+</section>
+<section class="products-container">
+	<h2>Mes produits :</h2>
+	<div class="products-wrapper">
+		<?php
+			foreach ($products as $product) {
+				require(PATH_COMPONENTS . 'product.php');
+			}
+		?>
 	</div>
 </section>
