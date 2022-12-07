@@ -4,3 +4,20 @@
 @use "../components/header";
 @use "../components/footer";
 
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+.error {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	img {
+		@include size(192px);
+	}
+
+}
