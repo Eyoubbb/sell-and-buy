@@ -12,12 +12,30 @@ main {
 }
 .error {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
 
+	padding: 2em;
+	gap: 5em 3em;
+	
 	img {
 		@include size(192px);
+	}
+
+	.extras {
+		font-weight: 100;
+		color: var(--secondary-1);
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		row-gap: .5em; 
+
+		@include media(s) {
+			align-items: center;
+		}
 	}
 
 }
