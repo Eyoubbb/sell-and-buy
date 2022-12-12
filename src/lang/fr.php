@@ -59,11 +59,13 @@ const REGISTER_SUBMIT = "S'inscrire";
 
 /*************** Errors ***************/
 
-const ERROR_DEFAULT_WINDOW_TITLE = "Erreur";
+const ERROR_DEFAULT_WINDOW_TITLE = "C'est une erreur.";
 const ERROR_DEFAULT_MESSAGE = "Une erreur est survenue";
 
 const ERROR_404_WINDOW_TITLE = "Erreur 404";
 const ERROR_404_MESSAGE = "La page demandée n'existe pas";
+
+const ERROR_EXTRAS = "C'est tout ce que nous savons.";
 
 /*************** Header ***************/
 
@@ -126,3 +128,6 @@ const SUBSCRIBE = "S'abonner +";
 const CREATOR_MOTIVE = "Vos motivations pour devenir créateur";
 const CREATOR_SUBMIT = "Valider la demande";
 const CREATOR_PLACEHOLDER = "entrez vos motivations ici";
+
+
+

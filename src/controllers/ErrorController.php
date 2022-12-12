@@ -17,6 +17,8 @@ class ErrorController extends Controller {
 			? constant($message_const)
 			: ERROR_DEFAULT_MESSAGE;
 		
+		$data['code'] = $code;
+		
 		$data['stylesheets'][] = 'pages/error';
 		
 		$this->view('error/error', $data);
