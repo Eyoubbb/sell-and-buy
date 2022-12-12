@@ -1,97 +1,136 @@
+<?php
+	$product = $data['product'];
+	$creator = $data['creator'];
+	$creatorUrl = $data['routes']['GET:Creator#index']->getUrl(['id' => $creator->getId()]);
+	$cartUrl = $data['routes']['GET:Product#index']->getUrl(['id' => $product->getId()]); // either dynamic url or query string
+?>
 <section class="product">
-
 	<div class="generalImage">
-
 		<div class="secondimage">
-			<div><img src="<?= PATH_PRODUCTS ?>PROD-30.jpg"></div>
-			<div><img src="<?= PATH_PRODUCTS ?>PROD-30.jpg"></div>
-			<div><img src="<?= PATH_PRODUCTS ?>PROD-30.jpg"></div>
+			<div><img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>"></div>
+			<div><img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>"></div>
+			<div><img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>"></div>
 		</div>
 		<div class="firstimage">
 			<!-- images du produit   -->
-			<img src="<?= PATH_PRODUCTS ?>PROD-30.jpg">
+			<img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>">
 		</div>
 	</div>
 	<div class="information">
 		<!-- coté gauche, description du produit   -->
-		<h1>
-			Sandales de Papi 
-		</h1>
-		<p>145€</p>
+		<h1><?= $product->getName() ?></h1>
+		<?php
+			if ($product->getDiscountPercentage() > 0) {
+				$newPrice = round($product->getPrice() - ($product->getPrice() * $product->getDiscountPercentage() / 100), 0);
+
+				echo <<<HTML
+					<p>
+						<del>{$product->getPrice()} €</del>
+					</p>
+					<p>
+						$newPrice €
+					</p>
+				HTML;
+			} else {
+				echo "<p>{$product->getPrice()} €</p>";
+			}
+		?>
 		<div class="diferentestyleimage">
 			<!-- images du produit en plus petit   -->
-			<img src="<?= PATH_PRODUCTS ?>PROD-30.jpg">
-			<img src="<?= PATH_PRODUCTS ?>PROD-30.jpg">
+			<img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>">
+			<img src="<?= PATH_PRODUCTS . $product->getImageUrl() ?>">
 
 		</div>
 		<p class="description">
 			<!-- texte du produit    -->
-			Célébrant 40 ans d'innovations dans le sport et la mode, ce modèle anniversaire de la AF1 associe des
-			éléments de différentes versions à succès pour marquer le rôle majeur de cet intemporel dans l'histoire
-			des
-			sneakers. Les détails ornementaux, comme les touches dorées et le mini Swoosh incrusté, vous invitent à
-			la
-			fête. Joyeux anniversaire !
-
+			<?= $product->getDescription() ?>
 		</p>
 
-		<div class="cart">
-			<!-- ajouter au panier   -->
-			<button>ajouter au panier</button>
+		<div class="links">
+			<a href="<?= $creatorUrl ?>"><?= $creator->getFullName() ?></a>
+			<a href="<?= $cartUrl ?>"><?= PRODUCT_ADD_TO_CART ?></a>
 		</div>
-
-	</div>
-
-</section>
-
-<section  class ="similararticles" > 
-	<div> 
-		<h2> Articles similaires </h2>
 	</div>
 </section>
 
-<section class ="clientreview ">
-	
-	<div class ="commentstitle"> 
-		<h2> Avis clients(3):</h2>
-		<div class ="mark">
-			<?php
-			for ($i=1 ; $i<6 ; $i++){
-				echo "<img src='" . PATH_IMAGES . "star.png' ";
-				if ($i<=3) {
-					echo "class='starvalid'";
-				}
-				echo "/>";
+<section class="similar-products"> 
+	<h2><?= PRODUCT_SIMILAR_ARTICLES ?> :</h2>
+	<div class="similar-products-wrapper"> 
+		<?php
+			foreach ($data['similarProducts'] as $product) {
+
+				$creator = $data['users'][$product->getCreatorId()];
+
+				require PATH_COMPONENTS . 'product.php';
 			}
+		?>
+	</div>
+</section>
+
+<?php
+	$nbRating = count($data['ratings']);
+	if ($nbRating !== 0) {
+?>
+<section class="clientreview ">
+	<div class="commentstitle">
+		<h2><?= $nbRating . ' ' . PRODUCT_CLIENT_OPINION . ($nbRating > 1 ? 's' : '') ?> :</h2>
+		<div class="mark">
+			<?php
+				if ($nbRating !== 0) {
+					$grades = array_map(fn ($rating) => $rating->getGrade(), $data['ratings']);
+					
+					$avgRating = array_sum($grades) / $nbRating;
+					$avgRating = round($avgRating);
+
+					for ($i = 0; $i < 5; $i++) {
+						echo '<img src="' . PATH_IMAGES . 'star.png" ' . ($i <= $avgRating - 1 ? 'class="starvalid"' : '') . ' />';
+					}
+				}
 			?>
 		</div>
 	</div>
-	<div class = "comments">
-		<?php for($comment=0 ; $comment <3 ; $comment++){ ?>
-		<article class="comment">
-			<h3> Trop grand </h3>
-			<div class="commenthead">
-				<div class ="mark"> 
-					<?php
-					for ($i=1 ; $i<6 ; $i++){
-						echo "<img src = '". PATH_IMAGES . "star.png' ";
-						if ($i<=2) {
-							echo "class='starvalid'";
-						}
-						echo "/>";
+	<div class="comments">
+		<?php
+			foreach ($data['ratings'] as $rating) {
+				if ($rating->getCommentId() !== null) {
+					$comment = $data['comments'][$rating->getCommentId()];
+					$user = $data['users'][$rating->getUserId()];
+					
+					echo <<<HTML
+						<article class="comment">
+							<h3>{$comment->getTitle()}</h3>
+							<div class="commenthead">
+								<div class="mark">
+					HTML;
+
+					for ($i = 0; $i < 5; $i++) {
+						echo '<img src="' . PATH_IMAGES . 'star.png" ' . ($i <= $rating->getGrade() - 1 ? 'class="starvalid"' : '') . ' />';
 					}
-					?>
-				</div>
-				<p class="author"> Monsieur pas content </p>
-				<p class="commentdate"> 21 janvier 2054 <p>
-			</div>
-			<p class="commentdescription"> 
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam recusandae cupiditate alias maxime. Nulla veritatis amet quod, reiciendis in eum. <p>
-		</article>	
-		<?php } ?>
-		<div class="addcomment">
-			<!-- ajouter un commentaire   -->
-			<button>Ajouter un commentaire</button>
-		</div>
+					
+					$dateTime = new DateTime($rating->getDate());
+					
+					$dateFormatter = new IntlDateFormatter(
+						$data['lang'] === 'fr' ? 'fr_FR' : 'en_US',
+						IntlDateFormatter::FULL,
+						IntlDateFormatter::FULL,
+						$data['lang'] === 'fr' ? 'Europe/Paris' : 'UTC',
+						IntlDateFormatter::GREGORIAN,
+						$data['lang'] === 'fr' ? 'd MMMM y' : 'MMMM d, y'
+					);
+
+					$by = PRODUCT_BY;
+					
+					echo <<<HTML
+								</div>
+								<p class="author">{$by} {$user->getFirstName()} {$user->getLastName()} : {$dateFormatter->format($dateTime)}</p>
+							</div>
+							<p class="commentdescription">{$comment->getBody()}</p>
+						</article>
+					HTML;
+				}
+			}
+		?>
 	</div>
 </section>
+<?php
+	}

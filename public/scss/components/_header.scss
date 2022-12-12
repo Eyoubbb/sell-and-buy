@@ -15,6 +15,10 @@ header {
 		max-width: 800px;
 		gap: 2em;
 
+		@include media(l) {
+			flex-basis: unset;
+		}
+		
 		.logo {
 			display: flex;
 			@include size(45px);
@@ -191,20 +195,26 @@ header {
 					background-color: var(--primary-2);
 				}
 				
-				img {
-					@include size(18px);
-
-					&.profile-picture {
+				img {&.profile-picture {
 						@include size(40px);
 						border: 1px solid var(--primary-2);
 						background-color: white;
 						border-radius: 50%;
+					}
+
+					&.caret-img {
+						@include size(18px);
+						transition: rotate .2s ease;
 					}
 				}
 			}
 
 			&.open .btn-caret {
 				background-color: var(--primary-2);
+
+				.caret-img {
+					rotate: .5turn;
+				}
 			}
 		}
 	}

@@ -12,7 +12,10 @@ const HOME_TITLE = "Bienvenue sur la page d'Accueil";
 
 /*************** Product ***************/
 
-const PRODUCT_WINDOW_TITLE = "Produit";
+const PRODUCT_ADD_TO_CART = "Ajouter au panier";
+const PRODUCT_SIMILAR_ARTICLES = "Articles similaires";
+const PRODUCT_CLIENT_OPINION = "avis client";
+const PRODUCT_BY = "Par";
 
 /*************** Login & register ***************/
 
@@ -90,7 +93,6 @@ const EMAIL_ADDRESS = "Adresse mail";
 const BECOME_CREATOR = "Devenir un créateur";
 const PAYMENT = "Paiement securisé via<br>Paypal, Mastercard, Visa";
 const COPYRIGHT = "Tous droits reservé";
-
 
 /*************** Images ***************/
 

@@ -14,11 +14,13 @@ class UserController extends Controller {
 			
 			$userModel = $this->model('User');
 			
-			$user = $userModel->login();
+			$res = $userModel->login();
 
-			if ($user) {
+			if ($res !== false) {
+				session_regenerate_id();
+				
 				$_SESSION['logged_in'] = true;
-				$_SESSION['user'] = serialize($user);
+				$_SESSION['user'] = serialize($res['user']);
 				
 				redirect($this->getRoutes()['GET:Home#index']);
 			}
@@ -53,11 +55,13 @@ class UserController extends Controller {
 			
 			$userModel = $this->model('User');
 			
-			$user = $userModel->register();
+			$res = $userModel->register();
 
-			if ($user) {
+			if ($res !== false) {
+				session_regenerate_id();
+				
 				$_SESSION['logged_in'] = true;
-				$_SESSION['user'] = serialize($user);
+				$_SESSION['user'] = serialize($res['user']);
 				
 				redirect($this->getRoutes()['GET:Home#index']);
 			}

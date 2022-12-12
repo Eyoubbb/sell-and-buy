@@ -7,23 +7,23 @@
 @use "../components/filter";
 
 
-main{
-    --gap : 1em;
+main {
+	--gap : 1em;
 
-    section{
-        padding-bottom: 3em;
-    }
+	section {
+		padding-bottom: 3em;
+	}
 
-    .banner{
-        img{
-            @include size;
-        }
-    }
+	.banner {
+		img {
+			@include size;
+		}
+	}
 
-    .products{
+	.products {
 		display: flex;
 		justify-content: center;
-        flex-wrap: wrap;
-        gap: 3em;
-    }
+		flex-wrap: wrap;
+		gap: 3em;
+	}
 }

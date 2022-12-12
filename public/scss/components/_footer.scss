@@ -54,11 +54,14 @@ footer {
 		justify-content: flex-start;
 
 		ul {
-			display: flex;
 			margin-bottom: 1em;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 1em;
 
 			li {
-				margin: 0 1em 0 auto;
+				text-align: center;
 			}
 		}
 		
@@ -90,7 +93,7 @@ footer {
 	.submit {
 		background-color: var(--primary-1); 
 		
-		&:hover{
+		&:hover {
 			background-color: var(--primary-2);
 		}
 	}

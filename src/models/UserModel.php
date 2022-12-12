@@ -4,26 +4,26 @@ require_once PATH_CORE . 'Model.php';
 
 class UserModel extends Model {
 
-	public function login(): User | false {
+	public function login(): array | false {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$user = $this->dao('User')->getByEmail($email);
+		$user = $this->dao('User')->findByEmail($email);
 
-		if ($user !== false) {
-			if (password_verify($password, $user->getPasswordHash())) {
-				return $user;
-			} else {
-				$this->setError('INVALID_PASSWORD');
-			}
-		} else {
+		if ($user === false) {
 			$this->setError('INVALID_EMAIL');
+			return false;
 		}
 
-		return false;
+		if (!password_verify($password, $user->getPasswordHash())) {
+			$this->setError('INVALID_PASSWORD');
+			return false;
+		}
+		
+		return ['user' => $user];
 	}
 
-	public function register(): User | false {
+	public function register(): array | false {
 		[
 			'email' => $email,
 			'password' => $password,
@@ -57,9 +57,9 @@ class UserModel extends Model {
 		
 		$userDAO = $this->dao('User');
 		
-		$userExists = $userDAO->getByEmail($email);
+		$userExists = $userDAO->findByEmail($email);
 
-		if ($userExists) {
+		if ($userExists !== false) {
 			$this->setError('EMAIL_ALREADY_EXISTS');
 			return false;
 		}
@@ -75,32 +75,32 @@ class UserModel extends Model {
 		
 		$userId = $userDAO->insertUser($user);
 		
-		if ($userId !== false) {
-			$user->setId($userId);
-			$fileName = "PP-$userId." . pathinfo($picture['name'], PATHINFO_EXTENSION);
-			
-			if (move_uploaded_file($picture['tmp_name'], PATH_UPLOAD_PROFILE_PICTURES . $fileName)) {
-				$user->setPictureUrl($fileName);
+		if ($userId === false) {
+			$userDAO->rollBack();
+			$this->setError('UNKNOWN_ERROR');
+			return false;
+		}
 
-				if ($userDAO->updatePictureUrl($user) === false) {
-					$userDAO->rollBack();
-					unlink(PATH_UPLOAD_PROFILE_PICTURES . $fileName);
-					$this->setError('ERROR_UPDATING_PICTURE_URL');
-					return false;
-				}
-
-				$userDAO->commit();
-				return $user;
-			}
-			
+		$user->setId($userId);
+		$fileName = "PP-$userId." . pathinfo($picture['name'], PATHINFO_EXTENSION);
+		
+		if (!move_uploaded_file($picture['tmp_name'], PATH_UPLOAD_PROFILE_PICTURES . $fileName)) {
 			$userDAO->rollBack();
 			$this->setError('ERROR_UPLOADING_PICTURE');
 			return false;
 		}
+		
+		$user->setPictureUrl($fileName);
 
-		$userDAO->rollBack();
-		$this->setError('UNKNOWN_ERROR');
-		return false;
+		if ($userDAO->updatePictureUrl($user) === false) {
+			$userDAO->rollBack();
+			unlink(PATH_UPLOAD_PROFILE_PICTURES . $fileName);
+			$this->setError('ERROR_UPDATING_PICTURE_URL');
+			return false;
+		}
+
+		$userDAO->commit();
+		return ['user' => $user];
 	}
 
 	public function logout(): void {
