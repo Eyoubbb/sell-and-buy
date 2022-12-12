@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 12, 2022 at 10:24 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Host: localhost:8889
+-- Generation Time: Dec 12, 2022 at 10:46 AM
+-- Server version: 5.7.34
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `sab-website`
 --
-CREATE DATABASE IF NOT EXISTS `sab-website` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `sab-website`;
 
 -- --------------------------------------------------------
 
@@ -29,7 +27,6 @@ USE `sab-website`;
 -- Table structure for table `admins`
 --
 
-DROP TABLE IF EXISTS `admins`;
 CREATE TABLE `admins` (
   `ADMIN_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -51,12 +48,11 @@ INSERT INTO `admins` (`ADMIN_ID`) VALUES
 -- Table structure for table `carts`
 --
 
-DROP TABLE IF EXISTS `carts`;
 CREATE TABLE `carts` (
   `PRODUCT_ID` int(11) NOT NULL,
   `USER_ID` int(11) NOT NULL,
   `CART_QUANTITY` int(11) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `carts`
@@ -170,7 +166,6 @@ INSERT INTO `carts` (`PRODUCT_ID`, `USER_ID`, `CART_QUANTITY`) VALUES
 -- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `CATEGORY_ID` int(11) NOT NULL,
   `CATEGORY_NAME` varchar(254) NOT NULL,
@@ -198,7 +193,6 @@ INSERT INTO `categories` (`CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_DESCRIPTION`
 -- Table structure for table `categorytagcategories`
 --
 
-DROP TABLE IF EXISTS `categorytagcategories`;
 CREATE TABLE `categorytagcategories` (
   `CATEGORY_ID` int(11) NOT NULL,
   `TAG_CATEGORY_ID` int(11) NOT NULL
@@ -209,29 +203,29 @@ CREATE TABLE `categorytagcategories` (
 --
 
 INSERT INTO `categorytagcategories` (`CATEGORY_ID`, `TAG_CATEGORY_ID`) VALUES
-(1, 2),
-(1, 4),
-(2, 2),
-(2, 4),
-(3, 2),
-(3, 3),
-(3, 5),
-(3, 7),
 (4, 1),
-(4, 2),
-(4, 3),
-(4, 5),
 (5, 1),
+(9, 1),
+(1, 2),
+(2, 2),
+(3, 2),
+(4, 2),
 (5, 2),
-(5, 3),
-(5, 5),
-(5, 6),
 (6, 2),
 (8, 2),
-(9, 1),
 (9, 2),
+(3, 3),
+(4, 3),
+(5, 3),
 (9, 3),
-(9, 5);
+(1, 4),
+(2, 4),
+(3, 5),
+(4, 5),
+(5, 5),
+(9, 5),
+(5, 6),
+(3, 7);
 
 -- --------------------------------------------------------
 
@@ -239,7 +233,6 @@ INSERT INTO `categorytagcategories` (`CATEGORY_ID`, `TAG_CATEGORY_ID`) VALUES
 -- Table structure for table `comments`
 --
 
-DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `COMMENT_ID` int(11) NOT NULL,
   `COMMENT_RATING_ID` int(11) NOT NULL,
@@ -261,7 +254,6 @@ INSERT INTO `comments` (`COMMENT_ID`, `COMMENT_RATING_ID`, `COMMENT_TITLE`, `COM
 -- Table structure for table `creators`
 --
 
-DROP TABLE IF EXISTS `creators`;
 CREATE TABLE `creators` (
   `CREATOR_ID` int(11) NOT NULL,
   `CREATOR_DESCRIPTION` varchar(254) NOT NULL,
@@ -313,7 +305,6 @@ INSERT INTO `creators` (`CREATOR_ID`, `CREATOR_DESCRIPTION`, `CREATOR_BANNER_URL
 -- Table structure for table `favorites`
 --
 
-DROP TABLE IF EXISTS `favorites`;
 CREATE TABLE `favorites` (
   `USER_ID` int(11) NOT NULL,
   `CREATOR_ID` int(11) NOT NULL
@@ -325,125 +316,125 @@ CREATE TABLE `favorites` (
 -- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `PRODUCT_ID` int(11) NOT NULL,
   `PRODUCT_CATEGORY_ID` int(11) NOT NULL,
   `PRODUCT_CREATOR_ID` int(11) NOT NULL,
   `PRODUCT_NAME` varchar(254) NOT NULL,
-  `PRODUCT_DESCRIPTION` varchar(254) NOT NULL,
+  `PRODUCT_DESCRIPTION_EN` varchar(254) NOT NULL,
+  `PRODUCT_DESCRIPTION_FR` varchar(254) NOT NULL,
   `PRODUCT_IMAGE_URL` varchar(254) DEFAULT NULL,
   `PRODUCT_PRICE` decimal(8,2) NOT NULL,
   `PRODUCT_DISCOUNT_PERCENTAGE` decimal(5,2) DEFAULT NULL,
   `PRODUCT_STOCK` int(11) NOT NULL,
   `PRODUCT_VISIBLE` tinyint(1) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`PRODUCT_ID`, `PRODUCT_CATEGORY_ID`, `PRODUCT_CREATOR_ID`, `PRODUCT_NAME`, `PRODUCT_DESCRIPTION`, `PRODUCT_IMAGE_URL`, `PRODUCT_PRICE`, `PRODUCT_DISCOUNT_PERCENTAGE`, `PRODUCT_STOCK`, `PRODUCT_VISIBLE`) VALUES
-(1, 2, 2, 'Infinix INBOOK', 'Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty', 'PROD-1.jpg', '1099.00', '11.83', 96, 1),
-(2, 7, 3, 'Hyaluronic Acid Serum', 'L\'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid', 'PROD-2.jpg', '19.00', '13.31', 110, 1),
-(3, 1, 4, 'iPhone X', 'SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...', 'PROD-3.jpg', '899.00', '17.94', 34, 1),
-(4, 1, 5, 'iPhone 9', 'An apple mobile which is nothing like apple', 'PROD-4.jpg', '549.00', '12.96', 94, 1),
-(5, 2, 6, 'Microsoft Surface Laptop 4', 'Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.', 'PROD-5.jpg', '1499.00', '10.23', 68, 1),
-(6, 7, 7, 'Tree Oil 30ml', 'Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,', 'PROD-6.jpg', '12.00', '0.00', 78, 1),
-(7, 4, 8, 'ank Tops for Womens/Girls', 'PACK OF 3 CAMISOLES ,VERY COMFORTABLE SOFT COTTON STUFF, COMFORTABLE IN ALL FOUR SEASONS', 'PROD-7.jpg', '50.00', '12.05', 107, 1),
-(8, 8, 9, 'Orange Essence Food Flavou', 'Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item', 'PROD-8.jpg', '14.00', '0.00', 26, 1),
-(9, 2, 10, 'Samsung Galaxy Book', 'Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched', 'PROD-9.jpg', '1499.00', '0.00', 50, 1),
-(10, 8, 11, 'Sofa for Coffe Cafe', 'Ratttan Outdoor furniture Set Waterproof  Rattan Sofa for Coffe Cafe', 'PROD-10.jpg', '50.00', '15.59', 30, 1),
-(11, 8, 12, 'Flying Wooden Bird', 'Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm', 'PROD-11.webp', '51.00', '15.58', 17, 1),
-(12, 8, 13, 'Key Holder', 'Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality', 'PROD-12.jpg', '30.00', '0.00', 54, 1),
-(13, 2, 14, 'HP Pavilion 15-DK1056WM', 'HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10', 'PROD-13.jpeg', '1099.00', '0.00', 89, 1),
-(14, 1, 15, 'Samsung Universe 9', 'Samsung\'s new variant which goes beyond Galaxy to the Universe', 'PROD-14.jpg', '1249.00', '15.46', 36, 1),
-(15, 8, 16, '3D Embellishment Art Lamp', '3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)', 'PROD-15.jpg', '20.00', '16.49', 54, 1),
-(16, 7, 17, 'perfume Oil', 'Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil', 'PROD-16.jpg', '13.00', '0.00', 65, 1),
-(17, 8, 18, 'Plant Hanger For Home', 'Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf', 'PROD-17.jpg', '41.00', '17.86', 131, 1),
-(18, 8, 19, 'Elbow Macaroni - 400 gm', 'Product details of Bake Parlor Big Elbow Macaroni - 400 gm', 'PROD-18.jpg', '14.00', '15.58', 146, 1),
-(19, 7, 20, 'Brown Perfume', 'Royal_Mirage Sport Brown Perfume for Men & Women - 120ml', 'PROD-19.jpg', '40.00', '15.66', 52, 1),
-(20, 4, 21, 'Sleeve Shirt Womens', 'Cotton Solid Color Professional Wear Sleeve Shirt Womens Work Blouses Wholesale Clothing Casual Plain Custom Top OEM Customized', 'PROD-20.jpg', '90.00', '10.89', 39, 1),
-(21, 1, 22, 'Huawei P30', 'Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.', 'PROD-21.jpg', '499.00', '10.58', 32, 1),
-(22, 8, 23, 'cereals muesli fruit nuts', 'original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji', 'PROD-22.jpg', '46.00', '16.80', 113, 1),
-(23, 5, 24, 'women\'s shoes', 'Close: Lace, Style with bottom: Increased inside, Sole Material: Rubber', 'PROD-23.jpg', '40.00', '16.96', 72, 1),
-(24, 4, 25, 'half sleeves T shirts', 'Many store is creating new designs and trend every month and every year. Daraz.pk have a beautiful range of men fashion brands', 'PROD-24.jpg', '23.00', '12.76', 132, 1),
-(25, 8, 26, 'Handcraft Chinese style', 'Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate', 'PROD-25.webp', '60.00', '15.34', 7, 1),
-(26, 5, 27, 'Women Strip Heel', 'Features: Flip-flops, Mid Heel, Comfortable, Striped Heel, Antiskid, Striped', 'PROD-26.jpg', '40.00', '10.83', 25, 1),
-(27, 4, 28, 'FREE FIRE T Shirt', 'quality and professional print - It doesn\'t just look high quality, it is high quality.', 'PROD-27.jpg', '10.00', '14.72', 128, 1),
-(28, 1, 30, 'OPPOF19', 'OPPO F19 is officially announced on April 2021.', 'PROD-28.jpg', '280.00', '17.91', 123, 1),
-(29, 7, 31, 'Non-Alcoholic Concentrated Perfume Oil', 'Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil', 'PROD-29.jpg', '120.00', '15.60', 114, 1),
-(30, 5, 32, 'Stylish Casual Jeans Shoes', 'High Quality ,Stylish design ,Comfortable wear ,FAshion ,Durable', 'PROD-30.jpg', '58.00', '0.00', 129, 1),
-(31, 8, 33, 'Bluetooth Aux', 'Bluetooth Aux Bluetooth Car Aux Car Bluetooth Transmitter Aux Audio Receiver Handfree Car Bluetooth Music Receiver Universal 3.5mm Streaming A2DP Wireless Auto AUX Audio Adapter With Mic For Phone MP3', 'PROD-31.jpg', '25.00', '10.56', 22, 1),
-(32, 4, 34, 'women winter clothes', 'women winter clothes thick fleece hoodie top with sweat pantjogger women sweatsuit set joggers pants two piece pants set', 'PROD-32.jpg', '57.00', '13.39', 84, 1),
-(33, 5, 35, 'Spring and summershoes', 'Comfortable stretch cloth, lightweight body; ,rubber sole, anti-skid wear;', 'PROD-33.jpg', '20.00', '0.00', 137, 1),
-(34, 4, 2, 'Pubg Printed Graphic T-Shirt', 'Product Description Features: 100% Ultra soft Polyester Jersey. Vibrant & colorful printing on front. Feels soft as cotton without ever cracking', 'PROD-34.jpg', '46.00', '16.44', 136, 1),
-(35, 3, 3, 'Women Shoulder Bags', 'LouisWill Women Shoulder Bags Long Clutches Cross Body Bags Phone Bags PU Leather Hand Bags Large Capacity Card Holders Zipper Coin Purses Fashion Crossbody Bags for Girls Ladies', 'PROD-35.jpg', '46.00', '14.65', 17, 1),
-(36, 8, 4, '3 Tier Corner Shelves', '3 Tier Corner Shelves | 3 PCs Wall Mount Kitchen Shelf | Floating Bedroom Shelf', 'PROD-36.jpg', '700.00', '17.00', 106, 1),
-(37, 3, 5, 'Kabir Singh Square Sunglass', 'Orignal Metal Kabir Singh design 2020 Sunglasses Men Brand Designer Sun Glasses Kabir Singh Square Sunglass', 'PROD-37.jpg', '50.00', '15.60', 78, 1),
-(38, 2, 6, 'MacBook Pro', 'MacBook Pro 2021 with mini-LED display may launch between September, November', 'PROD-38.png', '1749.00', '11.02', 83, 1),
-(39, 8, 7, 'Plastic Table', 'Very good quality plastic table for multi purpose now in reasonable price', 'PROD-39.jpg', '50.00', '0.00', 136, 1),
-(40, 5, 8, 'Women Shoes', '2020 New Arrivals Genuine Leather Fashion Trend Platform Summer Women Shoes', 'PROD-40.jpg', '36.00', '16.87', 46, 1),
-(41, 8, 9, 'Mornadi Velvet Bed', 'Mornadi Velvet Bed Base with Headboard Slats Support Classic Style Bedroom Furniture Bed Set', 'PROD-41.jpg', '40.00', '17.00', 140, 1),
-(42, 8, 10, 'Gulab Powder 50 Gram', 'Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds', 'PROD-42.jpg', '70.00', '13.58', 47, 1),
-(43, 8, 11, 'Metal Ceramic Flower', 'Metal Ceramic Flower Chandelier Home Lighting American Vintage Hanging Lighting Pendant Lamp', 'PROD-43.jpg', '35.00', '10.94', 146, 1),
-(44, 3, 12, 'Waterproof Leather Brand Watch', 'Watch Crown With Environmental IPS Bronze Electroplating; Display system of 12 hours', 'PROD-44.jpg', '46.00', '0.00', 95, 1),
-(45, 5, 13, 'Chappals & Shoe Ladies Metallic', 'Womens Chappals & Shoe Ladies Metallic Tong Thong Sandal Flat Summer 2020 Maasai Sandals', 'PROD-45.jpg', '23.00', '0.00', 107, 1),
-(46, 5, 14, 'Sneakers Joggers Shoes', 'Gender: Men , Colors: Same as DisplayedCondition: 100% Brand New', 'PROD-46.jpg', '40.00', '12.57', 6, 1),
-(47, 5, 15, 'Loafers for men', 'Men Shoes - Loafers for men - Rubber Shoes - Nylon Shoes - Shoes for men - Moccassion - Pure Nylon (Rubber) Expot Quality.', 'PROD-47.jpg', '47.00', '10.91', 20, 1),
-(48, 4, 16, 'Women Sweaters Wool', '2021 Custom Winter Fall Zebra Knit Crop Top Women Sweaters Wool Mohair Cos Customize Crew Neck Women\' S Crop Top Sweater', 'PROD-48.jpg', '600.00', '17.20', 55, 1),
-(49, 4, 17, 'Malai Maxi Dress', 'Ready to wear, Unique design according to modern standard fashion, Best fitting ,Imported stuff', 'PROD-49.jpg', '50.00', '0.00', 96, 1),
-(50, 3, 18, 'Leather Strap Skeleton Watch', 'Leather Strap Skeleton Watch for Men - Stylish and Latest Design', 'PROD-50.jpg', '46.00', '10.20', 61, 1),
-(51, 6, 19, 'Silver Ring Set Women', 'Jewelry Type:RingsCertificate Type:NonePlating:Silver PlatedShapeattern:noneStyle:CLASSICReligious', 'PROD-51.jpg', '70.00', '13.57', 51, 1),
-(52, 7, 20, 'Fog Scent Xpressio Perfume', 'Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men', 'PROD-52.webp', '13.00', '0.00', 61, 1),
-(53, 4, 21, 'NIGHT SUIT', 'NIGHT SUIT RED MICKY MOUSE..  For Girls. Fantastic Suits.', 'PROD-53.webp', '55.00', '15.05', 21, 1),
-(54, 4, 22, 'sublimation plain kids tank', 'sublimation plain kids tank tops wholesale', 'PROD-54.jpg', '100.00', '11.12', 20, 1),
-(55, 7, 23, 'Skin Beauty Serum.', 'Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m', 'PROD-55.jpg', '46.00', '10.68', 54, 1),
-(56, 3, 24, 'Stainless Steel Wrist Watch', 'Stylish Watch For Man (Luxury) Classy Men\'s Stainless Steel Wrist Watch - Box Packed', 'PROD-56.webp', '47.00', '17.79', 94, 1),
-(57, 3, 25, 'Leather Hand Bag', 'It features an attractive design that makes it a must have accessory in your collection. We sell different kind of bags for boys, kids, women, girls and also for unisex.', 'PROD-57.jpg', '57.00', '11.19', 43, 1),
-(58, 3, 26, 'Fancy hand clutch', 'This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.', 'PROD-58.jpg', '44.00', '10.39', 101, 1),
-(59, 7, 27, 'Oil Free Moisturizer 100ml', 'Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.', 'PROD-59.jpg', '40.00', '13.10', 88, 1),
-(60, 8, 28, 'HOT SALE IN EUROPE electric racing motorcycle', 'HOT SALE IN EUROPE electric racing motorcycle electric motorcycle for sale adult electric motorcycles', 'PROD-60.jpg', '920.00', '14.40', 22, 1),
-(61, 3, 30, 'Leather Straps Wristwatch', 'Style:Sport ,Clasp:Buckles ,Water Resistance Depth:3Bar', 'PROD-61.jpg', '120.00', '0.00', 91, 1),
-(62, 3, 31, 'LouisWill Men Sunglasses', 'LouisWill Men Sunglasses Polarized Sunglasses UV400 Sunglasses Day Night Dual Use Safety Driving Night Vision Eyewear AL-MG Frame Sun Glasses with Free Box for Drivers', 'PROD-62.jpg', '50.00', '11.27', 92, 1),
-(63, 8, 32, '3 DOOR PORTABLE', 'Material: Stainless Steel and Fabric  Item Size: 110 cm x 45 cm x 175 cm Package Contents: 1 Storage Wardrobe', 'PROD-63.jpg', '41.00', '0.00', 68, 1),
-(64, 7, 33, 'Freckle Treatment Cream- 15gm', 'Fair & Clear is Pakistan\'s only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.', 'PROD-64.jpg', '70.00', '16.99', 140, 1),
-(65, 3, 34, 'Golden Watch Pearls Bracelet Watch', 'Product details of Golden Watch Pearls Bracelet Watch For Girls - Golden Chain Ladies Bracelate Watch for Women', 'PROD-65.jpg', '47.00', '17.55', 89, 1),
-(66, 4, 35, 'Money Heist Printed Summer T Shirts', 'Fabric Jercy, Size: M & L Wear Stylish Dual Stiched', 'PROD-66.jpg', '66.00', '15.97', 122, 1),
-(67, 6, 2, 'Rose Ring', 'Brand: The Greetings Flower Colour: RedRing Colour: GoldenSize: Adjustable', 'PROD-67.jpg', '100.00', '0.00', 149, 1),
-(68, 8, 3, 'American Vintage Wood Pendant Light', 'American Vintage Wood Pendant Light Farmhouse Antique Hanging Lamp Lampara Colgante', 'PROD-68.jpg', '46.00', '0.00', 138, 1),
-(69, 6, 4, 'Chain Pin Tassel Earrings', 'Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings - Silver ( Long Life Quality Product)', 'PROD-69.jpg', '45.00', '17.75', 9, 1),
-(70, 7, 5, 'Eau De Perfume Spray', 'Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality', 'PROD-70.jpg', '30.00', '10.99', 105, 1),
-(71, 3, 6, 'Handbag For Girls', 'This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.', 'PROD-71.webp', '23.00', '17.50', 27, 1),
-(72, 3, 7, 'Square Sunglasses', 'Fashion Oversized Square Sunglasses Retro Gradient Big Frame Sunglasses For Women One Piece Gafas Shade Mirror Clear Lens 17059', 'PROD-72.jpg', '28.00', '13.89', 64, 1),
-(73, 5, 8, 'Sneaker shoes', 'Synthetic Leather Casual Sneaker shoes for Women/girls Sneakers For Women', 'PROD-73.jpeg', '120.00', '10.37', 50, 1),
-(74, 4, 9, 'printed high quality T shirts', 'Brand: vintage Apparel ,Export quality', 'PROD-74.jpg', '35.00', '0.00', 6, 1),
-(75, 5, 10, 'formal offices shoes', 'Pattern Type: Solid, Material: PU, Toe Shape: Pointed Toe ,Outsole Material: Rubber', 'PROD-75.jpg', '57.00', '12.00', 68, 1),
-(76, 8, 11, '- Daal Masoor 500 grams', 'Fine quality Branded Product Keep in a cool and dry place', 'PROD-76.png', '20.00', '0.00', 133, 1),
-(77, 8, 12, 'Wholesale cargo lashing Belt', 'Wholesale cargo lashing Belt Tie Down end Ratchet strap customized strap 25mm motorcycle 1500kgs with rubber handle', 'PROD-77.jpg', '930.00', '17.67', 144, 1),
-(78, 6, 13, 'Rhinestone Korean Style Open Rings', 'Fashion Jewellery 3Pcs Adjustable Pearl Rhinestone Korean Style Open Rings For Women', 'PROD-78.jpg', '30.00', '0.00', 9, 1),
-(79, 3, 14, 'Round Silver Frame Sun Glasses', 'A pair of sunglasses can protect your eyes from being hurt. For car driving, vacation travel, outdoor activities, social gatherings,', 'PROD-79.jpg', '19.00', '10.10', 78, 1),
-(80, 3, 15, 'Wiley X Night Vision Yellow Glasses', 'Wiley X Night Vision Yellow Glasses for Riders - Night Vision Anti Fog Driving Glasses - Free Night Glass Cover - Shield Eyes From Dust and Virus- For Night Sport Matches', 'PROD-80.jpg', '30.00', '0.00', 115, 1),
-(81, 8, 16, '3 lights lndenpant kitchen islang', '3 lights lndenpant kitchen islang dining room pendant rice paper chandelier contemporary led pendant light modern chandelier', 'PROD-81.jpg', '34.00', '0.00', 44, 1),
-(82, 8, 17, 'new arrivals Fashion motocross goggles', 'new arrivals Fashion motocross goggles motorcycle motocross racing motorcycle', 'PROD-82.webp', '900.00', '0.00', 109, 1),
-(83, 8, 18, 'Cycle Bike Glow', 'Universal fitment and easy to install no special wires, can be easily installed and removed. Fits most standard tyre air stem valves of road, mountain bicycles, motocycles and cars.Bright led will turn on w', 'PROD-83.jpg', '35.00', '11.08', 63, 1),
-(84, 6, 19, 'Elegant Female Pearl Earrings', 'Elegant Female Pearl Earrings Set Zircon Pearl Earings Women Party Accessories 9 Pairs/Set', 'PROD-84.jpg', '30.00', '12.80', 16, 1),
-(85, 3, 20, 'Royal Blue Premium Watch', 'Men Silver Chain Royal Blue Premium Watch Latest Analog Watch', 'PROD-85.webp', '50.00', '0.00', 142, 1),
-(86, 4, 21, 'frock gold printed', 'Ghazi fabric long frock gold printed ready to wear stitched collection (G992)', 'PROD-86.jpg', '600.00', '15.55', 150, 1),
-(87, 8, 22, 'Qualcomm original Car Charger', 'best Quality CHarger , Highly Recommended to all best Quality CHarger , Highly Recommended to all', 'PROD-87.jpg', '40.00', '17.53', 79, 1),
-(88, 3, 23, 'Stylish Luxury Digital Watch', 'Stylish Luxury Digital Watch For Girls / Women - Led Smart Ladies Watches For Girls', 'PROD-88.webp', '57.00', '0.00', 77, 1),
-(89, 8, 24, 't Temperature Controller Incubator Controller', 'Both Heat and Cool Purpose, Temperature control range; -50 to +110, Temperature measurement accuracy; 0.1, Control accuracy; 0.1', 'PROD-89.jpg', '40.00', '11.30', 37, 1),
-(90, 3, 25, 'Fashion Magnetic Wrist Watch', 'Buy this awesome  The product is originally manufactured by the company and it\'s a top selling product with a very reasonable', 'PROD-90.jpg', '60.00', '16.69', 46, 1),
-(91, 8, 26, 'Automatic Motor Gas Motorcycles', '150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter', 'PROD-91.jpg', '1050.00', '0.00', 127, 1),
-(92, 4, 27, 'Ladies Multicolored Dress', 'This classy shirt for women gives you a gorgeous look on everyday wear and specially for semi-casual wears.', 'PROD-92.jpg', '79.00', '16.88', 2, 1),
-(93, 8, 28, 'lighting ceiling kitchen', 'Wholesale slim hanging decorative kid room lighting ceiling kitchen chandeliers pendant light modern', 'PROD-93.jpg', '30.00', '14.89', 96, 1),
-(94, 8, 30, 'Crystal chandelier maria theresa for 12 light', 'Crystal chandelier maria theresa for 12 light', 'PROD-94.jpg', '47.00', '16.00', 133, 1),
-(95, 8, 31, 'Black Motorbike', 'Engine Type:Wet sump, Single Cylinder, Four Stroke, Two Valves, Air Cooled with SOHC (Single Over Head Cam) Chain Drive Bore & Stroke:47.0 x 49.5 MM', 'PROD-95.jpg', '569.00', '13.63', 115, 1),
-(96, 3, 32, 'Steel Analog Couple Watches', 'Elegant design, Stylish ,Unique & Trendy,Comfortable wear', 'PROD-96.jpg', '35.00', '0.00', 24, 1),
-(97, 8, 33, 'TC Reusable Silicone Magic Washing Gloves', 'TC Reusable Silicone Magic Washing Gloves with Scrubber, Cleaning Brush Scrubber Gloves Heat Resistant Pair for Cleaning of Kitchen, Dishes, Vegetables and Fruits, Bathroom, Car Wash, Pet Care and Multipurpose', 'PROD-97.jpg', '29.00', '0.00', 42, 1),
-(98, 4, 34, 'Stiched Kurta plus trouser', 'FABRIC: LILEIN CHEST: 21 LENGHT: 37 TROUSER: (38) :ARABIC LILEIN', 'PROD-98.jpg', '80.00', '15.37', 148, 1),
-(99, 3, 35, 'Seven Pocket Women Bag', 'Seven Pocket Women Bag Handbags Lady Shoulder Crossbody Bag Female Purse Seven Pocket Bag', 'PROD-99.jpg', '68.00', '14.87', 13, 1),
-(100, 3, 2, 'Stainless Steel Women', 'Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies', 'PROD-100.jpg', '35.00', '0.00', 111, 1);
+INSERT INTO `products` (`PRODUCT_ID`, `PRODUCT_CATEGORY_ID`, `PRODUCT_CREATOR_ID`, `PRODUCT_NAME`, `PRODUCT_DESCRIPTION_EN`, `PRODUCT_DESCRIPTION_FR`, `PRODUCT_IMAGE_URL`, `PRODUCT_PRICE`, `PRODUCT_DISCOUNT_PERCENTAGE`, `PRODUCT_STOCK`, `PRODUCT_VISIBLE`) VALUES
+(1, 2, 2, 'Infinix INBOOK', 'Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty', 'Infinix Inbook X1 Ci3 10e 8 Go 256 Go 14 Win10 Gris – Garantie 1 an', 'PROD-1.jpg', '1099.00', '11.83', 96, 1),
+(2, 7, 3, 'Hyaluronic Acid Serum', 'L\'Oreal Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid', 'L\'Oréal Paris présente le Sérum Repulpant Hyaluron Expert formulé avec 1,5% d\'Acide Hyaluronique', 'PROD-2.jpg', '19.00', '13.31', 110, 1),
+(3, 1, 4, 'iPhone X', 'SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...', '', 'PROD-3.jpg', '899.00', '17.94', 34, 1),
+(4, 1, 5, 'iPhone 9', 'An apple mobile which is nothing like apple', '', 'PROD-4.jpg', '549.00', '12.96', 94, 1),
+(5, 2, 6, 'Microsoft Surface Laptop 4', 'Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.', '', 'PROD-5.jpg', '1499.00', '10.23', 68, 1),
+(6, 7, 7, 'Tree Oil 30ml', 'Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,', '', 'PROD-6.jpg', '12.00', '0.00', 78, 1),
+(7, 4, 8, 'ank Tops for Womens/Girls', 'PACK OF 3 CAMISOLES ,VERY COMFORTABLE SOFT COTTON STUFF, COMFORTABLE IN ALL FOUR SEASONS', '', 'PROD-7.jpg', '50.00', '12.05', 107, 1),
+(8, 8, 9, 'Orange Essence Food Flavou', 'Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item', '', 'PROD-8.jpg', '14.00', '0.00', 26, 1),
+(9, 2, 10, 'Samsung Galaxy Book', 'Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched', '', 'PROD-9.jpg', '1499.00', '0.00', 50, 1),
+(10, 8, 11, 'Sofa for Coffe Cafe', 'Ratttan Outdoor furniture Set Waterproof  Rattan Sofa for Coffe Cafe', '', 'PROD-10.jpg', '50.00', '15.59', 30, 1),
+(11, 8, 12, 'Flying Wooden Bird', 'Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm', '', 'PROD-11.webp', '51.00', '15.58', 17, 1),
+(12, 8, 13, 'Key Holder', 'Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality', '', 'PROD-12.jpg', '30.00', '0.00', 54, 1),
+(13, 2, 14, 'HP Pavilion 15-DK1056WM', 'HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10', '', 'PROD-13.jpeg', '1099.00', '0.00', 89, 1),
+(14, 1, 15, 'Samsung Universe 9', 'Samsung\'s new variant which goes beyond Galaxy to the Universe', '', 'PROD-14.jpg', '1249.00', '15.46', 36, 1),
+(15, 8, 16, '3D Embellishment Art Lamp', '3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)', '', 'PROD-15.jpg', '20.00', '16.49', 54, 1),
+(16, 7, 17, 'perfume Oil', 'Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil', '', 'PROD-16.jpg', '13.00', '0.00', 65, 1),
+(17, 8, 18, 'Plant Hanger For Home', 'Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf', '', 'PROD-17.jpg', '41.00', '17.86', 131, 1),
+(18, 8, 19, 'Elbow Macaroni - 400 gm', 'Product details of Bake Parlor Big Elbow Macaroni - 400 gm', '', 'PROD-18.jpg', '14.00', '15.58', 146, 1),
+(19, 7, 20, 'Brown Perfume', 'Royal_Mirage Sport Brown Perfume for Men & Women - 120ml', '', 'PROD-19.jpg', '40.00', '15.66', 52, 1),
+(20, 4, 21, 'Sleeve Shirt Womens', 'Cotton Solid Color Professional Wear Sleeve Shirt Womens Work Blouses Wholesale Clothing Casual Plain Custom Top OEM Customized', '', 'PROD-20.jpg', '90.00', '10.89', 39, 1),
+(21, 1, 22, 'Huawei P30', 'Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.', '', 'PROD-21.jpg', '499.00', '10.58', 32, 1),
+(22, 8, 23, 'cereals muesli fruit nuts', 'original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji', '', 'PROD-22.jpg', '46.00', '16.80', 113, 1),
+(23, 5, 24, 'women\'s shoes', 'Close: Lace, Style with bottom: Increased inside, Sole Material: Rubber', '', 'PROD-23.jpg', '40.00', '16.96', 72, 1),
+(24, 4, 25, 'half sleeves T shirts', 'Many store is creating new designs and trend every month and every year. Daraz.pk have a beautiful range of men fashion brands', '', 'PROD-24.jpg', '23.00', '12.76', 132, 1),
+(25, 8, 26, 'Handcraft Chinese style', 'Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate', '', 'PROD-25.webp', '60.00', '15.34', 7, 1),
+(26, 5, 27, 'Women Strip Heel', 'Features: Flip-flops, Mid Heel, Comfortable, Striped Heel, Antiskid, Striped', '', 'PROD-26.jpg', '40.00', '10.83', 25, 1),
+(27, 4, 28, 'FREE FIRE T Shirt', 'quality and professional print - It doesn\'t just look high quality, it is high quality.', '', 'PROD-27.jpg', '10.00', '14.72', 128, 1),
+(28, 1, 30, 'OPPOF19', 'OPPO F19 is officially announced on April 2021.', '', 'PROD-28.jpg', '280.00', '17.91', 123, 1),
+(29, 7, 31, 'Non-Alcoholic Concentrated Perfume Oil', 'Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil', '', 'PROD-29.jpg', '120.00', '15.60', 114, 1),
+(30, 5, 32, 'Stylish Casual Jeans Shoes', 'High Quality ,Stylish design ,Comfortable wear ,FAshion ,Durable', '', 'PROD-30.jpg', '58.00', '0.00', 129, 1),
+(31, 8, 33, 'Bluetooth Aux', 'Bluetooth Aux Bluetooth Car Aux Car Bluetooth Transmitter Aux Audio Receiver Handfree Car Bluetooth Music Receiver Universal 3.5mm Streaming A2DP Wireless Auto AUX Audio Adapter With Mic For Phone MP3', '', 'PROD-31.jpg', '25.00', '10.56', 22, 1),
+(32, 4, 34, 'women winter clothes', 'women winter clothes thick fleece hoodie top with sweat pantjogger women sweatsuit set joggers pants two piece pants set', '', 'PROD-32.jpg', '57.00', '13.39', 84, 1),
+(33, 5, 35, 'Spring and summershoes', 'Comfortable stretch cloth, lightweight body; ,rubber sole, anti-skid wear;', '', 'PROD-33.jpg', '20.00', '0.00', 137, 1),
+(34, 4, 2, 'Pubg Printed Graphic T-Shirt', 'Product Description Features: 100% Ultra soft Polyester Jersey. Vibrant & colorful printing on front. Feels soft as cotton without ever cracking', '', 'PROD-34.jpg', '46.00', '16.44', 136, 1),
+(35, 3, 3, 'Women Shoulder Bags', 'LouisWill Women Shoulder Bags Long Clutches Cross Body Bags Phone Bags PU Leather Hand Bags Large Capacity Card Holders Zipper Coin Purses Fashion Crossbody Bags for Girls Ladies', '', 'PROD-35.jpg', '46.00', '14.65', 17, 1),
+(36, 8, 4, '3 Tier Corner Shelves', '3 Tier Corner Shelves | 3 PCs Wall Mount Kitchen Shelf | Floating Bedroom Shelf', '', 'PROD-36.jpg', '700.00', '17.00', 106, 1),
+(37, 3, 5, 'Kabir Singh Square Sunglass', 'Orignal Metal Kabir Singh design 2020 Sunglasses Men Brand Designer Sun Glasses Kabir Singh Square Sunglass', '', 'PROD-37.jpg', '50.00', '15.60', 78, 1),
+(38, 2, 6, 'MacBook Pro', 'MacBook Pro 2021 with mini-LED display may launch between September, November', '', 'PROD-38.png', '1749.00', '11.02', 83, 1),
+(39, 8, 7, 'Plastic Table', 'Very good quality plastic table for multi purpose now in reasonable price', '', 'PROD-39.jpg', '50.00', '0.00', 136, 1),
+(40, 5, 8, 'Women Shoes', '2020 New Arrivals Genuine Leather Fashion Trend Platform Summer Women Shoes', '', 'PROD-40.jpg', '36.00', '16.87', 46, 1),
+(41, 8, 9, 'Mornadi Velvet Bed', 'Mornadi Velvet Bed Base with Headboard Slats Support Classic Style Bedroom Furniture Bed Set', '', 'PROD-41.jpg', '40.00', '17.00', 140, 1),
+(42, 8, 10, 'Gulab Powder 50 Gram', 'Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds', '', 'PROD-42.jpg', '70.00', '13.58', 47, 1),
+(43, 8, 11, 'Metal Ceramic Flower', 'Metal Ceramic Flower Chandelier Home Lighting American Vintage Hanging Lighting Pendant Lamp', '', 'PROD-43.jpg', '35.00', '10.94', 146, 1),
+(44, 3, 12, 'Waterproof Leather Brand Watch', 'Watch Crown With Environmental IPS Bronze Electroplating; Display system of 12 hours', '', 'PROD-44.jpg', '46.00', '0.00', 95, 1),
+(45, 5, 13, 'Chappals & Shoe Ladies Metallic', 'Womens Chappals & Shoe Ladies Metallic Tong Thong Sandal Flat Summer 2020 Maasai Sandals', '', 'PROD-45.jpg', '23.00', '0.00', 107, 1),
+(46, 5, 14, 'Sneakers Joggers Shoes', 'Gender: Men , Colors: Same as DisplayedCondition: 100% Brand New', '', 'PROD-46.jpg', '40.00', '12.57', 6, 1),
+(47, 5, 15, 'Loafers for men', 'Men Shoes - Loafers for men - Rubber Shoes - Nylon Shoes - Shoes for men - Moccassion - Pure Nylon (Rubber) Expot Quality.', '', 'PROD-47.jpg', '47.00', '10.91', 20, 1),
+(48, 4, 16, 'Women Sweaters Wool', '2021 Custom Winter Fall Zebra Knit Crop Top Women Sweaters Wool Mohair Cos Customize Crew Neck Women\' S Crop Top Sweater', '', 'PROD-48.jpg', '600.00', '17.20', 55, 1),
+(49, 4, 17, 'Malai Maxi Dress', 'Ready to wear, Unique design according to modern standard fashion, Best fitting ,Imported stuff', '', 'PROD-49.jpg', '50.00', '0.00', 96, 1),
+(50, 3, 18, 'Leather Strap Skeleton Watch', 'Leather Strap Skeleton Watch for Men - Stylish and Latest Design', '', 'PROD-50.jpg', '46.00', '10.20', 61, 1),
+(51, 6, 19, 'Silver Ring Set Women', 'Jewelry Type:RingsCertificate Type:NonePlating:Silver PlatedShapeattern:noneStyle:CLASSICReligious', '', 'PROD-51.jpg', '70.00', '13.57', 51, 1),
+(52, 7, 20, 'Fog Scent Xpressio Perfume', 'Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men', '', 'PROD-52.webp', '13.00', '0.00', 61, 1),
+(53, 4, 21, 'NIGHT SUIT', 'NIGHT SUIT RED MICKY MOUSE..  For Girls. Fantastic Suits.', '', 'PROD-53.webp', '55.00', '15.05', 21, 1),
+(54, 4, 22, 'sublimation plain kids tank', 'sublimation plain kids tank tops wholesale', '', 'PROD-54.jpg', '100.00', '11.12', 20, 1),
+(55, 7, 23, 'Skin Beauty Serum.', 'Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m', '', 'PROD-55.jpg', '46.00', '10.68', 54, 1),
+(56, 3, 24, 'Stainless Steel Wrist Watch', 'Stylish Watch For Man (Luxury) Classy Men\'s Stainless Steel Wrist Watch - Box Packed', '', 'PROD-56.webp', '47.00', '17.79', 94, 1),
+(57, 3, 25, 'Leather Hand Bag', 'It features an attractive design that makes it a must have accessory in your collection. We sell different kind of bags for boys, kids, women, girls and also for unisex.', '', 'PROD-57.jpg', '57.00', '11.19', 43, 1),
+(58, 3, 26, 'Fancy hand clutch', 'This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.', '', 'PROD-58.jpg', '44.00', '10.39', 101, 1),
+(59, 7, 27, 'Oil Free Moisturizer 100ml', 'Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.', '', 'PROD-59.jpg', '40.00', '13.10', 88, 1),
+(60, 8, 28, 'HOT SALE IN EUROPE electric racing motorcycle', 'HOT SALE IN EUROPE electric racing motorcycle electric motorcycle for sale adult electric motorcycles', '', 'PROD-60.jpg', '920.00', '14.40', 22, 1),
+(61, 3, 30, 'Leather Straps Wristwatch', 'Style:Sport ,Clasp:Buckles ,Water Resistance Depth:3Bar', '', 'PROD-61.jpg', '120.00', '0.00', 91, 1),
+(62, 3, 31, 'LouisWill Men Sunglasses', 'LouisWill Men Sunglasses Polarized Sunglasses UV400 Sunglasses Day Night Dual Use Safety Driving Night Vision Eyewear AL-MG Frame Sun Glasses with Free Box for Drivers', '', 'PROD-62.jpg', '50.00', '11.27', 92, 1),
+(63, 8, 32, '3 DOOR PORTABLE', 'Material: Stainless Steel and Fabric  Item Size: 110 cm x 45 cm x 175 cm Package Contents: 1 Storage Wardrobe', '', 'PROD-63.jpg', '41.00', '0.00', 68, 1),
+(64, 7, 33, 'Freckle Treatment Cream- 15gm', 'Fair & Clear is Pakistan\'s only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.', '', 'PROD-64.jpg', '70.00', '16.99', 140, 1),
+(65, 3, 34, 'Golden Watch Pearls Bracelet Watch', 'Product details of Golden Watch Pearls Bracelet Watch For Girls - Golden Chain Ladies Bracelate Watch for Women', '', 'PROD-65.jpg', '47.00', '17.55', 89, 1),
+(66, 4, 35, 'Money Heist Printed Summer T Shirts', 'Fabric Jercy, Size: M & L Wear Stylish Dual Stiched', '', 'PROD-66.jpg', '66.00', '15.97', 122, 1),
+(67, 6, 2, 'Rose Ring', 'Brand: The Greetings Flower Colour: RedRing Colour: GoldenSize: Adjustable', '', 'PROD-67.jpg', '100.00', '0.00', 149, 1),
+(68, 8, 3, 'American Vintage Wood Pendant Light', 'American Vintage Wood Pendant Light Farmhouse Antique Hanging Lamp Lampara Colgante', '', 'PROD-68.jpg', '46.00', '0.00', 138, 1),
+(69, 6, 4, 'Chain Pin Tassel Earrings', 'Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings - Silver ( Long Life Quality Product)', '', 'PROD-69.jpg', '45.00', '17.75', 9, 1),
+(70, 7, 5, 'Eau De Perfume Spray', 'Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality', '', 'PROD-70.jpg', '30.00', '10.99', 105, 1),
+(71, 3, 6, 'Handbag For Girls', 'This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.', '', 'PROD-71.webp', '23.00', '17.50', 27, 1),
+(72, 3, 7, 'Square Sunglasses', 'Fashion Oversized Square Sunglasses Retro Gradient Big Frame Sunglasses For Women One Piece Gafas Shade Mirror Clear Lens 17059', '', 'PROD-72.jpg', '28.00', '13.89', 64, 1),
+(73, 5, 8, 'Sneaker shoes', 'Synthetic Leather Casual Sneaker shoes for Women/girls Sneakers For Women', '', 'PROD-73.jpeg', '120.00', '10.37', 50, 1),
+(74, 4, 9, 'printed high quality T shirts', 'Brand: vintage Apparel ,Export quality', '', 'PROD-74.jpg', '35.00', '0.00', 6, 1),
+(75, 5, 10, 'formal offices shoes', 'Pattern Type: Solid, Material: PU, Toe Shape: Pointed Toe ,Outsole Material: Rubber', '', 'PROD-75.jpg', '57.00', '12.00', 68, 1),
+(76, 8, 11, '- Daal Masoor 500 grams', 'Fine quality Branded Product Keep in a cool and dry place', '', 'PROD-76.png', '20.00', '0.00', 133, 1),
+(77, 8, 12, 'Wholesale cargo lashing Belt', 'Wholesale cargo lashing Belt Tie Down end Ratchet strap customized strap 25mm motorcycle 1500kgs with rubber handle', '', 'PROD-77.jpg', '930.00', '17.67', 144, 1),
+(78, 6, 13, 'Rhinestone Korean Style Open Rings', 'Fashion Jewellery 3Pcs Adjustable Pearl Rhinestone Korean Style Open Rings For Women', '', 'PROD-78.jpg', '30.00', '0.00', 9, 1),
+(79, 3, 14, 'Round Silver Frame Sun Glasses', 'A pair of sunglasses can protect your eyes from being hurt. For car driving, vacation travel, outdoor activities, social gatherings,', '', 'PROD-79.jpg', '19.00', '10.10', 78, 1),
+(80, 3, 15, 'Wiley X Night Vision Yellow Glasses', 'Wiley X Night Vision Yellow Glasses for Riders - Night Vision Anti Fog Driving Glasses - Free Night Glass Cover - Shield Eyes From Dust and Virus- For Night Sport Matches', '', 'PROD-80.jpg', '30.00', '0.00', 115, 1),
+(81, 8, 16, '3 lights lndenpant kitchen islang', '3 lights lndenpant kitchen islang dining room pendant rice paper chandelier contemporary led pendant light modern chandelier', '', 'PROD-81.jpg', '34.00', '0.00', 44, 1),
+(82, 8, 17, 'new arrivals Fashion motocross goggles', 'new arrivals Fashion motocross goggles motorcycle motocross racing motorcycle', '', 'PROD-82.webp', '900.00', '0.00', 109, 1),
+(83, 8, 18, 'Cycle Bike Glow', 'Universal fitment and easy to install no special wires, can be easily installed and removed. Fits most standard tyre air stem valves of road, mountain bicycles, motocycles and cars.Bright led will turn on w', '', 'PROD-83.jpg', '35.00', '11.08', 63, 1),
+(84, 6, 19, 'Elegant Female Pearl Earrings', 'Elegant Female Pearl Earrings Set Zircon Pearl Earings Women Party Accessories 9 Pairs/Set', '', 'PROD-84.jpg', '30.00', '12.80', 16, 1),
+(85, 3, 20, 'Royal Blue Premium Watch', 'Men Silver Chain Royal Blue Premium Watch Latest Analog Watch', '', 'PROD-85.webp', '50.00', '0.00', 142, 1),
+(86, 4, 21, 'frock gold printed', 'Ghazi fabric long frock gold printed ready to wear stitched collection (G992)', '', 'PROD-86.jpg', '600.00', '15.55', 150, 1),
+(87, 8, 22, 'Qualcomm original Car Charger', 'best Quality CHarger , Highly Recommended to all best Quality CHarger , Highly Recommended to all', '', 'PROD-87.jpg', '40.00', '17.53', 79, 1),
+(88, 3, 23, 'Stylish Luxury Digital Watch', 'Stylish Luxury Digital Watch For Girls / Women - Led Smart Ladies Watches For Girls', '', 'PROD-88.webp', '57.00', '0.00', 77, 1),
+(89, 8, 24, 't Temperature Controller Incubator Controller', 'Both Heat and Cool Purpose, Temperature control range; -50 to +110, Temperature measurement accuracy; 0.1, Control accuracy; 0.1', '', 'PROD-89.jpg', '40.00', '11.30', 37, 1),
+(90, 3, 25, 'Fashion Magnetic Wrist Watch', 'Buy this awesome  The product is originally manufactured by the company and it\'s a top selling product with a very reasonable', '', 'PROD-90.jpg', '60.00', '16.69', 46, 1),
+(91, 8, 26, 'Automatic Motor Gas Motorcycles', '150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter', '', 'PROD-91.jpg', '1050.00', '0.00', 127, 1),
+(92, 4, 27, 'Ladies Multicolored Dress', 'This classy shirt for women gives you a gorgeous look on everyday wear and specially for semi-casual wears.', '', 'PROD-92.jpg', '79.00', '16.88', 2, 1),
+(93, 8, 28, 'lighting ceiling kitchen', 'Wholesale slim hanging decorative kid room lighting ceiling kitchen chandeliers pendant light modern', '', 'PROD-93.jpg', '30.00', '14.89', 96, 1),
+(94, 8, 30, 'Crystal chandelier maria theresa for 12 light', 'Crystal chandelier maria theresa for 12 light', '', 'PROD-94.jpg', '47.00', '16.00', 133, 1),
+(95, 8, 31, 'Black Motorbike', 'Engine Type:Wet sump, Single Cylinder, Four Stroke, Two Valves, Air Cooled with SOHC (Single Over Head Cam) Chain Drive Bore & Stroke:47.0 x 49.5 MM', '', 'PROD-95.jpg', '569.00', '13.63', 115, 1),
+(96, 3, 32, 'Steel Analog Couple Watches', 'Elegant design, Stylish ,Unique & Trendy,Comfortable wear', '', 'PROD-96.jpg', '35.00', '0.00', 24, 1),
+(97, 8, 33, 'TC Reusable Silicone Magic Washing Gloves', 'TC Reusable Silicone Magic Washing Gloves with Scrubber, Cleaning Brush Scrubber Gloves Heat Resistant Pair for Cleaning of Kitchen, Dishes, Vegetables and Fruits, Bathroom, Car Wash, Pet Care and Multipurpose', '', 'PROD-97.jpg', '29.00', '0.00', 42, 1),
+(98, 4, 34, 'Stiched Kurta plus trouser', 'FABRIC: LILEIN CHEST: 21 LENGHT: 37 TROUSER: (38) :ARABIC LILEIN', '', 'PROD-98.jpg', '80.00', '15.37', 148, 1),
+(99, 3, 35, 'Seven Pocket Women Bag', 'Seven Pocket Women Bag Handbags Lady Shoulder Crossbody Bag Female Purse Seven Pocket Bag', '', 'PROD-99.jpg', '68.00', '14.87', 13, 1),
+(100, 3, 2, 'Stainless Steel Women', 'Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies', '', 'PROD-100.jpg', '35.00', '0.00', 111, 1);
 
 -- --------------------------------------------------------
 
@@ -451,7 +442,6 @@ INSERT INTO `products` (`PRODUCT_ID`, `PRODUCT_CATEGORY_ID`, `PRODUCT_CREATOR_ID
 -- Table structure for table `producttags`
 --
 
-DROP TABLE IF EXISTS `producttags`;
 CREATE TABLE `producttags` (
   `PRODUCT_ID` int(11) NOT NULL,
   `TAG_ID` int(11) NOT NULL
@@ -463,7 +453,6 @@ CREATE TABLE `producttags` (
 -- Table structure for table `ratings`
 --
 
-DROP TABLE IF EXISTS `ratings`;
 CREATE TABLE `ratings` (
   `RATING_ID` int(11) NOT NULL,
   `RATING_PRODUCT_ID` int(11) NOT NULL,
@@ -471,7 +460,7 @@ CREATE TABLE `ratings` (
   `RATING_USER_ID` int(11) NOT NULL,
   `RATING_GRADE` int(11) NOT NULL,
   `RATING_DATE` date NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ratings`
@@ -488,7 +477,6 @@ INSERT INTO `ratings` (`RATING_ID`, `RATING_PRODUCT_ID`, `RATING_COMMENT_ID`, `R
 -- Table structure for table `socialmediaaccounts`
 --
 
-DROP TABLE IF EXISTS `socialmediaaccounts`;
 CREATE TABLE `socialmediaaccounts` (
   `USER_ID` int(11) NOT NULL,
   `SOCIAL_MEDIA_ID` int(11) NOT NULL,
@@ -705,7 +693,6 @@ INSERT INTO `socialmediaaccounts` (`USER_ID`, `SOCIAL_MEDIA_ID`, `SOCIAL_MEDIA_A
 -- Table structure for table `socialmedias`
 --
 
-DROP TABLE IF EXISTS `socialmedias`;
 CREATE TABLE `socialmedias` (
   `SOCIAL_MEDIA_ID` int(11) NOT NULL,
   `SOCIAL_MEDIA_NAME` varchar(254) NOT NULL,
@@ -731,7 +718,6 @@ INSERT INTO `socialmedias` (`SOCIAL_MEDIA_ID`, `SOCIAL_MEDIA_NAME`, `SOCIAL_MEDI
 -- Table structure for table `tagcategories`
 --
 
-DROP TABLE IF EXISTS `tagcategories`;
 CREATE TABLE `tagcategories` (
   `TAG_CATEGORY_ID` int(11) NOT NULL,
   `TAG_CATEGORY_NAME` varchar(254) NOT NULL
@@ -756,7 +742,6 @@ INSERT INTO `tagcategories` (`TAG_CATEGORY_ID`, `TAG_CATEGORY_NAME`) VALUES
 -- Table structure for table `tags`
 --
 
-DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
   `TAG_ID` int(11) NOT NULL,
   `TAG_TAG_CATEGORY_ID` int(11) NOT NULL,
@@ -808,7 +793,6 @@ INSERT INTO `tags` (`TAG_ID`, `TAG_TAG_CATEGORY_ID`, `TAG_NAME`) VALUES
 -- Table structure for table `tickets`
 --
 
-DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
   `TICKET_ID` int(11) NOT NULL,
   `TICKET_USER_ID` int(11) NOT NULL,
@@ -818,7 +802,7 @@ CREATE TABLE `tickets` (
   `TICKET_DESCRIPTION` varchar(254) NOT NULL,
   `TICKET_DATE` date NOT NULL,
   `TICKET_RESOLVED` tinyint(1) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -826,7 +810,6 @@ CREATE TABLE `tickets` (
 -- Table structure for table `tickettypes`
 --
 
-DROP TABLE IF EXISTS `tickettypes`;
 CREATE TABLE `tickettypes` (
   `TICKET_TYPE_ID` int(11) NOT NULL,
   `TICKET_TYPE_NAME` varchar(254) NOT NULL
@@ -850,7 +833,6 @@ INSERT INTO `tickettypes` (`TICKET_TYPE_ID`, `TICKET_TYPE_NAME`) VALUES
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `USER_ID` int(11) NOT NULL,
   `USER_FIRST_NAME` varchar(254) NOT NULL,
@@ -1102,43 +1084,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `CATEGORY_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CATEGORY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `COMMENT_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `COMMENT_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `PRODUCT_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PRODUCT_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `RATING_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `RATING_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `socialmedias`
 --
 ALTER TABLE `socialmedias`
-  MODIFY `SOCIAL_MEDIA_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SOCIAL_MEDIA_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tagcategories`
 --
 ALTER TABLE `tagcategories`
-  MODIFY `TAG_CATEGORY_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TAG_CATEGORY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `TAG_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TAG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tickets`
@@ -1150,13 +1132,13 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `tickettypes`
 --
 ALTER TABLE `tickettypes`
-  MODIFY `TICKET_TYPE_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TICKET_TYPE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- Constraints for dumped tables

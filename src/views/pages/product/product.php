@@ -43,8 +43,22 @@
 		</div>
 		<p class="description">
 			<!-- texte du produit    -->
-			<?= $product->getDescription() ?>
-		</p>
+			<?php 
+				$lang = $data['lang'];
+				switch($lang) {
+					case 'fr' :
+						echo $product->getDescriptionFr();
+						break;
+
+					case 'en' :
+						echo $product->getDescriptionEn();
+						break;
+
+					default :
+						echo $product->getDescriptionFr();
+				}
+			?>
+			
 
 		<div class="links">
 			<a href="<?= $creatorUrl ?>"><?= $creator->getFullName() ?></a>
