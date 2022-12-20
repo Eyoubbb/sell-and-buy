@@ -38,7 +38,13 @@ class CreatorController extends Controller {
 
 		$data['header'] = true;
 		$data['footer'] = true;
+		
 		$data['stylesheets'][] = 'pages/ask';
+
+		$data['scripts'][] = [
+			'name' => 'askMultistep',
+			'attr' => 'defer'
+		];
 		
 		$this->view('creator/ask', $data);
 	}
