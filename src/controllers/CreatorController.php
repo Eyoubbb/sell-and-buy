@@ -5,10 +5,20 @@ require_once PATH_CORE . 'Controller.php';
 class CreatorController extends Controller {
 
 	public function index($id): void {
-
-		$data['title'] = "Profil";
 		
 		$data['stylesheets'][] = 'pages/profile';
+		
+		$creatorModel = $this->model('Creator');
+
+		$res = $creatorModel->profile($id);
+
+		if ($res !== false) {
+			$data = array_merge($data, $res);
+
+			$data['title'] = $res['creator']->getFullName();
+		} else {
+			$data['error'] = $creatorModel->getError();
+		}
 		
 		$this->view('creator/profile', $data);
 	}

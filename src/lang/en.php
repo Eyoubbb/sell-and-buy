@@ -12,7 +12,10 @@ const HOME_TITLE = "Welcome to the Home page";
 
 /*************** Product ***************/
 
-const PRODUCT_WINDOW_TITLE = "Product";
+const PRODUCT_ADD_TO_CART = "Add to cart";
+const PRODUCT_SIMILAR_ARTICLES = "Similar articles";
+const PRODUCT_CLIENT_OPINION = "client opinion";
+const PRODUCT_BY = "By";
 
 /*************** Login & register ***************/
 
@@ -56,11 +59,13 @@ const REGISTER_SUBMIT = "Sign up";
 
 /*************** Errors ***************/
 
-const ERROR_DEFAULT_WINDOW_TITLE = "Error";
+const ERROR_DEFAULT_WINDOW_TITLE = "That's an error.";
 const ERROR_DEFAULT_MESSAGE = "An error has occurred";
 
 const ERROR_404_WINDOW_TITLE = "Error 404";
 const ERROR_404_MESSAGE = "The requested page does not exist";
+
+const ERROR_EXTRAS = "That's all we know.";
 
 /*************** Header ***************/
 

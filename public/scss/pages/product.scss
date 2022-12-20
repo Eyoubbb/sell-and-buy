@@ -3,23 +3,26 @@
 
 @use "../components/header";
 @use "../components/footer";
+@use "../components/product";
 
 main {
+	margin: 3em 0;
 	width: 95%;
 	display: flex;
 	flex-direction: column;
 	align-self: center;
-	gap: 2em;
+	gap: 3em;
 }
 
 .product {
 	display: flex;
 	width: 100%;
 	gap: 3em;
-	margin: 3em auto;
+	margin: 0 auto;
 
 	@include media(m) {
 		flex-direction: column;
+		align-items: center;
 	}
 }
 
@@ -27,6 +30,10 @@ main {
 	display: flex;
 	gap: .8em;
 	width: 50%;
+
+	@include media(m) {
+		width: 90%;
+	}
 
 	.firstimage {
 		display: flex;
@@ -66,10 +73,6 @@ main {
 		}
 
 	}
-
-	@include media(m) {
-		width: 90%;
-	}
 }
 
 .information {
@@ -78,8 +81,13 @@ main {
 	width: 50%;
 	gap: 1em;
 
+	@include media(m) {
+		width: 90%;
+		align-items: center;
+	}
+
 	h1 {
-		font-size: xx-large;
+		font-size: 2em;
 	}
 
 	.diferentestyleimage {
@@ -103,40 +111,83 @@ main {
 		padding: 2em 0;
 	}
 
-	.cart {
+	.links {
 		flex-grow: 1;
+		display: flex;
 		justify-content: flex-end;
 		align-items: flex-end;
-		display: flex;
-	}
+		flex-wrap: wrap;
+		gap: 1em;
+		text-align: center;
 
-	@include media(m) {
-		width: 90%;
-		align-items: center;
+		@include media(m) {
+			justify-content: center;
+		}
+
+		a {
+			width: 200px;
+			padding: 1em 2em;
+			min-width: max-content;
+			border: none;
+			border-radius: 8px;
+			background-color: var(--primary-1);
+			transition: background-color .3s ease, scale .3s ease;
+			
+			&:hover {
+				background-color: var(--primary-2);
+			}
+
+			&:active {
+				scale: .95;
+			}
+		}
 	}
 }
 
-.similararticles {
-	background-color: lightgrey;
-	height: 20em;
-	width: 70%;
+.similar-products {
 	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	
+	h2 {
+		font-size: 1.5em;
+	}
+
+	.similar-products-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em;
+
+		@include media(m) {
+			justify-content: center;
+		}
+	}
 }
 
 .clientreview {
-	width: 50%;
+	width: 60%;
 	display: flex;
 	flex-direction: column;
-	gap : 3em;
+	gap: 3em;
 
-	.commentstitle {
-		display: flex;
-		justify-content: space-between;
-		font-size: x-large;
+	@include media(xl) {
+		width: 80%;
 	}
 
 	@include media(m) {
 		width: 100%;
+	}
+
+	.commentstitle {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: .5em 3em;
+		font-size: 1.5em;
+
+		h2 {
+			min-width: max-content;	
+		}
 	}
 }
 
@@ -150,7 +201,7 @@ main {
 	}
 } 
 
-.comments{
+.comments {
 	flex-direction: column;
 	display: flex;
 	gap: inherit;
@@ -161,22 +212,24 @@ main {
 		gap: 1em;
 
 		h3 {
-			font-size: large;
+			font-size: 1.1em;
 		}
 
 		.commenthead {
 			display: flex;
-			gap: 2em; 
+			align-items: center;
+			flex-wrap: wrap;
+			gap: .5em 2em;
 
-			.commentdate{
-				flex-grow:1 ;
-				text-align: right;
+			.mark {
+				display: flex;
+				flex-wrap: nowrap;
+			}
+
+			.author {
+				font-size: .9em;
+				text-align: right; // wrap sur les étoiles
 			}
 		}
-	}
-	
-	.addcomment {
-		align-self:flex-end ;
-		font-size: x-large;
 	}
 }

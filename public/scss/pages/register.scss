@@ -83,7 +83,9 @@ fieldset {
 		.image-preview {
 			width: 12em;
 			aspect-ratio: 1/1;
+			object-fit: cover;
 			border-radius: 50%;
+			background-color: var(--primary-1);
 			@include box-shadow;
 			animation: fade .5s ease;
 		}

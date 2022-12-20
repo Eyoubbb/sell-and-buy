@@ -1,61 +1,57 @@
 @use "../abstracts" as *;
 
 .filter-container {
-    display: flex;
+	padding-left: 3em;
+	display: flex;
+	gap: 2em;
+	background-color: var(--primary-1);
 
-    column-gap: 5em;
-    padding: .3em 0 .3em 3em;
+	@include media(m) {
+		padding: 0;
+		justify-content: space-around;
+		gap: 0;
+	}
 
-    background-color: var(--primary-1);
+	.filter-item {
+		display: flex;
+		white-space: nowrap;
+		font-size: .9em;
 
-    @include media(m) {
-        justify-content: space-around;
-        column-gap: 0;
-        padding: 0;
-    }
+		> :is(a, button) {
+			padding: 1.5em 2em;
+		}
+	}
 
-    div {
-        white-space: nowrap;
-        padding: 1em 0;
-        font-size: .9em;
-    }
-
-    .dropdown {
+	.dropdown {
 		position: relative;
-		display: inline-block;
-        
+		display: flex;
+		
+		&:hover .dropdown-content {
+			display: unset;
+		}
+		
 		.dropdown-content {
-			height: 0px;
-			overflow-y: hidden;
-			position: absolute;
-			background-color: var(--primary-1);
 			z-index: 1;
+			position: absolute;
+			top: 100%;
 			right: 50%;
-            translate: 50%;
-			transition: height .3s ease;
-
-			@include box-shadow;
-
+			translate: 50%;
+			max-height: 185px;
+			display: none;
+			border-radius: 5px;
+			background-color: var(--primary-1);
+			@include box-shadow(0, 1px, 4px, 1px, .2);
+			overflow: hidden auto;
+			
 			a {
-				color: black;
-				text-decoration: none;
-				padding: 0.5em;
+				padding: 1em;
 				display: block;
+				transition: background-color .3s ease;
 
 				&:hover {
-					background-color: #ddd;
+					background-color: var(--primary-2);
 				}
 			}
 		}
-
-		&:is(:hover, :focus){
-			.dropdown-content {
-				height: 100px;
-                overflow-y: scroll;
-			}
-		}
-			
 	}
-
-
 }

@@ -81,7 +81,7 @@ abstract class DAO {
 
 	/*************** Basic query implementations ***************/
 
-	public function getAll(?string $orderBy = null): array | false {
+	public function findAll(?string $orderBy = null): array | false {
 		$sql = "SELECT * FROM $this->table";
 
 		if ($orderBy !== null) {
@@ -91,7 +91,7 @@ abstract class DAO {
 		return $this->queryAll($sql);
 	}
 
-	public function getAllByLimitOffsetPagination(int $page, int $nbPerPage, ?string $orderBy = null): array | false {
+	public function findAllByLimitOffsetPagination(int $page, int $nbPerPage, ?string $orderBy = null): array | false {
 		$sql = "SELECT * FROM $this->table";
 
 		if ($orderBy !== null) {
@@ -109,14 +109,14 @@ abstract class DAO {
 	 * You can only go to the next page or the previous page.
 	 * The column used for the cursor must be unique and sequential.
 	 */
-	public function getAllByCursorBasedPagination(string $valueName, int | string $lastValue, int $nbPerPage): array | false {
+	public function findAllByCursorBasedPagination(string $valueName, int | string $lastValue, int $nbPerPage): array | false {
 		
 		$sql = "SELECT * FROM $this->table WHERE $valueName > $lastValue ORDER BY $valueName LIMIT $nbPerPage";
 
 		return $this->queryAll($sql);
 	}
 
-	public function getById(int $id): object | false {
+	public function findById(int $id): object | false {
 		return $this->queryRow("SELECT * FROM $this->table WHERE id = ?", [$id]);
 	}
 

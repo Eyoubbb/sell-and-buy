@@ -1,20 +1,43 @@
-<img class="banner" src="<?= PATH_CREATORS . 'BAN-1.png'?>" alt="<?= ALT_BANNIERE ?>">
-<section>
+<?php
+	$creator = $data['creator'];
+	$socialMedias = $data['socialMedias'];
+	$products = $data['products'];
+?>
+<img class="banner" src="<?= PATH_CREATORS . $creator->getBannerUrl() ?>" alt="<?= ALT_BANNIERE ?>">
+<section class="profile-container">
 	<div class="blockpp">
-		<img class="profilepic" src="<?= PATH_USERS . 'PP-1.png'?>" alt="<?= ALT_PROFILE_PICTURE_CREATOR ?>">
-		<span class="name">Antoine Darwin</span>
+		<img class="profilepic" src="<?= PATH_USERS . $creator->getPictureUrl() ?>" alt="<?= ALT_PROFILE_PICTURE_CREATOR ?>">
+		<span class="name"><?= $creator->getFullName() ?></span>
 	</div>
 	<div class="texte">
-		<span><?= ABOUT ?></span>
-		<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex adipisci reprehenderit maxime inventore eius soluta explicabo deserunt consequuntur dolorum magni! Voluptate, distinctio eaque perspiciatis aliquam laudantium nihil consequatur sint dolor?</p>
+		<h1><?= ABOUT ?></h1>
+		<p><?= $creator->getDescription() ?></p>
 		<ul>
-			<li><a href="https://www.linkedin.com">Linkedin</a></li>
-			<li><a href="https://www.facebook.com">Facebook</a></li>
-			<li><a href="https://www.instagram.com">Instagram</a></li>
-			<li><a href="https://www.twitter.com">Twitter</a></li>
+			<?php
+				foreach ($socialMedias as $socialMedia) {
+					$url = PATH_SOCIAL_MEDIAS . $socialMedia->getIconUrl();
+					echo <<<HTML
+						<li>
+							<a href="{$socialMedia->getPrefix()}{$socialMedia->getAccount()}" target="_blank" title="{$socialMedia->getName()}">
+								<img src="$url" alt="{$socialMedia->getName()}'s icon">
+							</a>
+						</li>
+					HTML;
+				}
+			?>
 		</ul>
 		<div class="subscribe">
 			<button type="button"><?= SUBSCRIBE ?></button>
 		</div>
+	</div>
+</section>
+<section class="products-container">
+	<h2>Mes produits :</h2>
+	<div class="products-wrapper">
+		<?php
+			foreach ($products as $product) {
+				require PATH_COMPONENTS . 'product.php';
+			}
+		?>
 	</div>
 </section>
