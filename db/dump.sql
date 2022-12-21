@@ -893,7 +893,7 @@ INSERT INTO `users` (`USER_ID`, `USER_FIRST_NAME`, `USER_LAST_NAME`, `USER_PASSW
 (26, 'Salvatore', 'Fisher', '$2b$10$NLVVXliDZ5553eu2IPRdEORYhuPv5964ZPrbImf1g8Im2VIGbuHp.', 'lgherardi12@washington.edu', 'PP-26.png'),
 (27, 'Arne', 'Jacobs', '$2b$10$sgla/OCo9JqwyKAFegPqPu8cQobxF.H5xHsOkD7BAD4xtQK4NpZ4i', 'hyaknov2i@hhs.gov', 'PP-27.png'),
 (28, 'Macy', 'Greenfelder', '$2b$10$1t0VAFl/Nr.ltji3piajFu3F/c2kg1n74deZH8XybyF4FpYIx4Nbe', 'jissetts@hostgator.com', 'PP-28.png'),
-(29, 'Mathis', 'Guerin', '$2b$10$UiJPHGkJb5un/RR.cmzfTOa/nx4M/hq42kfEAoTTdmNTffrOSmOuC', 'mathis.guerin@etu.univ-lyon1.fr', 'PP-29.png'),
+(29, 'Mathis', 'Guerin', '$2y$10$6I7x.RXDju.V6YZOI6RTS.Buka8Zi46OgOJICpZzbtylrlOHl7xsy', 'mathis.guerin@etu.univ-lyon1.fr', 'PP-29.png'),
 (30, 'Gayle', 'Krajcik', '$2b$10$hcyxRqoEyQixJRnYglbKEOA6zYTiTqQJWIHNbHUq9SwLh5lpEamRm', 'cdwyr2g@shop-pro.jp', 'PP-30.png'),
 (31, 'Terrell', 'Schuppe', '$2b$10$1iCL.aqfE16MTi.CzXP5d.gHEwN3tXzRtKN7w9bJgIg5LSszlxbGy', 'flesslie2q@google.nl', 'PP-31.png'),
 (32, 'Davonte', 'Heaney', '$2b$10$SLbv01FKaUuFLsGbLXL3uO00F7g4OYcybsG8ddDTP4d/27Mu6zl9C', 'gbarhams1u@cnet.com', 'PP-32.png'),
