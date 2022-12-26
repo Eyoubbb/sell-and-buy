@@ -149,5 +149,8 @@ const CREATOR_BANNIERE = "Ajouter une bannière pour votre profil";
 
 const FORM_PRICE = "Prix";
 const FORM_TITLE = "Titre";
-const FORM_DESCRIPTION = "Ajouter des descriptions à votre produit";
-const FORM_FILES = "Ajouter des fichier";
+const FORM_DESCRIPTION = "Description";
+const FORM_FILES = "Fichier";
+const FORM_PRICE_PLACEHOLDER = "Ajouter le prix";
+const FORM_TITLE_PLACEHOLDER = "Ajouter le titre";
+const FORM_DESCRIPTION_PLACEHOLDER = "Ajouter la description";

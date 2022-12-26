@@ -150,5 +150,8 @@ const CREATOR_BANNIERE = "Add a banner for your profil";
 
 const FORM_PRICE = "Price";
 const FORM_TITLE = "Title";
-const FORM_DESCRIPTION = "Add description to your product";
-const FORM_FILES = "Drop files here";
+const FORM_DESCRIPTION = "Description";
+const FORM_FILES = "Files";
+const FORM_PRICE_PLACEHOLDER = "Enter a price";
+const FORM_TITLE_PLACEHOLDER = "Enter a title";
+const FORM_DESCRIPTION_PLACEHOLDER = "Enter a description";
