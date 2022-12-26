@@ -144,3 +144,10 @@ const CREATOR_LINKEDIN = "LinkedIn";
 const CREATOR_TIKTOK = "TikTok";
 const CREATOR_DESCRIPTION = "Ajouter une description pour votre profil";
 const CREATOR_BANNIERE = "Ajouter une bannière pour votre profil";
+
+/*************** Form ***************/
+
+const FORM_PRICE = "Prix";
+const FORM_TITLE = "Titre";
+const FORM_DESCRIPTION = "Ajouter des descriptions à votre produit";
+const FORM_FILES = "Ajouter des fichier";
