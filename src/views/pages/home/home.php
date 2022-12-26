@@ -14,7 +14,5 @@
 			
 			require PATH_COMPONENTS . 'product.php';
 		}
-
-		require_once(PATH_COMPONENTS . 'form.php')
 	?>
 </section>
