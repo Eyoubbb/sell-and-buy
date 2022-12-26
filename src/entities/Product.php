@@ -6,7 +6,8 @@ class Product {
 	private string $product_category_id;
 	private int $product_creator_id;
 	private string $product_name;
-	private string $product_description;
+	private string $product_description_en;
+	private string $product_description_fr;
 	private ?string $product_image_url;
 	private float $product_price;
 	private float $product_discount_percentage;
@@ -19,7 +20,8 @@ class Product {
 			$this->product_category_id = $row['product_category_id'];
 			$this->product_creator_id = $row['product_creator_id'];
 			$this->product_name = $row['product_name'];
-			$this->product_description = $row['product_description'];
+			$this->product_description_en = $row['product_description_en'];
+			$this->product_description_fr = $row['product_description_fr'];
 			$this->product_image_url = $row['product_image_url'];
 			$this->product_price = $row['product_price'];
 			$this->product_discount_percentage = $row['product_discount_percentage'];
@@ -36,7 +38,9 @@ class Product {
 
 	public function getName(): string { return $this->product_name; }
 	
-	public function getDescription(): string { return $this->product_description; }
+	public function getDescriptionEn(): string { return $this->product_description_en; }
+
+	public function getDescriptionFr(): string { return $this->product_description_fr; }
 	
 	public function getImageUrl(): ?string { return $this->product_image_url; }
 	
