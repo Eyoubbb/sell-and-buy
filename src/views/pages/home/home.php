@@ -15,4 +15,13 @@
 			require PATH_COMPONENTS . 'product.php';
 		}
 	?>
+
+
+	<?php 
+		$data['forms'] = 'form-profile';
+		require(PATH_FORMS . 'form.php');
+
+		$data['forms'] = 'form-products';
+		require(PATH_FORMS . 'form.php');
+	?>
 </section>
