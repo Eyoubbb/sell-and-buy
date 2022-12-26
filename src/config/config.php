@@ -32,6 +32,8 @@ const PATH_DAO = PATH_MODELS . 'dao/';
 const PATH_COMPONENTS = PATH_VIEWS . 'components/';
 const PATH_PAGES = PATH_VIEWS . 'pages/';
 
+const PATH_FORMS = PATH_COMPONENTS . 'forms/';
+
 const LANGUAGES = ['fr', 'en'];
 const DEFAULT_LANGUAGE = 'fr';
 

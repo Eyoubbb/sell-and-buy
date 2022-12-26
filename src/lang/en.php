@@ -145,3 +145,23 @@ const CREATOR_LINKEDIN = "LinkedIn";
 const CREATOR_TIKTOK = "TikTok";
 const CREATOR_DESCRIPTION = "Add a description for your profil";
 const CREATOR_BANNIERE = "Add a banner for your profil";
+
+/*************** Form ***************/
+
+const FORM_PRICE = "Price";
+const FORM_TITLE = "Title";
+const FORM_DESCRIPTION = "Description";
+const FORM_FILES = "Files";
+const FORM_PRICE_PLACEHOLDER = "Enter a price";
+const FORM_TITLE_PLACEHOLDER = "Enter a title";
+const FORM_DESCRIPTION_PLACEHOLDER = "Enter a description";
+const FORM_NAME = "Name";
+const FORM_BIO = "Bio";
+const FORM_TWITTER = "Twitter";
+const FORM_LINKEDIN = "LinkedIn";
+const FORM_INSTAGRAM = "Instagram";
+const FORM_NAME_PLACEHOLDER = "Enter a name";
+const FORM_BIO_PLACEHOLDER = "Enter a bio";
+const FORM_TWITTER_PLACEHOLDER = "@twitter";
+const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
+const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
