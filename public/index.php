@@ -19,4 +19,6 @@ $router->get('/product/:id', 'Product#index')->with('id', '[0-9]+');
 $router->get('/creator/:id', 'Creator#index')->with('id', '[0-9]+');
 $router->get('/creator/ask', 'Creator#ask');
 
+$router->get('/admin', 'Admin#index');
+
 $router->run();

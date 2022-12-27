@@ -67,6 +67,10 @@ const ERROR_404_MESSAGE = "The requested page does not exist";
 
 const ERROR_EXTRAS = "That's all we know.";
 
+/*************** Admin ***************/
+
+const ADMIN_WINDOW_TITLE = "Admin";
+
 /*************** Header ***************/
 
 const NAV_SEARCH = "Search";
