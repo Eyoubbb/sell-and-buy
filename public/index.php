@@ -21,4 +21,6 @@ $router->get('/creator/ask', 'Creator#ask');
 
 $router->get('/admin', 'Admin#index');
 
+$router->get('/admin/support', 'Admin#support');
+
 $router->run();
