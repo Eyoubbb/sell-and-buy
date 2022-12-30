@@ -12,7 +12,7 @@ class UserDAO extends DAO {
 	}
 
 	public function findByEmail(string $email): User | false {
-		
+
 		$sql = "SELECT *
 				FROM {$this->getTable()} U
 				LEFT JOIN admins A
@@ -20,19 +20,19 @@ class UserDAO extends DAO {
 				LEFT JOIN creators C
 					ON (U.user_id = C.creator_id)
 				WHERE U.user_email = ?";
-		
+
 		$row = $this->queryRow($sql, [$email], false);
-		
+
 		switch (true) {
 			case !$row:
 				return false;
-			
+
 			case $row['admin_id']:
 				return new Admin($row);
-			
+
 			case $row['creator_id']:
 				return new Creator($row);
-				
+
 			default:
 				return new User($row);
 		}
@@ -49,7 +49,7 @@ class UserDAO extends DAO {
 	}
 
 	public function updatePictureUrl(User $user): bool {
-		return $this->update($user->getId(), ['user_picture_url' => $user->getPictureUrl()]);
+		return $this->update(['user_id' => $user->getId()], ['user_picture_url' => $user->getPictureUrl()]);
 	}
-	
+
 }

@@ -7,7 +7,7 @@ abstract class DAO {
 	private bool $debug = DEBUG;
 	private string $table;
 	private string $class;
-	
+
 	public function __construct(string $table) {
 		$this->table = $table;
 		$this->class = substr(get_class($this), 0, -strlen('DAO'));
@@ -22,7 +22,7 @@ abstract class DAO {
 			if (!$autocommit) {
 				Connection::getInstance()->getBdd()->beginTransaction();
 			}
-			
+
 			if ($args === null) {
 				$stmt = Connection::getInstance()->getBdd()->query($sql);
 			} else {
@@ -35,7 +35,7 @@ abstract class DAO {
 			} else {
 				$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			}
-			
+
 			$res = $handler($stmt);
 
 		} catch (PDOException $e) {
@@ -110,7 +110,7 @@ abstract class DAO {
 	 * The column used for the cursor must be unique and sequential.
 	 */
 	public function findAllByCursorBasedPagination(string $valueName, int | string $lastValue, int $nbPerPage): array | false {
-		
+
 		$sql = "SELECT * FROM $this->table WHERE $valueName > $lastValue ORDER BY $valueName LIMIT $nbPerPage";
 
 		return $this->queryAll($sql);
@@ -129,19 +129,21 @@ abstract class DAO {
 
 		return $this->lastInsertId("INSERT INTO $this->table ($keys) VALUES ($values)", array_values($data), $autocommit);
 	}
-	
-	public function update(int $id, array $data, bool $autocommit = true): int | false {
+
+	public function update(array $id, array $data, bool $autocommit = true): int | false {
 		$keys = array_keys($data);
 		$keys = implode(' = ?, ', $keys) . ' = ?';
 
 		$values = array_values($data);
-		$values[] = $id;
 
-		return $this->rowCount("UPDATE $this->table SET $keys WHERE id = ?", $values, $autocommit);
+		$idName = array_keys($id)[0];
+		$values[] = array_values($id)[0];
+
+		return $this->rowCount("UPDATE $this->table SET $keys WHERE $idName = ?", $values, $autocommit);
 	}
 
 	public function delete(int $id, bool $autocommit = true): int | false {
 		return $this->rowCount("DELETE FROM $this->table WHERE id = ?", [$id], $autocommit);
 	}
-	
+
 }

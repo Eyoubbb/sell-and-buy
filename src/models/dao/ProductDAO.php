@@ -55,16 +55,16 @@ class ProductDAO extends DAO {
 				AND
 					P.product_id != ?
 				ORDER BY RAND()";
-		
+
 		if ($limit !== null) {
 			$sql .= " LIMIT ?";
-			
+
 			return $this->queryAll($sql, [$category_id, $product_id, $limit], false);
 		}
 
 		return $this->queryAll($sql, [$category_id, $product_id], false);
 	}
-	
+
 	public function findProductById($product_id) {
 		$sql = "SELECT *
 				FROM {$this->getTable()} P
@@ -77,5 +77,20 @@ class ProductDAO extends DAO {
 
 		return $this->queryRow($sql, [$product_id], false);
 	}
-	
+
+	public function insertProduct(Product $product): string | false {
+		return $this->insert([
+			'product_name' => $product->getName(),
+			'product_description_fr' => $product->getDescriptionFr(),
+			'product_description_en' => $product->getDescriptionEn(),
+			'product_price' => $product->getPrice(),
+			'product_category_id' => $product->getCategoryId(),
+			'product_creator_id' => $product->getCreatorId()
+		], false);
+	}
+
+	public function updateImageUrl(Product $product): bool {
+		return $this->update(['product_id' => $product->getId()], ['product_image_url' => $product->getImageUrl()]);
+	}
+
 }
