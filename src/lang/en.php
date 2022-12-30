@@ -16,6 +16,7 @@ const PRODUCT_ADD_TO_CART = "Add to cart";
 const PRODUCT_SIMILAR_ARTICLES = "Similar articles";
 const PRODUCT_CLIENT_OPINION = "client opinion";
 const PRODUCT_BY = "By";
+const PRODUCT_EDIT = "Edit";
 
 /*************** Login & register ***************/
 
@@ -80,6 +81,7 @@ const NAV_COLLECTIONS = "Collections";
 const NAV_PAGES = "Pages";
 const NAV_ACCOUNT = "My account";
 const NAV_ACCOUNT_SETTINGS = "Settings";
+const NAV_NEW_PRODUCT = "New product";
 
 /*************** Footer ***************/
 
@@ -150,11 +152,14 @@ const CREATOR_BANNIERE = "Add a banner for your profil";
 
 const FORM_PRICE = "Price";
 const FORM_TITLE = "Title";
-const FORM_DESCRIPTION = "Description";
+const FORM_CATEGORY = "Category";
+const FORM_DESCRIPTION_FR = "Description";
+const FORM_DESCRIPTION_EN = "Description (English)";
 const FORM_FILES = "Files";
 const FORM_PRICE_PLACEHOLDER = "Enter a price";
 const FORM_TITLE_PLACEHOLDER = "Enter a title";
-const FORM_DESCRIPTION_PLACEHOLDER = "Enter a description";
+const FORM_DESCRIPTION_PLACEHOLDER_FR = "Enter a description";
+const FORM_DESCRIPTION_PLACEHOLDER_EN = "Enter a description (English)";
 const FORM_NAME = "Name";
 const FORM_BIO = "Bio";
 const FORM_TWITTER = "Twitter";
