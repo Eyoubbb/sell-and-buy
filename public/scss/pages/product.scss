@@ -125,9 +125,12 @@ main {
 		}
 
 		a {
+			padding: 1em;
 			width: 200px;
-			padding: 1em 2em;
 			min-width: max-content;
+			display: flex;
+			align-items: center;
+			gap: .75em;
 			border: none;
 			border-radius: 8px;
 			background-color: var(--primary-1);
@@ -139,6 +142,10 @@ main {
 
 			&:active {
 				scale: .95;
+			}
+
+			img {
+				@include size(20px);
 			}
 		}
 	}
