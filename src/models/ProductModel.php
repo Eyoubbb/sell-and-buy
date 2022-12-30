@@ -169,7 +169,7 @@ class ProductModel extends Model {
 
 		$fileName = "PROD-$productId." . pathinfo($image['name'], PATHINFO_EXTENSION);
 
-		if (!move_uploaded_file($image['tmp_name'], PATH_UPLOAD_PROFILE_PICTURES . $fileName)) {
+		if (!move_uploaded_file($image['tmp_name'], PATH_UPLOAD_PRODUCT_IMAGES . $fileName)) {
 			$productDAO->rollBack();
 			$this->setError('ERROR_UPLOADING_PICTURE');
 			return false;
@@ -179,7 +179,7 @@ class ProductModel extends Model {
 
 		if ($productDAO->updateImageUrl($product) === false) {
 			$productDAO->rollBack();
-			unlink(PATH_UPLOAD_PROFILE_PICTURES . $fileName);
+			unlink(PATH_UPLOAD_PRODUCT_IMAGES . $fileName);
 			$this->setError('ERROR_UPDATING_PICTURE_URL');
 			return false;
 		}
