@@ -1,7 +1,6 @@
 <?php
 
 	$forms = 'form-products';
-	$enctype = 'multipart/form-data';
-	$edit = false;
+	$edit = true;
 
 	require PATH_FORMS . 'form.php';

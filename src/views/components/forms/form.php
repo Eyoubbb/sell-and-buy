@@ -1,8 +1,8 @@
 <div class="form">
-	<form method="POST" <?= $data['enctype'] ? 'enctype="' . $data['enctype'] . '"' : "" ?>>
+	<form method="POST" <?= isset($enctype) ? 'enctype="' . $enctype . '"' : "" ?>>
 		<?php
-			if(isset($data['forms'])) {
-				require_once(PATH_FORMS . $data['forms'] . '.php');
+			if(isset($forms)) {
+				require_once(PATH_FORMS . $forms . '.php');
 			}
 		?>
 	</form>

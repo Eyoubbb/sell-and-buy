@@ -17,6 +17,8 @@ const PRODUCT_SIMILAR_ARTICLES = "Similar articles";
 const PRODUCT_CLIENT_OPINION = "client opinion";
 const PRODUCT_BY = "By";
 const PRODUCT_EDIT = "Edit";
+const PRODUCT_NEW_TITLE = "New product";
+const PRODUCT_EDIT_TITLE = "Edit product";
 
 /*************** Login & register ***************/
 
