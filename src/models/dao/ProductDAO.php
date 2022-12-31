@@ -89,7 +89,17 @@ class ProductDAO extends DAO {
 		], false);
 	}
 
-	public function updateImageUrl(Product $product): bool {
+	public function updateProduct(Product $product): int | false {
+		return $this->update(['product_id' => $product->getId()], [
+			'product_name' => $product->getName(),
+			'product_description_fr' => $product->getDescriptionFr(),
+			'product_description_en' => $product->getDescriptionEn(),
+			'product_price' => $product->getPrice(),
+			'product_category_id' => $product->getCategoryId()
+		]);
+	}
+
+	public function updateImageUrl(Product $product): int | false {
 		return $this->update(['product_id' => $product->getId()], ['product_image_url' => $product->getImageUrl()]);
 	}
 

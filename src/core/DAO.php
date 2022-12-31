@@ -116,8 +116,11 @@ abstract class DAO {
 		return $this->queryAll($sql);
 	}
 
-	public function findById(int $id): object | false {
-		return $this->queryRow("SELECT * FROM $this->table WHERE id = ?", [$id]);
+	public function findById(array $id): object | false {
+		$idName = array_keys($id)[0];
+		$idValue = array_values($id)[0];
+
+		return $this->queryRow("SELECT * FROM $this->table WHERE $idName = ?", [$idValue]);
 	}
 
 	public function insert(array $data, bool $autocommit = true): string | false {

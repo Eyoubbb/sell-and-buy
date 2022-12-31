@@ -111,7 +111,7 @@ class ProductModel extends Model {
 		];
 	}
 
-	public function new(): array | false {
+	public function productForm(?int $id = null): array | false {
 		$categoryDAO = $this->dao('Category');
 
 		$categories = $categoryDAO->findAll();
@@ -121,8 +121,23 @@ class ProductModel extends Model {
 			return false;
 		}
 
+		if (!$id) {
+			return [
+				'categories' => $categories
+			];
+		}
+
+		$productDAO = $this->dao('Product');
+		$product = $productDAO->findById(['product_id' => $id]);
+
+		if ($product === false) {
+			$this->setError('ERROR_FETCHING_PRODUCT');
+			return false;
+		}
+
 		return [
-			'categories' => $categories
+			'categories' => $categories,
+			'product' => $product
 		];
 	}
 
@@ -185,6 +200,35 @@ class ProductModel extends Model {
 		}
 
 		$productDAO->commit();
+		return [
+			'product' => $product
+		];
+	}
+
+	public function edit($id): array | false {
+		[
+			'name' => $name,
+			'description_fr' => $descriptionFr,
+			'description_en' => $descriptionEn,
+			'price' => $price,
+			'category_id' => $categoryId
+		] = $_POST;
+
+		$productDAO = $this->dao('Product');
+
+		$product = new Product();
+		$product->setId($id);
+		$product->setName($name);
+		$product->setDescriptionFr($descriptionFr);
+		$product->setDescriptionEn($descriptionEn);
+		$product->setPrice($price);
+		$product->setCategoryId($categoryId);
+
+		if ($productDAO->updateProduct($product) === false) {
+			$this->setError('ERROR_UPDATING_PRODUCT');
+			return false;
+		}
+
 		return [
 			'product' => $product
 		];
