@@ -38,6 +38,7 @@
 				<td><?= TICKET_NAME ?></td>
 				<td><?= TICKET_STATUS ?></td>
 				<td><?= TICKET_DATE ?></td>
+				<td><?= TICKET_ACTION ?></td>
 			</tr>
 			<?php
 				for($i = 0; $i < 3; $i++) {

@@ -78,6 +78,7 @@ const TICKET_USER_ID = "By";
 const TICKET_NAME = "Subject";
 const TICKET_STATUS = "Status";
 const TICKET_DATE = "Date";
+const TICKET_ACTION = "Action";
 
 /*************** Header ***************/
 

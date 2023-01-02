@@ -7,47 +7,28 @@
 .support {
 	.info-wrapper {
 		display: flex;
-		justify-content: space-around;
+		justify-content: center;
 
 		flex-wrap: wrap;
-
-		column-gap: 1em;
+		column-gap: 2em;
+		margin: 1em;
 
 		.info {
+			@include size(12em, 6em);
 			display: flex;
 			align-items: center;
+			justify-content: center;
 			
 			border-radius: .4em;
 			background-color: var(--primary-1);
 
-			img {
-				@include size(32px);
-
-				&.total {
-					background-color: hsl(195, 86%, 39%);
-				}
-
-				&.closed {
-					background-color: hsl(105, 65%, 42%);
-				}
-
-				&.pending {
-					background-color: hsl(57, 86%, 48%);
-				}
-
-				&.deleted {
-					background-color: red;
-				}
-			}
-
-			div {
-				text-align: center;
-			}
+			column-gap: 1em;
 		}
 
 	}
 
 	.ticket{
+		padding: 1em;
 		table { 
 			width: 100%;
 			border-radius: .4em;
