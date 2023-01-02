@@ -4,44 +4,68 @@
 @use "../components/header";
 @use "../components/footer";
 
+main {
+	background-color: var(--primary-1);
+}
+
 .support {
+	font-size: .9em;
+	$width: 15em; 
+	$gap: 1em;
+
 	.info-wrapper {
 		display: flex;
 		justify-content: center;
 
 		flex-wrap: wrap;
-		column-gap: 2em;
-		margin: 1em;
+		gap: calc(2 * $gap);
+		margin: 1em 0em;
 
 		.info {
-			@include size(12em, 6em);
+			@include size($width, 6em);
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			
 			border-radius: .4em;
-			background-color: var(--primary-1);
+			background-color: var(--primary-);
 
-			column-gap: 1em;
+			column-gap: $gap;
 		}
 
 	}
 
 	.ticket{
-		padding: 1em;
+		display: flex;
+		justify-content: center;
+		margin: $gap;
+		overflow-x: auto;
+		
 		table { 
-			width: 100%;
+			@include size(calc(4 * ($width + 1.5em)), auto);
 			border-radius: .4em;
-			background-color: var(--primary-1);
 	
-			.title td {
-				font-weight: bold;
+			.title {
+				td {
+					font-weight: bold;
+					white-space: nowrap;
+
+					.caret-img {
+						@include size(1em);
+						margin: -8px 0px 0px 8px;
+					}
+				}
 			}
 	
 			td {
 				text-align: center;
-				padding: .5em;
+				border: 0px 1px solid var(--primary-2);
+				padding: $gap;
 			}
+		}
+
+		@include media(m) {
+			justify-content: flex-start;
 		}
 	}
 
