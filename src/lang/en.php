@@ -71,6 +71,14 @@ const ERROR_EXTRAS = "That's all we know.";
 
 const ADMIN_WINDOW_TITLE = "Admin";
 
+/*************** Tickets ***************/
+
+const TICKET_ID = "ID";
+const TICKET_USER_ID = "By";
+const TICKET_NAME = "Subject";
+const TICKET_STATUS = "Status";
+const TICKET_DATE = "Date";
+
 /*************** Header ***************/
 
 const NAV_SEARCH = "Search";

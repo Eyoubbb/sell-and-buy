@@ -67,9 +67,17 @@ const ERROR_404_MESSAGE = "La page demandée n'existe pas";
 
 const ERROR_EXTRAS = "C'est tout ce que nous savons.";
 
-/*************** Errors ***************/
+/*************** Admin ***************/
 
 const ADMIN_WINDOW_TITLE = "Admin";
+
+/*************** Tickets ***************/
+
+const TICKET_ID = "ID";
+const TICKET_USER_ID = "Par";
+const TICKET_NAME = "Sujet";
+const TICKET_STATUS = "État";
+const TICKET_DATE = "Date";
 
 /*************** Header ***************/
 

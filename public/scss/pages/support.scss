@@ -1,0 +1,67 @@
+@use "../abstracts" as *;
+@use "../base" as *;
+
+@use "../components/header";
+@use "../components/footer";
+
+.support {
+	.info-wrapper {
+		display: flex;
+		justify-content: space-around;
+
+		flex-wrap: wrap;
+
+		column-gap: 1em;
+
+		.info {
+			display: flex;
+			align-items: center;
+			
+			border-radius: .4em;
+			background-color: var(--primary-1);
+
+			img {
+				@include size(32px);
+
+				&.total {
+					background-color: hsl(195, 86%, 39%);
+				}
+
+				&.closed {
+					background-color: hsl(105, 65%, 42%);
+				}
+
+				&.pending {
+					background-color: hsl(57, 86%, 48%);
+				}
+
+				&.deleted {
+					background-color: red;
+				}
+			}
+
+			div {
+				text-align: center;
+			}
+		}
+
+	}
+
+	.ticket{
+		table { 
+			width: 100%;
+			border-radius: .4em;
+			background-color: var(--primary-1);
+	
+			.title td {
+				font-weight: bold;
+			}
+	
+			td {
+				text-align: center;
+				padding: .5em;
+			}
+		}
+	}
+
+}
