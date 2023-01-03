@@ -39,7 +39,7 @@ foreach($tickets as $ticket) {
 
 	<div class="ticket">
 		<?php
-			$pathMore = PATH_IMAGES . 'more.png';
+			$pathMore = PATH_IMAGES . 'more.svg';
 		?>
 		<table>
 			<tr class="title">
@@ -86,7 +86,15 @@ foreach($tickets as $ticket) {
 							<td>{$admin->getFirstName()}</td>
 							<td>{$resolved}</td>
 							<td>{$ticket->getDate()}</td>
-							<td><img class="more-img" src="$pathMore" alt="more-button"></td>
+							<td>
+								<div class="dropdown">
+									<img class="more-img" src="$pathMore" alt="more-button" tabindex="0">
+									<div class="more hide">
+										<a href="">Resolve</a>
+										<a href="">Delete</a>
+									</div>
+								</div>
+							</td>
 						</tr>
 					HTML;
 				}

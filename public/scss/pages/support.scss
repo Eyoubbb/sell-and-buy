@@ -38,8 +38,10 @@ main {
 	.ticket{
 		display: flex;
 		justify-content: center;
+		padding: 3em $gap ;
 		margin: $gap;
 		overflow-x: auto;
+
 		
 		table { 
 			@include size(calc(4 * ($width + 1.5em)), auto);
@@ -65,13 +67,44 @@ main {
 				text-align: center;
 				border: 0px 1px solid var(--primary-2);
 				padding: $gap;
-			}
 
-			.more-img:hover {
-				cursor: pointer;
-			}
+				.dropdown {
+					position: relative;
 
-			
+					.more-img:hover {
+						cursor: pointer;
+					}
+
+					.more {
+						position: absolute;
+						z-index: 1;
+						right: calc(2 * $gap);
+						display: flex;
+						flex-direction: column;
+						border-radius: 2px;
+						text-align: left;
+						background-color: white;
+						@include box-shadow(0, 1px, 4px, 1px, .2);
+						transition: background-color .3s ease;
+						
+						&.hide {
+							display: none;
+							text-align: left;
+		
+							@include size(64px, auto);
+		
+						}
+
+						a {
+							padding: .2em .4em;
+
+							&:hover {
+								background-color: var(--primary-2);
+							}
+						}
+					}
+				}
+			}
 		}
 
 		@include media(m) {

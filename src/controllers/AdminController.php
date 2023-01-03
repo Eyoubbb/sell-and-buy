@@ -29,6 +29,11 @@ class AdminController extends Controller {
 		$data['title'] = ADMIN_WINDOW_TITLE;
 		
 		$data['stylesheets'][] = 'pages/support';
+
+		$data['scripts'][] = [
+			'name' => 'more',
+			'attr' => 'defer'
+		];
 		
 		$data['header'] = true;
 		$data['footer'] = false;
