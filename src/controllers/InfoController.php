@@ -8,12 +8,12 @@ class InfoController extends Controller {
         
         $data['title'] = INFO_WINDOW_TITLE;
         
-        $data['stylesheets'][] = 'pages/info';
+        $data['stylesheets'][] = 'pages/clientSupport';
 
         $data['header'] = true;
 		$data['footer'] = true;
 
-        $this->view('info/info', $data);
+        $this->view('info/clientSupport', $data);
     }
 
     public function contact(): void {
@@ -52,5 +52,17 @@ class InfoController extends Controller {
         $data['footer'] = true;
         
         $this->view('info/termsConditions', $data);
+    }
+
+    public function shippingReturn(): void {
+        
+        $data['title'] = INFO_SHIPPING_RETURN_WINDOW_TITLE;
+        
+        $data['stylesheets'][] = 'pages/infoShippingReturn';
+
+        $data['header'] = true;
+        $data['footer'] = true;
+        
+        $this->view('info/shippingReturn', $data);
     }
 }
