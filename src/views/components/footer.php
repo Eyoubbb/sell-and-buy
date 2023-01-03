@@ -1,7 +1,7 @@
 <?php
 	
 	$askCreatorUrl = $data['routes']['GET:Creator#ask']->getUrl();
-	$clientSercvice = $data['routes']['GET:Info#contact']->getUrl();
+	$clientSercvice = $data['routes']['GET:Info#clientSupport']->getUrl();
 	$shippingReturn = $data['routes']['GET:Info#shippingReturn']->getUrl();
 	$legalNotice = $data['routes']['GET:Info#legalNotice']->getUrl();
 	$termsCondition = $data['routes']['GET:Info#termsConditions']->getUrl();
