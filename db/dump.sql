@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Dec 20, 2022 at 11:15 PM
--- Server version: 5.7.34
--- PHP Version: 8.0.8
+-- Host: 127.0.0.1
+-- Generation Time: Jan 03, 2023 at 09:30 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `sab-website`
 --
+CREATE DATABASE IF NOT EXISTS `sab-website` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sab-website`;
 
 -- --------------------------------------------------------
 
@@ -27,9 +29,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `admins`
 --
 
+DROP TABLE IF EXISTS `admins`;
 CREATE TABLE `admins` (
   `ADMIN_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `admins`
@@ -48,11 +51,12 @@ INSERT INTO `admins` (`ADMIN_ID`) VALUES
 -- Table structure for table `carts`
 --
 
+DROP TABLE IF EXISTS `carts`;
 CREATE TABLE `carts` (
   `PRODUCT_ID` int(11) NOT NULL,
   `USER_ID` int(11) NOT NULL,
   `CART_QUANTITY` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `carts`
@@ -157,11 +161,12 @@ INSERT INTO `carts` (`PRODUCT_ID`, `USER_ID`, `CART_QUANTITY`) VALUES
 -- Table structure for table `categories`
 --
 
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `CATEGORY_ID` int(11) NOT NULL,
   `CATEGORY_NAME` varchar(254) NOT NULL,
   `CATEGORY_DESCRIPTION` varchar(254) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `categories`
@@ -184,39 +189,40 @@ INSERT INTO `categories` (`CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_DESCRIPTION`
 -- Table structure for table `categorytagcategories`
 --
 
+DROP TABLE IF EXISTS `categorytagcategories`;
 CREATE TABLE `categorytagcategories` (
   `CATEGORY_ID` int(11) NOT NULL,
   `TAG_CATEGORY_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `categorytagcategories`
 --
 
 INSERT INTO `categorytagcategories` (`CATEGORY_ID`, `TAG_CATEGORY_ID`) VALUES
-(4, 1),
-(5, 1),
-(9, 1),
 (1, 2),
+(1, 4),
 (2, 2),
+(2, 4),
 (3, 2),
+(3, 3),
+(3, 5),
+(3, 7),
+(4, 1),
 (4, 2),
+(4, 3),
+(4, 5),
+(5, 1),
 (5, 2),
+(5, 3),
+(5, 5),
+(5, 6),
 (6, 2),
 (8, 2),
+(9, 1),
 (9, 2),
-(3, 3),
-(4, 3),
-(5, 3),
 (9, 3),
-(1, 4),
-(2, 4),
-(3, 5),
-(4, 5),
-(5, 5),
-(9, 5),
-(5, 6),
-(3, 7);
+(9, 5);
 
 -- --------------------------------------------------------
 
@@ -224,12 +230,13 @@ INSERT INTO `categorytagcategories` (`CATEGORY_ID`, `TAG_CATEGORY_ID`) VALUES
 -- Table structure for table `comments`
 --
 
+DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `COMMENT_ID` int(11) NOT NULL,
   `COMMENT_RATING_ID` int(11) NOT NULL,
   `COMMENT_TITLE` varchar(254) NOT NULL,
   `COMMENT_BODY` varchar(254) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `comments`
@@ -245,11 +252,12 @@ INSERT INTO `comments` (`COMMENT_ID`, `COMMENT_RATING_ID`, `COMMENT_TITLE`, `COM
 -- Table structure for table `creators`
 --
 
+DROP TABLE IF EXISTS `creators`;
 CREATE TABLE `creators` (
   `CREATOR_ID` int(11) NOT NULL,
   `CREATOR_DESCRIPTION` varchar(254) NOT NULL,
   `CREATOR_BANNER_URL` varchar(254) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `creators`
@@ -296,10 +304,11 @@ INSERT INTO `creators` (`CREATOR_ID`, `CREATOR_DESCRIPTION`, `CREATOR_BANNER_URL
 -- Table structure for table `favorites`
 --
 
+DROP TABLE IF EXISTS `favorites`;
 CREATE TABLE `favorites` (
   `USER_ID` int(11) NOT NULL,
   `CREATOR_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -307,6 +316,7 @@ CREATE TABLE `favorites` (
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `PRODUCT_ID` int(11) NOT NULL,
   `PRODUCT_CATEGORY_ID` int(11) NOT NULL,
@@ -316,10 +326,10 @@ CREATE TABLE `products` (
   `PRODUCT_DESCRIPTION_FR` varchar(254) NOT NULL,
   `PRODUCT_IMAGE_URL` varchar(254) DEFAULT NULL,
   `PRODUCT_PRICE` decimal(8,2) NOT NULL,
-  `PRODUCT_DISCOUNT_PERCENTAGE` decimal(5,2) DEFAULT NULL,
-  `PRODUCT_STOCK` int(11) NOT NULL,
-  `PRODUCT_VISIBLE` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `PRODUCT_DISCOUNT_PERCENTAGE` decimal(5,2) NOT NULL DEFAULT 0.00,
+  `PRODUCT_STOCK` int(11) NOT NULL DEFAULT 100,
+  `PRODUCT_VISIBLE` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `products`
@@ -429,10 +439,11 @@ INSERT INTO `products` (`PRODUCT_ID`, `PRODUCT_CATEGORY_ID`, `PRODUCT_CREATOR_ID
 -- Table structure for table `producttags`
 --
 
+DROP TABLE IF EXISTS `producttags`;
 CREATE TABLE `producttags` (
   `PRODUCT_ID` int(11) NOT NULL,
   `TAG_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -440,6 +451,7 @@ CREATE TABLE `producttags` (
 -- Table structure for table `ratings`
 --
 
+DROP TABLE IF EXISTS `ratings`;
 CREATE TABLE `ratings` (
   `RATING_ID` int(11) NOT NULL,
   `RATING_PRODUCT_ID` int(11) NOT NULL,
@@ -447,7 +459,7 @@ CREATE TABLE `ratings` (
   `RATING_USER_ID` int(11) NOT NULL,
   `RATING_GRADE` int(11) NOT NULL,
   `RATING_DATE` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ratings`
@@ -464,11 +476,12 @@ INSERT INTO `ratings` (`RATING_ID`, `RATING_PRODUCT_ID`, `RATING_COMMENT_ID`, `R
 -- Table structure for table `socialmediaaccounts`
 --
 
+DROP TABLE IF EXISTS `socialmediaaccounts`;
 CREATE TABLE `socialmediaaccounts` (
   `USER_ID` int(11) NOT NULL,
   `SOCIAL_MEDIA_ID` int(11) NOT NULL,
   `SOCIAL_MEDIA_ACCOUNT` varchar(254) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `socialmediaaccounts`
@@ -680,12 +693,13 @@ INSERT INTO `socialmediaaccounts` (`USER_ID`, `SOCIAL_MEDIA_ID`, `SOCIAL_MEDIA_A
 -- Table structure for table `socialmedias`
 --
 
+DROP TABLE IF EXISTS `socialmedias`;
 CREATE TABLE `socialmedias` (
   `SOCIAL_MEDIA_ID` int(11) NOT NULL,
   `SOCIAL_MEDIA_NAME` varchar(254) NOT NULL,
   `SOCIAL_MEDIA_PREFIX` varchar(254) NOT NULL,
   `SOCIAL_MEDIA_ICON_URL` varchar(254) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `socialmedias`
@@ -705,10 +719,11 @@ INSERT INTO `socialmedias` (`SOCIAL_MEDIA_ID`, `SOCIAL_MEDIA_NAME`, `SOCIAL_MEDI
 -- Table structure for table `tagcategories`
 --
 
+DROP TABLE IF EXISTS `tagcategories`;
 CREATE TABLE `tagcategories` (
   `TAG_CATEGORY_ID` int(11) NOT NULL,
   `TAG_CATEGORY_NAME` varchar(254) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tagcategories`
@@ -729,11 +744,12 @@ INSERT INTO `tagcategories` (`TAG_CATEGORY_ID`, `TAG_CATEGORY_NAME`) VALUES
 -- Table structure for table `tags`
 --
 
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
   `TAG_ID` int(11) NOT NULL,
   `TAG_TAG_CATEGORY_ID` int(11) NOT NULL,
   `TAG_NAME` varchar(254) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tags`
@@ -780,6 +796,7 @@ INSERT INTO `tags` (`TAG_ID`, `TAG_TAG_CATEGORY_ID`, `TAG_NAME`) VALUES
 -- Table structure for table `tickets`
 --
 
+DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
   `TICKET_ID` int(11) NOT NULL,
   `TICKET_USER_ID` int(11) NOT NULL,
@@ -789,7 +806,7 @@ CREATE TABLE `tickets` (
   `TICKET_DESCRIPTION` varchar(254) NOT NULL,
   `TICKET_DATE` date NOT NULL,
   `TICKET_RESOLVED` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -797,10 +814,11 @@ CREATE TABLE `tickets` (
 -- Table structure for table `tickettypes`
 --
 
+DROP TABLE IF EXISTS `tickettypes`;
 CREATE TABLE `tickettypes` (
   `TICKET_TYPE_ID` int(11) NOT NULL,
   `TICKET_TYPE_NAME` varchar(254) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tickettypes`
@@ -820,6 +838,7 @@ INSERT INTO `tickettypes` (`TICKET_TYPE_ID`, `TICKET_TYPE_NAME`) VALUES
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `USER_ID` int(11) NOT NULL,
   `USER_FIRST_NAME` varchar(254) NOT NULL,
@@ -827,7 +846,7 @@ CREATE TABLE `users` (
   `USER_PASSWORD_HASH` varchar(254) NOT NULL,
   `USER_EMAIL` varchar(254) NOT NULL,
   `USER_PICTURE_URL` varchar(254) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -1083,7 +1102,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `PRODUCT_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `PRODUCT_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `ratings`
