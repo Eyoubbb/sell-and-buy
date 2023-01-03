@@ -65,6 +65,8 @@
 				</td>
 			</tr>
 			<?php
+				$ticket = $data['admins'];
+				var_dump($ticket);
 				for($i = 0; $i < 3; $i++) {
 					$ticketID = 1;
 					$ticketUserID = 1;
@@ -74,13 +76,13 @@
 		
 					echo <<<HTML
 						<tr>
-							<td>#$ticketID</td>
+							<td>$ticketID</td>
 							<td>$ticketUserID</td>
 							<td>$ticketName</td>
 							<td></td>
 							<td>$ticketStatus</td>
 							<td>$ticketDate</td>
-							<td><img src="$pathMore" alt="more-button"></td>
+							<td><img class="more-img" src="$pathMore" alt="more-button"></td>
 						</tr>
 					HTML;
 				}

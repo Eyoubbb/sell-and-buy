@@ -25,13 +25,23 @@ class AdminController extends Controller {
 		if (!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
-		
+
 		$data['title'] = ADMIN_WINDOW_TITLE;
 		
 		$data['stylesheets'][] = 'pages/support';
 		
 		$data['header'] = true;
 		$data['footer'] = false;
+
+		$model = $this->model('Ticket');
+
+		$res = $model->tickets();
+
+		if ($res !== false) {
+			$data = array_merge($data, $res);
+		} else {
+			$data['error'] = $model->getError();
+		}
 		
 		$this->view('admin/support', $data);
 	}

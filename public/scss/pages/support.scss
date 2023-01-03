@@ -53,6 +53,10 @@ main {
 					.caret-img {
 						@include size(1em);
 						margin: -8px 0px 0px 8px;
+
+						&:hover {
+							cursor: pointer;
+						}
 					}
 				}
 			}
@@ -62,6 +66,12 @@ main {
 				border: 0px 1px solid var(--primary-2);
 				padding: $gap;
 			}
+
+			.more-img:hover {
+				cursor: pointer;
+			}
+
+			
 		}
 
 		@include media(m) {
