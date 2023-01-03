@@ -33,7 +33,7 @@ const LOGIN_WINDOW_TITLE = "Connexion";
 const LOGIN_TITLE = "Se connecter";
 const LOGIN_NEW = "Nouveau chez Sell & Buy ?";
 const LOGIN_SIGNUP = "S'inscrire";
-const LOGIN_EMAIL_ERROR = "Email inconnue";
+const LOGIN_EMAIL_ERROR = "Email inconnu";
 const LOGIN_PASSWORD_ERROR = "Mot de passe invalide";
 const LOGIN_SUBMIT = "Se connecter";
 
