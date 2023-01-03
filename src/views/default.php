@@ -57,11 +57,7 @@
 
 		echo '<main>';
 		
-		if (isset($data['error'])) {
-			echo "<div class=\"error\">$data[error]</div>";
-		} else {
-			require_once PATH_PAGES . $data['view'] . '.php';
-		}
+		require_once PATH_PAGES . $data['view'] . '.php';
 
 		echo '</main>';
 
