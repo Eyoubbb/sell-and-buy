@@ -164,3 +164,10 @@ const FORM_BIO_PLACEHOLDER = "Ajouter la bio";
 const FORM_TWITTER_PLACEHOLDER = "@twitter";
 const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
 const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
+
+/*************** Infos ***************/
+
+const INFO_CONTACT_WINDOW_TITLE = "Contact";
+const INFO_WINDOW_TITLE = "Information";
+const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Mentions légales";
+const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Conditions générales";
