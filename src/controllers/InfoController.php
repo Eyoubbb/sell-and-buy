@@ -4,7 +4,7 @@ require_once PATH_CORE . 'Controller.php';
 
 class InfoController extends Controller {
     
-    public function index(): void {
+    public function clientSupport(): void {
         
         $data['title'] = INFO_WINDOW_TITLE;
         
@@ -25,8 +25,6 @@ class InfoController extends Controller {
         $data['header'] = true;
 		$data['footer'] = true;
 		
-		$this->view('creator/ask', $data);
-        
         $this->view('info/contact', $data);
     }
 
@@ -42,7 +40,7 @@ class InfoController extends Controller {
         $this->view('info/legalNotice', $data);
     }
 
-    public function termsConditions(): void {
+    public function termsCondition(): void {
         
         $data['title'] = INFO_TERMS_CONDITIONS_WINDOW_TITLE;
         
@@ -51,7 +49,7 @@ class InfoController extends Controller {
         $data['header'] = true;
         $data['footer'] = true;
         
-        $this->view('info/termsConditions', $data);
+        $this->view('info/termsCondition', $data);
     }
 
     public function shippingReturn(): void {

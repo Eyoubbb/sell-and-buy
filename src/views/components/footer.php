@@ -1,12 +1,11 @@
 <?php
 	
 	$askCreatorUrl = $data['routes']['GET:Creator#ask']->getUrl();
-	$clientSercvice = $data['routes']['GET:Info#clientSupport']->getUrl();
 	$shippingReturn = $data['routes']['GET:Info#shippingReturn']->getUrl();
 	$legalNotice = $data['routes']['GET:Info#legalNotice']->getUrl();
-	$termsCondition = $data['routes']['GET:Info#termsConditions']->getUrl();
+	$termsCondition = $data['routes']['GET:Info#termsCondition']->getUrl();
 	$contact = $data['routes']['GET:Info#contact']->getUrl();
-	
+	$clientSupport = $data['routes']['GET:Info#clientSupport']->getUrl();
 ?>
 <footer>
 	<div class="footer-top">
@@ -19,7 +18,7 @@
 				<a href="<?= $askCreatorUrl ?>"><?= BECOME_CREATOR ?></a>
 			</li>
 			<li>
-				<a href="<?= $clientSercvice ?>"><?= CUSTOMER_SERVICE ?></a>
+				<a href="<?= $clientSupport ?>"><?= CUSTOMER_SERVICE ?></a>
 			</li>
 			<li>
 				<span><a href="<?= $shippingReturn ?>"><?= SHIPPING_RETURN ?></a></span>
