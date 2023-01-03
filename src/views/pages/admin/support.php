@@ -1,31 +1,38 @@
+<?php
+
+$tickets = $data['tickets'];
+$admins = $data['admins'];
+$users = $data['users'];
+
+$pending = 0;
+$resolved = 0;
+
+foreach($tickets as $ticket) {
+	$ticket->getResolved() ? $resolved++ : $pending++;
+}
+?>
+
 <section class="support">
 	<div class="info-wrapper">
 		<div class="info">
 			<img class="total" src="<?= PATH_IMAGES . 'ticket-32x32.png' ?>" alt="total-tickets">
 			<div>
-				<h1>1000</h1>
+				<h1><?= count($tickets) ?></h1>
 				<p>Total tickets</p>
 			</div>
 		</div>
 		<div class="info">
 			<img class="pending" src="<?= PATH_IMAGES . 'hourglass-32x32.png' ?>" alt="pending-tickets">
 			<div>
-				<h1>0</h1>
+				<h1><?= $pending ?></h1>
 				<p>Pending tickets</p>
 			</div>
 		</div>
 		<div class="info">
 			<img class="closed" src="<?= PATH_IMAGES . 'archive-32x32.png' ?>" alt="closed-tickets">
 			<div>
-				<h1>0</h1>
+				<h1><?= $resolved ?></h1>
 				<p>Closed tickets</p>
-			</div>
-		</div>
-		<div class="info">
-			<img class="deleted" src="<?= PATH_IMAGES . 'trash-32x32.png' ?>" alt="deleted-tickets">
-			<div>
-				<h1>0</h1>
-				<p>Deleted tickets</p>
 			</div>
 		</div>
 	</div>
@@ -65,23 +72,20 @@
 				</td>
 			</tr>
 			<?php
-				$ticket = $data['admins'];
-				var_dump($ticket);
-				for($i = 0; $i < 3; $i++) {
-					$ticketID = 1;
-					$ticketUserID = 1;
-					$ticketName = "Test";
-					$ticketStatus = "Open";
-					$ticketDate = "2020-01-01";
-		
+				foreach($tickets as $ticket) {
+					$user = $users[$ticket->getUserId()];
+					$admin = $admins[$ticket->getAdminId()];
+
+					$resolved = $ticket->getResolved() ? 'Closed' : 'Opened';
+	
 					echo <<<HTML
 						<tr>
-							<td>$ticketID</td>
-							<td>$ticketUserID</td>
-							<td>$ticketName</td>
-							<td></td>
-							<td>$ticketStatus</td>
-							<td>$ticketDate</td>
+							<td>{$ticket->getId()}</td>
+							<td>{$user->getFirstName()}</td>
+							<td>{$ticket->getName()}</td>
+							<td>{$admin->getFirstName()}</td>
+							<td>{$resolved}</td>
+							<td>{$ticket->getDate()}</td>
 							<td><img class="more-img" src="$pathMore" alt="more-button"></td>
 						</tr>
 					HTML;
