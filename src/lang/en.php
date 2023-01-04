@@ -171,3 +171,11 @@ const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
 
 const DELIVERY_TITTLE = "Delivery system details";
 const DELIVERY_TEXT ="SAB corp does not take care of the delivery of our products we subcontract the delivery to UPS please contact them for any problem.";
+
+/*************** Infos ***************/
+
+const INFO_CONTACT_WINDOW_TITLE = "Contact";
+const INFO_WINDOW_TITLE = "Information";
+const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Legal notice";
+const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Terms and conditions";
+const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Shipping and return";
