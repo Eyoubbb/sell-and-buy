@@ -165,3 +165,9 @@ const FORM_BIO_PLACEHOLDER = "Enter a bio";
 const FORM_TWITTER_PLACEHOLDER = "@twitter";
 const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
 const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
+
+
+/*************** delivery ***************/
+
+const DELIVERY_TITTLE = "Delivery system details";
+const DELIVERY_TEXT ="SAB corp does not take care of the delivery of our products we subcontract the delivery to UPS please contact them for any problem.";
