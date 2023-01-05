@@ -5,14 +5,11 @@
 @use "../components/footer";
 
 .wrapper-form {
-    
     --gap: 4em;
 	display: flex;
 	justify-content: center;
     align-items: center;
     height: 66vh;
-	// position: relative;
-	// bottom: 15vh;
 
     div {
         display: flex;
@@ -20,7 +17,15 @@
     }
 
     form {
-		width: 30vw;
+		width: 90vw;
+		display: grid;
+		grid-template-columns: 1fr 1.5fr;
+		gap: 20px;
+
+		@include media(l) {
+			grid-template-columns: 0fr 1fr;
+			margin: 10%;
+		}
 
         :is(&.form-invalid input, & input:not(:placeholder-shown)):is(:invalid, .invalid) {
 			color: var(--error);
@@ -37,6 +42,7 @@
 			flex-direction: column;
 			gap: calc(var(--gap) * .5);
 			animation: fade .6s ease;
+			width: 80%;
 		
 			&.active {
 				display: flex;
@@ -46,11 +52,6 @@
 				flex-direction: row;
 				gap: 10px;
 			}
-
-			&.special {
-				position: relative;
-				top: 5vh;
-			}
 		}
 
 		.progress-bar {
@@ -58,18 +59,31 @@
 			counter-reset: step;
 			display: flex;
 			font-size: .65em;
-			position: absolute;
-			top: 13vh;
-			left: 35vw;
-			width: 30vw;
+			align-self: center;
+			justify-self: center;
+
+			@include media(l) {
+				flex-direction: column;
+			}
+
+			@include media(s) {
+				height: 0;
+				width: 0;
+				visibility: hidden;
+			}
 		
 			li {
 				position: relative;
-				width: calc(100% / 3);
+				width: calc(100% / 4);
 				color: black;
 				font-size: .9em;
 				text-transform: uppercase;
 				text-align: center;
+
+				@include media(l) {
+					width: 100%;
+					margin: 5px 0;
+				}
 		
 				@include pseudo(before, counter(step), static) {
 					--size: 2.2em;
@@ -100,6 +114,11 @@
 					background: linear-gradient(90deg, var(--accent-1) 50%, var(--bg-color) 50%);
 					background-size: 200%;
 					transition: background-position-x .3s ease;
+					visibility: visible;
+
+					@include media(l) {
+						visibility: hidden;
+					}
 				}
 		
 				&.active ~ ::after {
@@ -113,6 +132,10 @@
 			display: flex;
 			flex-direction: column;
 			gap: calc(var(--gap) / 3);
+
+			&.overview {
+				background-color: var(--accent-1);
+			}
 
 			label {
 				width: fit-content;
@@ -183,7 +206,7 @@
 
 @keyframes fade {
 	from {
-		opacity: 0;
+		opacity: 0.3;
 	}
 	to {
 		opacity: 1;

@@ -126,16 +126,18 @@ const SUBSCRIBE = "Subscribe +";
 /*************** Creator ask ***************/
 
 const CREATOR_MOTIVE = "Your motivations for becoming a designer";
+const CREATOR_OVERVIEW = "Overview";
+const CREATOR_CANCEL = "Cancel";
 const CREATOR_SUBMIT = "Apply";
 const CREATOR_PLACEHOLDER = "Write here";
 const CREATOR_PLACEHOLDER_TEXTAREA = "Write here, 500 characters max";
 const CREATOR_INPUT_MAIL = "Please put your email";
 const CREATOR_ASK_ADDRESS = "Please put your address";
 const CREATOR_ASK_NUMBER = "Please put your number";
-const CREATOR_PROGRESS_STEP_ONE = "Add your email";
-const CREATOR_PROGRESS_STEP_TWO = "Add your address/number";
-const CREATOR_PROGRESS_STEP_THREE = "Add your socials";
-const CREATOR_PROGRESS_STEP_FOUR = "Add your bannner and description";
+const CREATOR_PROGRESS_STEP_ONE = "Motivations";
+const CREATOR_PROGRESS_STEP_TWO = "Address and number";
+const CREATOR_PROGRESS_STEP_THREE = "Socials";
+const CREATOR_PROGRESS_STEP_FOUR = "Bannner and description";
 const CREATOR_SOCIALS = "Enter your socials (optional)";
 const CREATOR_INSTAGRAM = "Instagram";
 const CREATOR_FACEBOOK = "Facebook";

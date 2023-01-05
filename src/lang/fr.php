@@ -126,15 +126,17 @@ const SUBSCRIBE = "S'abonner +";
 /*************** Creator ***************/
 
 const CREATOR_MOTIVE = "Vos motivations pour devenir créateur";
+const CREATOR_OVERVIEW = "Apercu";
+const CREATOR_CANCEL = "Annuler";
 const CREATOR_SUBMIT = "Valider la demande";
 const CREATOR_PLACEHOLDER = "Écrire ici";
 const CREATOR_PLACEHOLDER_TEXTAREA = "Écrire ici, 500 caractères maximum";
 const CREATOR_ASK_ADDRESS = "Veuillez entrer votre adresse postale";
 const CREATOR_ASK_NUMBER = "Veuiller donner votre numéro de téléphone";
-const CREATOR_PROGRESS_STEP_ONE = "Ajout des motivations";
-const CREATOR_PROGRESS_STEP_TWO = "Ajout de l'adresse/numéro";
-const CREATOR_PROGRESS_STEP_THREE = "Ajout des résaux";
-const CREATOR_PROGRESS_STEP_FOUR = "Ajout bannière et description";
+const CREATOR_PROGRESS_STEP_ONE = "Motivations";
+const CREATOR_PROGRESS_STEP_TWO = "Adresse et numéro";
+const CREATOR_PROGRESS_STEP_THREE = "Résaux sociaux";
+const CREATOR_PROGRESS_STEP_FOUR = "Bannière et description";
 const CREATOR_SOCIALS = "Entrez vos réseaux sociaux (facultatif)";
 const CREATOR_INSTAGRAM = "Instagram";
 const CREATOR_FACEBOOK = "Facebook";
