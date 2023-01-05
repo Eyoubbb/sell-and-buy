@@ -3,3 +3,96 @@
 
 @use "../components/header";
 @use "../components/footer";
+
+section.terms-conditions {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    @include media(m) {
+        grid-template-columns: 1fr;
+    }
+
+    div.nav {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        right: 20%;
+        top: 8vh;
+
+        @include media(m) {
+            display: none;
+        }
+
+        div.step {
+            height: 20px;
+            width: 20px;
+            border-radius: 5px;
+            background-color: var(--accent-1);
+            margin: .7em;
+            transition: all 0.3s ease-in-out;
+            
+            &:hover {
+                background-color: var(--secondary-2);
+            }
+
+            p {
+                position: relative;
+                left: 30px;
+                top: 3px;
+                font-size: .7em;
+				text-transform: uppercase;
+                font-weight: bold;
+                width: 300px;
+                transition: all 0.3s ease-in-out;
+                color: var(--secondary-2);
+
+                &:hover {
+                    color: var(--accent-1);
+                }
+
+                @include media(l) {
+                    width: 200px;
+                }
+            }
+        }
+    }
+    
+    div.content {
+        display: flex;
+        flex-direction: column;
+        padding: 3em 5em;
+
+        @include media(m) {
+            padding: 3em 2em;
+        }
+    
+        h1 {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+    
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            color: var(--secondary-2);
+        }
+    
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: .5em;
+            transition: all 0.3s ease-in-out;
+            color: var(--secondary-2);
+
+            &.active {
+                transform: scale(1.03);
+                color: var(--accent-1);
+            }
+        }
+    
+        p {
+            color: var(--secondary-2);
+            margin-bottom: 3em;
+        }
+    }
+}

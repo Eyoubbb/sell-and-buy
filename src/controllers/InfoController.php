@@ -48,6 +48,11 @@ class InfoController extends Controller {
 
         $data['header'] = true;
         $data['footer'] = true;
+
+        $data['scripts'][] = [
+			'name' => 'scrollerPageCondition',
+			'attr' => 'defer'
+		];
         
         $this->view('info/termsCondition', $data);
     }

@@ -186,3 +186,17 @@ const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Shipping and return";
 
 const CONTACT_ANY_QUESTIONS = "For any questions, please contact one of the admins of SAB";
 const CONTACT_ALT_CONTACT = "An illustration of two persons talking";
+
+/*************** Legal Notice ***************/
+
+const LEGAL_NOTICE_SUBTITLE = "Sell ​​& Buy Terms of Use";
+const LEGAL_NOTICE_SECTION_ONE = "Welcome to our e-commerce site. By accessing and using our site, you agree to be bound by these terms and conditions of use and by all applicable laws and regulations. If you do not agree to these terms, please do not use our site. ";
+const LEGAL_NOTICE_SECTION_TWO = "We reserve the right to modify these general conditions of use at any time. Your continued use of our site after any change to these Terms of Service means that you accept those changes. ";
+const LEGAL_NOTICE_SECTION_THREE = "We may change or discontinue our site, or any service or content on our site, at any time without notice. We will not be liable to you or any other party for any modification, suspension or discontinuance of our site or any service or content on our site. ";
+const LEGAL_NOTICE_SECTION_FOUR = "We do not warrant that our site will be available without interruption, error or faultlessness. We do not warrant that the results which may be obtained from the use of our site will be accurate or reliable. You agree that from time to time we may remove content from our site without notice.";
+const LEGAL_NOTICE_SECTION_FIVE = "You agree that we shall not be liable to you or any other party for any loss, damage, claim or other liability, including reasonable attorneys' fees, arising out of or in connection with your use of our site, including, but without limitation, any error, omission, defect, virus, transmission failure, system failure, communication line failure, loss of data or any other technical failure or any other cause. ";
+const LEGAL_NOTICE_TITLE_SECTION_ONE = "1. Terms of Service";
+const LEGAL_NOTICE_TITLE_SECTION_TWO = "2. Amendments";
+const LEGAL_NOTICE_TITLE_SECTION_THREE = "3. Interruption";
+const LEGAL_NOTICE_TITLE_SECTION_FOUR = "4. Guarantee";
+const LEGAL_NOTICE_TITLE_SECTION_FIVE = "5. Limitation of Liability";

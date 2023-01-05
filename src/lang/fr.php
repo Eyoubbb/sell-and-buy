@@ -185,3 +185,17 @@ const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Livraison et retours";
 
 const CONTACT_ANY_QUESTIONS = "Pour toutes questions, veuillez contacter un des 5 administrateurs";
 const CONTACT_ALT_CONTACT = "Une image de deux personnes qui discutent";
+
+/*************** Legal Notice ***************/
+
+const LEGAL_NOTICE_SUBTITLE = "Conditions générales d'utilisation de Sell & Buy";
+const LEGAL_NOTICE_SECTION_ONE = "Bienvenue sur notre site de e-commerce. En accédant et en utilisant notre site, vous acceptez d'être lié par les présentes conditions générales d'utilisation et par toutes les lois et règlements en vigueur. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre site. ";
+const LEGAL_NOTICE_SECTION_TWO = "Nous nous réservons le droit de modifier les présentes conditions générales d'utilisation à tout moment. Votre utilisation continue de notre site après tout changement de ces conditions générales d'utilisation signifie que vous acceptez ces changements. ";
+const LEGAL_NOTICE_SECTION_THREE = "Nous pouvons modifier ou interrompre notre site, ou tout service ou tout contenu sur notre site, à tout moment sans préavis. Nous ne serons pas responsables envers vous ou toute autre partie de toute modification, suspension ou interruption de notre site ou de tout service ou contenu sur notre site. ";
+const LEGAL_NOTICE_SECTION_FOUR = "Nous ne garantissons pas que notre site sera disponible sans interruption, sans erreur ou sans faille. Nous ne garantissons pas que les résultats qui peuvent être obtenus de l'utilisation de notre site seront exacts ou fiables. Vous acceptez que de temps en temps, nous puissions supprimer le contenu de notre site sans préavis. ";
+const LEGAL_NOTICE_SECTION_FIVE = "Vous acceptez que nous ne serons pas responsables envers vous ou toute autre partie de toute perte, dommage, réclamation ou autre responsabilité, y compris les frais raisonnables d'avocats, résultant de ou en relation avec votre utilisation de notre site, y compris, mais sans s'y limiter, toute erreur, omission, défaut, virus, défaillance de transmission, pannes de système, échec de la ligne de communication, perte de données ou de toute autre panne technique ou de toute autre cause. ";
+const LEGAL_NOTICE_TITLE_SECTION_ONE = "1. Conditions générales d'utilisation";
+const LEGAL_NOTICE_TITLE_SECTION_TWO = "2. Modifications";
+const LEGAL_NOTICE_TITLE_SECTION_THREE = "3. Interruption";
+const LEGAL_NOTICE_TITLE_SECTION_FOUR = "4. Garantie";
+const LEGAL_NOTICE_TITLE_SECTION_FIVE = "5. Limitation de responsabilité";
