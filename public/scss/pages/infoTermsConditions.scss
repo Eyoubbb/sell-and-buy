@@ -85,7 +85,7 @@ section.terms-conditions {
             color: var(--secondary-2);
 
             &.active {
-                transform: scale(1.03);
+                transform: translate(10px, 0);
                 color: var(--accent-1);
             }
         }
