@@ -32,10 +32,15 @@ class InfoController extends Controller {
         
         $data['title'] = INFO_LEGAL_NOTICE_WINDOW_TITLE;
         
-        $data['stylesheets'][] = 'pages/infoLegalNotice';
+        $data['stylesheets'][] = 'pages/infoTermAndNotice';
 
         $data['header'] = true;
         $data['footer'] = true;
+
+        $data['scripts'][] = [
+			'name' => 'scrollerPage',
+			'attr' => 'defer'
+		];
         
         $this->view('info/legalNotice', $data);
     }
@@ -44,13 +49,13 @@ class InfoController extends Controller {
         
         $data['title'] = INFO_TERMS_CONDITIONS_WINDOW_TITLE;
         
-        $data['stylesheets'][] = 'pages/infoTermsConditions';
+        $data['stylesheets'][] = 'pages/infoTermAndNotice';
 
         $data['header'] = true;
         $data['footer'] = true;
 
         $data['scripts'][] = [
-			'name' => 'scrollerPageCondition',
+			'name' => 'scrollerPage',
 			'attr' => 'defer'
 		];
         

@@ -187,9 +187,9 @@ const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Shipping and return";
 const CONTACT_ANY_QUESTIONS = "For any questions, please contact one of the admins of SAB";
 const CONTACT_ALT_CONTACT = "An illustration of two persons talking";
 
-/*************** Legal Notice ***************/
+/*************** Terms and Conditions ***************/
 
-const LEGAL_NOTICE_SUBTITLE = "Sell ​​& Buy Terms of Use";
+const LEGAL_NOTICE_SUBTITLE = "Sell & Buy Terms of Use";
 const LEGAL_NOTICE_SECTION_ONE = "Welcome to our e-commerce site. By accessing and using our site, you agree to be bound by these terms and conditions of use and by all applicable laws and regulations. If you do not agree to these terms, please do not use our site. ";
 const LEGAL_NOTICE_SECTION_TWO = "We reserve the right to modify these general conditions of use at any time. Your continued use of our site after any change to these Terms of Service means that you accept those changes. ";
 const LEGAL_NOTICE_SECTION_THREE = "We may change or discontinue our site, or any service or content on our site, at any time without notice. We will not be liable to you or any other party for any modification, suspension or discontinuance of our site or any service or content on our site. ";
@@ -200,3 +200,25 @@ const LEGAL_NOTICE_TITLE_SECTION_TWO = "2. Amendments";
 const LEGAL_NOTICE_TITLE_SECTION_THREE = "3. Interruption";
 const LEGAL_NOTICE_TITLE_SECTION_FOUR = "4. Guarantee";
 const LEGAL_NOTICE_TITLE_SECTION_FIVE = "5. Limitation of Liability";
+
+/*************** Legal Notice ***************/
+
+const TERMS_CONDITIONS_SUBTITLE = "Last updated: January 1, 2023";
+const TERMS_CONDITIONS_PREAMBULE = "Please read these Terms and Conditions carefully before using the Sell & Buy website operated by Sell & Buy. Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service. By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service. ";
+const TERMS_CONDITIONS_SECTION_ONE = "If you wish to purchase any product or service made available through the Service, you may be asked to supply certain information relevant to your Purchase including, without limitation, your credit card number, the expiration date of your credit card, your billing address, and your shipping information. You represent and warrant that: you have the legal right to use any credit card(s) or other payment method(s) in connection with any Purchase; and that the information you supply to us is true, correct and complete. By submitting such information, you grant us the right to provide the information to third parties for purposes of facilitating the completion of Purchases. We reserve the right to refuse or cancel your order at any time for certain reasons including but not limited to: product or service availability, errors in the description or price of the product or service, error in your order or other reasons. We reserve the right to refuse or cancel your order if fraud or an unauthorized or illegal transaction is suspected. ";
+const TERMS_CONDITIONS_SECTION_TWO = "We are constantly updating product and service offerings on the Service. We may experience delays in updating information on the Service and in our advertising on other web sites. The information found on the Service may contain errors or inaccuracies and may not be complete or current. Products or services may be mispriced, described inaccurately, or unavailable on the Service and we cannot guarantee the accuracy or completeness of any information found on the Service. We therefore reserve the right to change or update information and to correct errors, inaccuracies, or omissions at any time without prior notice. ";
+const TERMS_CONDITIONS_SECTION_THREE = "Any contests, sweepstakes or other promotions made available through the Service may be governed by rules that are separate from these Terms. If you participate in any Promotions, please review the applicable rules as well as our Privacy Policy. If the rules for a Promotion conflict with these Terms, the Promotion rules will apply. ";
+const TERMS_CONDITIONS_SECTION_FOUR = "Our Service may contain links to third-party web sites or services that are not owned or controlled by Sell & Buy. Sell & Buy has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party web sites or services. You further acknowledge and agree that Sell & Buy shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit. ";
+const TERMS_CONDITIONS_SECTION_FIVE = "We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability. ";
+const TERMS_CONDITIONS_SECTION_SIX = "These Terms shall be governed and construed in accordance with the laws of France, without regard to its conflict of law provisions. Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service. ";
+const TERMS_CONDITIONS_SECTION_SEVEN = "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service. ";
+const TERMS_CONDITIONS_SECTION_EIGHT = "If you have any questions about these Terms, please contact us. ";
+const TERMS_CONDITIONS_TITLE_SECTION_ONE = "1. Purchases";
+const TERMS_CONDITIONS_TITLE_SECTION_TWO = "2. Availability, Errors and Inaccuracies";
+const TERMS_CONDITIONS_TITLE_SECTION_THREE = "3. Contests, Sweepstakes and Promotions";
+const TERMS_CONDITIONS_TITLE_SECTION_FOUR = "4. Links To Other Web Sites";
+const TERMS_CONDITIONS_TITLE_SECTION_FIVE = "5. Termination";
+const TERMS_CONDITIONS_TITLE_SECTION_SIX = "6. Governing Law";
+const TERMS_CONDITIONS_TITLE_SECTION_SEVEN = "7. Changes";
+const TERMS_CONDITIONS_TITLE_SECTION_EIGHT = "8. Contact Us";
+const TERMS_CONDITIONS_LINK_CONTACT_US = "Contact Us";

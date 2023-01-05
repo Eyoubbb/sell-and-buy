@@ -12,47 +12,63 @@ section.terms-conditions-and-notice {
         grid-template-columns: 1fr;
     }
 
-    div.nav {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        position: relative;
-        right: 20%;
-        top: 8vh;
+    div.nav-container {
+        position: fixed;
+        left: 7%;
+        top: 17vh;
 
-        @include media(m) {
-            display: none;
-        }
-
-        div.step {
-            height: 20px;
-            width: 20px;
+        div.nav {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: var(--primary-1);
             border-radius: 5px;
-            background-color: var(--accent-1);
-            margin: .7em;
-            transition: all 0.3s ease-in-out;
-            
-            &:hover {
-                background-color: var(--secondary-2);
+            width: 320px;
+            transition: all .5s ease-in-out;
+
+            @include media(l) {
+                width: 240px;
+            }
+    
+            @include media(m) {
+                display: none;
             }
 
-            p {
-                position: relative;
-                left: 30px;
-                top: 3px;
-                font-size: .7em;
-				text-transform: uppercase;
-                font-weight: bold;
-                width: 300px;
+            @media (min-zoom: 120%) {
+                display: none;
+            }
+    
+            div.step {
+                height: 20px;
+                width: 20px;
+                border-radius: 5px;
+                background-color: var(--accent-1);
+                margin: .7em;
                 transition: all 0.3s ease-in-out;
-                color: var(--secondary-2);
-
+                
                 &:hover {
-                    color: var(--accent-1);
+                    background-color: var(--secondary-2);
                 }
-
-                @include media(l) {
-                    width: 200px;
+    
+                p {
+                    position: relative;
+                    left: 30px;
+                    top: 3px;
+                    font-size: .7em;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    width: 300px;
+                    transition: color .3s ease-in-out;
+                    color: var(--secondary-2);
+    
+                    &:hover {
+                        color: var(--accent-1);
+                    }
+    
+                    @include media(l) {
+                        width: 200px;
+                    }
                 }
             }
         }
@@ -99,6 +115,20 @@ section.terms-conditions-and-notice {
         p {
             color: var(--secondary-2);
             margin-bottom: 3em;
+            text-align: justify;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: var(--primary-1);
+            color: var(--secondary-2);
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: var(--primary-2);
+            }
         }
     }
 }
