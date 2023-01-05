@@ -7,85 +7,29 @@
     <div class="content">
         <h1><?= INFO_CONTACT_WINDOW_TITLE ?></h1>
         <p><?= CONTACT_ANY_QUESTIONS ?></p>
-
         <div class="container-stickers">
-
             <?php
-                $path = PATH_USERS . $user->getPictureUrl();
                 $alt = ALT_PROFILE_PICTURE;
+				
                 for ($i = 0; $i < 5; $i++) {
-                    echo <<<HTML
-                        <div class="sticker-contact">
-                            <img class="admin-profile-picture" src="$path" alt="$alt" loading="lazy" />
-                        </div>
-                    HTML;
-                }
+					$name =$user->getFirstName() . ' ' . $user->getLastName();
+					$mail = $user->getEmail();
+					$path = PATH_USERS . $user->getPictureUrl();
+
+					echo <<<HTML
+						<a href="mailto:$mail" class="sticker-contact">
+							<div class="sticker-contact">
+								<img class="admin-profile-picture" src="$path" alt="$alt" loading="lazy" />
+								<div class="admin-imformations">	
+									<p>$name</p>
+									<div class="separator"></div>
+									<p>$mail</p>
+								</div>
+							</div>
+						</a>
+					HTML;
+				}
             ?>
-            <!-- <div class="sticker-contact">
-                <?php
-					if ($user) {
-						$path = PATH_USERS . $user->getPictureUrl();
-						$alt = ALT_PROFILE_PICTURE;
-						echo <<<HTML
-							<img class="admin-profile-picture" src="$path" alt="$alt" loading="lazy" />
-						HTML;
-					} else {
-						echo NAV_ACCOUNT;
-					}
-				?>
-            </div>    
-            <div class="sticker-contact">
-                <?php
-					if ($user) {
-						$path = PATH_USERS . $user->getPictureUrl();
-						$alt = ALT_PROFILE_PICTURE;
-						echo <<<HTML
-							<img class="admin-profile-picture" src="$path" alt="$alt" loading="lazy" />
-						HTML;
-					} else {
-						echo NAV_ACCOUNT;
-					}
-				?>
-            </div>
-            <div class="sticker-contact">
-                <?php
-					if ($user) {
-						$path = PATH_USERS . $user->getPictureUrl();
-						$alt = ALT_PROFILE_PICTURE;
-						echo <<<HTML
-							<img class="admin-profile-picture" src="$path" alt="$alt" loading="lazy" />
-						HTML;
-					} else {
-						echo NAV_ACCOUNT;
-					}
-				?>
-            </div>
-            <div class="sticker-contact">
-                <?php
-					if ($user) {
-						$path = PATH_USERS . $user->getPictureUrl();
-						$alt = ALT_PROFILE_PICTURE;
-						echo <<<HTML
-							<img class="admin-profile-picture" src="$path" alt="$alt" loading="lazy" />
-						HTML;
-					} else {
-						echo NAV_ACCOUNT;
-					}
-				?>
-            </div>
-            <div class="sticker-contact">
-                <?php
-					if ($user) {
-						$path = PATH_USERS . $user->getPictureUrl();
-						$alt = ALT_PROFILE_PICTURE;
-						echo <<<HTML
-							<img class="admin-profile-picture" src="$path" alt="$alt" loading="lazy" />
-						HTML;
-					} else {
-						echo NAV_ACCOUNT;
-					}
-				?>
-            </div> -->
         </div>
     </div>
 </section>
