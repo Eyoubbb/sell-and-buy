@@ -126,7 +126,7 @@ const SUBSCRIBE = "S'abonner +";
 /*************** Creator ***************/
 
 const CREATOR_MOTIVE = "Vos motivations pour devenir créateur";
-const CREATOR_OVERVIEW = "*Apercu";
+const CREATOR_OVERVIEW = "Apercu";
 const CREATOR_CANCEL = "Annuler";
 const CREATOR_SUBMIT = "Valider la demande";
 const CREATOR_PLACEHOLDER = "Écrire ici";
