@@ -180,3 +180,8 @@ const INFO_WINDOW_TITLE = "Information";
 const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Mentions légales";
 const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Conditions générales";
 const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Livraison et retours";
+
+/*************** Contact ***************/
+
+const CONTACT_ANY_QUESTIONS = "Pour toutes questions, veuillez contacter un des 5 administrateurs";
+const CONTACT_ALT_CONTACT = "Une image de deux personnes qui discutent";

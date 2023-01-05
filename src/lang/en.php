@@ -181,3 +181,8 @@ const INFO_WINDOW_TITLE = "Information";
 const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Legal notice";
 const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Terms and conditions";
 const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Shipping and return";
+
+/*************** Contact ***************/
+
+const CONTACT_ANY_QUESTIONS = "For any questions, please contact one of the admins of SAB";
+const CONTACT_ALT_CONTACT = "An illustration of two persons talking";
