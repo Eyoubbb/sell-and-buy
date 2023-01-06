@@ -16,6 +16,10 @@ class CartsModel extends Model {
             return false;
         }
 
+        if (empty($resCarts)) {
+            return false;
+        }
+
         return $resCarts;
 	}
 }

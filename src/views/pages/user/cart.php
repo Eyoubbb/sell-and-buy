@@ -4,7 +4,12 @@
     <div class="cart-items-container">
         <?php
             print_r($data['cart']);
-            print($user->getId());
+
+            if ($data['cart'] === false) {
+                echo '<p>Cart is empty</p>';
+            } else {
+                echo '<p>Cart is not empty</p>';
+            }
             // foreach ($data['cart'] as $product) {
 
             //     $creator = $data['creators'][$product->getCreatorId()];

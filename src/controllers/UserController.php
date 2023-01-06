@@ -114,12 +114,7 @@ class UserController extends Controller {
 
 		$res = $model->cart($user->getId());
 
-		if ($res === false) {
-			$this->setError($model->getError());
-			redirect($this->getRoutes()['GET:Home#index']);
-		} else {
-			$data['cart'] = $res;
-		}
+		$data['cart'] = $res;
 
 		$data['title'] = NAV_CART;
 		
