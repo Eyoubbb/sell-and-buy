@@ -102,4 +102,35 @@ class UserController extends Controller {
 		redirect($this->getRoutes()['GET:Home#index']);
 	}
 
+	public function cart(): void {
+		
+		if (!isLoggedIn()) {
+			redirect($this->getRoutes()['GET:User#login']);
+		}
+
+		$model = $this->model('Carts');
+
+		$user = unserialize($_SESSION['user']);
+
+		$res = $model->cart($user->getId());
+
+		if ($res === false) {
+			$this->setError($model->getError());
+			redirect($this->getRoutes()['GET:Home#index']);
+		} else {
+			$data['cart'] = $res;
+		}
+
+		$data['title'] = NAV_CART;
+		
+		$data['stylesheets'][] = 'pages/cart';
+
+		$data['header'] = true;
+		$data['footer'] = true;
+		
+		$data['page-title'] = NAV_CART;
+		
+		$this->view('user/cart', $data);
+	}
+
 }

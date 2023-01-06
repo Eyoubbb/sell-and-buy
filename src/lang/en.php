@@ -77,7 +77,7 @@ const NAV_REGISTER = "Register";
 const NAV_CREATOR = "Creators";
 const NAV_SHOP = "Shop";
 const NAV_COLLECTIONS = "Collections";
-const NAV_PAGES = "Pages";
+const NAV_CART = "My Cart";
 const NAV_ACCOUNT = "My account";
 const NAV_ACCOUNT_SETTINGS = "Settings";
 
@@ -165,3 +165,6 @@ const FORM_BIO_PLACEHOLDER = "Enter a bio";
 const FORM_TWITTER_PLACEHOLDER = "@twitter";
 const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
 const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
+
+/*************** CART ***************/
+
