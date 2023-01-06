@@ -15,21 +15,21 @@ foreach($tickets as $ticket) {
 <section class="support">
 	<div class="info-wrapper">
 		<div class="info">
-			<img class="total" src="<?= PATH_IMAGES . 'ticket-32x32.png' ?>" alt="total-tickets">
+			<img class="total" src="<?= PATH_IMAGES . 'ticket-32x32.svg' ?>" alt="total-tickets">
 			<div>
 				<h1><?= count($tickets) ?></h1>
 				<p>Total tickets</p>
 			</div>
 		</div>
 		<div class="info">
-			<img class="pending" src="<?= PATH_IMAGES . 'hourglass-32x32.png' ?>" alt="pending-tickets">
+			<img class="pending" src="<?= PATH_IMAGES . 'hourglass-32x32.svg' ?>" alt="pending-tickets">
 			<div>
 				<h1><?= $pending ?></h1>
 				<p>Pending tickets</p>
 			</div>
 		</div>
 		<div class="info">
-			<img class="closed" src="<?= PATH_IMAGES . 'archive-32x32.png' ?>" alt="closed-tickets">
+			<img class="closed" src="<?= PATH_IMAGES . 'archive-32x32.svg' ?>" alt="closed-tickets">
 			<div>
 				<h1><?= $resolved ?></h1>
 				<p>Closed tickets</p>
