@@ -18,6 +18,8 @@ class InfoController extends Controller {
 
     public function contact(): void {
         
+        
+
         $data['title'] = INFO_CONTACT_WINDOW_TITLE;
         
         $data['stylesheets'][] = 'pages/infoContact';
