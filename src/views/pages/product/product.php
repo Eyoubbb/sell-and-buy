@@ -1,9 +1,11 @@
 <?php
 	$product = $data['product'];
 	$creator = $data['creator'];
+	$loginUrl = $data['routes']['GET:User#login']->getUrl();
 	$creatorUrl = $data['routes']['GET:Creator#index']->getUrl(['id' => $creator->getId()]);
 	$cartUrl = $data['routes']['GET:Product#index']->getUrl(['id' => $product->getId()]); // either dynamic url or query string
 	$editUrl = $data['routes']['GET:Product#edit']->getUrl(['id' => $product->getId()]);
+	$deleteUrl = $data['routes']['GET:Product#delete']->getUrl(['id' => $product->getId()]);
 ?>
 <section class="product">
 	<div class="generalImage">
@@ -66,7 +68,7 @@
 				<img src="<?= PATH_IMAGES . 'user.svg' ?>">
 				<?= $creator->getFullName() ?>
 			</a>
-			<a href="<?= $cartUrl ?>" title="Add to cart">
+			<a href="<?= isLoggedIn() ? $cartUrl : $loginUrl ?>" title="Add to cart">
 				<img src="<?= PATH_IMAGES . 'cart.svg' ?>">
 				<?= PRODUCT_ADD_TO_CART ?>
 			</a>
@@ -74,6 +76,10 @@
 				<a href="<?= $editUrl ?>" title="Edit">
 					<img src="<?= PATH_IMAGES . 'edit.svg' ?>">
 					<?= PRODUCT_EDIT ?>
+				</a>
+				<a href="<?= $deleteUrl ?>" title="Delete">
+					<img src="<?= PATH_IMAGES . 'trash.svg' ?>">
+					<?= PRODUCT_DELETE ?>
 				</a>
 			<?php } ?>
 		</div>

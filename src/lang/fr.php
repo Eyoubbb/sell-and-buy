@@ -17,6 +17,7 @@ const PRODUCT_SIMILAR_ARTICLES = "Articles similaires";
 const PRODUCT_CLIENT_OPINION = "avis client";
 const PRODUCT_BY = "Par";
 const PRODUCT_EDIT = "Modifier";
+const PRODUCT_DELETE = "Supprimer";
 const PRODUCT_NEW_TITLE = "Nouveau produit";
 const PRODUCT_EDIT_TITLE = "Modifier le produit";
 
