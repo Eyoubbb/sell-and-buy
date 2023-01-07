@@ -71,6 +71,11 @@ class InfoController extends Controller {
         $data['header'] = true;
         $data['footer'] = true;
         
+        $data['scripts'][] = [
+			'name' => 'scrollerPage',
+			'attr' => 'defer'
+		];
+        
         $this->view('info/shippingReturn', $data);
     }
 }

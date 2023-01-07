@@ -172,7 +172,15 @@ const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
 /*************** delivery ***************/
 
 const DELIVERY_TITTLE = "Delivery system details";
-const DELIVERY_TEXT ="SAB corp does not take care of the delivery of our products we subcontract the delivery to UPS please contact them for any problem.";
+const DELIVERY_TEXT ="We work with a subcontracted carrier to ensure the delivery of our products as soon as possible. Delivery charges are calculated according to the weight and destination of your order.
+
+Delivery is available to most countries. Additional shipping charges may apply for deliveries outside the European Union. Please contact us prior to placing your order if you require delivery outside the EU so that we can provide you with a quote for delivery charges.
+
+The estimated delivery time is indicated during the checkout process. Please note that delivery times are estimated and are not guaranteed. Delays may be caused by events beyond our control, such as weather conditions or carrier strikes.
+
+You will be notified by email once your order has been shipped and you will receive a tracking number to monitor the status of your delivery.
+
+If you have any questions or concerns regarding our shipping policy, please feel free to contact our customer service department for more information.";
 
 /*************** Infos ***************/
 
@@ -222,3 +230,14 @@ const TERMS_CONDITIONS_TITLE_SECTION_SIX = "6. Governing Law";
 const TERMS_CONDITIONS_TITLE_SECTION_SEVEN = "7. Changes";
 const TERMS_CONDITIONS_TITLE_SECTION_EIGHT = "8. Contact Us";
 const TERMS_CONDITIONS_LINK_CONTACT_US = "Contact Us";
+
+/*************** Retour ***************/
+const SHIPPING_TITLE:"Terms of return";
+
+const SHIPPING_TEXT = "Our products can be returned within 14 days of receiving your order. To be eligible for a return, your item must be in the same condition as when you received it and in its original packaging. Please note that shipping charges are non-refundable and you are responsible for the return shipping costs.
+
+Please contact our customer service department before returning any product. We will then provide you with instructions on how to make the return using our subcontracted carrier. If the return is accepted, we will refund the price of the product, less the original shipping cost.
+
+Please note that some products are excluded from our return policy, such as personalized or special order products. These exclusions will be clearly indicated at the time of your purchase.
+
+If you have any questions or concerns regarding our return policy, please contact our customer service department for more information";
