@@ -16,6 +16,10 @@ const PRODUCT_ADD_TO_CART = "Ajouter au panier";
 const PRODUCT_SIMILAR_ARTICLES = "Articles similaires";
 const PRODUCT_CLIENT_OPINION = "avis client";
 const PRODUCT_BY = "Par";
+const PRODUCT_EDIT = "Modifier";
+const PRODUCT_DELETE = "Supprimer";
+const PRODUCT_NEW_TITLE = "Nouveau produit";
+const PRODUCT_EDIT_TITLE = "Modifier le produit";
 
 /*************** Login & register ***************/
 
@@ -80,6 +84,7 @@ const NAV_COLLECTIONS = "Collections";
 const NAV_PAGES = "Pages";
 const NAV_ACCOUNT = "Mon compte";
 const NAV_ACCOUNT_SETTINGS = "Paramètres";
+const NAV_NEW_PRODUCT = "Nouveau produit";
 
 /*************** Footer ***************/
 
@@ -149,11 +154,14 @@ const CREATOR_BANNIERE = "Ajouter une bannière pour votre profil";
 
 const FORM_PRICE = "Prix";
 const FORM_TITLE = "Titre";
-const FORM_DESCRIPTION = "Description";
+const FORM_CATEGORY = "Catégorie";
+const FORM_DESCRIPTION_FR = "Description";
+const FORM_DESCRIPTION_EN = "Description (en anglais)";
 const FORM_FILES = "Fichier";
 const FORM_PRICE_PLACEHOLDER = "Ajouter le prix";
 const FORM_TITLE_PLACEHOLDER = "Ajouter le titre";
-const FORM_DESCRIPTION_PLACEHOLDER = "Ajouter la description";
+const FORM_DESCRIPTION_PLACEHOLDER_FR = "Ajouter la description";
+const FORM_DESCRIPTION_PLACEHOLDER_EN = "Ajouter la description (en anglais)";
 const FORM_NAME = "Nom";
 const FORM_BIO = "Bio";
 const FORM_TWITTER = "Twitter";

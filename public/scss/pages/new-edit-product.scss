@@ -1,0 +1,12 @@
+@use "../base" as *;
+
+@use "../components/header";
+@use "../components/footer";
+@use "../components/form";
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
