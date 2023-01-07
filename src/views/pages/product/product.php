@@ -2,7 +2,8 @@
 	$product = $data['product'];
 	$creator = $data['creator'];
 	$creatorUrl = $data['routes']['GET:Creator#index']->getUrl(['id' => $creator->getId()]);
-	$cartUrl = $data['routes']['GET:Product#index']->getUrl(['id' => $product->getId()]); // either dynamic url or query string
+	$cartUrl = $data['routes']['GET:User#cart']->getUrl();
+	$addToCartUrl = $data['routes']['GET:User#addToCart']->getUrl();
 ?>
 <section class="product">
 	<div class="generalImage">
@@ -62,7 +63,7 @@
 
 		<div class="links">
 			<a href="<?= $creatorUrl ?>"><?= $creator->getFullName() ?></a>
-			<a href="<?= $cartUrl ?>"><?= PRODUCT_ADD_TO_CART ?></a>
+			<a href="<?= $addToCartUrl ?>"><?= PRODUCT_ADD_TO_CART ?></a>
 		</div>
 	</div>
 </section>

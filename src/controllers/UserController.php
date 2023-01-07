@@ -115,6 +115,8 @@ class UserController extends Controller {
 		$data['cart'] = $res['carts'];
 		$data['products'] = $res['products'];
 		$data['creators'] = $res['creators'];
+		$data['total'] = $res['price'];
+		$data['count'] = $res['quantity'];
 
 		$data['title'] = NAV_CART;
 		
@@ -128,4 +130,26 @@ class UserController extends Controller {
 		$this->view('user/cart', $data);
 	}
 
+	public function addToCart(): void {
+		
+		if (!isLoggedIn()) {
+			redirect($this->getRoutes()['GET:User#login']);
+		}
+
+		$model = $this->model('Carts');
+		$user = unserialize($_SESSION['user']);
+		$productId = $_POST['product-id'];
+		$res = $model->addToCart($productId, $user->getId(), 1);
+
+		$this->view('user/cart', $data);
+	}
+
+	public function deleteCart(): void {
+
+		$model = $this->model('Carts');
+		$user = unserialize($_SESSION['user']);
+		$res = $model->deleteCart($user->getId());
+
+		$this->view('user/cart', $data);
+	}
 }
