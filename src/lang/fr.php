@@ -220,7 +220,7 @@ const TERMS_CONDITIONS_TITLE_SECTION_SEVEN = "Modifications des conditions";
 const TERMS_CONDITIONS_TITLE_SECTION_EIGHT = "Contactez-nous";
 const TERMS_CONDITIONS_LINK_CONTACT_US = "Contactez-nous";
 
-/*************** Retour ***************/
+/*************** Retour et envoi ***************/
 
 
 const DELIVERY_SHIPPING_TITTLE= "Conditions de livraison et de retour";
