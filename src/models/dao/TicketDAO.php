@@ -32,4 +32,25 @@ class TicketDAO extends DAO {
 
 		return $this->queryAll($sql, null, false);
 	}
+
+	public function findTicketById($ticketId) {
+		$sql = "SELECT *
+		FROM {$this->getTable()} T
+		WHERE
+			T.ticket_id = ?";
+
+		return $this->queryRow($sql, [$ticketId], false);
+	}
+
+	public function resolveTicket(Ticket $ticket) {
+		return $this->update(['ticket_id' => $ticket->getId()], ['ticket_resolved' => 1]);
+	}
+
+	public function reopenTicket(Ticket $ticket) {
+		return $this->update(['ticket_id' => $ticket->getId()], ['ticket_resolved' => 0]);
+	}
+
+	public function deleteTicket(Ticket $ticket) {
+		return $this->delete($ticket->getId());
+	}
 }

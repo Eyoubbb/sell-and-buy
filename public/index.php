@@ -19,8 +19,17 @@ $router->get('/product/:id', 'Product#index')->with('id', '[0-9]+');
 $router->get('/creator/:id', 'Creator#index')->with('id', '[0-9]+');
 $router->get('/creator/ask', 'Creator#ask');
 
-// $router->get('/admin', 'Admin#index');
+$router->get('/admin', 'Admin#index');
 
 $router->get('/admin/support', 'Admin#support');
+
+$router->get('/admin/support/:id/resolve', 'Admin#resolve')->with('id', '[0-9]+');
+$router->post('/admin/support/:id/resolve', 'Admin#resolve')->with('id', '[0-9]+');
+
+$router->get('/admin/support/:id/reopen', 'Admin#reopen')->with('id', '[0-9]+');
+$router->post('/admin/support/:id/reopen', 'Admin#reopen')->with('id', '[0-9]+');
+
+$router->get('/admin/support/:id/delete', 'Admin#delete')->with('id', '[0-9]+');
+$router->post('/admin/support/:id/delete', 'Admin#delete')->with('id', '[0-9]+');
 
 $router->run();

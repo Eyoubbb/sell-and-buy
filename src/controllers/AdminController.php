@@ -47,8 +47,33 @@ class AdminController extends Controller {
 		} else {
 			$data['error'] = $model->getError();
 		}
-		
 		$this->view('admin/support', $data);
+	}
+
+	public function resolve() {
+		if(!isLoggedIn()) {
+			redirect($this->getRoutes()['GET:User#login']);
+		}
+
+		$model = $this->model('Ticket');
+
+		if(!$model->resolve()) {
+			$model->setError($model->getError());
+		}		
+		redirect($this->getRoutes()['GET:Admin#support']);
+	}
+
+	public function reopen() {
+		if(!isLoggedIn()) {
+			redirect($this->getRoutes()['GET:User#login']);
+		}
+
+		$model = $this->model('Ticket');
+
+		if(!$model->reopen()) {
+			$model->setError($model->getError());
+		}		
+		redirect($this->getRoutes()['GET:Admin#support']);
 	}
 }
 

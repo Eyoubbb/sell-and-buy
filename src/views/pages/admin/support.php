@@ -75,28 +75,50 @@ foreach($tickets as $ticket) {
 				foreach($tickets as $ticket) {
 					$user = $users[$ticket->getUserId()];
 					$admin = $admins[$ticket->getAdminId()];
+					$status = $ticket->getResolved() ? 'Closed' : 'Opened';
+					$resolved = $ticket->getResolved();
+					$resolveUrl = $data['routes']['GET:Admin#resolve']->getUrl([
+						'id' => $ticket->getId()
+					]);
+					$reopenUrl = $data['routes']['GET:Admin#reopen']->getUrl([
+						'id' => $ticket->getId()
+					]);
+					$deleteUrl = $data['routes']['GET:Admin#delete']->getUrl([
+						'id' => $ticket->getId()
+					]);
 
-					$resolved = $ticket->getResolved() ? 'Closed' : 'Opened';
-	
 					echo <<<HTML
 						<tr>
 							<td>{$ticket->getId()}</td>
 							<td>{$user->getFirstName()}</td>
 							<td>{$ticket->getName()}</td>
 							<td>{$admin->getFirstName()}</td>
-							<td>{$resolved}</td>
+							<td>{$status}</td>
 							<td>{$ticket->getDate()}</td>
 							<td>
 								<div class="dropdown">
-									<img class="more-img" src="$pathMore" alt="more-button" tabindex="0">
+									<img class="more-img" src="$pathMore" alt="more-button">
 									<div class="more hide">
-										<a href="">Resolve</a>
-										<a href="">Delete</a>
+					HTML;
+
+					if($resolved) {
+						echo <<<HTML
+												<a id="resolve" href="$reopenUrl">Reopen</a>
+												<a id="delete" href="$deleteUrl">Delete</a>
+						HTML;
+					} else {
+						echo <<<HTML
+												<a id="resolve" href="$resolveUrl">Resolve</a>
+												<a id="delete" href="$deleteUrl">Delete</a>
+						HTML;
+					}
+					echo <<<HTML
 									</div>
 								</div>
 							</td>
 						</tr>
 					HTML;
+
 				}
 			?>
 		</table>

@@ -12,6 +12,4 @@
 			more.classList.toggle("hide");
 		});
 	}
-
-	
 })();

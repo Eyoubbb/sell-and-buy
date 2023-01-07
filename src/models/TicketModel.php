@@ -44,4 +44,40 @@ class TicketModel extends Model {
 			'admins' => $admins
 		];
 	}
+
+	public function delete() {
+		$ticketDAO = $this->dao('Ticket');
+		$ticket = new Ticket($_POST);
+
+		if (!$ticketDAO->deleteTicket($ticket)) {
+			$this->setError('ERROR_DELETING_TICKET');
+			return false;
+		}
+
+		return true;
+	}
+
+	public function resolve() {
+		$ticketDAO = $this->dao('Ticket');
+		$id = intval(explode('/', $_SERVER['REQUEST_URI'])[3]);
+		$ticket = new Ticket($ticketDAO->findTicketById($id));
+
+		if (!$ticketDAO->resolveTicket($ticket)) {
+			$this->setError('ERROR_RESOLVING_TICKET');
+			return false;
+		}
+		return true;
+	}
+
+	public function reopen() {
+		$ticketDAO = $this->dao('Ticket');
+		$id = intval(explode('/', $_SERVER['REQUEST_URI'])[3]);
+		$ticket = new Ticket($ticketDAO->findTicketById($id));
+
+		if (!$ticketDAO->reopenTicket($ticket)) {
+			$this->setError('ERROR_REOPENING_TICKET');
+			return false;
+		}
+		return true;
+	}
 }

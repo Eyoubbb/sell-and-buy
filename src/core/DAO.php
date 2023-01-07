@@ -130,14 +130,16 @@ abstract class DAO {
 		return $this->lastInsertId("INSERT INTO $this->table ($keys) VALUES ($values)", array_values($data), $autocommit);
 	}
 	
-	public function update(int $id, array $data, bool $autocommit = true): int | false {
+	public function update(array $id, array $data, bool $autocommit = true): int | false {
 		$keys = array_keys($data);
 		$keys = implode(' = ?, ', $keys) . ' = ?';
 
 		$values = array_values($data);
-		$values[] = $id;
 
-		return $this->rowCount("UPDATE $this->table SET $keys WHERE id = ?", $values, $autocommit);
+		$idName = array_keys($id)[0];
+		$values[] = array_values($id)[0];
+
+		return $this->rowCount("UPDATE $this->table SET $keys WHERE $idName = ?", $values, $autocommit);
 	}
 
 	public function delete(int $id, bool $autocommit = true): int | false {
