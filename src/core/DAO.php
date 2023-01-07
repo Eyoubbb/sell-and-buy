@@ -142,8 +142,11 @@ abstract class DAO {
 		return $this->rowCount("UPDATE $this->table SET $keys WHERE $idName = ?", $values, $autocommit);
 	}
 
-	public function delete(int $id, bool $autocommit = true): int | false {
-		return $this->rowCount("DELETE FROM $this->table WHERE id = ?", [$id], $autocommit);
+	public function delete(array $id, bool $autocommit = true): int | false {
+		$idName = array_keys($id)[0];
+		$idValue = array_values($id)[0];
+
+		return $this->rowCount("DELETE FROM $this->table WHERE $idName = ?", [$idValue], $autocommit);
 	}
 	
 }

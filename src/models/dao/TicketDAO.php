@@ -51,6 +51,6 @@ class TicketDAO extends DAO {
 	}
 
 	public function deleteTicket(Ticket $ticket) {
-		return $this->delete($ticket->getId());
+		return $this->delete(['ticket_id' => $ticket->getId()]);
 	}
 }

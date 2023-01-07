@@ -75,6 +75,19 @@ class AdminController extends Controller {
 		}		
 		redirect($this->getRoutes()['GET:Admin#support']);
 	}
+
+	public function delete() {
+		if(!isLoggedIn()) {
+			redirect($this->getRoutes()['GET:User#login']);
+		}
+
+		$model = $this->model('Ticket');
+
+		if(!$model->delete()) {
+			$model->setError($model->getError());
+		}		
+		redirect($this->getRoutes()['GET:Admin#support']);
+	}
 }
 
 ?>
