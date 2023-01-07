@@ -11,14 +11,15 @@ section.cart {
     flex-direction: column;
     align-items: center;
     
-    h1 {
+    h1.page-title {
         margin-top: 2rem;
         font-size: 2em;
     }
 
-    p {
-        margin-top: 1rem;
+    p.content-page {
+        margin: 1rem;
         font-size: 1.5em;
+        text-align: center;
     }
 
     div.cart-items-container {
@@ -28,5 +29,32 @@ section.cart {
 		gap: 3em;
         margin-top: 3vh;
         margin-bottom: 3vh;
+    }
+
+    section.info-cart {
+
+        div.cart-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+
+            button {
+                margin: 2em;
+                padding: 0.5em 1em;
+                font-size: 1.1em;
+                background-color: var(--primary-1);
+                color: var(--secondary-1);
+                border: none;
+                border-radius: 0.5rem;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: var(--primary-2);
+                }
+            }
+        }
     }
 }

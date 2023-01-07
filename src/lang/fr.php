@@ -166,3 +166,9 @@ const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
 const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
 
 /*************** CART ***************/
+
+const CART_PRICE = "Prix total : ";
+const CART_EMPTY = "Votre panier est vide";
+const CART_CONTINUE = "Continuer mes achats";
+const CART_CHECKOUT = "Passer la commande";
+const CART_DELETE = "Vider mon panier";

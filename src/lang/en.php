@@ -168,3 +168,8 @@ const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
 
 /*************** CART ***************/
 
+const CART_PRICE = "Total price : ";
+const CART_EMPTY = "Your cart is empty";
+const CART_CONTINUE = "Continue shopping";
+const CART_CHECKOUT = "Checkout";
+const CART_DELETE = "Fold my cart";
