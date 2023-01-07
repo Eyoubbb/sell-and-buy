@@ -109,12 +109,12 @@ class UserController extends Controller {
 		}
 
 		$model = $this->model('Carts');
-
 		$user = unserialize($_SESSION['user']);
-
 		$res = $model->cart($user->getId());
 
-		$data['cart'] = $res;
+		$data['cart'] = $res['carts'];
+		$data['products'] = $res['products'];
+		$data['creators'] = $res['creators'];
 
 		$data['title'] = NAV_CART;
 		

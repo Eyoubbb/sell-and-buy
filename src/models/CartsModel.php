@@ -20,6 +20,23 @@ class CartsModel extends Model {
             return false;
         }
 
-        return $resCarts;
+        $productsCart = $cartsDAO->findAllPorductsCart($user_id);
+
+        $products = [];
+		$creators = [];
+
+		foreach ($productsCart as $row) {
+			$products[] = new Product($row);
+
+            if (!isset($creators[$row['user_id']])) {
+                $creators[$row['user_id']] = new User($row);
+            }
+		}
+
+        return [
+            'carts' => $resCarts,
+            'products' => $products,
+            'creators' => $creators
+        ];
 	}
 }
