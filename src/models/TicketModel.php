@@ -54,9 +54,8 @@ class TicketModel extends Model {
 		];
 	}
 
-	public function resolve() {
+	public function resolve($id) {
 		$ticketDAO = $this->dao('Ticket');
-		$id = intval(explode('/', $_SERVER['REQUEST_URI'])[3]);
 		$ticket = new Ticket($ticketDAO->findTicketById($id));
 
 		if (!$ticketDAO->resolveTicket($ticket)) {
@@ -66,9 +65,8 @@ class TicketModel extends Model {
 		return true;
 	}
 
-	public function reopen() {
+	public function reopen($id) {
 		$ticketDAO = $this->dao('Ticket');
-		$id = intval(explode('/', $_SERVER['REQUEST_URI'])[3]);
 		$ticket = new Ticket($ticketDAO->findTicketById($id));
 
 		if (!$ticketDAO->reopenTicket($ticket)) {
@@ -78,9 +76,8 @@ class TicketModel extends Model {
 		return true;
 	}
 
-	public function delete() {
+	public function delete($id) {
 		$ticketDAO = $this->dao('Ticket');
-		$id = intval(explode('/', $_SERVER['REQUEST_URI'])[3]);
 		$ticket = new Ticket($ticketDAO->findTicketById($id));
 
 		if (!$ticketDAO->deleteTicket($ticket)) {

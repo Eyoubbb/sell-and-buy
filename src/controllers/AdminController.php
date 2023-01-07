@@ -50,40 +50,40 @@ class AdminController extends Controller {
 		$this->view('admin/support', $data);
 	}
 
-	public function resolve() {
+	public function resolve($id) {
 		if(!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
 
 		$model = $this->model('Ticket');
 
-		if(!$model->resolve()) {
+		if(!$model->resolve($id)) {
 			$model->setError($model->getError());
 		}		
 		redirect($this->getRoutes()['GET:Admin#support']);
 	}
 
-	public function reopen() {
+	public function reopen($id) {
 		if(!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
 
 		$model = $this->model('Ticket');
 
-		if(!$model->reopen()) {
+		if(!$model->reopen($id)) {
 			$model->setError($model->getError());
 		}		
 		redirect($this->getRoutes()['GET:Admin#support']);
 	}
 
-	public function delete() {
+	public function delete($id) {
 		if(!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
 
 		$model = $this->model('Ticket');
 
-		if(!$model->delete()) {
+		if(!$model->delete($id)) {
 			$model->setError($model->getError());
 		}		
 		redirect($this->getRoutes()['GET:Admin#support']);
