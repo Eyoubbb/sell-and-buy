@@ -23,12 +23,15 @@ class TicketDAO extends DAO {
 					U.user_password_hash AS user_password_hash,
 					U.user_email AS user_email,
 					U.user_picture_url AS user_picture_url, 
+					TT.*,
 					T.*
 				FROM {$this->getTable()} T
 				JOIN users A
 					ON (T.ticket_admin_id = A.user_id)
 				JOIN users U
-					ON (T.ticket_user_id = U.user_id)";
+					ON (T.ticket_user_id = U.user_id)
+				JOIN tickettypes TT
+					ON (T.ticket_ticket_type_id = TT.ticket_type_id)";
 
 		return $this->queryAll($sql, null, false);
 	}

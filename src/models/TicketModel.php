@@ -2,6 +2,7 @@
 
 require_once PATH_CORE . 'Model.php';
 require_once PATH_ENTITIES . 'Ticket.php';
+require_once PATH_ENTITIES . 'TicketType.php';
 require_once PATH_ENTITIES . 'User.php';
 
 class TicketModel extends Model {
@@ -17,12 +18,19 @@ class TicketModel extends Model {
 		$tickets = [];
 		$users = [];
 		$admins = [];
+		$ticketTypes = [];
+
+		// var_dump($resTickets);
 
 		foreach ($resTickets as $row) {
 			$tickets[] = new Ticket($row);
 
 			if (!isset($users[$row['user_id']])) {
 				$users[$row['user_id']] = new User($row);
+			}
+
+			if (!isset($ticketTypes[$row['ticket_type_id']])) {
+				$ticketTypes[$row['ticket_type_id']] = new TicketType($row);
 			}
 			
 			$rowAdmin = [
@@ -41,10 +49,11 @@ class TicketModel extends Model {
 		return [
 			'tickets' => $tickets,
 			'users' => $users,
-			'admins' => $admins
+			'admins' => $admins,
+			'ticketTypes' => $ticketTypes
 		];
 	}
-	
+
 	public function resolve() {
 		$ticketDAO = $this->dao('Ticket');
 		$id = intval(explode('/', $_SERVER['REQUEST_URI'])[3]);

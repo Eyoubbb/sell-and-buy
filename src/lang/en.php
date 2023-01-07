@@ -67,10 +67,6 @@ const ERROR_404_MESSAGE = "The requested page does not exist";
 
 const ERROR_EXTRAS = "That's all we know.";
 
-const ERROR_RESOLVING_TICKET = "Error resolving ticket";
-const ERROR_REOPENING_TICKET = "Error reopening ticket";
-const ERROR_DELETING_TICKET = "Error deleting ticket";
-
 /*************** Admin ***************/
 
 const ADMIN_WINDOW_TITLE = "Admin";

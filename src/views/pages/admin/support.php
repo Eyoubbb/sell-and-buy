@@ -3,6 +3,7 @@
 $tickets = $data['tickets'];
 $admins = $data['admins'];
 $users = $data['users'];
+$ticketTypes = $data['ticketTypes'];
 
 $pending = 0;
 $resolved = 0;
@@ -75,6 +76,7 @@ foreach($tickets as $ticket) {
 				foreach($tickets as $ticket) {
 					$user = $users[$ticket->getUserId()];
 					$admin = $admins[$ticket->getAdminId()];
+					$ticketType = $ticketTypes[$ticket->getTicketTypeId()];
 					$status = $ticket->getResolved() ? TICKET_CLOSED : TICKET_OPENED;
 					$resolved = $ticket->getResolved();
 					$resolveUrl = $data['routes']['GET:Admin#resolve']->getUrl([
@@ -91,7 +93,7 @@ foreach($tickets as $ticket) {
 						<tr>
 							<td>{$ticket->getId()}</td>
 							<td>{$user->getFirstName()}</td>
-							<td>{$ticket->getName()}</td>
+							<td>{$ticketType->getName()}</td>
 							<td>{$admin->getFirstName()}</td>
 							<td>{$status}</td>
 							<td>{$ticket->getDate()}</td>

@@ -67,10 +67,6 @@ const ERROR_404_MESSAGE = "La page demandée n'existe pas";
 
 const ERROR_EXTRAS = "C'est tout ce que nous savons.";
 
-const ERROR_RESOLVING_TICKET = "Erreur lors de la résolution du ticket";
-const ERROR_REOPENING_TICKET = "Erreur lors de la réouverture du ticket";
-const ERROR_DELETING_TICKET = "Erreur lors de la suppression du ticket";
-
 /*************** Admin ***************/
 
 const ADMIN_WINDOW_TITLE = "Admin";
