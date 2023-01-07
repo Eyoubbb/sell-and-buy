@@ -19,6 +19,8 @@ $router->get('/product/:id', 'Product#index')->with('id', '[0-9]+');
 $router->get('/product/:id/edit', 'Product#edit')->with('id', '[0-9]+');
 $router->post('/product/:id/edit', 'Product#edit')->with('id', '[0-9]+');
 
+$router->get('/product/:id/delete', 'Product#delete')->with('id', '[0-9]+');
+
 $router->get('/product/new', 'Product#new');
 $router->post('/product/new', 'Product#new');
 

@@ -103,4 +103,25 @@ class ProductController extends Controller {
 		$this->view('product/edit', $data);
 	}
 
+	public function delete(int $id): void {
+
+		if (!isLoggedIn()) {
+			redirect($this->getRoutes()['GET:User#login']->getUrl());
+		}
+
+		if (!isCreator()) {
+			redirect($this->getRoutes()['GET:Home#index']->getUrl());
+		}
+
+		$model = $this->model('Product');
+
+		$res = $model->delete($id);
+
+		if ($res !== false) {
+			redirect($this->getRoutes()['GET:Home#index']);
+		} else {
+			redirect($this->getRoutes()['GET:Product#index'], ['id' => $id]);
+		}
+	}
+
 }

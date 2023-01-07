@@ -234,4 +234,29 @@ class ProductModel extends Model {
 		];
 	}
 
+	public function delete($id): int | false {
+		$productDAO = $this->dao('Product');
+
+		$resProduct = $productDAO->findById(['product_id' => $id]);
+
+		if ($resProduct === false) {
+			$this->setError('ERROR_FETCHING_PRODUCT');
+			return false;
+		}
+
+		if (unlink(PATH_UPLOAD_PRODUCT_IMAGES . $resProduct->getImageUrl()) === false) {
+			$this->setError('ERROR_DELETING_PRODUCT_IMAGE');
+			return false;
+		}
+
+		$resDelete = $productDAO->delete(['product_id' => $id]);
+
+		if ($resDelete === false) {
+			$this->setError('ERROR_DELETING_PRODUCT');
+			return false;
+		}
+
+		return $resDelete;
+	}
+
 }
