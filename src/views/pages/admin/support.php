@@ -18,21 +18,21 @@ foreach($tickets as $ticket) {
 			<img class="total" src="<?= PATH_IMAGES . 'ticket-32x32.svg' ?>" alt="total-tickets">
 			<div>
 				<h1><?= count($tickets) ?></h1>
-				<p>Total tickets</p>
+				<p><?= TOTAL_TICKETS ?></p>
 			</div>
 		</div>
 		<div class="info">
 			<img class="pending" src="<?= PATH_IMAGES . 'hourglass-32x32.svg' ?>" alt="pending-tickets">
 			<div>
 				<h1><?= $pending ?></h1>
-				<p>Pending tickets</p>
+				<p><?= OPEN_TICKETS ?></p>
 			</div>
 		</div>
 		<div class="info">
 			<img class="closed" src="<?= PATH_IMAGES . 'archive-32x32.svg' ?>" alt="closed-tickets">
 			<div>
 				<h1><?= $resolved ?></h1>
-				<p>Closed tickets</p>
+				<p><?= CLOSED_TICKETS ?></p>
 			</div>
 		</div>
 	</div>
@@ -75,7 +75,7 @@ foreach($tickets as $ticket) {
 				foreach($tickets as $ticket) {
 					$user = $users[$ticket->getUserId()];
 					$admin = $admins[$ticket->getAdminId()];
-					$status = $ticket->getResolved() ? 'Closed' : 'Opened';
+					$status = $ticket->getResolved() ? TICKET_CLOSED : TICKET_OPENED;
 					$resolved = $ticket->getResolved();
 					$resolveUrl = $data['routes']['GET:Admin#resolve']->getUrl([
 						'id' => $ticket->getId()
