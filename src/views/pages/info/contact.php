@@ -1,4 +1,3 @@
-
 <section class="contact-container">
 
     <div class="container-image">
@@ -10,8 +9,10 @@
         <div class="container-stickers">
             <?php
                 $alt = ALT_PROFILE_PICTURE;
-				
-                for ($i = 0; $i < 5; $i++) {
+				$admins = $this->model('Admin')->contact();
+				foreach ($admins as $userArray) {
+					$user = new User($userArray);
+
 					$name =$user->getFirstName() . ' ' . $user->getLastName();
 					$mail = $user->getEmail();
 					$path = PATH_USERS . $user->getPictureUrl();

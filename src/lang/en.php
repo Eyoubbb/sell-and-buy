@@ -125,7 +125,7 @@ const SUBSCRIBE = "Subscribe +";
 
 /*************** Creator ask ***************/
 
-const CREATOR_MOTIVE = "Your motivations for becoming a designer";
+const CREATOR_MOTIVE = "Your motivations for becoming a creator";
 const CREATOR_OVERVIEW = "Overview";
 const CREATOR_CANCEL = "Cancel";
 const CREATOR_SUBMIT = "Apply";
