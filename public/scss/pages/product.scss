@@ -112,11 +112,10 @@ main {
 	}
 
 	.links {
-		flex-grow: 1;
-		display: flex;
-		justify-content: flex-end;
-		align-items: flex-end;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: repeat(2, max-content);
+		grid-template-rows: repeat(2, 1fr);
+		justify-content: end;
 		gap: 1em;
 		text-align: center;
 
@@ -125,20 +124,27 @@ main {
 		}
 
 		a {
+			padding: 1em;
 			width: 200px;
-			padding: 1em 2em;
 			min-width: max-content;
+			display: flex;
+			align-items: center;
+			gap: .75em;
 			border: none;
 			border-radius: 8px;
 			background-color: var(--primary-1);
 			transition: background-color .3s ease, scale .3s ease;
-			
+
 			&:hover {
 				background-color: var(--primary-2);
 			}
 
 			&:active {
 				scale: .95;
+			}
+
+			img {
+				@include size(20px);
 			}
 		}
 	}
@@ -148,7 +154,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: 2em;
-	
+
 	h2 {
 		font-size: 1.5em;
 	}
@@ -186,7 +192,7 @@ main {
 		font-size: 1.5em;
 
 		h2 {
-			min-width: max-content;	
+			min-width: max-content;
 		}
 	}
 }
@@ -199,13 +205,13 @@ main {
 	.starvalid {
 		filter: invert(1);
 	}
-} 
+}
 
 .comments {
 	flex-direction: column;
 	display: flex;
 	gap: inherit;
-	
+
 	.comment {
 		display: flex;
 		flex-direction: column;

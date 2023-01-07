@@ -1,8 +1,8 @@
 <div class="form">
-	<form action="/submit-form" method="post">
-		<?php 
-			if(isset($data['forms'])) {
-				require_once(PATH_FORMS . $data['forms'] . '.php');
+	<form method="POST" <?= isset($enctype) ? 'enctype="' . $enctype . '"' : "" ?>>
+		<?php
+			if(isset($forms)) {
+				require_once(PATH_FORMS . $forms . '.php');
 			}
 		?>
 	</form>
