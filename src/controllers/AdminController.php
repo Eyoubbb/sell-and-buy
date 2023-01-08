@@ -4,26 +4,20 @@ require_once PATH_CORE . 'Controller.php';
 
 class AdminController extends Controller {
 
-	public function index(): void {
+
+	public function support(): void {
+
+		$model = $this->model('Ticket');
+
+		$res = $model->tickets();
+
 		
 		if (!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
-		
-		$data['title'] = ADMIN_WINDOW_TITLE;
-		
-		$data['stylesheets'][] = 'pages/admin';
-		
-		$data['header'] = true;
-		$data['footer'] = false;
-		
-		$this->view('admin/admin', $data);
-	}
 
-	public function support(): void {
-		
-		if (!isLoggedIn()) {
-			redirect($this->getRoutes()['GET:User#login']);
+		if(!isAdmin()) {
+			redirect($this->getRoutes()['GET:Home#index']);
 		}
 
 		$data['title'] = ADMIN_WINDOW_TITLE;
@@ -38,10 +32,6 @@ class AdminController extends Controller {
 		$data['header'] = true;
 		$data['footer'] = false;
 
-		$model = $this->model('Ticket');
-
-		$res = $model->tickets();
-
 		if ($res !== false) {
 			$data = array_merge($data, $res);
 		} else {
@@ -51,40 +41,55 @@ class AdminController extends Controller {
 	}
 
 	public function resolve($id) {
+		
+		$model = $this->model('Ticket');
+
 		if(!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
-
-		$model = $this->model('Ticket');
+		
+		if(!isAdmin()) {
+			redirect($this->getRoutes()['GET:Home#index']);
+		}
 
 		if(!$model->resolve($id)) {
-			$model->setError($model->getError());
+			$data['error'] = $model->getError();
 		}		
 		redirect($this->getRoutes()['GET:Admin#support']);
 	}
 
 	public function reopen($id) {
+
+		$model = $this->model('Ticket');
+
 		if(!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
 
-		$model = $this->model('Ticket');
+		if(!isAdmin()) {
+			redirect($this->getRoutes()['GET:Home#index']);
+		}
 
 		if(!$model->reopen($id)) {
-			$model->setError($model->getError());
+			$data['error'] = $model->getError();
 		}		
 		redirect($this->getRoutes()['GET:Admin#support']);
 	}
 
 	public function delete($id) {
+
+		$model = $this->model('Ticket');
+
 		if(!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
 
-		$model = $this->model('Ticket');
+		if(!isAdmin()) {
+			redirect($this->getRoutes()['GET:Home#index']);
+		}
 
 		if(!$model->delete($id)) {
-			$model->setError($model->getError());
+			$data['error'] = $model->getError();
 		}		
 		redirect($this->getRoutes()['GET:Admin#support']);
 	}
