@@ -26,15 +26,17 @@ class CartController extends Controller {
 		
 		$data['stylesheets'][] = 'pages/cart';
 
-		$data['header'] = true;
-		$data['footer'] = true;
+		$data['scripts'][] = [
+			'name' => 'alertCart',
+			'attr' => 'defer'
+		];
 		
 		$data['page-title'] = NAV_CART;
 		
 		$this->view('cart/cart', $data);
 	}
 
-	public function addToCart(): void {
+	public function add(int $id): void {
 		
 		if (!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
@@ -42,18 +44,22 @@ class CartController extends Controller {
 
 		$model = $this->model('Cart');
 		$user = unserialize($_SESSION['user']);
-		$productId = $_POST['product-id'];
-		$res = $model->addToCart($productId, $user->getId(), 1);
+		$productId = $id;
 
-		$this->view('cart/cart', $data);
+		$res = $model->add($user->getId(), $productId);
+
+		redirect($this->getRoutes()['GET:Cart#cart']);
 	}
 
-	public function deleteCart(): void {
+	public function delete(int $id): void {
 
 		$model = $this->model('Cart');
+		
 		$user = unserialize($_SESSION['user']);
-		$res = $model->deleteCart($user->getId());
 
-		$this->view('cart/cart', $data);
+		$res = $model->delete($user->getId(), $id);
+
+		redirect($this->getRoutes()['GET:Cart#cart']);
+
 	}
 }

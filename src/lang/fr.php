@@ -174,3 +174,4 @@ const CART_CONTINUE = "Continuer mes achats";
 const CART_CHECKOUT = "Passer la commande";
 const CART_DELETE = "Vider mon panier";
 const CART_TOTAL = "Nombre total d'articles : ";
+const CART_CHECKOUT_ERREUR = "Vous ne pouvez pas passer votre commande pour l'instant";

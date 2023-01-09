@@ -4,6 +4,8 @@ require_once PATH_CORE . 'DAO.php';
 require_once PATH_DAO . 'ProductDAO.php';
 require_once PATH_ENTITIES . 'Carts.php';
 require_once PATH_ENTITIES . 'Product.php';
+require_once PATH_ENTITIES . 'User.php';
+
 
 
 class CartDAO extends DAO {
@@ -37,7 +39,8 @@ class CartDAO extends DAO {
 		return $this->queryAll($sql, [$user_id], false);
     }
 
-    public function addProductToCart(int $user_id, int $product_id, int $cart_quantity) {
+    public function addProductToCart(int $user_id, int $product_id, int $cart_quantity): bool {
+        print("<br>AddproductToCart<br>");
         return $this->insert([
             'user_id' => $user_id,
             'product_id' => $product_id,
@@ -45,12 +48,18 @@ class CartDAO extends DAO {
         ]);
     }
 
-    public function deleteAllProductsFromCart(int $user_id) {
-        return $this->delete($user_id);
+    public function updateProductToCart(int $user_id, int $product_id, int $cart_quantity) {
+        $sql = "UPDATE {$this->getTable()} SET cart_quantity = ?
+                WHERE user_id = ? AND product_id = ?";
+        return $this->rowCount($sql, [$cart_quantity, $user_id, $product_id]);
+    }
+
+    public function deleteProductFromCart(int $user_id, int $product_id) {
+		return $this->rowCount("DELETE FROM {$this->getTable()} WHERE user_id = ? AND product_id = ?", [$user_id, $product_id]);
     }
 
     public function getQuantityProduct(int $user_id) {
-        $sql = "SELECT count(*) AS quantity
+        $sql = "SELECT sum(cart_quantity) AS quantity
                 FROM {$this->getTable()}
                 WHERE user_id = ?";
         return $this->queryAll($sql, [$user_id], false);

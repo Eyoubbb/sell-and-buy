@@ -45,41 +45,57 @@ class CartModel extends Model {
         ];
 	}
 
-    public function add(int $user_id, int $product_id, int $cart_quantity): bool {
+    public function add(int $user_id, int $product_id): bool {
         
-        $cartsDAO = $this->dao('Cart');
+        $cartDAO = $this->dao('Cart');
 
-        $cart = new Carts;
-        $cart->setUserId($user_id);
-        $cart->setProductId($product_id);
-        $cart->setCartQuantity($cart_quantity);
+        $productsCart = $cartDAO->findAllProductsCart($user_id);
 
-        $cartId = $cartsDAO->addToCart($cart);
+        foreach ($productsCart as $row) {
+            if ($row['product_id'] === $product_id) {
 
-        $resCarts = $cartsDAO->addProductToCart($user_id, $product_id, $cart_quantity);
+                $resCart = $cartDAO->updateProductToCart($user_id, $product_id, $row['cart_quantity'] + 1);
 
-        if ($resCarts === false) {
+                if ($resCart === false) {
+                    $this->setError('ERROR_ADD_CART');
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+        $resCart = $cartDAO->addProductToCart($user_id, $product_id, 1);
+
+        if ($resCart === false) {
             $this->setError('ERROR_ADD_CART');
             return false;
         }
 
-        $cartDAO->commit();
-
         return true;
     }
 
-    public function deleteCart(int $user_id): bool {
+    public function delete(int $user_id, int $product_id): bool {
         
-        $cartsDAO = $this->dao('Cart');
+        $cartDAO = $this->dao('Cart');
 
-        $resCarts = $cartsDAO->deleteAllProductsFromCart($user_id);
+        $productsCart = $cartDAO->findAllProductsCart($user_id);
+
+        foreach ($productsCart as $row) {
+            if ($row['product_id'] === $product_id && $row['cart_quantity'] === 1) {
+                
+                $resCarts = $cartDAO->deleteProductFromCart($user_id, $product_id);
+                
+                return true;
+            }
+        }
+
+        $rescart = $cartDAO->updateProductToCart($user_id, $product_id, $row['cart_quantity'] - 1);
 
         if ($resCarts === false) {
             $this->setError('ERROR_DELETE_CART');
             return false;
         }
-
-        $cartDAO->commit();
 
         return true;
     }

@@ -175,3 +175,4 @@ const CART_CONTINUE = "Continue shopping";
 const CART_CHECKOUT = "Checkout";
 const CART_DELETE = "Fold my cart";
 const CART_TOTAL = "Total number of articles : ";
+const CART_CHECKOUT_ERREUR = "You cant checkout for the moment";

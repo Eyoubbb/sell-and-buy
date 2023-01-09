@@ -3,7 +3,7 @@
 	$creator = $data['creator'];
 	$creatorUrl = $data['routes']['GET:Creator#index']->getUrl(['id' => $creator->getId()]);
 	$cartUrl = $data['routes']['GET:Cart#cart']->getUrl();
-	$addToCartUrl = $data['routes']['GET:Cart#add']->getUrl();
+	$addToCartUrl = $data['routes']['GET:Cart#add']->getUrl(['id' => $product->getId()]);
 ?>
 <section class="product">
 	<div class="generalImage">

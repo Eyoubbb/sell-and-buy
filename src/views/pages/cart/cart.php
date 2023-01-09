@@ -1,6 +1,5 @@
 <?=
     $homeUrl = $data['routes']['GET:Home#index']->getUrl();
-    $deleteCart = $data['routes']['GET:Cart#delete']->getUrl();
 ?>
 
 <section class="cart">
@@ -25,8 +24,11 @@
                 foreach ($data['products'] as $product) {
                     
                     $creator = $data['creators'][$product->getCreatorId()];
+                    $delete = $data['routes']['GET:Cart#delete']->getUrl(['id' => $product->getId()]);
 
                     require PATH_COMPONENTS . 'cart.php';
+
+
                 }
 
                 echo <<<HTML
@@ -47,10 +49,10 @@
                     <a href="<?= $homeUrl ?>" class="btn btn-primary"><?= CART_CONTINUE ?></a>
                 </button>
                 <button>
-                    <a href="<?= $homeUrl ?>" class="btn btn-primary"><?= CART_CHECKOUT ?></a>
+                    <a href="#" class="btn btn-primary"><?= CART_CHECKOUT ?></a>
                 </button>
                 <button>
-                    <a href="<?= $deleteCart ?>" class="btn btn-primary"><?= CART_DELETE ?></a>
+                    <a href="#" class="btn btn-primary"><?= CART_DELETE ?></a>
                 </button>
             </div>
         </section>
