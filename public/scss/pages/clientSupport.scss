@@ -4,41 +4,82 @@
 @use "../components/header";
 @use "../components/footer";
 
-section.container {
+main {    
     display: flex;
-    align-items: center;
+    flex-direction: column;
+}
+
+section.container {
+    flex-grow: 1;
+    display: flex;
     flex-direction: column;
 
-    div.clientsupp {
-        background-color: var(--primary-1);
-        border-radius: 15px;
-        width: 40%;
-        margin-top: 5vh;
-        padding: 2.5vh;
+    $gap : 1em;
 
+    div.title {
+        display: flex;
+        align-items: center;
+        padding: 1em 0em;
+        background-color: var(--primary-2);
 
-        h1 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 2vh;
-
-        }
-
-        p {
-            font-size: 1.2em;
-        }
-
-        button {
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: var(--primary-1);
-            color: var(--secondary-2);
+        a {
+            padding: 0em 1em;
             font-weight: bold;
-            transition: all 0.3s ease-in-out;
-
-            &:hover {
-                background-color: var(--primary-2);
+            &.support-title {
+                border-right: 1px solid var(--primary-1);
             }
         }
     }
+
+    .body-support {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        gap: calc(2 * $gap);
+
+        background-color: var(--primary-2);
+        @include box-shadow(0px, 0px, 2px, 0px, .7);
+        padding: $gap;
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            
+            @include media(m) {
+                text-align: justify;
+            }
+        }
+
+        .types {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            gap : calc(2 * $gap);
+            .support-type {
+                display: flex;
+                align-items: center;
+
+                column-gap: $gap;
+
+                @include size(25em, 5em);
+                padding: $gap;
+                background-color: white;
+                border-radius: 4px;
+                white-space: nowrap;
+
+                img {
+                    @include size(2em);
+                }
+            }
+
+            @include media(m) {
+                justify-content: center;
+            }
+        }
+    }
+
 }

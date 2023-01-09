@@ -216,7 +216,7 @@ const CONTACT_ALT_CONTACT = "Une image de deux personnes qui discutent";
 /*************** Legal Notice ***************/
 
 const LEGAL_NOTICE_SUBTITLE = "Conditions générales d'utilisation de Sell & Buy";
-const LEGAL_NOTICE_SECTION_ONE = "Bienvenue sur notre site de e-commerce. En accédant et en utilisant notre site, vous acceptez d'être lié par les présentes conditions générales d'utilisation et par toutes les lois et règlements en vigueur. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre site. ";
+const LEGAL_NOTICE_SECTION_ONE = "En accédant et en utilisant notre site, vous acceptez d'être lié par les présentes conditions générales d'utilisation et par toutes les lois et règlements en vigueur. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre site. ";
 const LEGAL_NOTICE_SECTION_TWO = "Nous nous réservons le droit de modifier les présentes conditions générales d'utilisation à tout moment. Votre utilisation continue de notre site après tout changement de ces conditions générales d'utilisation signifie que vous acceptez ces changements. ";
 const LEGAL_NOTICE_SECTION_THREE = "Nous pouvons modifier ou interrompre notre site, ou tout service ou tout contenu sur notre site, à tout moment sans préavis. Nous ne serons pas responsables envers vous ou toute autre partie de toute modification, suspension ou interruption de notre site ou de tout service ou contenu sur notre site. ";
 const LEGAL_NOTICE_SECTION_FOUR = "Nous ne garantissons pas que notre site sera disponible sans interruption, sans erreur ou sans faille. Nous ne garantissons pas que les résultats qui peuvent être obtenus de l'utilisation de notre site seront exacts ou fiables. Vous acceptez que de temps en temps, nous puissions supprimer le contenu de notre site sans préavis. ";
@@ -270,10 +270,11 @@ const SHIPPING_TEXT_P4 = "Si vous avez des questions ou des préoccupations conc
 
 /*************** Client support ***************/
 
-const LINK__TERMS_CONDITION = "Nos conditions générales";
-const LINK_LEGAL_NOTICE ="Nos mentions légales";
-const LINK_SHIPPING_RETURN ="Nos conditions d'envoi et retour";
+const LINK__TERMS_CONDITION = "Conditions générales";
+const LINK_LEGAL_NOTICE ="Mentions légales";
+const LINK_SHIPPING_RETURN ="Livraison, envoi et retour";
 
-const TEXT_TERMS_NOTICE ="Bienvenue sur notre plateforme, avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
+const TEXT_WELCOME = "Bienvenue sur notre page d'aide";
+const TEXT_TERMS_NOTICE ="Avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
 const TEXT_SHIPPING_RETURN = "Si vous avez des questions au sujet de l'envoie et du retour de nos produits veuillez consulter nos conditions ici";
 const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via la page contact";

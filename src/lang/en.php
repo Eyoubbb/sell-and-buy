@@ -256,7 +256,7 @@ const DELIVERY_TEXT_P3 ="The estimated delivery time is indicated during the che
 const DELIVERY_TEXT_P4 ="You will be notified by email once your order has been shipped and you will receive a tracking number to monitor the status of your delivery.";
 const DELIVERY_TEXT_P5 ="If you have any questions or concerns regarding our shipping policy, please feel free to contact our customer service department for more information.";
 
-const SHIPPING_TITLE:"Terms of return";
+const SHIPPING_TITLE = "Terms of return";
 const SHIPPING_TEXT_P1 = "Our products can be returned within 14 days of receiving your order. To be eligible for a return, your item must be in the same condition as when you received it and in its original packaging. Please note that shipping charges are non-refundable and you are responsible for the return shipping costs.";
 const SHIPPING_TEXT_P2 = "Please contact our customer service department before returning any product. We will then provide you with instructions on how to make the return using our subcontracted carrier. If the return is accepted, we will refund the price of the product, less the original shipping cost.";
 const SHIPPING_TEXT_P3 = "Please note that some products are excluded from our return policy, such as personalized or special order products. These exclusions will be clearly indicated at the time of your purchase.";
@@ -264,10 +264,11 @@ const SHIPPING_TEXT_P4 = "If you have any questions or concerns regarding our re
 
 /*************** Client support ***************/
 
-const LINK__TERMS_CONDITION = "Our general conditions";
-const LINK_LEGAL_NOTICE ="Our legal notice";
-const LINK_SHIPPING_RETURN ="Our shipping and return conditions";
+const LINK__TERMS_CONDITION = "General conditions";
+const LINK_LEGAL_NOTICE ="Legal notice";
+const LINK_SHIPPING_RETURN ="Shipping and return conditions";
 
-const TEXT_TERMS_NOTICE ="Welcome to our platform, before any questions please read our general conditions and our legal notice";
+const TEXT_WELCOME = "Welcome to our client service page";
+const TEXT_TERMS_NOTICE ="Before any questions please read our general conditions and our legal notice";
 const TEXT_SHIPPING_RETURN = "If you have any questions about shipping and returns, please see our terms and conditions here";
 const TEXT_CONTACT= "For all other questions you can consult us via the contact page";
