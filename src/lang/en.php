@@ -71,6 +71,27 @@ const ERROR_404_MESSAGE = "The requested page does not exist";
 
 const ERROR_EXTRAS = "That's all we know.";
 
+/*************** Admin ***************/
+
+const ADMIN_WINDOW_TITLE = "Admin";
+
+/*************** Tickets ***************/
+
+const TICKET_ID = "ID";
+const TICKET_USER_ID = "By";
+const TICKET_NAME = "Subject";
+const TICKET_STATUS = "Status";
+const TICKET_DATE = "Date";
+const TICKET_ASIGNEE = "Asignee";
+const TICKET_ACTION = "Action";
+
+const TOTAL_TICKETS = "Total tickets";
+const OPEN_TICKETS = "Open tickets";
+const CLOSED_TICKETS = "Closed tickets";
+
+const TICKET_CLOSED = "Close";
+const TICKET_OPENED = "Open";
+
 /*************** Header ***************/
 
 const NAV_SEARCH = "Search";
