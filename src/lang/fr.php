@@ -167,10 +167,17 @@ const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
 
 /*************** CART ***************/
 
-const CART_PRICE = "Prix total : ";
-const CART_PRICE_DISCOUNT = "Prix total avec réduction : ";
+const CART_PRICE = "Prix total";
+const CART_PRICE_DISCOUNT = "Prix total avec réduction";
 const CART_EMPTY = "Votre panier est vide";
 const CART_CONTINUE = "Continuer mes achats";
 const CART_CHECKOUT = "Passer la commande";
 const CART_DELETE = "Vider mon panier";
-const CART_TOTAL = "Nombre total d'articles : ";
+const CART_TOTAL = "Nombre total d'articles";
+const CART_LABEL_PRODUCT = "Produit";
+const CART_LABEL_QUANTITY = "Quantité";
+const CART_LABEL_PRICE = "Prix";
+const CART_LABEL_TOTAL = "Total";
+const CART_EXPEDITION = "Livraison";
+
+
