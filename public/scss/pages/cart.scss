@@ -18,63 +18,56 @@ section.cart {
     }
 
     nav h1 {
-        font-size: 18px;
+        font-size: 22px;
         margin: 1.5em 0em;
     }
 
-    div.info-cart {
+    section.info-cart {
         display: flex;
-        justify-content: flex-end;
+        column-gap: 5em;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primary-1);
+        border-radius: 5px;
+        padding: 1em;
+        margin: 2em;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 
-        @include media(s) {
-            justify-content: center;
+        @include media(xl) {
+            flex-direction: column;
         }
     }
 
     div.cart-buttons {
         display: flex;
         flex-wrap: wrap;
-        column-gap: 1em;
-        margin: 1em 0em;
+        column-gap: 3em;
+        margin: 3em 0em;
+
         button {
             padding: 1em;
             color: black;
-            background-color: var(--primary-1);
+            border: 2px solid var(--primary-2);
             transition: all 0.3s ease-in-out;
             border-radius: 4px;
 
             &:hover {
-                background-color: var(--primary-2);
+                border: 2px solid var(--secondary-1);
             }
+        }
+
+        @include media(l) {
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 1em;
         }
     }
 
-    div.checkout {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        div.cart-total {
-            table, td, th {
-                padding: .5em 1em;
-                margin : 0;
+    div.cart-total {
 
-                ul {
-                    display: flex;
-                    flex-direction: column;
-                    row-gap: 1em;
-
-                    li {
-                        display: flex;
-                        column-gap: 1em;
-                    }
-                }
-
-
-            }
-        }
-
-        @include media(s) {
-            align-items: center;
+        p {
+            font-size: 15px;
+            margin: .5em 1em;
         }
     }
 }

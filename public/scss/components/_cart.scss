@@ -5,6 +5,13 @@ tr {
 	td {
 		padding: 1em 3em;
 
+		&.arrow-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 3em 3em;
+		}
+
 		.item-wrapper {
 			padding: 1em 0em;
 			.img-cart {
@@ -12,10 +19,16 @@ tr {
 			}
 		}
 
-		input#quantity {
+		p.quantity {
 			@include size(4em, auto);
 			border: 1px solid black;
 			border-radius: 2px;
+			text-align: center;
+		}
+
+		img.arrow {
+			width: 30px;
+			height: 30px;
 		}
 
 		&.price {
