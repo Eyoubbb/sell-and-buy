@@ -14,11 +14,9 @@ $router->get('/logout', 'User#logout');
 $router->get('/register', 'User#register');
 $router->post('/register', 'User#register');
 
-$router->get('/user/cart', 'User#cart');
-$router->get('/user/cart', 'User#addToCart')->with('id', '[0-9]+');
-$router->post('/user/cart', 'User#addToCart')->with('id', '[0-9]+');
-$router->get('/user/cart', 'User#deleteCart');
-$router->post('/user/cart', 'User#deleteCart');
+$router->get('/cart', 'Cart#cart');
+$router->get('/cart/add', 'Cart#add');
+$router->get('/cart/delete', 'Cart#delete');
  
 $router->get('/product/:id', 'Product#index')->with('id', '[0-9]+');
 

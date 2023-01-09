@@ -8,7 +8,7 @@
 	$searchUrl = $data['routes']['GET:Home#index']->getUrl();
 	$settingsUrl = $data['routes']['GET:Home#index']->getUrl();
 	$askCreatorUrl = $data['routes']['GET:Creator#ask']->getUrl();
-	$carturl = $data['routes']['GET:User#cart']->getUrl();
+	$carturl = $data['routes']['GET:Cart#cart']->getUrl();
 
 	if (isLoggedIn()) {
 		$user = unserialize($_SESSION['user']);
