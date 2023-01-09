@@ -1,12 +1,16 @@
 <?php 
 	$newPrice = round($product->getPrice() - ($product->getPrice() * $product->getDiscountPercentage() / 100), 0);
-	$productURL = $data['routes']['GET:Product#index']->getUrl([
-		'id' => $product->getId()]);
+	$productURL = $data['routes']['GET:Product#index']->getUrl(['id' => $product->getId()]);
+	$delete = $data['routes']['GET:Cart#delete']->getUrl(['id' => $product->getId()]);
+    $deleteAllProduct = $data['routes']['GET:Cart#deleteAllProduct']->getUrl(['id' => $product->getId()]);
+	$add = $data['routes']['GET:Cart#add']->getUrl(['id' => $product->getId()]);
+	$product_quantity = $data['pdCount'][$product->getId()]['quantity'];
+	$total_price = round($newPrice * $product_quantity);
  ?>
 
 <tr>
 	<td>
-		<a>
+		<a href="<?= $deleteAllProduct ?>">
 			<img src="<?= PATH_IMAGES . 'x.svg' ?>" alt="delete" loading="lazy">
 		</a>
 	</td>
@@ -20,9 +24,15 @@
 	<td>
 		<a class="name" href="<?= $productURL ?>"><?= $product->getName() ?></a>
 	</td>
-	<td>
-		<input type="number" name="quantity" id="quantity" value="1" min="0">
+	<td class="arrow-container">
+		<a href="<?= $add ?>">
+			<img class="arrow" src="<?= PATH_IMAGES . 'up.svg' ?>" alt="delete" loading="lazy">
+		</a>
+		<p class="quantity"><?= $product_quantity ?></p>
+		<a href="<?= $delete ?>">
+			<img class="arrow" src="<?= PATH_IMAGES . 'down.svg' ?>" alt="delete" loading="lazy">
+		</a>
 	</td>
 	<td class="price"><?= $newPrice . ' €' ?></td>
-	<td></td>
+	<td class="total"><?= $total_price . ' €' ?></td>
 </tr>

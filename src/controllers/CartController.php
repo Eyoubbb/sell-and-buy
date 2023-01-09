@@ -20,16 +20,12 @@ class CartController extends Controller {
 			$data['creators'] = $res['creators'];
 			$data['total'] = $res['price'];
 			$data['count'] = $res['quantity'];
+			$data['pdCount'] = $res['products_quantity'];
 		}
 
 		$data['title'] = NAV_CART;
 		
 		$data['stylesheets'][] = 'pages/cart';
-
-		$data['scripts'][] = [
-			'name' => 'alertCart',
-			'attr' => 'defer'
-		];
 		
 		$data['page-title'] = NAV_CART;
 		
@@ -54,12 +50,27 @@ class CartController extends Controller {
 	public function delete(int $id): void {
 
 		$model = $this->model('Cart');
-		
 		$user = unserialize($_SESSION['user']);
-
 		$res = $model->delete($user->getId(), $id);
 
 		redirect($this->getRoutes()['GET:Cart#cart']);
+	}
 
+	public function deleteAllProduct(int $id): void {
+
+		$model = $this->model('Cart');
+		$user = unserialize($_SESSION['user']);
+		$res = $model->deleteAllProduct($user->getId(), $id);
+
+		redirect($this->getRoutes()['GET:Cart#cart']);
+	}
+
+	public function deleteAllCart(int $id): void {
+
+		$model = $this->model('Cart');
+		$user = unserialize($_SESSION['user']);
+		$res = $model->deleteAllCart($user->getId());
+
+		redirect($this->getRoutes()['GET:Home#index']);
 	}
 }

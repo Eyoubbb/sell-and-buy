@@ -1,5 +1,6 @@
 <?=
     $homeUrl = $data['routes']['GET:Home#index']->getUrl();
+	$deleteAllCart = $data['routes']['GET:Cart#deleteAllCart']->getUrl(['id' => unserialize($_SESSION['user'])->getId()]);
 ?>
 
 <section class="cart">
@@ -31,7 +32,6 @@
                 foreach ($data['products'] as $product) {
                     
                     $creator = $data['creators'][$product->getCreatorId()];
-                    $delete = $data['routes']['GET:Cart#delete']->getUrl(['id' => $product->getId()]);
 
                     require PATH_COMPONENTS . 'cart.php';
 
@@ -47,19 +47,19 @@
     <?php if(isset($data['cart'])): ?>
         <section class="info-cart">
             <div class="cart-total">
-                <p class="content-page"><?= CART_TOTAL . $data['count']['quantity'] ?></p>
-                <p class="content-page"><?= CART_PRICE . $data['total']['cart_price']?> €</p>
-                <p class="content-page"><?= CART_PRICE_DISCOUNT . $data['total']['cart_price_discount']?> €</p>   
+                <p><?= CART_TOTAL . " : " . $data['count']['quantity'] ?></p>
+                <p><?= CART_PRICE . " : " . $data['total']['cart_price']?> €</p>
+                <p><?= CART_PRICE_DISCOUNT . " : " . $data['total']['cart_price_discount']?> €</p>   
             </div>
             <div class="cart-buttons">
-                <button>
-                    <a href="<?= $homeUrl ?>" class="btn btn-primary"><?= CART_CONTINUE ?></a>
-                </button>
                 <button>
                     <a href="#" class="btn btn-primary"><?= CART_CHECKOUT ?></a>
                 </button>
                 <button>
-                    <a href="#" class="btn btn-primary"><?= CART_DELETE ?></a>
+                    <a href="<?= $deleteAllCart ?>" class="btn btn-primary"><?= CART_DELETE ?></a>
+                </button>
+                <button>
+                    <a href="<?= $homeUrl ?>" class="btn btn-primary"><?= CART_CONTINUE ?></a>
                 </button>
             </div>
         </section>

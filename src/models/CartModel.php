@@ -7,9 +7,9 @@ class CartModel extends Model {
 
 	public function cart(int $user_id): array | false {
 
-        $cartsDAO = $this->dao('Cart');
+        $cartDAO = $this->dao('Cart');
 
-        $resCarts = $cartsDAO->getCartByUserId($user_id);
+        $resCarts = $cartDAO->getCartByUserId($user_id);
 
         if ($resCarts === false) {
             $this->setError('ERROR_CARTS_NOT_FOUND');
@@ -20,28 +20,32 @@ class CartModel extends Model {
             return false;
         }
 
-        $productsCart = $cartsDAO->findAllProductsCart($user_id);
+        $productsCart = $cartDAO->findAllProductsCart($user_id);
 
         $products = [];
 		$creators = [];
+        $product_quantity = [];
 
 		foreach ($productsCart as $row) {
 			$products[] = new Product($row);
+            $cartQuantity = $cartDAO->getQuantityOneProduct($user_id, $row['product_id']);
+            $products_quantity[$row['product_id']] = $cartQuantity[0];
 
             if (!isset($creators[$row['user_id']])) {
                 $creators[$row['user_id']] = new User($row);
             }
 		}
 
-        $price = $cartsDAO->getCartPrice($user_id);
-        $quantity = $cartsDAO->getQuantityProduct($user_id);
+        $price = $cartDAO->getCartPrice($user_id);
+        $quantity = $cartDAO->getQuantityProduct($user_id);
 
         return [
             'carts' => $resCarts,
             'products' => $products,
             'creators' => $creators,
             'price' =>  $price[0],
-            'quantity' => $quantity[0]
+            'quantity' => $quantity[0],
+            'products_quantity' => $products_quantity
         ];
 	}
 
@@ -91,6 +95,34 @@ class CartModel extends Model {
         }
 
         $rescart = $cartDAO->updateProductToCart($user_id, $product_id, $row['cart_quantity'] - 1);
+
+        if ($resCarts === false) {
+            $this->setError('ERROR_DELETE_CART');
+            return false;
+        }
+
+        return true;
+    }
+
+    public function deleteAllProduct(int $user_id, int $product_id): bool {
+        
+        $cartDAO = $this->dao('Cart');
+
+        $resCarts = $cartDAO->deleteProductFromCart($user_id, $product_id);
+
+        if ($resCarts === false) {
+            $this->setError('ERROR_DELETE_CART');
+            return false;
+        }
+
+        return true;
+    }
+
+    public function deleteAllCart(int $user_id): bool {
+        
+        $cartDAO = $this->dao('Cart');
+
+        $resCarts = $cartDAO->deleteAllProductFromCart($user_id);
 
         if ($resCarts === false) {
             $this->setError('ERROR_DELETE_CART');

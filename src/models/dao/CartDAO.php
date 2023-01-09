@@ -58,11 +58,22 @@ class CartDAO extends DAO {
 		return $this->rowCount("DELETE FROM {$this->getTable()} WHERE user_id = ? AND product_id = ?", [$user_id, $product_id]);
     }
 
+    public function deleteAllProductFromCart(int $user_id) {
+        return $this->rowCount("DELETE FROM {$this->getTable()} WHERE user_id = ?", [$user_id]);
+    }
+
     public function getQuantityProduct(int $user_id) {
         $sql = "SELECT sum(cart_quantity) AS quantity
                 FROM {$this->getTable()}
                 WHERE user_id = ?";
         return $this->queryAll($sql, [$user_id], false);
+    }
+
+    public function getQuantityOneProduct(int $user_id, int $product_id) {
+        $sql = "SELECT cart_quantity AS quantity
+                FROM {$this->getTable()}
+                WHERE user_id = ? and product_id = ?";
+        return $this->queryAll($sql, [$user_id, $product_id], false);
     }
 
     public function getCartPrice(int $user_id) {
