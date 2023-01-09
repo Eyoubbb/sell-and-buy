@@ -19,14 +19,14 @@ section.container {
     div.title {
         display: flex;
         align-items: center;
-        padding: 1em 0em;
+        padding: $gap;
         background-color: var(--primary-2);
 
         a {
             padding: 0em 1em;
             font-weight: bold;
             &.support-title {
-                border-right: 1px solid var(--primary-1);
+                border-right: 3px solid var(--primary-1);
             }
         }
     }
@@ -37,9 +37,9 @@ section.container {
         flex-direction: column;
         gap: calc(2 * $gap);
 
-        background-color: var(--primary-2);
+        background-color: white;
         @include box-shadow(0px, 0px, 2px, 0px, .7);
-        padding: $gap;
+        padding: calc(2 * $gap);
 
         h1 {
             font-size: 24px;
@@ -67,16 +67,20 @@ section.container {
 
                 @include size(25em, 5em);
                 padding: $gap;
-                background-color: white;
+                background-color: var(--primary-1);
                 border-radius: 4px;
                 white-space: nowrap;
 
                 img {
                     @include size(2em);
                 }
+
+                &:hover {
+                    background-color: var(--primary-2);
+                }
             }
 
-            @include media(m) {
+            @include media(l) {
                 justify-content: center;
             }
         }
