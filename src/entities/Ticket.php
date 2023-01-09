@@ -39,5 +39,7 @@ class Ticket {
 	public function getDate(): string { return $this->ticket_date; }
 
 	public function getResolved(): bool { return $this->ticket_resolved; }
+
+	public function setResolved(bool $resolved): void { $this->ticket_resolved = $resolved; }
 	
 }

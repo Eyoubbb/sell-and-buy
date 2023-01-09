@@ -103,7 +103,7 @@ header {
 			display: flex;
 			
 			.dropdown-content {
-				z-index: 1;
+				z-index: 99;
 				position: absolute;
 				top: calc(100% + 1em);
 				right: 0;

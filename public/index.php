@@ -27,6 +27,12 @@ $router->post('/product/new', 'Product#new');
 $router->get('/creator/:id', 'Creator#index')->with('id', '[0-9]+');
 $router->get('/creator/ask', 'Creator#ask');
 
+$router->get('/admin/support', 'Admin#support');
+
+$router->get('/admin/support/:id/resolve', 'Admin#resolve')->with('id', '[0-9]+');
+$router->get('/admin/support/:id/reopen', 'Admin#reopen')->with('id', '[0-9]+');
+$router->get('/admin/support/:id/delete', 'Admin#delete')->with('id', '[0-9]+');
+
 $router->get('/info/clientSupport', 'Info#clientSupport');
 $router->get('/info/shippingReturn', 'Info#shippingReturn');
 $router->get('/info/contact', 'Info#contact');
