@@ -1,11 +1,14 @@
 @use "../abstracts" as *;
 
+th {
+	font-weight: 100;
+}
+
 tr {
 
 	td {
-		padding: 1em 2em;
+		padding: 1em 4em;
 		.item-wrapper {
-			background-color: var(--primary-1);
 			padding: 1em 0em;
 			.img-cart {
 				@include size(7em, auto);
@@ -27,7 +30,7 @@ tr {
 			text-decoration: underline;
 
 			&:hover {
-				color: var(--primary-2);
+				color: var(--secondary-1);
 			}
 		}
 
