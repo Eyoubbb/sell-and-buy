@@ -37,7 +37,7 @@ const LOGIN_WINDOW_TITLE = "Connexion";
 const LOGIN_TITLE = "Se connecter";
 const LOGIN_NEW = "Nouveau chez Sell & Buy ?";
 const LOGIN_SIGNUP = "S'inscrire";
-const LOGIN_EMAIL_ERROR = "Email inconnue";
+const LOGIN_EMAIL_ERROR = "Email inconnu";
 const LOGIN_PASSWORD_ERROR = "Mot de passe invalide";
 const LOGIN_SUBMIT = "Se connecter";
 
@@ -131,15 +131,17 @@ const SUBSCRIBE = "S'abonner +";
 /*************** Creator ***************/
 
 const CREATOR_MOTIVE = "Vos motivations pour devenir créateur";
+const CREATOR_OVERVIEW = "Apercu";
+const CREATOR_CANCEL = "Annuler";
 const CREATOR_SUBMIT = "Valider la demande";
 const CREATOR_PLACEHOLDER = "Écrire ici";
 const CREATOR_PLACEHOLDER_TEXTAREA = "Écrire ici, 500 caractères maximum";
 const CREATOR_ASK_ADDRESS = "Veuillez entrer votre adresse postale";
 const CREATOR_ASK_NUMBER = "Veuiller donner votre numéro de téléphone";
-const CREATOR_PROGRESS_STEP_ONE = "Ajout des motivations";
-const CREATOR_PROGRESS_STEP_TWO = "Ajout de l'adresse/numéro";
-const CREATOR_PROGRESS_STEP_THREE = "Ajout des résaux";
-const CREATOR_PROGRESS_STEP_FOUR = "Ajout bannière et description";
+const CREATOR_PROGRESS_STEP_ONE = "Motivations";
+const CREATOR_PROGRESS_STEP_TWO = "Adresse et numéro";
+const CREATOR_PROGRESS_STEP_THREE = "Résaux sociaux";
+const CREATOR_PROGRESS_STEP_FOUR = "Bannière et description";
 const CREATOR_SOCIALS = "Entrez vos réseaux sociaux (facultatif)";
 const CREATOR_INSTAGRAM = "Instagram";
 const CREATOR_FACEBOOK = "Facebook";
@@ -172,3 +174,85 @@ const FORM_BIO_PLACEHOLDER = "Ajouter la bio";
 const FORM_TWITTER_PLACEHOLDER = "@twitter";
 const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
 const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
+
+
+/*************** delivery ***************/
+
+
+/*************** Infos ***************/
+
+const INFO_CONTACT_WINDOW_TITLE = "Contact";
+const INFO_WINDOW_TITLE = "Information";
+const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Mentions légales";
+const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Conditions générales";
+const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Livraison et retours";
+
+/*************** Contact ***************/
+
+const CONTACT_ANY_QUESTIONS = "Pour toute question, veuillez contacter un des 5 administrateurs";
+const CONTACT_ALT_CONTACT = "Une image de deux personnes qui discutent";
+
+/*************** Legal Notice ***************/
+
+const LEGAL_NOTICE_SUBTITLE = "Conditions générales d'utilisation de Sell & Buy";
+const LEGAL_NOTICE_SECTION_ONE = "Bienvenue sur notre site de e-commerce. En accédant et en utilisant notre site, vous acceptez d'être lié par les présentes conditions générales d'utilisation et par toutes les lois et règlements en vigueur. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre site. ";
+const LEGAL_NOTICE_SECTION_TWO = "Nous nous réservons le droit de modifier les présentes conditions générales d'utilisation à tout moment. Votre utilisation continue de notre site après tout changement de ces conditions générales d'utilisation signifie que vous acceptez ces changements. ";
+const LEGAL_NOTICE_SECTION_THREE = "Nous pouvons modifier ou interrompre notre site, ou tout service ou tout contenu sur notre site, à tout moment sans préavis. Nous ne serons pas responsables envers vous ou toute autre partie de toute modification, suspension ou interruption de notre site ou de tout service ou contenu sur notre site. ";
+const LEGAL_NOTICE_SECTION_FOUR = "Nous ne garantissons pas que notre site sera disponible sans interruption, sans erreur ou sans faille. Nous ne garantissons pas que les résultats qui peuvent être obtenus de l'utilisation de notre site seront exacts ou fiables. Vous acceptez que de temps en temps, nous puissions supprimer le contenu de notre site sans préavis. ";
+const LEGAL_NOTICE_SECTION_FIVE = "Vous acceptez que nous ne serons pas responsables envers vous ou toute autre partie de toute perte, dommage, réclamation ou autre responsabilité, y compris les frais raisonnables d'avocats, résultant de ou en relation avec votre utilisation de notre site, y compris, mais sans s'y limiter, toute erreur, omission, défaut, virus, défaillance de transmission, pannes de système, échec de la ligne de communication, perte de données ou de toute autre panne technique ou de toute autre cause. ";
+const LEGAL_NOTICE_TITLE_SECTION_ONE = "1. Conditions générales d'utilisation";
+const LEGAL_NOTICE_TITLE_SECTION_TWO = "2. Modifications";
+const LEGAL_NOTICE_TITLE_SECTION_THREE = "3. Interruption";
+const LEGAL_NOTICE_TITLE_SECTION_FOUR = "4. Garantie";
+const LEGAL_NOTICE_TITLE_SECTION_FIVE = "5. Limitation de responsabilité";
+
+/*************** Terms & Conditions ***************/
+
+const TERMS_CONDITIONS_SUBTITLE = "Dernière modification : 01/01/2020";
+const TERMS_CONDITIONS_PREAMBULE = "Veuillez lire attentivement ces Termes et Conditions avant d'utiliser le site Web Sell & Buy exploité par Sell & Buy. Votre accès et votre utilisation du Service sont conditionnés par votre acceptation et votre respect des présentes Conditions. Ces Conditions s'appliquent à tous les visiteurs, utilisateurs et autres qui accèdent ou utilisent le Service. En accédant ou en utilisant le Service, vous acceptez d'être lié par ces Conditions. Si vous n'êtes pas d'accord avec une partie des conditions, vous ne pouvez pas accéder au service. ";
+const TERMS_CONDITIONS_SECTION_ONE = "Si vous souhaitez acheter un produit ou un service mis à disposition via le Service, il peut vous être demandé de fournir certaines informations relatives à votre Achat, y compris, sans s'y limiter, votre numéro de carte de crédit, la date d'expiration de votre carte de crédit, votre adresse de facturation et vos informations de livraison. Vous déclarez et garantissez que : vous avez le droit légal d'utiliser toute carte de crédit ou tout autre mode de paiement dans le cadre de tout achat ; et que les informations que vous nous fournissez sont véridiques, correctes et complètes. En soumettant ces informations, vous nous accordez le droit de fournir les informations à des tiers dans le but de faciliter la réalisation des Achats. Nous nous réservons le droit de refuser ou d'annuler votre commande à tout moment pour certaines raisons, y compris, mais sans s'y limiter : la disponibilité du produit ou du service, des erreurs dans la description ou le prix du produit ou du service, une erreur dans votre commande ou d'autres raisons. Nous nous réservons le droit de refuser ou d'annuler votre commande si une fraude ou une transaction non autorisée ou illégale est suspectée. ";
+const TERMS_CONDITIONS_SECTION_TWO = "Nous mettons constamment à jour les offres de produits et de services sur le Service. Nous pouvons subir des retards dans la mise à jour des informations sur le Service et dans nos publicités sur d'autres sites Web. Les informations trouvées sur le Service peuvent contenir des erreurs ou des inexactitudes et peuvent ne pas être complètes ou à jour. Les produits ou services peuvent être mal évalués, décrits de manière inexacte ou indisponibles sur le Service et nous ne pouvons garantir l'exactitude ou l'exhaustivité des informations trouvées sur le Service. Nous nous réservons donc le droit de modifier ou de mettre à jour les informations et de corriger les erreurs, inexactitudes ou omissions à tout moment sans préavis. ";
+const TERMS_CONDITIONS_SECTION_THREE = "Tous les concours, tirages au sort ou autres promotions (collectivement, les « Promotions ») mis à disposition via le Service peuvent être régis par des règles distinctes des présentes Conditions. Si vous participez à des promotions, veuillez consulter les règles applicables ainsi que notre politique de confidentialité. Si les règles d'une promotion entrent en conflit avec les présentes conditions, les règles de la promotion s'appliqueront. ";
+const TERMS_CONDITIONS_SECTION_FOUR = "Notre service peut contenir des liens vers des sites Web ou des services tiers qui ne sont ni détenus ni contrôlés par Sell & Buy. Sell & Buy n'a aucun contrôle sur le contenu, les politiques de confidentialité ou les pratiques de tout site Web ou service tiers et n'assume aucune responsabilité à cet égard. Vous reconnaissez et acceptez en outre que Sell & Buy ne sera pas responsable, directement ou indirectement, de tout dommage ou perte causé ou présumé avoir été causé par ou en relation avec l'utilisation ou la confiance accordée à ces contenus, biens ou services disponibles sur ou par l'intermédiaire de ces sites Web ou services. Nous vous conseillons vivement de lire les termes et conditions et les politiques de confidentialité de tous les sites Web ou services tiers que vous visitez. ";
+const TERMS_CONDITIONS_SECTION_FIVE = "Nous pouvons résilier ou suspendre l'accès à notre Service immédiatement, sans préavis ni responsabilité, pour quelque raison que ce soit, y compris, sans s'y limiter, si vous enfreignez les Conditions. Toutes les dispositions des Conditions qui, de par leur nature, devraient survivre à la résiliation survivront à la résiliation, y compris, sans s'y limiter, les dispositions relatives à la propriété, les exclusions de garantie, l'indemnisation et les limitations de responsabilité. ";
+const TERMS_CONDITIONS_SECTION_SIX = "Les présentes Conditions sont régies et interprétées conformément aux lois du Pays, sans égard à ses dispositions en matière de conflit de lois. Notre incapacité à faire respecter un droit ou une disposition des présentes Conditions ne sera pas considérée comme une renonciation à ces droits. Si une disposition des présentes Conditions est jugée invalide ou inapplicable par un tribunal, les autres dispositions des présentes Conditions resteront en vigueur. Ces conditions constituent l'intégralité de l'accord entre nous concernant notre service, et annulent et remplacent tout accord antérieur que nous pourrions avoir entre nous concernant le service. ";
+const TERMS_CONDITIONS_SECTION_SEVEN = "Nous nous réservons le droit, à notre seule discrétion, de modifier ou de remplacer ces Conditions à tout moment. Si une révision est importante, nous essaierons de fournir un préavis d'au moins 30 jours avant l'entrée en vigueur de nouvelles conditions. Ce qui constitue un changement important sera déterminé à notre seule discrétion. En continuant à accéder ou à utiliser notre Service après l'entrée en vigueur de ces révisions, vous acceptez d'être lié par les conditions révisées. Si vous n'acceptez pas les nouvelles conditions, veuillez cesser d'utiliser le Service. ";
+const TERMS_CONDITIONS_SECTION_EIGHT = "Si vous avez des questions sur ces conditions, veuillez nous contacter. ";
+const TERMS_CONDITIONS_TITLE_SECTION_ONE = "Achats";
+const TERMS_CONDITIONS_TITLE_SECTION_TWO = "Disponibilité, erreurs et inexactitudes";
+const TERMS_CONDITIONS_TITLE_SECTION_THREE = "Concours, tirages au sort et promotions";
+const TERMS_CONDITIONS_TITLE_SECTION_FOUR = "Liens vers d'autres sites Web";
+const TERMS_CONDITIONS_TITLE_SECTION_FIVE = "Résiliation";
+const TERMS_CONDITIONS_TITLE_SECTION_SIX = "Règlement des litiges";
+const TERMS_CONDITIONS_TITLE_SECTION_SEVEN = "Modifications des conditions";
+const TERMS_CONDITIONS_TITLE_SECTION_EIGHT = "Contactez-nous";
+const TERMS_CONDITIONS_LINK_CONTACT_US = "Contactez-nous";
+
+/*************** Retour et envoi ***************/
+
+
+const DELIVERY_SHIPPING_TITTLE= "Conditions de livraison et de retour";
+
+const DELIVERY_TITTLE = "Condition de livraison";
+const DELIVERY_TEXT_P1 ="Nous travaillons avec un transporteur sous-traitant (UPS) pour assurer la livraison de nos produits dans les meilleurs délais. Les frais de livraison sont calculés en fonction du poids et de la destination de votre commande.";
+const DELIVERY_TEXT_P2 ="La livraison est disponible dans la plupart des pays. Des frais de livraison supplémentaires peuvent s'appliquer pour les livraisons en dehors de l'Union Européenne. Veuillez nous contacter avant de passer votre commande si vous souhaitez une livraison en dehors de l'UE afin que nous puissions vous fournir un devis pour les frais de livraison.";
+const DELIVERY_TEXT_P3 ="Le délai de livraison estimé est indiqué lors de la finalisation de votre commande. Veuillez noter que les délais de livraison sont estimatifs et ne sont pas garantis. Des retards peuvent être causés par des événements indépendants de notre volonté, tels que des conditions météorologiques ou des grèves des transporteurs.";
+const DELIVERY_TEXT_P4 ="Vous serez informé par e-mail une fois que votre commande a été expédiée et vous recevrez un numéro de suivi pour suivre l'état de votre livraison.";
+const DELIVERY_TEXT_P5 ="Si vous avez des questions ou des préoccupations concernant notre politique de livraison, n'hésitez pas à contacter notre service clientèle pour plus d'informations.";
+
+
+const SHIPPING_TITTLE ="Conditions de retour";
+const SHIPPING_TEXT_P1 = "Nos produits peuvent être retournés dans un délai de 14 jours suivant la réception de votre commande. Pour être admissible à un retour, votre article doit être dans le même état que lorsque vous l'avez reçu et dans son emballage d'origine. Veuillez noter que les frais de livraison ne sont pas remboursables et que les frais de retour sont à votre charge.";
+const SHIPPING_TEXT_P2 = "Veuillez contacter notre service client avant de nous retourner un produit. Nous vous fournirons alors les instructions pour effectuer le retour en utilisant notre transporteur sous-traitant. Si le retour est accepté, nous vous rembourserons le prix du produit, moins les frais de livraison initiaux.";
+const SHIPPING_TEXT_P3 = "Veuillez noter que certains produits sont exclus de notre politique de retour, tels que les produits personnalisés ou sur commande spéciale. Ces exclusions seront clairement indiquées lors de votre achat.";
+const SHIPPING_TEXT_P4 = "Si vous avez des questions ou des préoccupations concernant notre politique de retour, n'hésitez pas à contacter notre service clientèle pour plus d'informations";
+
+/*************** Client support ***************/
+
+const LINK__TERMS_CONDITION = "Nos conditions générales";
+const LINK_LEGAL_NOTICE ="Nos mentions légales";
+const LINK_SHIPPING_RETURN ="Nos conditions d'envoi et retour";
+
+const TEXT_TERMS_NOTICE ="Bienvenue sur notre plateforme, avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
+const TEXT_SHIPPING_RETURN = "Si vous avez des questions au sujet de l'envoie et du retour de nos produits veuillez consulter nos conditions ici";
+const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via la page contact";

@@ -27,4 +27,10 @@ $router->post('/product/new', 'Product#new');
 $router->get('/creator/:id', 'Creator#index')->with('id', '[0-9]+');
 $router->get('/creator/ask', 'Creator#ask');
 
+$router->get('/info/clientSupport', 'Info#clientSupport');
+$router->get('/info/shippingReturn', 'Info#shippingReturn');
+$router->get('/info/contact', 'Info#contact');
+$router->get('/info/legalNotice', 'Info#legalNotice');
+$router->get('/info/termsCondition', 'Info#termsCondition');
+
 $router->run();
