@@ -2,8 +2,8 @@
 	$product = $data['product'];
 	$creator = $data['creator'];
 	$creatorUrl = $data['routes']['GET:Creator#index']->getUrl(['id' => $creator->getId()]);
-	$cartUrl = $data['routes']['GET:User#cart']->getUrl();
-	$addToCartUrl = $data['routes']['GET:User#addToCart']->getUrl();
+	$cartUrl = $data['routes']['GET:Cart#cart']->getUrl();
+	$addToCartUrl = $data['routes']['GET:Cart#add']->getUrl();
 ?>
 <section class="product">
 	<div class="generalImage">

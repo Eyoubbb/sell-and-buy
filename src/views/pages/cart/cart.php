@@ -4,20 +4,34 @@
 ?>
 
 <section class="cart">
-    <h1 class="page-title" ><?= NAV_CART ?></h1>
-
     <div class="cart-items-container">
         <?php
 
             if (!isset($data['cart'])) {
                 echo '<p>' . CART_EMPTY . '</p>';
             } else {
+                echo <<<HTML
+                <table>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Produit</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                        <th>Total</th>
+                    </tr>
+                HTML;
+
                 foreach ($data['products'] as $product) {
                     
                     $creator = $data['creators'][$product->getCreatorId()];
-                    
-                    // require PATH_COMPONENTS . 'product.php';
+
+                    require PATH_COMPONENTS . 'cart.php';
                 }
+
+                echo <<<HTML
+                </table>
+                HTML;
             }
         ?>
     </div>

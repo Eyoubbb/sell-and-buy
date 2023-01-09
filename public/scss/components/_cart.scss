@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+
+tr {
+
+	td {
+		padding: 1em 2em;
+		.item-wrapper {
+			background-color: var(--primary-1);
+			padding: 1em 0em;
+			.img-cart {
+				@include size(7em, auto);
+			}
+		}
+
+		input#quantity {
+			text-align: center;
+			@include size(4em, auto);
+			border: 1px solid black;
+			border-radius: 2px;
+		}
+
+		&.price {
+			white-space: nowrap;
+		}
+
+		a.name {
+			text-decoration: underline;
+
+			&:hover {
+				color: var(--primary-2);
+			}
+		}
+
+	}
+
+}
