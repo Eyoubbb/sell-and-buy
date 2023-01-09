@@ -3,9 +3,9 @@
 tr {
 
 	td {
-		padding: 1em 2em;
+		padding: 1em 3em;
+
 		.item-wrapper {
-			background-color: var(--primary-1);
 			padding: 1em 0em;
 			.img-cart {
 				@include size(7em, auto);
@@ -13,7 +13,6 @@ tr {
 		}
 
 		input#quantity {
-			text-align: center;
 			@include size(4em, auto);
 			border: 1px solid black;
 			border-radius: 2px;
@@ -27,8 +26,22 @@ tr {
 			text-decoration: underline;
 
 			&:hover {
-				color: var(--primary-2);
+				color: var(--secondary-1);
 			}
+		}
+
+
+		@include media(l) {
+			padding: 1em 1em;
+		}
+
+		@include media(s) {
+			padding: 1em .5em;
+
+			.img-cart {
+				display: none;
+			}
+
 		}
 
 	}

@@ -3,21 +3,28 @@
 ?>
 
 <section class="cart">
+    <nav>
+        <h1><?= NAV_CART ?></h1>
+    </nav>
     <div class="cart-items-container">
         <?php
 
             if (!isset($data['cart'])) {
                 echo '<p>' . CART_EMPTY . '</p>';
             } else {
+                $labelProduct = CART_LABEL_PRODUCT;
+                $labelQuantity = CART_LABEL_QUANTITY;
+                $labelPrice = CART_LABEL_PRICE;
+                $labelTotal = CART_LABEL_TOTAL;
                 echo <<<HTML
                 <table>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th>Produit</th>
-                        <th>Quantité</th>
-                        <th>Prix</th>
-                        <th>Total</th>
+                        <td></th>
+                        <td></th>
+                        <td>$labelProduct</th>
+                        <td>$labelQuantity</th>
+                        <td>$labelPrice</th>
+                        <td>$labelTotal</th>
                     </tr>
                 HTML;
 
