@@ -33,4 +33,10 @@ $router->get('/admin/support/:id/resolve', 'Admin#resolve')->with('id', '[0-9]+'
 $router->get('/admin/support/:id/reopen', 'Admin#reopen')->with('id', '[0-9]+');
 $router->get('/admin/support/:id/delete', 'Admin#delete')->with('id', '[0-9]+');
 
+$router->get('/info/clientSupport', 'Info#clientSupport');
+$router->get('/info/shippingReturn', 'Info#shippingReturn');
+$router->get('/info/contact', 'Info#contact');
+$router->get('/info/legalNotice', 'Info#legalNotice');
+$router->get('/info/termsCondition', 'Info#termsCondition');
+
 $router->run();
