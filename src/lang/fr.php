@@ -233,8 +233,18 @@ const DELIVERY_TEXT_P4 ="Vous serez informé par e-mail une fois que votre comma
 const DELIVERY_TEXT_P5 ="Si vous avez des questions ou des préoccupations concernant notre politique de livraison, n'hésitez pas à contacter notre service clientèle pour plus d'informations.";
 
 
-const SHIPPING_TITTLE="Conditions de retour";
+const SHIPPING_TITTLE ="Conditions de retour";
 const SHIPPING_TEXT_P1 = "Nos produits peuvent être retournés dans un délai de 14 jours suivant la réception de votre commande. Pour être admissible à un retour, votre article doit être dans le même état que lorsque vous l'avez reçu et dans son emballage d'origine. Veuillez noter que les frais de livraison ne sont pas remboursables et que les frais de retour sont à votre charge.";
 const SHIPPING_TEXT_P2 = "Veuillez contacter notre service client avant de nous retourner un produit. Nous vous fournirons alors les instructions pour effectuer le retour en utilisant notre transporteur sous-traitant. Si le retour est accepté, nous vous rembourserons le prix du produit, moins les frais de livraison initiaux.";
 const SHIPPING_TEXT_P3 = "Veuillez noter que certains produits sont exclus de notre politique de retour, tels que les produits personnalisés ou sur commande spéciale. Ces exclusions seront clairement indiquées lors de votre achat.";
 const SHIPPING_TEXT_P4 = "Si vous avez des questions ou des préoccupations concernant notre politique de retour, n'hésitez pas à contacter notre service clientèle pour plus d'informations";
+
+/*************** Client support ***************/
+
+const LINK__TERMS_CONDITION = "Nos conditions générales";
+const LINK_LEGAL_NOTICE ="Nos mentions légales";
+const LINK_SHIPPING_RETURN ="Nos conditions d'envoi et retour";
+
+const TEXT_TERMS_NOTICE ="Bienvenue sur notre plateforme, avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
+const TEXT_SHIPPING_RETURN = "Si vous avez des questions au sujet de l'envoie et du retour de nos produits veuillez consulter nos conditions ici";
+const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via la page contact";

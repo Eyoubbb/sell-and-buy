@@ -232,3 +232,13 @@ const SHIPPING_TEXT_P1 = "Our products can be returned within 14 days of receivi
 const SHIPPING_TEXT_P2 = "Please contact our customer service department before returning any product. We will then provide you with instructions on how to make the return using our subcontracted carrier. If the return is accepted, we will refund the price of the product, less the original shipping cost.";
 const SHIPPING_TEXT_P3 = "Please note that some products are excluded from our return policy, such as personalized or special order products. These exclusions will be clearly indicated at the time of your purchase.";
 const SHIPPING_TEXT_P4 = "If you have any questions or concerns regarding our return policy, please contact our customer service department for more information";
+
+/*************** Client support ***************/
+
+const LINK__TERMS_CONDITION = "Our general conditions";
+const LINK_LEGAL_NOTICE ="Our legal notice";
+const LINK_SHIPPING_RETURN ="Our shipping and return conditions";
+
+const TEXT_TERMS_NOTICE ="Welcome to our platform, before any questions please read our general conditions and our legal notice";
+const TEXT_SHIPPING_RETURN = "If you have any questions about shipping and returns, please see our terms and conditions here";
+const TEXT_CONTACT= "For all other questions you can consult us via the contact page";
