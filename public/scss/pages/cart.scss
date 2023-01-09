@@ -25,6 +25,10 @@ section.cart {
     div.info-cart {
         display: flex;
         justify-content: flex-end;
+
+        @include media(s) {
+            justify-content: center;
+        }
     }
 
     div.cart-buttons {
@@ -67,6 +71,10 @@ section.cart {
 
 
             }
+        }
+
+        @include media(s) {
+            align-items: center;
         }
     }
 }

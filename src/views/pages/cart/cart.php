@@ -20,12 +20,12 @@
                 echo <<<HTML
                 <table>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th>$labelProduct</th>
-                        <th>$labelQuantity</th>
-                        <th>$labelPrice</th>
-                        <th>$labelTotal</th>
+                        <td></th>
+                        <td></th>
+                        <td>$labelProduct</th>
+                        <td>$labelQuantity</th>
+                        <td>$labelPrice</th>
+                        <td>$labelTotal</th>
                     </tr>
                 HTML;
 
