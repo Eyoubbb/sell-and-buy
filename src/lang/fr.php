@@ -102,7 +102,7 @@ const NAV_REGISTER = "S'inscrire";
 const NAV_CREATOR = "Createurs";
 const NAV_SHOP = "Acheter";
 const NAV_COLLECTIONS = "Collections";
-const NAV_PAGES = "Pages";
+const NAV_CART = "Mon Panier";
 const NAV_ACCOUNT = "Mon compte";
 const NAV_ACCOUNT_SETTINGS = "Paramètres";
 const NAV_NEW_PRODUCT = "Nouveau produit";
@@ -196,9 +196,21 @@ const FORM_TWITTER_PLACEHOLDER = "@twitter";
 const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
 const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
 
+/*************** CART ***************/
 
-/*************** delivery ***************/
-
+const CART_PRICE = "Prix total";
+const CART_PRICE_DISCOUNT = "Prix total avec réduction";
+const CART_EMPTY = "Votre panier est vide";
+const CART_CONTINUE = "Continuer mes achats";
+const CART_CHECKOUT = "Passer la commande";
+const CART_DELETE = "Vider mon panier";
+const CART_TOTAL = "Nombre total d'articles";
+const CART_LABEL_PRODUCT = "Produit";
+const CART_LABEL_QUANTITY = "Quantité";
+const CART_LABEL_PRICE = "Prix";
+const CART_LABEL_TOTAL = "Total";
+const CART_EXPEDITION = "Livraison";
+const CART_CHECKOUT_ERREUR = "Vous ne pouvez pas passer votre commande pour l'instant";
 
 /*************** Infos ***************/
 
@@ -278,3 +290,4 @@ const TEXT_WELCOME = "Bienvenue sur notre page d'aide";
 const TEXT_TERMS_NOTICE ="Avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
 const TEXT_SHIPPING_RETURN = "Si vous avez des questions au sujet de l'envoie et du retour de nos produits veuillez consulter nos conditions ici";
 const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via la page contact";
+>>>>>>> src/lang/fr.php

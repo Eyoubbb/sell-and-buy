@@ -8,6 +8,7 @@
 	$searchUrl = $data['routes']['GET:Home#index']->getUrl();
 	$settingsUrl = $data['routes']['GET:Home#index']->getUrl();
 	$askCreatorUrl = $data['routes']['GET:Creator#ask']->getUrl();
+	$carturl = $data['routes']['GET:Cart#cart']->getUrl();
 	$newProductUrl = $data['routes']['GET:Product#new']->getUrl();
 
 	if (isLoggedIn()) {
@@ -27,7 +28,7 @@
 				<a style="font-weight: bold;" class="hover-link" href="<?= $homeUrl ?>"><?= NAV_SHOP ?></a>
 			</li>
 			<li>
-				<a class="hover-link" href="<?= $homeUrl ?>"><?= NAV_PAGES ?></a>
+				<a class="hover-link" href="<?= $carturl ?>"><?= NAV_CART ?></a>
 			</li>
 			<li>
 				<a class="hover-link" href="<?= $homeUrl ?>"><?= NAV_COLLECTIONS ?></a>
@@ -57,7 +58,7 @@
 					<a style="font-weight: bold;" href="<?= $homeUrl ?>"><?= NAV_SHOP ?></a>
 				</li>
 				<li>
-					<a href="<?= $homeUrl ?>"><?= NAV_PAGES ?></a>
+					<a href="<?= $homeUrl ?>"><?= NAV_CART ?></a>
 				</li>
 				<li>
 					<a href="<?= $homeUrl ?>"><?= NAV_COLLECTIONS ?></a>
@@ -100,6 +101,9 @@
 				<?php
 					if ($user) {
 						$settingsText = NAV_ACCOUNT_SETTINGS;
+						$askCreatorText = BECOME_CREATOR;
+						$cartText = NAV_CART;
+
 						echo <<<HTML
 							<li class="profile">
 								<a href="$logoutUrl">
@@ -124,6 +128,9 @@
 						}
 
 						echo <<<HTML
+							<li>
+								<a href="$carturl">$cartText</a>
+							</li>
 							<li>
 								<a href="$url">$text</a>
 							</li>

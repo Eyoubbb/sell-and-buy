@@ -102,7 +102,7 @@ const NAV_REGISTER = "Register";
 const NAV_CREATOR = "Creators";
 const NAV_SHOP = "Shop";
 const NAV_COLLECTIONS = "Collections";
-const NAV_PAGES = "Pages";
+const NAV_CART = "My Cart";
 const NAV_ACCOUNT = "My account";
 const NAV_ACCOUNT_SETTINGS = "Settings";
 const NAV_NEW_PRODUCT = "New product";
@@ -197,6 +197,21 @@ const FORM_TWITTER_PLACEHOLDER = "@twitter";
 const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
 const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
 
+/*************** CART ***************/
+
+const CART_PRICE = "Total price";
+const CART_PRICE_DISCOUNT = "Total price with discount";
+const CART_EMPTY = "Your cart is empty";
+const CART_CONTINUE = "Continue shopping";
+const CART_CHECKOUT = "Checkout";
+const CART_CHECKOUT_ERREUR = "You cant checkout for the moment";
+const CART_DELETE = "Clear cart";
+const CART_TOTAL = "Total number of articles";
+const CART_LABEL_PRODUCT = "Product";
+const CART_LABEL_QUANTITY = "Quantity";
+const CART_LABEL_PRICE = "Price";
+const CART_LABEL_TOTAL = "Total";
+const CART_EXPEDITION = "Expedition";
 
 /*************** Infos ***************/
 

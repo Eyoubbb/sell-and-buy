@@ -14,6 +14,12 @@ $router->get('/logout', 'User#logout');
 $router->get('/register', 'User#register');
 $router->post('/register', 'User#register');
 
+$router->get('/cart', 'Cart#cart');
+$router->get('/cart/increaseQuantity/:id', 'Cart#increaseQuantity')->with('id', '[0-9]+');
+$router->get('/cart/decreaseQuantity/:id', 'Cart#decreaseQuantity')->with('id', '[0-9]+');
+$router->get('/cart/deleteProduct/:id', 'Cart#deleteProduct')->with('id', '[0-9]+');
+$router->get('/cart/deleteCart/:id', 'Cart#deleteCart')->with('id', '[0-9]+');
+
 $router->get('/product/:id', 'Product#index')->with('id', '[0-9]+');
 
 $router->get('/product/:id/edit', 'Product#edit')->with('id', '[0-9]+');

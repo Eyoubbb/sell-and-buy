@@ -3,6 +3,7 @@
 	$creator = $data['creator'];
 	$loginUrl = $data['routes']['GET:User#login']->getUrl();
 	$creatorUrl = $data['routes']['GET:Creator#index']->getUrl(['id' => $creator->getId()]);
+	$addToCartUrl = $data['routes']['GET:Cart#increaseQuantity']->getUrl(['id' => $product->getId()]);
 	$cartUrl = $data['routes']['GET:Product#index']->getUrl(['id' => $product->getId()]); // either dynamic url or query string
 	$editUrl = $data['routes']['GET:Product#edit']->getUrl(['id' => $product->getId()]);
 	$deleteUrl = $data['routes']['GET:Product#delete']->getUrl(['id' => $product->getId()]);
@@ -68,7 +69,7 @@
 				<img src="<?= PATH_IMAGES . 'user.svg' ?>">
 				<?= $creator->getFullName() ?>
 			</a>
-			<a href="<?= isLoggedIn() ? $cartUrl : $loginUrl ?>" title="Add to cart">
+			<a href="<?= isLoggedIn() ? $addToCartUrl : $loginUrl ?>" title="Add to cart">
 				<img src="<?= PATH_IMAGES . 'cart.svg' ?>">
 				<?= PRODUCT_ADD_TO_CART ?>
 			</a>
