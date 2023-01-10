@@ -22,13 +22,13 @@ class ProductModel extends Model {
 			$this->setError('ERROR_FETCHING_PRODUCTS');
 			return false;
 		}
-		
+
 		$products = [];
 		$creators = [];
 
 		foreach ($resProducts as $row) {
 			$products[] = new Product($row);
-			
+
 			if (!isset($creators[$row['user_id']])) {
 				$creators[$row['user_id']] = new User($row);
 			}
@@ -42,7 +42,7 @@ class ProductModel extends Model {
 			$this->setError('ERROR_FETCHING_CATEGORIES');
 			return false;
 		}
-		
+
 		return [
 			'products' => $products,
 			'creators' => $creators,
@@ -109,6 +109,154 @@ class ProductModel extends Model {
 			'comments' => $comments,
 			'similarProducts' => $similarProducts
 		];
+	}
+
+	public function productForm(?int $id = null): array | false {
+		$categoryDAO = $this->dao('Category');
+
+		$categories = $categoryDAO->findAll();
+
+		if ($categories === false) {
+			$this->setError('ERROR_FETCHING_CATEGORIES');
+			return false;
+		}
+
+		if (!$id) {
+			return [
+				'categories' => $categories
+			];
+		}
+
+		$productDAO = $this->dao('Product');
+		$product = $productDAO->findById(['product_id' => $id]);
+
+		if ($product === false) {
+			$this->setError('ERROR_FETCHING_PRODUCT');
+			return false;
+		}
+
+		return [
+			'categories' => $categories,
+			'product' => $product
+		];
+	}
+
+	public function saveNew(): array | false {
+		[
+			'name' => $name,
+			'description_fr' => $descriptionFr,
+			'description_en' => $descriptionEn,
+			'price' => $price,
+			'category_id' => $categoryId
+		] = $_POST;
+
+		$image = $_FILES['image'];
+
+		$resExif = exif_imagetype($image['tmp_name']);
+		if (!in_array($resExif, [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WEBP])) {
+			$this->setError('INVALID_PICTURE');
+			return false;
+		}
+
+		if ($image['size'] > 5_000_000) {
+			$this->setError('PICTURE_TOO_BIG');
+			return false;
+		}
+
+		$productDAO = $this->dao('Product');
+
+		$product = new Product();
+		$product->setName($name);
+		$product->setDescriptionFr($descriptionFr);
+		$product->setDescriptionEn($descriptionEn);
+		$product->setPrice($price);
+		$product->setCategoryId($categoryId);
+		$product->setCreatorId(unserialize($_SESSION['user'])->getId());
+
+		$productId = $productDAO->insertProduct($product);
+
+		if ($productId === false) {
+			$this->setError('ERROR_INSERTING_PRODUCT');
+			return false;
+		}
+
+		$product->setId($productId);
+
+		$fileName = "PROD-$productId." . pathinfo($image['name'], PATHINFO_EXTENSION);
+
+		if (!move_uploaded_file($image['tmp_name'], PATH_UPLOAD_PRODUCT_IMAGES . $fileName)) {
+			$productDAO->rollBack();
+			$this->setError('ERROR_UPLOADING_PICTURE');
+			return false;
+		}
+
+		$product->setImageUrl($fileName);
+
+		if ($productDAO->updateImageUrl($product) === false) {
+			$productDAO->rollBack();
+			unlink(PATH_UPLOAD_PRODUCT_IMAGES . $fileName);
+			$this->setError('ERROR_UPDATING_PICTURE_URL');
+			return false;
+		}
+
+		$productDAO->commit();
+		return [
+			'product' => $product
+		];
+	}
+
+	public function edit($id): array | false {
+		[
+			'name' => $name,
+			'description_fr' => $descriptionFr,
+			'description_en' => $descriptionEn,
+			'price' => $price,
+			'category_id' => $categoryId
+		] = $_POST;
+
+		$productDAO = $this->dao('Product');
+
+		$product = new Product();
+		$product->setId($id);
+		$product->setName($name);
+		$product->setDescriptionFr($descriptionFr);
+		$product->setDescriptionEn($descriptionEn);
+		$product->setPrice($price);
+		$product->setCategoryId($categoryId);
+
+		if ($productDAO->updateProduct($product) === false) {
+			$this->setError('ERROR_UPDATING_PRODUCT');
+			return false;
+		}
+
+		return [
+			'product' => $product
+		];
+	}
+
+	public function delete($id): int | false {
+		$productDAO = $this->dao('Product');
+
+		$resProduct = $productDAO->findById(['product_id' => $id]);
+
+		if ($resProduct === false) {
+			$this->setError('ERROR_FETCHING_PRODUCT');
+			return false;
+		}
+
+		if (unlink(PATH_UPLOAD_PRODUCT_IMAGES . $resProduct->getImageUrl()) === false) {
+			$this->setError('ERROR_DELETING_PRODUCT_IMAGE');
+			return false;
+		}
+
+		$resDelete = $productDAO->delete(['product_id' => $id]);
+
+		if ($resDelete === false) {
+			$this->setError('ERROR_DELETING_PRODUCT');
+			return false;
+		}
+
+		return $resDelete;
 	}
 
 }

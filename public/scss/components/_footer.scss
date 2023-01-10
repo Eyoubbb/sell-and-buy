@@ -98,3 +98,18 @@ footer {
 		}
 	}
 }
+
+a.hover-link {
+	position: relative;
+	white-space: nowrap;
+
+	@include pseudo($pos: auto auto 0 0) {
+		@include size(0, .1em);
+		background-color: black;
+		transition: width .3s ease;
+	}
+
+	&:hover::after {
+		width: 100%;
+	}
+}
