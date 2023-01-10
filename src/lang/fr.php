@@ -290,4 +290,3 @@ const TEXT_WELCOME = "Bienvenue sur notre page d'aide";
 const TEXT_TERMS_NOTICE ="Avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
 const TEXT_SHIPPING_RETURN = "Si vous avez des questions au sujet de l'envoie et du retour de nos produits veuillez consulter nos conditions ici";
 const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via la page contact";
->>>>>>> src/lang/fr.php
