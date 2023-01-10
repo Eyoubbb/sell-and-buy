@@ -32,7 +32,7 @@ class CartController extends Controller {
 		$this->view('cart/cart', $data);
 	}
 
-	public function add(int $id): void {
+	public function increaseQuantity(int $id): void {
 		
 		if (!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
@@ -42,25 +42,25 @@ class CartController extends Controller {
 		$user = unserialize($_SESSION['user']);
 		$productId = $id;
 
-		$res = $model->add($user->getId(), $productId);
+		$res = $model->increaseQuantity($user->getId(), $productId);
 
 		redirect($this->getRoutes()['GET:Cart#cart']);
 	}
 
-	public function delete(int $id): void {
+	public function decreaseQuantity(int $id): void {
 
 		$model = $this->model('Cart');
 		$user = unserialize($_SESSION['user']);
-		$res = $model->delete($user->getId(), $id);
+		$res = $model->decreaseQuantity($user->getId(), $id);
 
 		redirect($this->getRoutes()['GET:Cart#cart']);
 	}
 
-	public function deleteAllProduct(int $id): void {
+	public function deleteProduct(int $id): void {
 
 		$model = $this->model('Cart');
 		$user = unserialize($_SESSION['user']);
-		$res = $model->deleteAllProduct($user->getId(), $id);
+		$res = $model->deleteProduct($user->getId(), $id);
 
 		redirect($this->getRoutes()['GET:Cart#cart']);
 	}
@@ -69,7 +69,7 @@ class CartController extends Controller {
 
 		$model = $this->model('Cart');
 		$user = unserialize($_SESSION['user']);
-		$res = $model->deleteAllCart($user->getId());
+		$res = $model->deleteCart($user->getId());
 
 		redirect($this->getRoutes()['GET:Home#index']);
 	}

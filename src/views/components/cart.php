@@ -1,9 +1,9 @@
 <?php 
 	$newPrice = round($product->getPrice() - ($product->getPrice() * $product->getDiscountPercentage() / 100), 0);
 	$productURL = $data['routes']['GET:Product#index']->getUrl(['id' => $product->getId()]);
-	$delete = $data['routes']['GET:Cart#delete']->getUrl(['id' => $product->getId()]);
-    $deleteAllProduct = $data['routes']['GET:Cart#deleteAllProduct']->getUrl(['id' => $product->getId()]);
-	$add = $data['routes']['GET:Cart#add']->getUrl(['id' => $product->getId()]);
+	$delete = $data['routes']['GET:Cart#decreaseQuantity']->getUrl(['id' => $product->getId()]);
+    $deleteAllProduct = $data['routes']['GET:Cart#deleteProduct']->getUrl(['id' => $product->getId()]);
+	$add = $data['routes']['GET:Cart#increaseQuantity']->getUrl(['id' => $product->getId()]);
 	$product_quantity = $data['pdCount'][$product->getId()]['quantity'];
 	$total_price = round($newPrice * $product_quantity);
  ?>

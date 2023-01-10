@@ -49,7 +49,7 @@ class CartModel extends Model {
         ];
 	}
 
-    public function add(int $user_id, int $product_id): bool {
+    public function increaseQuantity(int $user_id, int $product_id): bool {
         
         $cartDAO = $this->dao('Cart');
 
@@ -72,14 +72,14 @@ class CartModel extends Model {
         $resCart = $cartDAO->addProductToCart($user_id, $product_id, 1);
 
         if ($resCart === false) {
-            $this->setError('ERROR_ADD_CART');
+            $this->setError('ERROR_INCREASE_QUANTITY');
             return false;
         }
 
         return true;
     }
 
-    public function delete(int $user_id, int $product_id): bool {
+    public function decreaseQuantity(int $user_id, int $product_id): bool {
         
         $cartDAO = $this->dao('Cart');
 
@@ -97,35 +97,35 @@ class CartModel extends Model {
         $rescart = $cartDAO->updateProductToCart($user_id, $product_id, $row['cart_quantity'] - 1);
 
         if ($resCarts === false) {
-            $this->setError('ERROR_DELETE_CART');
+            $this->setError('ERROR_DECREASE_QUANTITY');
             return false;
         }
 
         return true;
     }
 
-    public function deleteAllProduct(int $user_id, int $product_id): bool {
+    public function deleteProduct(int $user_id, int $product_id): bool {
         
         $cartDAO = $this->dao('Cart');
 
         $resCarts = $cartDAO->deleteProductFromCart($user_id, $product_id);
 
         if ($resCarts === false) {
-            $this->setError('ERROR_DELETE_CART');
+            $this->setError('ERROR_DELETE_ALL_PRODUCT');
             return false;
         }
 
         return true;
     }
 
-    public function deleteAllCart(int $user_id): bool {
+    public function deleteCart(int $user_id): bool {
         
         $cartDAO = $this->dao('Cart');
 
         $resCarts = $cartDAO->deleteAllProductFromCart($user_id);
 
         if ($resCarts === false) {
-            $this->setError('ERROR_DELETE_CART');
+            $this->setError('ERROR_DELETE_ALL_CART');
             return false;
         }
 
