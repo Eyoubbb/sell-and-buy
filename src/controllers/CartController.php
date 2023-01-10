@@ -65,7 +65,7 @@ class CartController extends Controller {
 		redirect($this->getRoutes()['GET:Cart#cart']);
 	}
 
-	public function deleteAllCart(int $id): void {
+	public function deleteCart(int $id): void {
 
 		$model = $this->model('Cart');
 		$user = unserialize($_SESSION['user']);

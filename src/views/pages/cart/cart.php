@@ -1,6 +1,6 @@
 <?=
     $homeUrl = $data['routes']['GET:Home#index']->getUrl();
-	$deleteAllCart = $data['routes']['GET:Cart#deleteAllCart']->getUrl(['id' => unserialize($_SESSION['user'])->getId()]);
+	$deleteCart = $data['routes']['GET:Cart#deleteCart']->getUrl(['id' => unserialize($_SESSION['user'])->getId()]);
 ?>
 
 <section class="cart">
@@ -56,7 +56,7 @@
                     <a href="#" class="btn btn-primary"><?= CART_CHECKOUT ?></a>
                 </button>
                 <button>
-                    <a href="<?= $deleteAllCart ?>" class="btn btn-primary"><?= CART_DELETE ?></a>
+                    <a href="<?= $deleteCart ?>" class="btn btn-primary"><?= CART_DELETE ?></a>
                 </button>
                 <button>
                     <a href="<?= $homeUrl ?>" class="btn btn-primary"><?= CART_CONTINUE ?></a>

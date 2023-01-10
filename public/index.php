@@ -18,7 +18,7 @@ $router->get('/cart', 'Cart#cart');
 $router->get('/cart/add/:id', 'Cart#add')->with('id', '[0-9]+');
 $router->get('/cart/delete/:id', 'Cart#delete')->with('id', '[0-9]+');
 $router->get('/cart/deleteAllProduct/:id', 'Cart#deleteAllProduct')->with('id', '[0-9]+');
-$router->get('/cart/deleteAllCart/:id', 'Cart#deleteAllCart')->with('id', '[0-9]+');
+$router->get('/cart/deleteCart/:id', 'Cart#deleteCart')->with('id', '[0-9]+');
  
 $router->get('/product/:id', 'Product#index')->with('id', '[0-9]+');
 
