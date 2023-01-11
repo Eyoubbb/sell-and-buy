@@ -74,6 +74,7 @@ const ERROR_EXTRAS = "That's all we know.";
 /*************** Admin ***************/
 
 const ADMIN_WINDOW_TITLE = "Admin";
+const ADMIN_BUTTON = "Open support page";
 
 /*************** Tickets ***************/
 

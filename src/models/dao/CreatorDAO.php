@@ -19,5 +19,13 @@ class CreatorDAO extends DAO {
 		
 		return $this->queryRow($sql, [$id], false);
 	}
+
+	public function insertCreator(Creator $creator) {
+		return $this->insert([
+            'creator_id' => $creator->getId(),
+            'creator_description' => $creator->getDescription(),
+            'creator_banner_url' => $creator->getBannerUrl(),
+        ]);
+	}
 	
 }

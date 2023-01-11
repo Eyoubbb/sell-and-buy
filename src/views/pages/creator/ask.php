@@ -47,13 +47,12 @@
 					<label for="input-banner"><?= CREATOR_BANNIERE ?></label>
 					<input type="file" name="banner" id="input-banner" required>
 					<label for="input-description"><?= CREATOR_DESCRIPTION ?></label>
-					<textarea name="motive" id="input-description" maxlength="500" cols="30" rows="10" placeholder="<?= CREATOR_PLACEHOLDER_TEXTAREA ?>" required></textarea>
+					<textarea name="description" id="input-description" maxlength="500" cols="30" rows="10" placeholder="<?= CREATOR_PLACEHOLDER_TEXTAREA ?>" required></textarea>
 				</div>
 				<div class="commands">
 					<button class="previous" type="button"><?= REGISTER_PREVIOUS ?></button>
 					<button class="next"><?= CREATOR_OVERVIEW ?></button>
-					<button class="submit"><?= CREATOR_SUBMIT ?></button>
-
+					<button type="submit"><?= CREATOR_SUBMIT ?></button>
 				</div>
 			</fieldset>
 		</div>
