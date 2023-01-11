@@ -256,3 +256,8 @@ const LINK_SHIPPING_RETURN ="Nos conditions d'envoi et retour";
 const TEXT_TERMS_NOTICE ="Bienvenue sur notre plateforme, avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
 const TEXT_SHIPPING_RETURN = "Si vous avez des questions au sujet de l'envoie et du retour de nos produits veuillez consulter nos conditions ici";
 const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via la page contact";
+
+
+
+const PRODUCTUCT_INVALID ="Produit inexistant";
+CONST PROFILE_INVALID = "Créateur inexistant";
