@@ -1,7 +1,11 @@
 <?php
+if (isset($data['error']) && $data['error'] === 'ERROR_CREATOR_NOT_FOUND') {
+	echo '<span>' . PROFILE_INVALID . '</span>';
+}else{
 	$creator = $data['creator'];
 	$socialMedias = $data['socialMedias'];
 	$products = $data['products'];
+}
 ?>
 <img class="banner" src="<?= PATH_CREATORS . $creator->getBannerUrl() ?>" alt="<?= ALT_BANNIERE ?>">
 <section class="profile-container">
