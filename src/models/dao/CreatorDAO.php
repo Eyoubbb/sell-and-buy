@@ -44,5 +44,9 @@ class CreatorDAO extends DAO {
 				WHERE creator_id = ?";
 		return $this->rowCount($sql, [$visibility, $creator_id]);
 	}
+
+	public function deleteCreator(int $creator_id) {
+		return $this->delete(['creator_id' => $creator_id]);
+	}
 	
 }

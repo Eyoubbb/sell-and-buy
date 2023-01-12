@@ -113,6 +113,18 @@ class TicketModel extends Model {
 			$this->setError('ERROR_DELETING_TICKET');
 			return false;
 		}
+
+		if ($ticket->getTicketTypeId() === 5) {
+			
+			$creatorDAO = $this->dao('Creator');
+			$creator = new Creator($creatorDAO->findAllTypesCreatorById($ticket->getUserId()));
+
+			if ($creator->getVisible() === false) {
+				$res = $creatorDAO->deleteCreator($creator->getId());
+			}
+			
+		}
+
 		return true;
 	}
 }
