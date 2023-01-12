@@ -20,6 +20,16 @@ class CreatorDAO extends DAO {
 		return $this->queryRow($sql, [$id], false);
 	}
 
+	public function findAllTypesCreatorById($id) {
+		$sql = "SELECT *
+				FROM {$this->getTable()} C
+				JOIN users U
+					ON C.creator_id = U.user_id
+				WHERE creator_id = ?";
+		
+		return $this->queryRow($sql, [$id], false);
+	}
+
 	public function insertCreator(Creator $creator) {
 		return $this->insert([
             'creator_id' => $creator->getId(),

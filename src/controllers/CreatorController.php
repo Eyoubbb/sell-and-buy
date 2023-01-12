@@ -29,7 +29,7 @@ class CreatorController extends Controller {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
 		if (isCreator() || isUnverifiedCreator()) {
-			redirect($this->getRoutes()['GET:User#logout']);
+			redirect($this->getRoutes()['GET:Home#index']);
 		}
 
 		if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['description'])) {
@@ -39,7 +39,7 @@ class CreatorController extends Controller {
 			$res = $creatorModel->ask();
 
 			if ($res !== false) {
-				redirect($this->getRoutes()['GET:Home#index']);
+				redirect($this->getRoutes()['GET:User#logout']);
 			}
 
 			$data['error'] = $model->getError();
