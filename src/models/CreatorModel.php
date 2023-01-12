@@ -51,11 +51,38 @@ class CreatorModel extends Model {
 		$creator->setId($user->getId());
 		$creator->setDescription($description);
 		$creator->setBannerUrl($banner);
+		$creator->setVisible(false);
 
 		$resInsert = $creatorDAO->insertCreator($creator);
 
 		if ($resInsert === false) {
 			$this->setError('ERROR_CREATING_CREATOR');
+			return false;
+		}
+
+		$adminDAO = $this->dao('Admin');
+		
+		$res = $adminDAO->getAllAdmins();
+
+		if ($res === false) {
+			$this->setError('ERROR_FETCHING_ADMINS');
+			return false;
+		}
+
+		$randomAdmin = rand(0, count($res) - 1);
+
+		
+		$ticketDAO = $this->dao('Ticket');
+
+		$ticket = new Ticket();
+		$ticket->setUserId($user->getId());
+		$ticket->setTicketTypeId(5);
+		$ticket->setAdminId($res[$randomAdmin]['admin_id']);
+
+		$resTicket = $ticketDAO->createTicket($ticket);
+
+		if ($resTicket === false) {
+			$this->setError('ERROR_CREATING_TICKET');
 			return false;
 		}
 
