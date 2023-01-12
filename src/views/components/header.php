@@ -120,12 +120,15 @@
 							</li>
 						HTML;
 
-						if ($user instanceof Creator) {
+						if (isCreator()) {
 							$text = NAV_NEW_PRODUCT;
 							$url = $newProductUrl;
 						} else if(isAdmin()) {
 							$text = ADMIN_BUTTON;
 							$url = $adminSupportUrl;
+						} else if (isUnverifiedCreator()) {
+							$text = NAV_VERIFICATION_PENDING;
+							$url = "#";
 						} else {
 							$text = BECOME_CREATOR;
 							$url = $askCreatorUrl;

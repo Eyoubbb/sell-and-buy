@@ -107,6 +107,7 @@ const NAV_CART = "My Cart";
 const NAV_ACCOUNT = "My account";
 const NAV_ACCOUNT_SETTINGS = "Settings";
 const NAV_NEW_PRODUCT = "New product";
+const NAV_VERIFICATION_PENDING = "Verification pending";
 
 /*************** Footer ***************/
 
