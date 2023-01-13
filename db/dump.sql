@@ -711,7 +711,7 @@ INSERT INTO `socialmedias` (`SOCIAL_MEDIA_ID`, `SOCIAL_MEDIA_NAME`, `SOCIAL_MEDI
 (2, 'Instagram', 'https://instagram.com/', 'SM-2.svg'),
 (3, 'YouTube', 'https://youtube.com/@', 'SM-3.svg'),
 (4, 'Pinterest', 'https://pinterest.com/', 'SM-4.svg'),
-(5, 'Website', 'https://', 'SM-5.svg'),
+(5, 'Website', '', 'SM-5.svg'),
 (6, 'Twitter', 'https://twitter.com/', 'SM-6.svg');
 
 -- --------------------------------------------------------

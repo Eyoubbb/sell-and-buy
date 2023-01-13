@@ -53,12 +53,75 @@ class CreatorModel extends Model {
 		$creator->setBannerUrl($banner);
 		$creator->setVisible(false);
 
-		$resInsert = $creatorDAO->insertCreator($creator);
+		$creatorId = $creatorDAO->insertCreator($creator);
 
-		if ($resInsert === false) {
+		if ($creatorId === false) {
 			$this->setError('ERROR_CREATING_CREATOR');
 			return false;
 		}
+
+		$socialMediaAccountsDAO = $this->dao('SocialMediaAccounts');
+
+		if ( !empty($_POST['facebook'])) {
+			$socials = $_POST['facebook'];
+			$res = $socialMediaAccountsDAO->setMediaAccount($user->getId(), 1, $socials);
+
+			if ($res === false) {
+				$this->setError('ERROR_INSERTING_FACEBOOK');
+				return false;
+			}
+		}
+
+		if ( !empty($_POST['instagram'])) {
+			$socials = $_POST['instagram'];
+			$res = $socialMediaAccountsDAO->setMediaAccount($user->getId(), 2, $socials);
+
+			if ($res === false) {
+				$this->setError('ERROR_INSERTING_INSTAGRAM');
+				return false;
+			}
+		}
+
+		if ( !empty($_POST['youtube'])) {
+			$socials = $_POST['youtube'];
+			$res = $socialMediaAccountsDAO->setMediaAccount($user->getId(), 3, $socials);
+
+			if ($res === false) {
+				$this->setError('ERROR_INSERTING_YOUTUBE');
+				return false;
+			}
+		}
+
+		if ( !empty($_POST['pinterest'])) {
+			$socials = $_POST['pinterest'];
+			$res = $socialMediaAccountsDAO->setMediaAccount($user->getId(), 4, $socials);
+
+			if ($res === false) {
+				$this->setError('ERROR_INSERTING_PINEREST');
+				return false;
+			}
+		}
+
+		if ( !empty($_POST['website'])) {
+			$socials = $_POST['website'];
+			$res = $socialMediaAccountsDAO->setMediaAccount($user->getId(), 5, $socials);
+
+			if ($res === false) {
+				$this->setError('ERROR_INSERTING_WEBISTE');
+				return false;
+			}
+		}
+
+		if ( !empty($_POST['twitter'])) {
+			$socials = $_POST['twitter'];
+			$res = $socialMediaAccountsDAO->setMediaAccount($user->getId(), 6, $socials);
+
+			if ($res === false) {
+				$this->setError('ERROR_INSERTING_TWITTER');
+				return false;
+			}
+		}
+
 
 		$adminDAO = $this->dao('Admin');
 		

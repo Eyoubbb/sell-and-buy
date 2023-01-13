@@ -120,7 +120,11 @@ class TicketModel extends Model {
 			$creator = new Creator($creatorDAO->findAllTypesCreatorById($ticket->getUserId()));
 
 			if ($creator->getVisible() === false) {
-				$res = $creatorDAO->deleteCreator($creator->getId());
+
+				$socialMediaAccountsDAO = $this->dao('SocialMediaAccounts');
+				$res = $socialMediaAccountsDAO->removeAllAccounts($creator->getId());
+
+				$resDelete = $creatorDAO->deleteCreator($creator->getId());
 			}
 			
 		}

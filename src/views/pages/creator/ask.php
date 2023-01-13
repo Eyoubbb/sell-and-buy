@@ -31,11 +31,12 @@
 			<fieldset class="step">
 				<div class="field">
 					<label for="instagram"><?= CREATOR_SOCIALS ?></label>
-					<input class="socials" type="text" name="social" placeholder="<?= CREATOR_INSTAGRAM ?>" id="instagram">
-					<input class="socials" type="text" name="social" placeholder="<?= CREATOR_FACEBOOK ?>" id="facebook">
-					<input class="socials" type="text" name="social" placeholder="<?= CREATOR_LINKEDIN ?>" id="linkedin">
-					<input class="socials" type="text" name="social" placeholder="<?= CREATOR_TWITTER ?>" id="twitter">
-					<input class="socials" type="text" name="social" placeholder="<?= CREATOR_TIKTOK ?>" id="tiktok">
+					<input class="socials" type="text" name="instagram" placeholder="<?= CREATOR_INSTAGRAM ?>" id="instagram">
+					<input class="socials" type="text" name="facebook" placeholder="<?= CREATOR_FACEBOOK ?>" id="facebook">
+					<input class="socials" type="text" name="youtube" placeholder="<?= CREATOR_YOUTUBE ?>" id="youtube">
+					<input class="socials" type="text" name="twitter" placeholder="<?= CREATOR_TWITTER ?>" id="twitter">
+					<input class="socials" type="text" name="pinterest" placeholder="<?= CREATOR_PINTEREST ?>" id="pinterest">
+					<input class="socials" type="text" name="website" placeholder="<?= CREATOR_WEBSITE ?>" id="website">
 				</div>
 				<div class="commands">
 					<button class="previous" type="button"><?= REGISTER_PREVIOUS ?></button>
