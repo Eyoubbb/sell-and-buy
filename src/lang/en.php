@@ -102,7 +102,7 @@ const NAV_REGISTER = "Register";
 const NAV_CREATOR = "Creators";
 const NAV_SHOP = "Shop";
 const NAV_COLLECTIONS = "Collections";
-const NAV_PAGES = "Pages";
+const NAV_CART = "My Cart";
 const NAV_ACCOUNT = "My account";
 const NAV_ACCOUNT_SETTINGS = "Settings";
 const NAV_NEW_PRODUCT = "New product";
@@ -197,6 +197,21 @@ const FORM_TWITTER_PLACEHOLDER = "@twitter";
 const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
 const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
 
+/*************** CART ***************/
+
+const CART_PRICE = "Total price";
+const CART_PRICE_DISCOUNT = "Total price with discount";
+const CART_EMPTY = "Your cart is empty";
+const CART_CONTINUE = "Continue shopping";
+const CART_CHECKOUT = "Checkout";
+const CART_CHECKOUT_ERREUR = "You cant checkout for the moment";
+const CART_DELETE = "Clear cart";
+const CART_TOTAL = "Total number of articles";
+const CART_LABEL_PRODUCT = "Product";
+const CART_LABEL_QUANTITY = "Quantity";
+const CART_LABEL_PRICE = "Price";
+const CART_LABEL_TOTAL = "Total";
+const CART_EXPEDITION = "Expedition";
 
 /*************** Infos ***************/
 
@@ -213,13 +228,13 @@ const CONTACT_ALT_CONTACT = "An illustration of two persons talking";
 
 /*************** Terms and Conditions ***************/
 
-const LEGAL_NOTICE_SUBTITLE = "Sell & Buy Terms of Use";
-const LEGAL_NOTICE_SECTION_ONE = "Welcome to our e-commerce site. By accessing and using our site, you agree to be bound by these terms and conditions of use and by all applicable laws and regulations. If you do not agree to these terms, please do not use our site. ";
+const LEGAL_NOTICE_SUBTITLE = "Legal notices of Sell & buy website";
+const LEGAL_NOTICE_SECTION_ONE = "The Sell & Buy site is produced and developed by Mathis Guerin, Hazim Asri, Eyoub Benkacem, Hedi Bouazza and Albert Vaillon residing in Lyon. ";
 const LEGAL_NOTICE_SECTION_TWO = "We reserve the right to modify these general conditions of use at any time. Your continued use of our site after any change to these Terms of Service means that you accept those changes. ";
 const LEGAL_NOTICE_SECTION_THREE = "We may change or discontinue our site, or any service or content on our site, at any time without notice. We will not be liable to you or any other party for any modification, suspension or discontinuance of our site or any service or content on our site. ";
 const LEGAL_NOTICE_SECTION_FOUR = "We do not warrant that our site will be available without interruption, error or faultlessness. We do not warrant that the results which may be obtained from the use of our site will be accurate or reliable. You agree that from time to time we may remove content from our site without notice.";
 const LEGAL_NOTICE_SECTION_FIVE = "You agree that we shall not be liable to you or any other party for any loss, damage, claim or other liability, including reasonable attorneys' fees, arising out of or in connection with your use of our site, including, but without limitation, any error, omission, defect, virus, transmission failure, system failure, communication line failure, loss of data or any other technical failure or any other cause. ";
-const LEGAL_NOTICE_TITLE_SECTION_ONE = "1. Terms of Service";
+const LEGAL_NOTICE_TITLE_SECTION_ONE = "1. Social reason";
 const LEGAL_NOTICE_TITLE_SECTION_TWO = "2. Amendments";
 const LEGAL_NOTICE_TITLE_SECTION_THREE = "3. Interruption";
 const LEGAL_NOTICE_TITLE_SECTION_FOUR = "4. Guarantee";
@@ -256,7 +271,7 @@ const DELIVERY_TEXT_P3 ="The estimated delivery time is indicated during the che
 const DELIVERY_TEXT_P4 ="You will be notified by email once your order has been shipped and you will receive a tracking number to monitor the status of your delivery.";
 const DELIVERY_TEXT_P5 ="If you have any questions or concerns regarding our shipping policy, please feel free to contact our customer service department for more information.";
 
-const SHIPPING_TITLE:"Terms of return";
+const SHIPPING_TITLE = "Terms of return";
 const SHIPPING_TEXT_P1 = "Our products can be returned within 14 days of receiving your order. To be eligible for a return, your item must be in the same condition as when you received it and in its original packaging. Please note that shipping charges are non-refundable and you are responsible for the return shipping costs.";
 const SHIPPING_TEXT_P2 = "Please contact our customer service department before returning any product. We will then provide you with instructions on how to make the return using our subcontracted carrier. If the return is accepted, we will refund the price of the product, less the original shipping cost.";
 const SHIPPING_TEXT_P3 = "Please note that some products are excluded from our return policy, such as personalized or special order products. These exclusions will be clearly indicated at the time of your purchase.";
@@ -264,10 +279,16 @@ const SHIPPING_TEXT_P4 = "If you have any questions or concerns regarding our re
 
 /*************** Client support ***************/
 
-const LINK__TERMS_CONDITION = "Our general conditions";
-const LINK_LEGAL_NOTICE ="Our legal notice";
-const LINK_SHIPPING_RETURN ="Our shipping and return conditions";
+const LINK__TERMS_CONDITION = "General conditions";
+const LINK_LEGAL_NOTICE ="Legal notice";
+const LINK_SHIPPING_RETURN ="Shipping and return conditions";
 
-const TEXT_TERMS_NOTICE ="Welcome to our platform, before any questions please read our general conditions and our legal notice";
+const TEXT_WELCOME = "Welcome to our client service page";
+const TEXT_TERMS_NOTICE ="Before any questions please read our general conditions and our legal notice";
 const TEXT_SHIPPING_RETURN = "If you have any questions about shipping and returns, please see our terms and conditions here";
 const TEXT_CONTACT= "For all other questions you can consult us via the contact page";
+
+
+
+const PRODUCTUCT_INVALID ="Produit inexistant";
+CONST PROFILE_INVALID = "Créateur inexistant";

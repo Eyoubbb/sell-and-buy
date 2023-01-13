@@ -1,20 +1,30 @@
 @use "../abstracts" as *;
 
 .form {
+
+	label {
+		color: black;
+		font-size: 1em;
+	}
+
 	form {
 		padding: 20px;
-		border: 1px solid hsl(0, 0%, 0%);
 		background-color: var(--primary-1);
+		border-radius: 15px;
 
 		display: flex;
 		flex-direction: column;
 
-		input, textarea, select {
-			padding: 5px 5px;
+		input,
+		textarea,
+		select {
 			margin: 8px 0;
 			box-sizing: border-box;
-			border: 1px solid rgb(0, 0, 0);
 			resize: none;
+			padding: 0.75em;
+			width: 100%;
+			border-radius: 10px;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 			&.social-media {
 				min-width: 100px;
@@ -26,7 +36,7 @@
 			padding: .7em;
 			color: hsl(0, 0%, 100%);
 			border: none;
-			border-radius: 4px;
+			border-radius: 10px;
 			cursor: pointer;
 		}
 

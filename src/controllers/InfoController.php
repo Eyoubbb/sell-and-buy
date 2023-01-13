@@ -8,18 +8,16 @@ class InfoController extends Controller {
         
         $data['title'] = INFO_WINDOW_TITLE;
         
-        $data['stylesheets'][] = 'pages/clientSupport';
+        $data['stylesheets'][] = 'pages/service-client';
 
         $data['header'] = true;
 		$data['footer'] = true;
 
-        $this->view('info/clientSupport', $data);
+        $this->view('info/service-client', $data);
     }
 
     public function contact(): void {
         
-        
-
         $data['title'] = INFO_CONTACT_WINDOW_TITLE;
         
         $data['stylesheets'][] = 'pages/infoContact';

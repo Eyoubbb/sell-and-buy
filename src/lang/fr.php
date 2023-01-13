@@ -102,7 +102,7 @@ const NAV_REGISTER = "S'inscrire";
 const NAV_CREATOR = "Createurs";
 const NAV_SHOP = "Acheter";
 const NAV_COLLECTIONS = "Collections";
-const NAV_PAGES = "Pages";
+const NAV_CART = "Mon Panier";
 const NAV_ACCOUNT = "Mon compte";
 const NAV_ACCOUNT_SETTINGS = "Paramètres";
 const NAV_NEW_PRODUCT = "Nouveau produit";
@@ -196,9 +196,21 @@ const FORM_TWITTER_PLACEHOLDER = "@twitter";
 const FORM_LINKEDIN_PLACEHOLDER = "@linkedin";
 const FORM_INSTAGRAM_PLACEHOLDER = "@instagram";
 
+/*************** CART ***************/
 
-/*************** delivery ***************/
-
+const CART_PRICE = "Prix total";
+const CART_PRICE_DISCOUNT = "Prix total avec réduction";
+const CART_EMPTY = "Votre panier est vide";
+const CART_CONTINUE = "Continuer mes achats";
+const CART_CHECKOUT = "Passer la commande";
+const CART_DELETE = "Vider mon panier";
+const CART_TOTAL = "Nombre total d'articles";
+const CART_LABEL_PRODUCT = "Produit";
+const CART_LABEL_QUANTITY = "Quantité";
+const CART_LABEL_PRICE = "Prix";
+const CART_LABEL_TOTAL = "Total";
+const CART_EXPEDITION = "Livraison";
+const CART_CHECKOUT_ERREUR = "Vous ne pouvez pas passer votre commande pour l'instant";
 
 /*************** Infos ***************/
 
@@ -215,13 +227,13 @@ const CONTACT_ALT_CONTACT = "Une image de deux personnes qui discutent";
 
 /*************** Legal Notice ***************/
 
-const LEGAL_NOTICE_SUBTITLE = "Conditions générales d'utilisation de Sell & Buy";
-const LEGAL_NOTICE_SECTION_ONE = "Bienvenue sur notre site de e-commerce. En accédant et en utilisant notre site, vous acceptez d'être lié par les présentes conditions générales d'utilisation et par toutes les lois et règlements en vigueur. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre site. ";
+const LEGAL_NOTICE_SUBTITLE = "Mentions légales du site Sell & Buy";
+const LEGAL_NOTICE_SECTION_ONE = "Le site Sell & Buy est porduit et développé par Mathis Guerin, Hazim Asri, Eyoub Benkacem, Hedi Bouazza et Albert Vaillon domicilié à Lyon.";
 const LEGAL_NOTICE_SECTION_TWO = "Nous nous réservons le droit de modifier les présentes conditions générales d'utilisation à tout moment. Votre utilisation continue de notre site après tout changement de ces conditions générales d'utilisation signifie que vous acceptez ces changements. ";
 const LEGAL_NOTICE_SECTION_THREE = "Nous pouvons modifier ou interrompre notre site, ou tout service ou tout contenu sur notre site, à tout moment sans préavis. Nous ne serons pas responsables envers vous ou toute autre partie de toute modification, suspension ou interruption de notre site ou de tout service ou contenu sur notre site. ";
 const LEGAL_NOTICE_SECTION_FOUR = "Nous ne garantissons pas que notre site sera disponible sans interruption, sans erreur ou sans faille. Nous ne garantissons pas que les résultats qui peuvent être obtenus de l'utilisation de notre site seront exacts ou fiables. Vous acceptez que de temps en temps, nous puissions supprimer le contenu de notre site sans préavis. ";
 const LEGAL_NOTICE_SECTION_FIVE = "Vous acceptez que nous ne serons pas responsables envers vous ou toute autre partie de toute perte, dommage, réclamation ou autre responsabilité, y compris les frais raisonnables d'avocats, résultant de ou en relation avec votre utilisation de notre site, y compris, mais sans s'y limiter, toute erreur, omission, défaut, virus, défaillance de transmission, pannes de système, échec de la ligne de communication, perte de données ou de toute autre panne technique ou de toute autre cause. ";
-const LEGAL_NOTICE_TITLE_SECTION_ONE = "1. Conditions générales d'utilisation";
+const LEGAL_NOTICE_TITLE_SECTION_ONE = "1. Raison Sociale";
 const LEGAL_NOTICE_TITLE_SECTION_TWO = "2. Modifications";
 const LEGAL_NOTICE_TITLE_SECTION_THREE = "3. Interruption";
 const LEGAL_NOTICE_TITLE_SECTION_FOUR = "4. Garantie";
@@ -270,10 +282,16 @@ const SHIPPING_TEXT_P4 = "Si vous avez des questions ou des préoccupations conc
 
 /*************** Client support ***************/
 
-const LINK__TERMS_CONDITION = "Nos conditions générales";
-const LINK_LEGAL_NOTICE ="Nos mentions légales";
-const LINK_SHIPPING_RETURN ="Nos conditions d'envoi et retour";
+const LINK__TERMS_CONDITION = "Conditions générales";
+const LINK_LEGAL_NOTICE ="Mentions légales";
+const LINK_SHIPPING_RETURN ="Livraison, envoi et retour";
 
-const TEXT_TERMS_NOTICE ="Bienvenue sur notre plateforme, avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
+const TEXT_WELCOME = "Bienvenue sur notre page d'aide";
+const TEXT_TERMS_NOTICE ="Avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
 const TEXT_SHIPPING_RETURN = "Si vous avez des questions au sujet de l'envoie et du retour de nos produits veuillez consulter nos conditions ici";
 const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via la page contact";
+
+
+
+const PRODUCTUCT_INVALID ="Produit inexistant";
+CONST PROFILE_INVALID = "Créateur inexistant";
