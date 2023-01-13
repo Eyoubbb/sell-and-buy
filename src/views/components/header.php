@@ -10,6 +10,7 @@
 	$askCreatorUrl = $data['routes']['GET:Creator#ask']->getUrl();
 	$carturl = $data['routes']['GET:Cart#cart']->getUrl();
 	$newProductUrl = $data['routes']['GET:Product#new']->getUrl();
+	$adminSupportUrl = $data['routes']['GET:Admin#support']->getUrl();
 
 	if (isLoggedIn()) {
 		$user = unserialize($_SESSION['user']);
@@ -119,9 +120,15 @@
 							</li>
 						HTML;
 
-						if ($user instanceof Creator) {
+						if (isCreator()) {
 							$text = NAV_NEW_PRODUCT;
 							$url = $newProductUrl;
+						} else if(isAdmin()) {
+							$text = ADMIN_BUTTON;
+							$url = $adminSupportUrl;
+						} else if (isUnverifiedCreator()) {
+							$text = NAV_VERIFICATION_PENDING;
+							$url = "#";
 						} else {
 							$text = BECOME_CREATOR;
 							$url = $askCreatorUrl;

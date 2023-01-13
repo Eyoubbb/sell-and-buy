@@ -32,6 +32,7 @@ $router->post('/product/new', 'Product#new');
 
 $router->get('/creator/:id', 'Creator#index')->with('id', '[0-9]+');
 $router->get('/creator/ask', 'Creator#ask');
+$router->post('/creator/ask', 'Creator#ask');
 
 $router->get('/admin/support', 'Admin#support');
 

@@ -15,9 +15,38 @@ class CreatorDAO extends DAO {
 				FROM {$this->getTable()} C
 				JOIN users U
 					ON C.creator_id = U.user_id
+				WHERE creator_id = ? and creator_visible is not false";
+		
+		return $this->queryRow($sql, [$id], false);
+	}
+
+	public function findAllTypesCreatorById($id) {
+		$sql = "SELECT *
+				FROM {$this->getTable()} C
+				JOIN users U
+					ON C.creator_id = U.user_id
 				WHERE creator_id = ?";
 		
 		return $this->queryRow($sql, [$id], false);
+	}
+
+	public function insertCreator(Creator $creator) {
+		return $this->insert([
+            'creator_id' => $creator->getId(),
+            'creator_description' => $creator->getDescription(),
+            'creator_banner_url' => $creator->getBannerUrl(),
+			'creator_visible' => $creator->getVisible()
+        ]);
+	}
+
+	public function setVisibleCreator(int $creator_id, bool $visibility) {
+		$sql = "UPDATE {$this->getTable()} SET creator_visible = ?
+				WHERE creator_id = ?";
+		return $this->rowCount($sql, [$visibility, $creator_id]);
+	}
+
+	public function deleteCreator(int $creator_id) {
+		return $this->delete(['creator_id' => $creator_id]);
 	}
 	
 }

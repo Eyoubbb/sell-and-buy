@@ -28,17 +28,25 @@ class CreatorController extends Controller {
 		if (!isLoggedIn()) {
 			redirect($this->getRoutes()['GET:User#login']);
 		}
-
-		if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['description'])) {
-			
-			$userModel = $this->model('User');
-
-			$data['error'] = $userModel->getError();
+		if (isCreator() || isUnverifiedCreator()) {
+			redirect($this->getRoutes()['GET:Home#index']);
 		}
 
-		$data['header'] = true;
-		$data['footer'] = true;
+		if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['description'])) {
+
+			$creatorModel = $this->model('Creator');
+			
+			$res = $creatorModel->ask();
+
+			if ($res !== false) {
+				redirect($this->getRoutes()['GET:User#logout']);
+			}
+
+			$data['error'] = $model->getError();
+		}
 		
+		$data['title'] = "Creator - Ask";
+
 		$data['stylesheets'][] = 'pages/ask';
 
 		$data['scripts'][] = [

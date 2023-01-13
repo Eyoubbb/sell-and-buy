@@ -74,6 +74,7 @@ const ERROR_EXTRAS = "C'est tout ce que nous savons.";
 /*************** Admin ***************/
 
 const ADMIN_WINDOW_TITLE = "Admin";
+const ADMIN_BUTTON = "Ouvrir le support";
 
 /*************** Tickets ***************/
 
@@ -106,6 +107,7 @@ const NAV_CART = "Mon Panier";
 const NAV_ACCOUNT = "Mon compte";
 const NAV_ACCOUNT_SETTINGS = "Paramètres";
 const NAV_NEW_PRODUCT = "Nouveau produit";
+const NAV_VERIFICATION_PENDING = "Vérification en cours";
 
 /*************** Footer ***************/
 
@@ -164,14 +166,15 @@ const CREATOR_PROGRESS_STEP_TWO = "Adresse et numéro";
 const CREATOR_PROGRESS_STEP_THREE = "Résaux sociaux";
 const CREATOR_PROGRESS_STEP_FOUR = "Bannière et description";
 const CREATOR_SOCIALS = "Entrez vos réseaux sociaux (facultatif)";
-const CREATOR_INSTAGRAM = "Instagram";
-const CREATOR_FACEBOOK = "Facebook";
-const CREATOR_TWITTER = "Twitter";
-const CREATOR_YOUTUBE = "Youtube";
-const CREATOR_LINKEDIN = "LinkedIn";
-const CREATOR_TIKTOK = "TikTok";
+const CREATOR_INSTAGRAM = "Instagram (pseudo)";
+const CREATOR_FACEBOOK = "Facebook (pseudo)";
+const CREATOR_TWITTER = "Twitter (pseudo)";
+const CREATOR_YOUTUBE = "Youtube (nom de la chaine)";
+const CREATOR_PINTEREST = "Pinterest (pseudo)";
+const CREATOR_WEBSITE = "Website (url complète)";
 const CREATOR_DESCRIPTION = "Ajouter une description pour votre profil";
 const CREATOR_BANNIERE = "Ajouter une bannière pour votre profil";
+const CREATOR_CHOOSE_A_FILE = "Taille min autorisée 1000x300 px, si vous n'entrez aucune bannière, une bannière par défaut sera utilisée";
 
 /*************** Form ***************/
 

@@ -74,6 +74,7 @@ const ERROR_EXTRAS = "That's all we know.";
 /*************** Admin ***************/
 
 const ADMIN_WINDOW_TITLE = "Admin";
+const ADMIN_BUTTON = "Open support page";
 
 /*************** Tickets ***************/
 
@@ -106,6 +107,7 @@ const NAV_CART = "My Cart";
 const NAV_ACCOUNT = "My account";
 const NAV_ACCOUNT_SETTINGS = "Settings";
 const NAV_NEW_PRODUCT = "New product";
+const NAV_VERIFICATION_PENDING = "Verification pending";
 
 /*************** Footer ***************/
 
@@ -165,14 +167,15 @@ const CREATOR_PROGRESS_STEP_TWO = "Address and number";
 const CREATOR_PROGRESS_STEP_THREE = "Socials";
 const CREATOR_PROGRESS_STEP_FOUR = "Bannner and description";
 const CREATOR_SOCIALS = "Enter your socials (optional)";
-const CREATOR_INSTAGRAM = "Instagram";
-const CREATOR_FACEBOOK = "Facebook";
-const CREATOR_TWITTER = "Twitter";
-const CREATOR_YOUTUBE = "Youtube";
-const CREATOR_LINKEDIN = "LinkedIn";
-const CREATOR_TIKTOK = "TikTok";
+const CREATOR_INSTAGRAM = "Instagram (pseudo)";
+const CREATOR_FACEBOOK = "Facebook (pseudo)";
+const CREATOR_TWITTER = "Twitter (pseudo)";
+const CREATOR_YOUTUBE = "Youtube (channel name)";
+const CREATOR_PINTEREST = "Pinterest (pseudo)";
+const CREATOR_WEBSITE = "Website (full url)";
 const CREATOR_DESCRIPTION = "Add a description for your profil";
 const CREATOR_BANNIERE = "Add a banner for your profil";
+const CREATOR_CHOOSE_A_FILE = "Min size 1000x300 px, if you dont select any file, a default banner will be used";
 
 /*************** Form ***************/
 
