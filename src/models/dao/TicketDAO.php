@@ -58,13 +58,12 @@ class TicketDAO extends DAO {
 	}
 
 	public function createTicket(Ticket $ticket) {
-		$sqlDate = "SELECT DATE( NOW());";
 		
 		return $this->insert([
 			'ticket_user_id' => $ticket->getUserId(),
 			'ticket_admin_id' => $ticket->getAdminId(),
 			'ticket_ticket_type_id' => $ticket->getTicketTypeId(),
-			'ticket_date' => $sqlDate,
+			'ticket_date' => $ticket->getdate(),
 		]);
 	}
 }

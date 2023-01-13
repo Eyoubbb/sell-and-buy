@@ -175,6 +175,7 @@ const CREATOR_PINTEREST = "Pinterest (pseudo)";
 const CREATOR_WEBSITE = "Website (full url)";
 const CREATOR_DESCRIPTION = "Add a description for your profil";
 const CREATOR_BANNIERE = "Add a banner for your profil";
+const CREATOR_CHOOSE_A_FILE = "Min size 1000x300 px, if you dont select any file, a default banner will be used";
 
 /*************** Form ***************/
 

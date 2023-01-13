@@ -121,10 +121,18 @@ class TicketModel extends Model {
 
 			if ($creator->getVisible() === false) {
 
+				$fileName = $creator->getPictureUrl();
+
+				if (file_exists(PATH_UPLOAD_CREATOR_BANNERS . $fileName)) {
+					unlink(PATH_UPLOAD_CREATOR_BANNERS . $fileName);
+				}
+
 				$socialMediaAccountsDAO = $this->dao('SocialMediaAccounts');
 				$res = $socialMediaAccountsDAO->removeAllAccounts($creator->getId());
 
 				$resDelete = $creatorDAO->deleteCreator($creator->getId());
+
+
 			}
 			
 		}

@@ -46,7 +46,8 @@
 			<fieldSet class="step">
 				<div class="field">
 					<label for="input-banner"><?= CREATOR_BANNIERE ?></label>
-					<input type="file" name="banner" id="input-banner" required>
+					<p><?= CREATOR_CHOOSE_A_FILE ?></p>
+					<input type="file" name="banner" accept=".jpg,.png,.webp" id="input-banner">
 					<label for="input-description"><?= CREATOR_DESCRIPTION ?></label>
 					<textarea name="description" id="input-description" maxlength="500" cols="30" rows="10" placeholder="<?= CREATOR_PLACEHOLDER_TEXTAREA ?>" required></textarea>
 				</div>

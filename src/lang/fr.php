@@ -174,6 +174,7 @@ const CREATOR_PINTEREST = "Pinterest (pseudo)";
 const CREATOR_WEBSITE = "Website (url complète)";
 const CREATOR_DESCRIPTION = "Ajouter une description pour votre profil";
 const CREATOR_BANNIERE = "Ajouter une bannière pour votre profil";
+const CREATOR_CHOOSE_A_FILE = "Taille min autorisée 1000x300 px, si vous n'entrez aucune bannière, une bannière par défaut sera utilisée";
 
 /*************** Form ***************/
 

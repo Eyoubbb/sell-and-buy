@@ -43,7 +43,47 @@ class CreatorModel extends Model {
 	public function ask(): bool {
 		$description = $_POST['description'];
 		$user = unserialize($_SESSION['user']);
-		$banner = "BAN-1.svg";
+
+		if ( !isset($_FILES['banner'])) {
+			$banner = 'BAN-1.svg';
+		} else {
+			$picture = $_FILES['banner'];
+
+			$resExif = exif_imagetype($picture['tmp_name']);
+			if (!in_array($resExif, [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WEBP])) {
+				$this->setError('ERROR_INVALID_PICTURE');
+				return false;
+			}
+
+			if ($picture['size'] > 5_000_000) {
+				$this->setError('ERROR_PICTURE_TOO_BIG');
+				return false;
+			}
+
+			$dimensions = getimagesize($picture['tmp_name']);
+			
+			if ($dimensions[0] < 1000 || $dimensions[1] < 300) {
+				$this->setError('ERROR_PICTURE_TOO_SMALL');
+				return false;
+			}
+
+			if ($dimensions[0] < 3 * $dimensions[1]) {
+				$this->setError('ERROR_PICTURE_TOO_WIDE');
+				return false;
+			}
+
+			$id = $user->getId();
+			$fileName = "BAN-$id." . pathinfo($picture['name'], PATHINFO_EXTENSION);
+
+			if (!move_uploaded_file($picture['tmp_name'], PATH_UPLOAD_CREATOR_BANNERS . $fileName)) {
+				$this->setError('ERROR_UPLOADING_PICTURE');
+				return false;
+			}
+
+			$banner = $fileName;
+
+			$user->setPictureUrl($fileName);
+		}
 
 		$creatorDAO = $this->dao('Creator');
 
@@ -133,7 +173,7 @@ class CreatorModel extends Model {
 		}
 
 		$randomAdmin = rand(0, count($res) - 1);
-
+		$dt = time();
 		
 		$ticketDAO = $this->dao('Ticket');
 
@@ -141,6 +181,8 @@ class CreatorModel extends Model {
 		$ticket->setUserId($user->getId());
 		$ticket->setTicketTypeId(5);
 		$ticket->setAdminId($res[$randomAdmin]['admin_id']);
+		$ticket->setDate(date('Y-m-d', $dt));
+
 
 		$resTicket = $ticketDAO->createTicket($ticket);
 
