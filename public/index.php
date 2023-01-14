@@ -46,5 +46,6 @@ $router->get('/info/legalNotice', 'Info#legalNotice');
 $router->get('/info/termsCondition', 'Info#termsCondition');
 
 $router->get('/settings', 'Settings#index');
+$router->get('/settings/security', 'Settings#security');
 
 $router->run();

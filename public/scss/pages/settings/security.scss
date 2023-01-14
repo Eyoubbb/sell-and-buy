@@ -1,11 +1,13 @@
-@use "../abstracts" as *;
-@use "../base" as *;
+@use "../../abstracts" as *;
+@use "../../base" as *;
 
-@use "../components/header";
-@use "../components/footer";
-@use "../components/nav-header";
+@use "../../components/header";
+@use "../../components/footer";
+@use "../../components/nav-header";
 
-.settings {
+$gap : 1em;
+
+.security {
 	$gap: 1em;
 	display: flex;
 	flex-direction: column;
@@ -13,9 +15,9 @@
 	justify-content: center;
 
 	padding: calc(2 * $gap);
-	.security {
+	
+	.container {
 		max-width: 732px;
-
 		gap: $gap;
 
 		ul {

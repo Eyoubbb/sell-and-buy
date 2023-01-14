@@ -291,9 +291,14 @@ const TEXT_CONTACT= "For all other questions you can consult us via the contact 
 /*************** Settings ***************/
 
 const SETTINGS_TITLE = "Settings";
+const SETTINGS_SECURITY_TITLE = "Security and privacy";
 const SETTINGS_FIRST_NAME = "First Name";
 const SETTINGS_LAST_NAME = "Last Name";
 const SETTINGS_EMAIL = "Email";
 const SETTINGS_MODIFY = "Modify";
 const SETTINGS_PASSWORD = "Password";
 const SETTINGS_DUMMY_PASSWORD = "********";
+
+const SETTINGS_SECURITY_GUIDE = "Modify password, email, name or phone number";
+
+

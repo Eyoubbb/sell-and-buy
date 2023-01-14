@@ -1,47 +1,19 @@
 <?php
 	$user = unserialize($_SESSION['user']);
+	$securityUrl = $data['routes']['GET:Settings#security']->getUrl();
+	$serviceClientUrl = $data['routes']['GET:Info#clientSupport']->getUrl();
 ?>
+
 <?php require(PATH_COMPONENTS . 'nav-header.php'); ?>
 
 <section class="settings">
-	<section class="security">
-		<ul>
-			<li>
-				<div class="list-item">
-					<div class="wrapper">
-						<h1><?= SETTINGS_FIRST_NAME ?></h1>
-						<p><?= $user->getFirstName(); ?></p>
-					</div>
-					<button class="modify"><?= SETTINGS_MODIFY ?></button>
-				</div>
-			</li>
-			<li>
-				<div class="list-item">
-					<div class="wrapper">
-						<h1><?= SETTINGS_LAST_NAME ?></h1>
-						<p><?= $user->getLastName(); ?></p>
-					</div>	
-					<button class="modify"><?= SETTINGS_MODIFY ?></button>
-				</div>
-			</li>
-			<li>
-				<div class="list-item">
-					<div>
-						<h1><?= SETTINGS_EMAIL ?></h1>
-						<p><?= $user->getEmail(); ?></p>
-					</div>
-					<button class="modify"><?= SETTINGS_MODIFY ?></button>
-				</div>
-			</li>
-			<li>
-				<div class="list-item">
-					<div>
-						<h1><?= SETTINGS_PASSWORD ?></h1>
-						<p><?= SETTINGS_DUMMY_PASSWORD ?></p>
-					</div>
-					<button class="modify"><?= SETTINGS_MODIFY ?></button>
-				</div>
-			</li>
-		</ul>
-	</section>
+	<div class="types">
+		<a class="settings-type" href="<?= $securityUrl ?>">
+			<img src="<?= PATH_IMAGES . 'security.png' ?>" alt="security">
+			<div>
+				<p class="type-title"><?= SETTINGS_SECURITY_TITLE ?></p>
+				<p class="guide"><?= SETTINGS_SECURITY_GUIDE ?></p>
+			</div>
+        </a>
+	</div>
 </section>
