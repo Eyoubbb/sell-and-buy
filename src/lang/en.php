@@ -216,7 +216,7 @@ const CART_EXPEDITION = "Expedition";
 /*************** Infos ***************/
 
 const INFO_CONTACT_WINDOW_TITLE = "Contact";
-const INFO_WINDOW_TITLE = "Information";
+const INFO_SERVICE_CLIENT_WINDOW_TITLE = "Service Client";
 const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Legal notice";
 const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Terms and conditions";
 const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Shipping and return";

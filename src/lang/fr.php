@@ -215,7 +215,7 @@ const CART_CHECKOUT_ERREUR = "Vous ne pouvez pas passer votre commande pour l'in
 /*************** Infos ***************/
 
 const INFO_CONTACT_WINDOW_TITLE = "Contact";
-const INFO_WINDOW_TITLE = "Information";
+const INFO_SERVICE_CLIENT_WINDOW_TITLE = "Service Client";
 const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Mentions légales";
 const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Conditions générales";
 const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Livraison et retours";

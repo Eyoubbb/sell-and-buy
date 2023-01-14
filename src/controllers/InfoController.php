@@ -6,7 +6,7 @@ class InfoController extends Controller {
     
     public function clientSupport(): void {
         
-        $data['title'] = INFO_WINDOW_TITLE;
+        $data['title'] = INFO_SERVICE_CLIENT_WINDOW_TITLE;
         
         $data['stylesheets'][] = 'pages/service-client';
 
