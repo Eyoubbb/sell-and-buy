@@ -298,3 +298,8 @@ const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via 
 
 const PRODUCTUCT_INVALID ="Produit inexistant";
 CONST PROFILE_INVALID = "Créateur inexistant";
+
+/*************** Discover ***************/
+
+const DISCOVER_TITLE_CREATORS_OF_WEEK = "Créateurs de la semaine";
+const DISCOVER_TITLE_ALL_CREATORS = "Tous les créateurs";

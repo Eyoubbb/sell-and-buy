@@ -41,6 +41,11 @@ class InfoController extends Controller {
 			'name' => 'scrollerPage',
 			'attr' => 'defer'
 		];
+
+        $data['scripts'][] = [
+			'name' => 'fixElementUp',
+			'attr' => 'defer'
+		];
         
         $this->view('info/legalNotice', $data);
     }
@@ -58,6 +63,11 @@ class InfoController extends Controller {
 			'name' => 'scrollerPage',
 			'attr' => 'defer'
 		];
+
+        $data['scripts'][] = [
+			'name' => 'fixElementUp',
+			'attr' => 'defer'
+		];
         
         $this->view('info/termsCondition', $data);
     }
@@ -73,6 +83,11 @@ class InfoController extends Controller {
         
         $data['scripts'][] = [
 			'name' => 'scrollerPage',
+			'attr' => 'defer'
+		];
+
+        $data['scripts'][] = [
+			'name' => 'fixElementUp',
 			'attr' => 'defer'
 		];
         

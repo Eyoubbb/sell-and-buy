@@ -57,4 +57,28 @@ class CreatorController extends Controller {
 		$this->view('creator/ask', $data);
 	}
 
+	public function discover(): void {
+
+		$data['title'] = "Creators - Discover";
+		
+		$data['stylesheets'][] = 'pages/discover';
+
+		$data['scripts'][] = [
+			'name' => 'fixElementUp',
+			'attr' => 'defer'
+		];
+
+		$creatorModel = $this->model('Creator');
+
+		$res = $creatorModel->discover();
+
+		if ($res !== false) {
+			$data = array_merge($data, $res);
+		} else {
+			$data['error'] = $creatorModel->getError();
+		}
+
+		$this->view('creator/discover', $data);
+	}
+
 }

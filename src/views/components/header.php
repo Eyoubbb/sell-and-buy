@@ -10,6 +10,7 @@
 	$askCreatorUrl = $data['routes']['GET:Creator#ask']->getUrl();
 	$carturl = $data['routes']['GET:Cart#cart']->getUrl();
 	$newProductUrl = $data['routes']['GET:Product#new']->getUrl();
+	$discoverCreatorUrl = $data['routes']['GET:Creator#discover']->getUrl();
 	$adminSupportUrl = $data['routes']['GET:Admin#support']->getUrl();
 
 	if (isLoggedIn()) {
@@ -35,7 +36,7 @@
 				<a class="hover-link" href="<?= $homeUrl ?>"><?= NAV_COLLECTIONS ?></a>
 			</li>
 			<li>
-				<a class="hover-link" href="<?= $homeUrl ?>"><?= NAV_CREATOR ?></a>
+				<a class="hover-link" href="<?= $discoverCreatorUrl ?>"><?= NAV_CREATOR ?></a>
 			</li>
 		</ul>
 		<form class="search-form" method="GET" action="<?= $searchUrl ?>">

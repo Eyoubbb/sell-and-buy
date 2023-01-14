@@ -193,4 +193,32 @@ class CreatorModel extends Model {
 
 		return true;
 	}
+
+	public function discover(): array | false {
+
+		$creatorDAO = $this->dao('Creator');
+
+		$creators = $creatorDAO->getAllCreators();
+
+		if ($creators === false) {
+			$this->setError('ERROR_FETCHING_CREATORS');
+			return false;
+		}
+
+		$indexes = array_rand($creators, 3);
+		$creatorsOfTheWeek = [];
+		foreach ($indexes as $index) {
+			$creatorsOfTheWeek[] = $creators[$index];
+		}
+
+		foreach($creators as $creator) {
+			$creatorCategory[$creator['creator_id']] = $creatorDAO->getBestCategory($creator['creator_id']);
+		}
+
+		return [
+			'creatorsOfTheWeek' => $creatorsOfTheWeek,
+			'allCreators' => $creators,
+			'creatorCategory' => $creatorCategory
+		];
+	}
 }
