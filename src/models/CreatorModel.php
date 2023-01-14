@@ -212,7 +212,12 @@ class CreatorModel extends Model {
 		}
 
 		foreach($creators as $creator) {
-			$creatorCategory[$creator['creator_id']] = $creatorDAO->getBestCategory($creator['creator_id']);
+
+			$productDAO = $this->dao('Product');
+			$products = $productDAO->findAllByCreator($creator['creator_id']);
+			if ($products !== false) {
+				$creatorCategory[$creator['creator_id']] = $creatorDAO->getBestCategory($creator['creator_id']);
+			}
 		}
 
 		return [

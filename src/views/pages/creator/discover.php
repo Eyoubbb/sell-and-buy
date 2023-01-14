@@ -8,8 +8,11 @@
                 foreach ($data['allCreators'] as $creatorArray) {
 
                     $creator = new Creator ($creatorArray);
-
-                    $mainCategorie = $data['creatorCategory'][$creator->getId()]['category_name'];
+                    if (isset($data['creatorCategory'][$creator->getId()]['category_name'])) {
+                        $mainCategorie = $data['creatorCategory'][$creator->getId()]['category_name'];
+                    } else {
+                        $mainCategorie = CREATOR_NO_PRODUCT_CATEGORY;
+                    }
 
                     require PATH_COMPONENTS . 'creator.php';
                 

@@ -300,3 +300,4 @@ CONST PROFILE_INVALID = "Créateur inexistant";
 
 const DISCOVER_TITLE_CREATORS_OF_WEEK = "Creators of the week";
 const DISCOVER_TITLE_ALL_CREATORS = "All creators";
+const CREATOR_NO_PRODUCT_CATEGORY = "No product in sell";
