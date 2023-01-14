@@ -1,6 +1,8 @@
 <?php
 	$user = unserialize($_SESSION['user']);
 ?>
+<?php require(PATH_COMPONENTS . 'nav-header.php'); ?>
+
 <section class="settings">
 	<section class="security">
 		<ul>
