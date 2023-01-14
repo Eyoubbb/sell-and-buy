@@ -287,3 +287,13 @@ const TEXT_WELCOME = "Welcome to our client service page";
 const TEXT_TERMS_NOTICE ="Before any questions please read our general conditions and our legal notice";
 const TEXT_SHIPPING_RETURN = "If you have any questions about shipping and returns, please see our terms and conditions here";
 const TEXT_CONTACT= "For all other questions you can consult us via the contact page";
+
+/*************** Settings ***************/
+
+const SETTINGS_TITLE = "Settings";
+const SETTINGS_FIRST_NAME = "First Name";
+const SETTINGS_LAST_NAME = "Last Name";
+const SETTINGS_EMAIL = "Email";
+const SETTINGS_MODIFY = "Modify";
+const SETTINGS_PASSWORD = "Password";
+const SETTINGS_DUMMY_PASSWORD = "********";
