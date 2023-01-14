@@ -5,7 +5,7 @@ $gap: 1em;
 div.title {
 	display: flex;
 	align-items: center;
-	padding: $gap;
+	padding: $gap 0em;
 	background-color: var(--primary-2);
 
 	a {

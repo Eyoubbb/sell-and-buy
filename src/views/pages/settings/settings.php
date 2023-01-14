@@ -1,5 +1,4 @@
 <?php
-	$user = unserialize($_SESSION['user']);
 	$securityUrl = $data['routes']['GET:Settings#security']->getUrl();
 	$serviceClientUrl = $data['routes']['GET:Info#clientSupport']->getUrl();
 ?>

@@ -298,7 +298,8 @@ const SETTINGS_EMAIL = "Email";
 const SETTINGS_MODIFY = "Modify";
 const SETTINGS_PASSWORD = "Password";
 const SETTINGS_DUMMY_PASSWORD = "********";
+const SETTINGS_SAVE = "Save";
 
 const SETTINGS_SECURITY_GUIDE = "Modify password, email, name or phone number";
-
-
+const SETTINGS_SECURITY_MAIN_TITLE = "Main Settings";
+const SETTINGS_SECURITY_MAIN_SUBTITLE = "This information will appear on your profile.";

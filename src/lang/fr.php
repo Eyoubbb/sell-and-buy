@@ -299,7 +299,10 @@ const SETTINGS_FIRST_NAME = "Prénom";
 const SETTINGS_LAST_NAME = "Nom";
 const SETTINGS_EMAIL = "Email";
 const SETTINGS_MODIFY = "Modifier";
-const SETTINGS_PASSWORD = "Password";
+const SETTINGS_PASSWORD = "Mot de passe";
 const SETTINGS_DUMMY_PASSWORD = "********";
+const SETTINGS_SAVE = "Sauvegarder";
 
 const SETTINGS_SECURITY_GUIDE = "Modifier l'adresse e-mail, le nom et le numéro de téléphone mobile";
+const SETTINGS_SECURITY_MAIN_TITLE = "Réglages principaux";
+const SETTINGS_SECURITY_MAIN_SUBTITLE = "Ces informations apparaîtront sur votre profil.";
