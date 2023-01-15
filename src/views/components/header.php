@@ -10,6 +10,8 @@
 	$carturl = $data['routes']['GET:Cart#cart']->getUrl();
 	$newProductUrl = $data['routes']['GET:Product#new']->getUrl();
 	$settingsUrl = $data['routes']['GET:Settings#index']->getUrl();
+	$discoverCreatorUrl = $data['routes']['GET:Creator#discover']->getUrl();
+	$adminSupportUrl = $data['routes']['GET:Admin#support']->getUrl();
 
 	if (isLoggedIn()) {
 		$user = unserialize($_SESSION['user']);
@@ -34,7 +36,7 @@
 				<a class="hover-link" href="<?= $homeUrl ?>"><?= NAV_COLLECTIONS ?></a>
 			</li>
 			<li>
-				<a class="hover-link" href="<?= $homeUrl ?>"><?= NAV_CREATOR ?></a>
+				<a class="hover-link" href="<?= $discoverCreatorUrl ?>"><?= NAV_CREATOR ?></a>
 			</li>
 		</ul>
 		<form class="search-form" method="GET" action="<?= $searchUrl ?>">
@@ -119,9 +121,15 @@
 							</li>
 						HTML;
 
-						if ($user instanceof Creator) {
+						if (isCreator()) {
 							$text = NAV_NEW_PRODUCT;
 							$url = $newProductUrl;
+						} else if(isAdmin()) {
+							$text = ADMIN_BUTTON;
+							$url = $adminSupportUrl;
+						} else if (isUnverifiedCreator()) {
+							$text = NAV_VERIFICATION_PENDING;
+							$url = "#";
 						} else {
 							$text = BECOME_CREATOR;
 							$url = $askCreatorUrl;

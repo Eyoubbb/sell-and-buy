@@ -74,6 +74,7 @@ const ERROR_EXTRAS = "That's all we know.";
 /*************** Admin ***************/
 
 const ADMIN_WINDOW_TITLE = "Admin";
+const ADMIN_BUTTON = "Open support page";
 
 /*************** Tickets ***************/
 
@@ -106,6 +107,7 @@ const NAV_CART = "My Cart";
 const NAV_ACCOUNT = "My account";
 const NAV_ACCOUNT_SETTINGS = "Settings";
 const NAV_NEW_PRODUCT = "New product";
+const NAV_VERIFICATION_PENDING = "Verification pending";
 
 /*************** Footer ***************/
 
@@ -165,14 +167,15 @@ const CREATOR_PROGRESS_STEP_TWO = "Address and number";
 const CREATOR_PROGRESS_STEP_THREE = "Socials";
 const CREATOR_PROGRESS_STEP_FOUR = "Bannner and description";
 const CREATOR_SOCIALS = "Enter your socials (optional)";
-const CREATOR_INSTAGRAM = "Instagram";
-const CREATOR_FACEBOOK = "Facebook";
-const CREATOR_TWITTER = "Twitter";
-const CREATOR_YOUTUBE = "Youtube";
-const CREATOR_LINKEDIN = "LinkedIn";
-const CREATOR_TIKTOK = "TikTok";
+const CREATOR_INSTAGRAM = "Instagram (pseudo)";
+const CREATOR_FACEBOOK = "Facebook (pseudo)";
+const CREATOR_TWITTER = "Twitter (pseudo)";
+const CREATOR_YOUTUBE = "Youtube (channel name)";
+const CREATOR_PINTEREST = "Pinterest (pseudo)";
+const CREATOR_WEBSITE = "Website (full url)";
 const CREATOR_DESCRIPTION = "Add a description for your profil";
 const CREATOR_BANNIERE = "Add a banner for your profil";
+const CREATOR_CHOOSE_A_FILE = "Min size 1000x300 px, if you dont select any file, a default banner will be used";
 
 /*************** Form ***************/
 
@@ -228,13 +231,13 @@ const CONTACT_ALT_CONTACT = "An illustration of two persons talking";
 
 /*************** Terms and Conditions ***************/
 
-const LEGAL_NOTICE_SUBTITLE = "Sell & Buy Terms of Use";
-const LEGAL_NOTICE_SECTION_ONE = "Welcome to our e-commerce site. By accessing and using our site, you agree to be bound by these terms and conditions of use and by all applicable laws and regulations. If you do not agree to these terms, please do not use our site. ";
+const LEGAL_NOTICE_SUBTITLE = "Legal notices of Sell & buy website";
+const LEGAL_NOTICE_SECTION_ONE = "The Sell & Buy site is produced and developed by Mathis Guerin, Hazim Asri, Eyoub Benkacem, Hedi Bouazza and Albert Vaillon residing in Lyon. ";
 const LEGAL_NOTICE_SECTION_TWO = "We reserve the right to modify these general conditions of use at any time. Your continued use of our site after any change to these Terms of Service means that you accept those changes. ";
 const LEGAL_NOTICE_SECTION_THREE = "We may change or discontinue our site, or any service or content on our site, at any time without notice. We will not be liable to you or any other party for any modification, suspension or discontinuance of our site or any service or content on our site. ";
 const LEGAL_NOTICE_SECTION_FOUR = "We do not warrant that our site will be available without interruption, error or faultlessness. We do not warrant that the results which may be obtained from the use of our site will be accurate or reliable. You agree that from time to time we may remove content from our site without notice.";
 const LEGAL_NOTICE_SECTION_FIVE = "You agree that we shall not be liable to you or any other party for any loss, damage, claim or other liability, including reasonable attorneys' fees, arising out of or in connection with your use of our site, including, but without limitation, any error, omission, defect, virus, transmission failure, system failure, communication line failure, loss of data or any other technical failure or any other cause. ";
-const LEGAL_NOTICE_TITLE_SECTION_ONE = "1. Terms of Service";
+const LEGAL_NOTICE_TITLE_SECTION_ONE = "1. Social reason";
 const LEGAL_NOTICE_TITLE_SECTION_TWO = "2. Amendments";
 const LEGAL_NOTICE_TITLE_SECTION_THREE = "3. Interruption";
 const LEGAL_NOTICE_TITLE_SECTION_FOUR = "4. Guarantee";
@@ -303,3 +306,11 @@ const SETTINGS_SAVE = "Save";
 const SETTINGS_SECURITY_GUIDE = "Modify password, email, name or phone number";
 const SETTINGS_SECURITY_MAIN_TITLE = "Main Settings";
 const SETTINGS_SECURITY_MAIN_SUBTITLE = "This information will appear on your profile.";
+
+/*************** Discover ***************/
+
+const DISCOVER_TITLE_CREATORS_OF_WEEK = "Creators of the week";
+const DISCOVER_TITLE_ALL_CREATORS = "All creators";
+const CREATOR_NO_PRODUCT_CATEGORY = "No product in sell";
+const PRODUCTUCT_INVALID ="Produit inexistant";
+const PROFILE_INVALID = "Créateur inexistant";

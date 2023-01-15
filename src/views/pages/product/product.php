@@ -1,4 +1,7 @@
 <?php
+if (isset($data['error']) && $data['error'] === 'ERROR_FETCHING_PRODUCT') {
+	echo '<span>' . PRODUCTUCT_INVALID . '</span>';
+}else{
 	$product = $data['product'];
 	$creator = $data['creator'];
 	$loginUrl = $data['routes']['GET:User#login']->getUrl();
@@ -7,6 +10,8 @@
 	$cartUrl = $data['routes']['GET:Product#index']->getUrl(['id' => $product->getId()]); // either dynamic url or query string
 	$editUrl = $data['routes']['GET:Product#edit']->getUrl(['id' => $product->getId()]);
 	$deleteUrl = $data['routes']['GET:Product#delete']->getUrl(['id' => $product->getId()]);
+}
+
 ?>
 <section class="product">
 	<div class="generalImage">
