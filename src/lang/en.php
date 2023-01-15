@@ -219,7 +219,7 @@ const CART_EXPEDITION = "Expedition";
 /*************** Infos ***************/
 
 const INFO_CONTACT_WINDOW_TITLE = "Contact";
-const INFO_WINDOW_TITLE = "Information";
+const INFO_SERVICE_CLIENT_WINDOW_TITLE = "Service Client";
 const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Legal notice";
 const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Terms and conditions";
 const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Shipping and return";
@@ -291,13 +291,26 @@ const TEXT_TERMS_NOTICE ="Before any questions please read our general condition
 const TEXT_SHIPPING_RETURN = "If you have any questions about shipping and returns, please see our terms and conditions here";
 const TEXT_CONTACT= "For all other questions you can consult us via the contact page";
 
+/*************** Settings ***************/
 
+const SETTINGS_TITLE = "Settings";
+const SETTINGS_SECURITY_TITLE = "Security and privacy";
+const SETTINGS_FIRST_NAME = "First Name";
+const SETTINGS_LAST_NAME = "Last Name";
+const SETTINGS_EMAIL = "Email";
+const SETTINGS_MODIFY = "Modify";
+const SETTINGS_PASSWORD = "Password";
+const SETTINGS_DUMMY_PASSWORD = "********";
+const SETTINGS_SAVE = "Save";
 
-const PRODUCTUCT_INVALID ="Produit inexistant";
-CONST PROFILE_INVALID = "Créateur inexistant";
+const SETTINGS_SECURITY_GUIDE = "Modify password, email, name or phone number";
+const SETTINGS_SECURITY_MAIN_TITLE = "Main Settings";
+const SETTINGS_SECURITY_MAIN_SUBTITLE = "This information will appear on your profile.";
 
 /*************** Discover ***************/
 
 const DISCOVER_TITLE_CREATORS_OF_WEEK = "Creators of the week";
 const DISCOVER_TITLE_ALL_CREATORS = "All creators";
 const CREATOR_NO_PRODUCT_CATEGORY = "No product in sell";
+const PRODUCTUCT_INVALID ="Produit inexistant";
+const PROFILE_INVALID = "Créateur inexistant";

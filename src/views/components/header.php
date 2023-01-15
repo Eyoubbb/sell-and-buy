@@ -6,10 +6,10 @@
 	$registerUrl = $data['routes']['GET:User#register']->getUrl();
 	$logoutUrl = $data['routes']['GET:User#logout']->getUrl();
 	$searchUrl = $data['routes']['GET:Home#index']->getUrl();
-	$settingsUrl = $data['routes']['GET:Home#index']->getUrl();
 	$askCreatorUrl = $data['routes']['GET:Creator#ask']->getUrl();
 	$carturl = $data['routes']['GET:Cart#cart']->getUrl();
 	$newProductUrl = $data['routes']['GET:Product#new']->getUrl();
+	$settingsUrl = $data['routes']['GET:Settings#index']->getUrl();
 	$discoverCreatorUrl = $data['routes']['GET:Creator#discover']->getUrl();
 	$adminSupportUrl = $data['routes']['GET:Admin#support']->getUrl();
 

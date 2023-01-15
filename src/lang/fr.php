@@ -218,7 +218,7 @@ const CART_CHECKOUT_ERREUR = "Vous ne pouvez pas passer votre commande pour l'in
 /*************** Infos ***************/
 
 const INFO_CONTACT_WINDOW_TITLE = "Contact";
-const INFO_WINDOW_TITLE = "Information";
+const INFO_SERVICE_CLIENT_WINDOW_TITLE = "Service Client";
 const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Mentions légales";
 const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Conditions générales";
 const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Livraison et retours";
@@ -290,17 +290,30 @@ const LINK_LEGAL_NOTICE ="Mentions légales";
 const LINK_SHIPPING_RETURN ="Livraison, envoi et retour";
 
 const TEXT_WELCOME = "Bienvenue sur notre page d'aide";
-const TEXT_TERMS_NOTICE ="Avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
+const TEXT_TERMS_NOTICE = "Avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
 const TEXT_SHIPPING_RETURN = "Si vous avez des questions au sujet de l'envoie et du retour de nos produits veuillez consulter nos conditions ici";
 const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via la page contact";
 
+/*************** Settings ***************/
 
+const SETTINGS_TITLE = "Paramètres";
+const SETTINGS_SECURITY_TITLE = "Sécurité and confidentialité";
+const SETTINGS_FIRST_NAME = "Prénom";
+const SETTINGS_LAST_NAME = "Nom";
+const SETTINGS_EMAIL = "Email";
+const SETTINGS_MODIFY = "Modifier";
+const SETTINGS_PASSWORD = "Mot de passe";
+const SETTINGS_DUMMY_PASSWORD = "********";
+const SETTINGS_SAVE = "Sauvegarder";
 
-const PRODUCTUCT_INVALID ="Produit inexistant";
-CONST PROFILE_INVALID = "Créateur inexistant";
+const SETTINGS_SECURITY_GUIDE = "Modifier l'adresse e-mail, le nom et le numéro de téléphone mobile";
+const SETTINGS_SECURITY_MAIN_TITLE = "Réglages principaux";
+const SETTINGS_SECURITY_MAIN_SUBTITLE = "Ces informations apparaîtront sur votre profil.";
 
 /*************** Discover ***************/
 
 const DISCOVER_TITLE_CREATORS_OF_WEEK = "Créateurs de la semaine";
 const DISCOVER_TITLE_ALL_CREATORS = "Tous les créateurs";
 const CREATOR_NO_PRODUCT_CATEGORY = "Pas de produits en vente";
+const PRODUCTUCT_INVALID ="Produit inexistant";
+const PROFILE_INVALID = "Créateur inexistant";
