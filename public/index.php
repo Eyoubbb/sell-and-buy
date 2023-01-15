@@ -47,5 +47,6 @@ $router->get('/info/termsCondition', 'Info#termsCondition');
 
 $router->get('/settings', 'Settings#index');
 $router->get('/settings/security', 'Settings#security');
+$router->post('/settings/security', 'Settings#security');
 
 $router->run();

@@ -16,6 +16,19 @@ class SettingsController extends Controller {
 
 	public function security(): void {
 
+		if(!isLoggedIn()) {
+			redirect($this->getRoutes()['GET:User#login']);
+		}
+
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			$userModel = $this->model('User');
+			$res = $userModel->updateSecurity();
+
+			if(!$res) {
+				$data['error'] = $userModel->getError();
+			}
+		}
+
 		$data['title'] = SETTINGS_SECURITY_TITLE;
 		$data['stylesheets'][] = 'pages/settings/security';
 		$data['header'] = true;
