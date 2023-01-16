@@ -185,6 +185,7 @@ class CreatorModel extends Model {
 		$ticket->setTicketTypeId(5);
 		$ticket->setAdminId($res[$randomAdmin]['admin_id']);
 		$ticket->setDate(date('Y-m-d', $dt));
+		$ticket->setResolved(0);
 
 
 		$resTicket = $ticketDAO->createTicket($ticket);
