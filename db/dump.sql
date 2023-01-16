@@ -297,7 +297,7 @@ INSERT INTO `creators` (`CREATOR_ID`, `CREATOR_DESCRIPTION`, `CREATOR_BANNER_URL
 (32, 'Welcome to the page of Davonte Heaney', 'BAN-1.svg', 1),
 (33, 'Welcome to the page of Allene Harber', 'BAN-1.svg', 1),
 (34, 'Welcome to the page of Terrence Koelpin', 'BAN-1.svg', 1),
-(35, 'Welcome to the page of Maurine Stracke', 'BAN-1.svg', 1),
+(35, 'Welcome to the page of Maurine Stracke', 'BAN-1.svg', 1);
 
 -- --------------------------------------------------------
 
