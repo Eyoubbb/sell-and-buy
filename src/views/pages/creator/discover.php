@@ -33,9 +33,12 @@
 
                 foreach ($data['creatorsOfTheWeek'] as $creatorArray) {
 
-                    $creator = new Creator($creatorArray);
-
-                    $mainCategorie = $data['creatorCategory'][$creator->getId()]['category_name'];
+                    $creator = new Creator ($creatorArray);
+                    if (isset($data['creatorCategory'][$creator->getId()]['category_name'])) {
+                        $mainCategorie = $data['creatorCategory'][$creator->getId()]['category_name'];
+                    } else {
+                        $mainCategorie = CREATOR_NO_PRODUCT_CATEGORY;
+                    }
 
                     require PATH_COMPONENTS . 'creator.php';
                 
