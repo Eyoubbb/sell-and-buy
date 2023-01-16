@@ -179,6 +179,9 @@ class CreatorModel extends Model {
 
 		$ticket = new Ticket();
 		$ticket->setUserId($user->getId());
+		$ticket->setName("Creator registration");
+		$ticket->setDescription("Creator registration");
+		$ticket->setDescription("Creator registration");
 		$ticket->setTicketTypeId(5);
 		$ticket->setAdminId($res[$randomAdmin]['admin_id']);
 		$ticket->setDate(date('Y-m-d', $dt));

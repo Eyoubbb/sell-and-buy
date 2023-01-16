@@ -64,6 +64,8 @@ class TicketDAO extends DAO {
 			'ticket_admin_id' => $ticket->getAdminId(),
 			'ticket_ticket_type_id' => $ticket->getTicketTypeId(),
 			'ticket_date' => $ticket->getdate(),
+			'ticket_description' => $ticket->getDescription(),
+			'ticket_name' => $ticket->getName(),
 		]);
 	}
 }
