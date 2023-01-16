@@ -45,7 +45,7 @@ class CreatorDAO extends DAO {
             'creator_id' => $creator->getId(),
             'creator_description' => $creator->getDescription(),
             'creator_banner_url' => $creator->getBannerUrl(),
-			'creator_visible' => $creator->getVisible()
+			'creator_visible' => $creator->getVisible()  ? 1 : 0
         ]);
 	}
 
