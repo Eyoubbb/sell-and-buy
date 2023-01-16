@@ -74,7 +74,7 @@ class TicketModel extends Model {
 				return false;
 			}
 
-			$res = $creatorDAO->setVisibleCreator($creator->getId(), true);
+			$res = $creatorDAO->setVisibleCreator($creator->getId(), 1);
 		}
 
 		return true;
@@ -99,7 +99,7 @@ class TicketModel extends Model {
 				return false;
 			}
 
-			$res = $creatorDAO->setVisibleCreator($creator->getId(), false);
+			$res = $creatorDAO->setVisibleCreator($creator->getId(), 0);
 		}
 
 		return true;
@@ -119,7 +119,7 @@ class TicketModel extends Model {
 			$creatorDAO = $this->dao('Creator');
 			$creator = new Creator($creatorDAO->findAllTypesCreatorById($ticket->getUserId()));
 
-			if ($creator->getVisible() === false) {
+			if ($creator->getVisible() == 0) {
 
 				$fileName = $creator->getPictureUrl();
 

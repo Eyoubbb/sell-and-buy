@@ -43,8 +43,8 @@ class CreatorModel extends Model {
 	public function ask(): bool {
 		$description = $_POST['description'];
 		$user = unserialize($_SESSION['user']);
-
-		if ( !isset($_FILES['banner'])) {
+		var_dump($_FILES);
+		if ($_FILES['banner']['size'] == 0) {
 			$banner = 'BAN-1.svg';
 		} else {
 			$picture = $_FILES['banner'];
@@ -91,7 +91,7 @@ class CreatorModel extends Model {
 		$creator->setId($user->getId());
 		$creator->setDescription($description);
 		$creator->setBannerUrl($banner);
-		$creator->setVisible(false);
+		$creator->setVisible(0);
 
 		$creatorId = $creatorDAO->insertCreator($creator);
 
