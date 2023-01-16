@@ -49,5 +49,9 @@ class Ticket {
 	public function setAdminId(int $admin_id): void { $this->ticket_admin_id = $admin_id; }
 
 	public function setDate(string $date): void { $this->ticket_date = $date; }
+
+	public function setName(string $name): void { $this->ticket_name = $name; }
+
+	public function setDescription(string $description): void { $this->ticket_description = $description; }
 	
 }
