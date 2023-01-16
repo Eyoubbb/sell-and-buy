@@ -74,6 +74,7 @@ const ERROR_EXTRAS = "C'est tout ce que nous savons.";
 /*************** Admin ***************/
 
 const ADMIN_WINDOW_TITLE = "Admin";
+const ADMIN_BUTTON = "Ouvrir le support";
 
 /*************** Tickets ***************/
 
@@ -106,6 +107,7 @@ const NAV_CART = "Mon Panier";
 const NAV_ACCOUNT = "Mon compte";
 const NAV_ACCOUNT_SETTINGS = "Paramètres";
 const NAV_NEW_PRODUCT = "Nouveau produit";
+const NAV_VERIFICATION_PENDING = "Vérification en cours";
 
 /*************** Footer ***************/
 
@@ -164,14 +166,15 @@ const CREATOR_PROGRESS_STEP_TWO = "Adresse et numéro";
 const CREATOR_PROGRESS_STEP_THREE = "Résaux sociaux";
 const CREATOR_PROGRESS_STEP_FOUR = "Bannière et description";
 const CREATOR_SOCIALS = "Entrez vos réseaux sociaux (facultatif)";
-const CREATOR_INSTAGRAM = "Instagram";
-const CREATOR_FACEBOOK = "Facebook";
-const CREATOR_TWITTER = "Twitter";
-const CREATOR_YOUTUBE = "Youtube";
-const CREATOR_LINKEDIN = "LinkedIn";
-const CREATOR_TIKTOK = "TikTok";
+const CREATOR_INSTAGRAM = "Instagram (pseudo)";
+const CREATOR_FACEBOOK = "Facebook (pseudo)";
+const CREATOR_TWITTER = "Twitter (pseudo)";
+const CREATOR_YOUTUBE = "Youtube (nom de la chaine)";
+const CREATOR_PINTEREST = "Pinterest (pseudo)";
+const CREATOR_WEBSITE = "Website (url complète)";
 const CREATOR_DESCRIPTION = "Ajouter une description pour votre profil";
 const CREATOR_BANNIERE = "Ajouter une bannière pour votre profil";
+const CREATOR_CHOOSE_A_FILE = "Taille min autorisée 1000x300 px, si vous n'entrez aucune bannière, une bannière par défaut sera utilisée";
 
 /*************** Form ***************/
 
@@ -215,7 +218,7 @@ const CART_CHECKOUT_ERREUR = "Vous ne pouvez pas passer votre commande pour l'in
 /*************** Infos ***************/
 
 const INFO_CONTACT_WINDOW_TITLE = "Contact";
-const INFO_WINDOW_TITLE = "Information";
+const INFO_SERVICE_CLIENT_WINDOW_TITLE = "Service Client";
 const INFO_LEGAL_NOTICE_WINDOW_TITLE = "Mentions légales";
 const INFO_TERMS_CONDITIONS_WINDOW_TITLE = "Conditions générales";
 const INFO_SHIPPING_RETURN_WINDOW_TITLE = "Livraison et retours";
@@ -287,11 +290,30 @@ const LINK_LEGAL_NOTICE ="Mentions légales";
 const LINK_SHIPPING_RETURN ="Livraison, envoi et retour";
 
 const TEXT_WELCOME = "Bienvenue sur notre page d'aide";
-const TEXT_TERMS_NOTICE ="Avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
+const TEXT_TERMS_NOTICE = "Avant toutes questions veuillez consulter nos conditions générales ainsi que nos mentions légales";
 const TEXT_SHIPPING_RETURN = "Si vous avez des questions au sujet de l'envoie et du retour de nos produits veuillez consulter nos conditions ici";
 const TEXT_CONTACT= "Pour toutes autres questions vous pouvez nos consulter via la page contact";
 
+/*************** Settings ***************/
 
+const SETTINGS_TITLE = "Paramètres";
+const SETTINGS_SECURITY_TITLE = "Sécurité and confidentialité";
+const SETTINGS_FIRST_NAME = "Prénom";
+const SETTINGS_LAST_NAME = "Nom";
+const SETTINGS_EMAIL = "Email";
+const SETTINGS_MODIFY = "Modifier";
+const SETTINGS_PASSWORD = "Mot de passe";
+const SETTINGS_DUMMY_PASSWORD = "********";
+const SETTINGS_SAVE = "Sauvegarder";
 
+const SETTINGS_SECURITY_GUIDE = "Modifier l'adresse e-mail, le nom et le numéro de téléphone mobile";
+const SETTINGS_SECURITY_MAIN_TITLE = "Réglages principaux";
+const SETTINGS_SECURITY_MAIN_SUBTITLE = "Ces informations apparaîtront sur votre profil.";
+
+/*************** Discover ***************/
+
+const DISCOVER_TITLE_CREATORS_OF_WEEK = "Créateurs de la semaine";
+const DISCOVER_TITLE_ALL_CREATORS = "Tous les créateurs";
+const CREATOR_NO_PRODUCT_CATEGORY = "Pas de produits en vente";
 const PRODUCTUCT_INVALID ="Produit inexistant";
-CONST PROFILE_INVALID = "Créateur inexistant";
+const PROFILE_INVALID = "Créateur inexistant";
